@@ -17,7 +17,7 @@ main: kit: entity: workspace: {
       h: "Base Url"
       n: "base_url"
       r: true
-      sh: "The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the base_url (base_url '/token')."
+      sh: "The base URL where the user can publicly accept his invitation."
       t: "`$STRING`"
     }
     captcha_token: {

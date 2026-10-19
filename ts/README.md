@@ -2910,7 +2910,7 @@ API path: `/api/two-factor-auth/configuration/`
 | --- | --- |
 | `array_formula_type` |  |
 | `date_force_timezone` | Force a timezone for the field overriding user profile settings. |
-| `date_format` | EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D) |
+| `date_format` | EU (day/month/year), US (month/day/year), or ISO (year-month-day) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D) |
 | `date_include_time` | Indicates if the field also includes a time. |
 | `date_show_tzinfo` | Indicates if the time zone should be shown. |
 | `date_time_format` | 24 (14:30) or 12 (02:30 PM) * `24` - 24 hour * `12` - 12 hour |
@@ -3180,7 +3180,7 @@ API path: `/api/database/views/calendar/{view_id}/ical_slug_rotate/`
 | Field | Description |
 | --- | --- |
 | `ai_features` |  |
-| `base_url` | The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the base_url (base_url '/token'). |
+| `base_url` | The base URL where the user can publicly accept his invitation. |
 | `captcha_token` | The captcha response token, required when captcha is enabled. |
 | `created_on` |  |
 | `email` | The email address of the user that the invitation is meant for. |
@@ -8202,7 +8202,7 @@ Create an instance: `const type = client.Type()`
 | --- | --- | --- |
 | `array_formula_type` | `any` |  |
 | `date_force_timezone` | `string` | Force a timezone for the field overriding user profile settings. |
-| `date_format` | `any` | EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D) |
+| `date_format` | `any` | EU (day/month/year), US (month/day/year), or ISO (year-month-day) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D) |
 | `date_include_time` | `boolean` | Indicates if the field also includes a time. |
 | `date_show_tzinfo` | `boolean` | Indicates if the time zone should be shown. |
 | `date_time_format` | `any` | 24 (14:30) or 12 (02:30 PM) * `24` - 24 hour * `12` - 12 hour |
@@ -8806,7 +8806,7 @@ Create an instance: `const workspace = client.Workspace()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `ai_features` | `string` |  |
-| `base_url` | `string` | The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the base_url (base_url '/token'). |
+| `base_url` | `string` | The base URL where the user can publicly accept his invitation. |
 | `captcha_token` | `string` | The captcha response token, required when captcha is enabled. |
 | `created_on` | `string` |  |
 | `email` | `string` | The email address of the user that the invitation is meant for. |

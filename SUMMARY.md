@@ -1274,7 +1274,7 @@ SDK operations: `create`.
 Key fields to recognise:
 
 - `date_force_timezone`: Force a timezone for the field overriding user profile settings.
-- `date_format`: EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)
+- `date_format`: EU (day/month/year), US (month/day/year), or ISO (year-month-day) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)
 - `date_include_time`: Indicates if the field also includes a time.
 - `date_show_tzinfo`: Indicates if the time zone should be shown.
 - `date_time_format`: 24 (14:30) or 12 (02:30 PM) * `24` - 24 hour * `12` - 12 hour
@@ -1421,7 +1421,7 @@ SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
-- `base_url`: The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the `base_url` (`base_url` &#39;/token&#39;).
+- `base_url`: The base URL where the user can publicly accept his invitation.
 - `captcha_token`: The captcha response token, required when captcha is enabled.
 - `email`: The email address of the user that the invitation is meant for. Only a user with that email address can accept it.
 - `generative_ai_models_enabled`: Generative AI models available in this workspace.

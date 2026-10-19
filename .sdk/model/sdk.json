@@ -1,15 +1,6 @@
 {
-  "NAME": "BASEROW",
-  "Name": "Baserow",
   "def": "openapi.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -40639,7 +40630,7 @@
               "h": "Date Format",
               "n": "date_format",
               "r": false,
-              "sh": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)",
+              "sh": "EU (day/month/year), US (month/day/year), or ISO (year-month-day) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)",
               "t": "`$ANY`",
               "union": {
                 "branches": 2,
@@ -47544,7 +47535,7 @@
               "h": "Base Url",
               "n": "base_url",
               "r": true,
-              "sh": "The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the base_url (base_url '/token').",
+              "sh": "The base URL where the user can publicly accept his invitation.",
               "t": "`$STRING`"
             },
             "captcha_token": {
@@ -57172,8 +57163,5 @@
     }
   },
   "name": "baserow",
-  "name-": "baserow",
-  "name_": "baserow",
-  "name__orig": "baserow",
   "origin": "voxgig-sdk"
 }

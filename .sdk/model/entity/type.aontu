@@ -27,7 +27,7 @@ main: kit: entity: type: {
       h: "Date Format"
       n: "date_format"
       r: false
-      sh: "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)"
+      sh: "EU (day/month/year), US (month/day/year), or ISO (year-month-day) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)"
       t: "`$ANY`"
       union: {
         branches: 2

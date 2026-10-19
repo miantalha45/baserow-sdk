@@ -69228,7 +69228,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -69418,7 +69418,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -69625,7 +69625,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -69781,7 +69781,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -70174,7 +70174,7 @@
                     "base_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the base_url (base_url '/token')."
+                        "description": "The base URL where the user can publicly accept his invitation. The accept token is going to be appended to the base_url (base_url '/token')."
                     },
                     "captcha_token": {
                         "type": "string",
@@ -70471,7 +70471,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -70581,7 +70581,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -70703,7 +70703,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -70774,7 +70774,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -72228,7 +72228,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -72338,7 +72338,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -72460,7 +72460,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -72531,7 +72531,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -72821,7 +72821,7 @@
                             }
                         ],
                         "default": "EU",
-                        "description": "EU (25/04/2024), US (04/25/2024) or ISO (2024-04-25)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "include_time": {
                         "type": "boolean",
@@ -73068,7 +73068,7 @@
                             }
                         ],
                         "default": "EU",
-                        "description": "EU (25/04/2024), US (04/25/2024) or ISO (2024-04-25)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "include_time": {
                         "type": "boolean",
@@ -73317,7 +73317,7 @@
                             }
                         ],
                         "default": "EU",
-                        "description": "EU (25/04/2024), US (04/25/2024) or ISO (2024-04-25)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "include_time": {
                         "type": "boolean",
@@ -73552,7 +73552,7 @@
                             }
                         ],
                         "default": "EU",
-                        "description": "EU (25/04/2024), US (04/25/2024) or ISO (2024-04-25)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "include_time": {
                         "type": "boolean",
@@ -82193,7 +82193,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -82386,7 +82386,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -82616,7 +82616,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -82792,7 +82792,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -93082,7 +93082,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -93192,7 +93192,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -93314,7 +93314,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -93385,7 +93385,7 @@
                                 "$ref": "#/components/schemas/DateFormatEnum"
                             }
                         ],
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)"
                     },
                     "date_include_time": {
                         "type": "boolean",
@@ -105704,7 +105704,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -105913,7 +105913,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -106159,7 +106159,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -106351,7 +106351,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -120196,7 +120196,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -120399,7 +120399,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -120639,7 +120639,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -120825,7 +120825,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"
@@ -129355,7 +129355,7 @@
                     },
                     "date_format": {
                         "nullable": true,
-                        "description": "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
+                        "description": "EU (day/month/year), US (month/day/year), or ISO (year-month-day)\n\n* `EU` - European (D/M/Y)\n* `US` - US (M/D/Y)\n* `ISO` - ISO (Y-M-D)",
                         "oneOf": [
                             {
                                 "$ref": "#/components/schemas/DateFormatEnum"

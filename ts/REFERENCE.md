@@ -12425,7 +12425,7 @@ const type = client.Type()
 | --- | --- | --- | --- |
 | `array_formula_type` | `any` | No |  |
 | `date_force_timezone` | `string` | No | Force a timezone for the field overriding user profile settings. |
-| `date_format` | `any` | No | EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D) |
+| `date_format` | `any` | No | EU (day/month/year), US (month/day/year), or ISO (year-month-day) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D) |
 | `date_include_time` | `boolean` | No | Indicates if the field also includes a time. |
 | `date_show_tzinfo` | `boolean` | No | Indicates if the time zone should be shown. |
 | `date_time_format` | `any` | No | 24 (14:30) or 12 (02:30 PM) * `24` - 24 hour * `12` - 12 hour |
@@ -13865,7 +13865,7 @@ const workspace = client.Workspace()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `ai_features` | `string` | Yes |  |
-| `base_url` | `string` | Yes | The base URL where the user can publicly accept his invitation.The accept token is going to be appended to the base_url (base_url '/token'). |
+| `base_url` | `string` | Yes | The base URL where the user can publicly accept his invitation. |
 | `captcha_token` | `string` | No | The captcha response token, required when captcha is enabled. |
 | `created_on` | `string` | Yes |  |
 | `email` | `string` | Yes | The email address of the user that the invitation is meant for. |
