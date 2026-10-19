@@ -1,0 +1,35 @@
+# BasicDatabaseTableFieldFlow
+
+main: kit: flow: BasicDatabaseTableFieldFlow:
+{
+  entity: "database_table_field",
+  kind: "basic",
+  name: "BasicDatabaseTableFieldFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_field_ref01"
+      }
+
+      m: {
+        field_id: "field01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "database_table_field_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "database_table_field01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicDatabaseTableFieldFlow"
+}

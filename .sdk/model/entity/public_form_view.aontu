@@ -1,0 +1,150 @@
+# Entity: public_form_view
+
+main: kit: entity: public_form_view: {
+
+  alias: field: {}
+
+  fields: {
+    condition_groups: {
+      h: "Condition Groups"
+      n: "condition_groups"
+      r: false
+      t: "`$ARRAY`"
+    }
+    condition_type: {
+      h: "Condition Type"
+      n: "condition_type"
+      r: false
+      sh: "Indicates whether all (AND) or any (OR) of the conditions should match before shown."
+      t: "`$STRING`"
+    }
+    conditions: {
+      h: "Conditions"
+      n: "conditions"
+      r: false
+      t: "`$ARRAY`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "If provided, then this value be will be shown under the field name."
+      t: "`$STRING`"
+    }
+    field: {
+      h: "Field"
+      n: "field"
+      r: true
+      ro: true
+      sh: "The properties of the related field."
+      t: "`$ANY`"
+    }
+    field_component: {
+      h: "Field Component"
+      n: "field_component"
+      r: false
+      sh: "Indicates which field input component is used in the form."
+      t: "`$STRING`"
+    }
+    groups: {
+      h: "Groups"
+      n: "groups"
+      r: false
+      t: "`$ARRAY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      ro: true
+      sh: "If provided, then this value will be visible above the field input."
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: false
+      sh: "The order that the field has in the form."
+      t: "`$INTEGER`"
+    }
+    required: {
+      h: "Required"
+      n: "required"
+      r: false
+      sh: "Indicates whether the field is required for the visitor to fill out."
+      t: "`$BOOLEAN`"
+    }
+    show_when_matching_conditions: {
+      h: "Show When Matching Conditions"
+      n: "show_when_matching_conditions"
+      r: false
+      sh: "Indicates whether this field is visible when the conditions are met."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "public_form_view"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/form/{slug}/submit/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/form/{slug}/submit/"
+          q: {
+            exist: [
+              "slug"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "form"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "submit"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

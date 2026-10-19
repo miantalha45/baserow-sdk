@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "audit_log": {
+      "AUDIT_LOG00": {
+        "action_type": "s50",
+        "description": "s51",
+        "id": "AUDIT_LOG00",
+        "ip_address": "s53",
+        "timestamp": "s54",
+        "type": "s55",
+        "user": "s56",
+        "workspace": "s57"
+      },
+      "AUDIT_LOG01": {
+        "action_type": "sa0",
+        "description": "sa1",
+        "id": "AUDIT_LOG01",
+        "ip_address": "sa3",
+        "timestamp": "sa4",
+        "type": "sa5",
+        "user": "sa6",
+        "workspace": "sa7"
+      },
+      "AUDIT_LOG02": {
+        "action_type": "sf0",
+        "description": "sf1",
+        "id": "AUDIT_LOG02",
+        "ip_address": "sf3",
+        "timestamp": "sf4",
+        "type": "sf5",
+        "user": "sf6",
+        "workspace": "sf7"
+      }
+    }
+  },
+  "new": {
+    "audit_log": {
+      "audit_log_ref01": {
+        "action_type": "s140",
+        "description": "s141",
+        "ip_address": "s143",
+        "timestamp": "s144",
+        "type": "s145",
+        "user": "s146",
+        "workspace": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/admin/audit-log/export/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/audit-log/export/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/audit-log/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/audit-log/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

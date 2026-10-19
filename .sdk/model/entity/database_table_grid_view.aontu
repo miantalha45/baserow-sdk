@@ -1,0 +1,342 @@
+# Entity: database_table_grid_view
+
+main: kit: entity: database_table_grid_view: {
+
+  alias: field: {}
+
+  fields: {
+    field_id: {
+      h: "Field Id"
+      n: "field_id"
+      r: false
+      t: "`$STRING`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 0
+      }
+    }
+    total: {
+      h: "Total"
+      n: "total"
+      r: false
+      sh: "The total value count."
+      t: "`$INTEGER`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 0
+      }
+    }
+  }
+
+  name: "database_table_grid_view"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/grid/{view_id}/aggregation/{field_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "grid_id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/grid/{view_id}/aggregation/{field_id}/"
+          q: {
+            exist: [
+              "field_id"
+              "grid_id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "grid_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "grid"
+            }
+            {
+              var: "grid_id"
+            }
+            {
+              lit: "aggregation"
+            }
+            {
+              var: "field_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/database/views/grid/{slug}/public/aggregations/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "grid_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/grid/{slug}/public/aggregations/"
+          q: {
+            exist: [
+              "grid_id"
+            ]
+          }
+          r: {
+            param: {
+              slug: "grid_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "grid"
+            }
+            {
+              var: "grid_id"
+            }
+            {
+              lit: "public"
+            }
+            {
+              lit: "aggregations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/database/views/grid/{view_id}/aggregations/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "grid_id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/grid/{view_id}/aggregations/"
+          q: {
+            exist: [
+              "grid_id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "grid_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "grid"
+            }
+            {
+              var: "grid_id"
+            }
+            {
+              lit: "aggregations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

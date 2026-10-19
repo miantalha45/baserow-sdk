@@ -1,0 +1,362 @@
+# Entity: job
+
+main: kit: entity: job: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The number of matching jobs, or null when polling explicit job IDs."
+      t: "`$INTEGER`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "A machine readable error code indicating why the job failed."
+      t: "`$STRING`"
+    }
+    human_readable_error: {
+      h: "Human Readable Error"
+      n: "human_readable_error"
+      r: false
+      sh: "A human readable error message indicating what went wrong."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    jobs: {
+      h: "Jobs"
+      n: "jobs"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 3
+        depth: 14
+      }
+    }
+    progress_percentage: {
+      h: "Progress Percentage"
+      n: "progress_percentage"
+      r: true
+      sh: "A percentage indicating how far along the job is."
+      t: "`$INTEGER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "Indicates the state of the import job."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "The type of the job."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "job"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/snapshots/{snapshot_id}/restore/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "snapshot_id"
+                or: "snapshot_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/snapshots/{snapshot_id}/restore/"
+          q: {
+            exist: [
+              "snapshot_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "snapshots"
+            }
+            {
+              var: "snapshot_id"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "airtable_share_url"
+            "application_id"
+            "application_ids"
+            "csv_column_separator"
+            "csv_first_row_header"
+            "data_sync_id"
+            "duplicate_data"
+            "exclude_columns"
+            "export_charset"
+            "filter_action_type"
+            "filter_from_timestamp"
+            "filter_scan_id"
+            "filter_to_timestamp"
+            "filter_user_id"
+            "filter_workspace_id"
+            "only_empty"
+            "only_structure"
+            "page_id"
+            "resource_id"
+            "row_ids"
+            "session"
+            "session_signature"
+            "skip_files"
+            "snapshot"
+            "table_id"
+            "template_id"
+            "type"
+            "view_id"
+            "workflow_id"
+            "workspace_id"
+          ]
+          co: {
+            id: "POST /api/jobs/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/jobs/"
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "jobs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/jobs/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "generate_ai_values_field_id"
+                or: "generate_ai_values_field_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "job_id"
+                or: "job_ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "state"
+                or: "states"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sync_data_sync_table_data_sync_id"
+                or: "sync_data_sync_table_data_sync_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/jobs/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "jobs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.jobs`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/jobs/{job_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "job_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/jobs/{job_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              job_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "jobs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.snapshot")]
+  ]
+
+}

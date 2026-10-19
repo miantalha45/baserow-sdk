@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "database_table_row": {
+      "DATABASE_TABLE_ROW00": {
+        "id": "DATABASE_TABLE_ROW00",
+        "items": [],
+        "mode": "s2a",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "row_comment_id": "ROW_COMMENT01"
+      },
+      "DATABASE_TABLE_ROW01": {
+        "id": "DATABASE_TABLE_ROW01",
+        "items": [],
+        "mode": "s52",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "row_comment_id": "ROW_COMMENT01"
+      },
+      "DATABASE_TABLE_ROW02": {
+        "id": "DATABASE_TABLE_ROW02",
+        "items": [],
+        "mode": "s7a",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "row_comment_id": "ROW_COMMENT01"
+      }
+    }
+  },
+  "new": {
+    "database_table_row": {
+      "database_table_row_ref01": {
+        "items": [],
+        "mode": "sa2",
+        "row_id": "ROW01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/rows/table/{table_id}/batch-delete/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/rows/names/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/rows/table/{table_id}/{row_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /api/row_comments/{table_id}/{row_id}/notification-mode/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

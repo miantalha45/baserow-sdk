@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "invalid_row": {
+      "INVALID_ROW00": {
+        "id": "INVALID_ROW00",
+        "field_rule_id": "FIELD_RULE01"
+      },
+      "INVALID_ROW01": {
+        "id": "INVALID_ROW01",
+        "field_rule_id": "FIELD_RULE01"
+      },
+      "INVALID_ROW02": {
+        "id": "INVALID_ROW02",
+        "field_rule_id": "FIELD_RULE01"
+      }
+    }
+  },
+  "new": {
+    "invalid_row": {
+      "invalid_row_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/database/field-rules/{table_id}/invalid-rows/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

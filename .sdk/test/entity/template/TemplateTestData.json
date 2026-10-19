@@ -1,0 +1,87 @@
+{
+  "existing": {
+    "template": {
+      "TEMPLATE00": {
+        "created_on": "s82",
+        "error_code": "s83",
+        "human_readable_error": "s84",
+        "id": "TEMPLATE00",
+        "installed_applications": "s86",
+        "name": "s87",
+        "progress_percentage": 136,
+        "state": "s89",
+        "template": "s8a",
+        "templates": [],
+        "type": "s8c",
+        "updated_on": "s8d",
+        "workspace": "s8e",
+        "install_id": "INSTALL01",
+        "template_id": "TEMPLATE01"
+      },
+      "TEMPLATE01": {
+        "created_on": "s104",
+        "error_code": "s105",
+        "human_readable_error": "s106",
+        "id": "TEMPLATE01",
+        "installed_applications": "s108",
+        "name": "s109",
+        "progress_percentage": 266,
+        "state": "s10b",
+        "template": "s10c",
+        "templates": [],
+        "type": "s10e",
+        "updated_on": "s10f",
+        "workspace": "s110",
+        "install_id": "INSTALL01",
+        "template_id": "TEMPLATE01"
+      },
+      "TEMPLATE02": {
+        "created_on": "s186",
+        "error_code": "s187",
+        "human_readable_error": "s188",
+        "id": "TEMPLATE02",
+        "installed_applications": "s18a",
+        "name": "s18b",
+        "progress_percentage": 396,
+        "state": "s18d",
+        "template": "s18e",
+        "templates": [],
+        "type": "s190",
+        "updated_on": "s191",
+        "workspace": "s192",
+        "install_id": "INSTALL01",
+        "template_id": "TEMPLATE01"
+      }
+    }
+  },
+  "new": {
+    "template": {
+      "template_ref01": {
+        "created_on": "s208",
+        "error_code": "s209",
+        "human_readable_error": "s20a",
+        "installed_applications": "s20c",
+        "name": "s20d",
+        "progress_percentage": 526,
+        "state": "s20f",
+        "template": "s210",
+        "templates": [],
+        "type": "s212",
+        "updated_on": "s213",
+        "workspace": "s214"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/templates/install/{workspace_id}/{template_id}/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/templates/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

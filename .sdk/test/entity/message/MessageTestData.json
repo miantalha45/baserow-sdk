@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "message": {
+      "MESSAGE00": {
+        "messages": [],
+        "chat_id": "CHAT01"
+      },
+      "MESSAGE01": {
+        "messages": [],
+        "chat_id": "CHAT01"
+      },
+      "MESSAGE02": {
+        "messages": [],
+        "chat_id": "CHAT01"
+      }
+    }
+  },
+  "new": {
+    "message": {
+      "message_ref01": {
+        "messages": []
+      }
+    }
+  },
+  "requests": {
+    "GET /assistant/chat/{chat_uuid}/messages/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

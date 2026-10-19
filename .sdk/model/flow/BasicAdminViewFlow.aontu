@@ -1,0 +1,53 @@
+# BasicAdminViewFlow
+
+main: kit: flow: BasicAdminViewFlow:
+{
+  entity: "admin_view",
+  kind: "basic",
+  name: "BasicAdminViewFlow",
+  step: [
+    {
+      i: {
+        ref: "admin_view_ref01"
+      }
+
+      m: {
+        view_id: "view01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "admin_view_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "admin_view_ref01",
+        srcdatavar: "admin_view_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-admin_view_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminViewFlow"
+}

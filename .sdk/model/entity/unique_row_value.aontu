@@ -1,0 +1,96 @@
+# Entity: unique_row_value
+
+main: kit: entity: unique_row_value: {
+
+  alias: field: {}
+
+  fields: {
+    values: {
+      h: "Values"
+      n: "values"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "unique_row_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/fields/{field_id}/unique_row_values/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "split_comma_separated"
+                or: "split_comma_separated"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/fields/{field_id}/unique_row_values/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "unique_row_values"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.values`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.field")]
+  ]
+
+}

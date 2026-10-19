@@ -1,0 +1,110 @@
+{
+  "existing": {
+    "view": {
+      "VIEW00": {
+        "allow_public_export": true,
+        "decorations": [],
+        "default_row_values": [],
+        "filter_groups": [],
+        "filter_type": "sc2",
+        "filters": [],
+        "filters_disabled": true,
+        "group_bys": [],
+        "id": "VIEW00",
+        "name": "sc7",
+        "order": 200,
+        "owned_by_id": "OWNED_BY01",
+        "ownership_type": "sca",
+        "public_view_has_password": false,
+        "show_logo": true,
+        "sortings": [],
+        "table": {},
+        "table_id": "TABLE01",
+        "type": "sd0"
+      },
+      "VIEW01": {
+        "allow_public_export": true,
+        "decorations": [],
+        "default_row_values": [],
+        "filter_groups": [],
+        "filter_type": "s180",
+        "filters": [],
+        "filters_disabled": true,
+        "group_bys": [],
+        "id": "VIEW01",
+        "name": "s185",
+        "order": 390,
+        "owned_by_id": "OWNED_BY01",
+        "ownership_type": "s188",
+        "public_view_has_password": false,
+        "show_logo": true,
+        "sortings": [],
+        "table": {},
+        "table_id": "TABLE01",
+        "type": "s18e"
+      },
+      "VIEW02": {
+        "allow_public_export": true,
+        "decorations": [],
+        "default_row_values": [],
+        "filter_groups": [],
+        "filter_type": "s23e",
+        "filters": [],
+        "filters_disabled": true,
+        "group_bys": [],
+        "id": "VIEW02",
+        "name": "s243",
+        "order": 580,
+        "owned_by_id": "OWNED_BY01",
+        "ownership_type": "s246",
+        "public_view_has_password": false,
+        "show_logo": true,
+        "sortings": [],
+        "table": {},
+        "table_id": "TABLE01",
+        "type": "s24c"
+      }
+    }
+  },
+  "new": {
+    "view": {
+      "view_ref01": {
+        "allow_public_export": true,
+        "decorations": [],
+        "default_row_values": [],
+        "filter_groups": [],
+        "filter_type": "s2fc",
+        "filters": [],
+        "filters_disabled": true,
+        "group_bys": [],
+        "name": "s301",
+        "order": 770,
+        "owned_by_id": "OWNED_BY01",
+        "ownership_type": "s304",
+        "public_view_has_password": false,
+        "show_logo": true,
+        "sortings": [],
+        "table": {},
+        "table_id": "TABLE01",
+        "type": "s30a"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/view/{view_id}/premium": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/views/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

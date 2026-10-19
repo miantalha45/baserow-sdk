@@ -1,0 +1,50 @@
+# BasicViewFieldOptionFlow
+
+main: kit: flow: BasicViewFieldOptionFlow:
+{
+  entity: "view_field_option",
+  kind: "basic",
+  name: "BasicViewFieldOptionFlow",
+  step: [
+    {
+      i: {
+        ref: "view_field_option_ref01",
+        srcdatavar: "view_field_option_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_field_option_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "view_field_option_ref01",
+        srcdatavar: "view_field_option_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "view_field_option01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_field_option_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicViewFieldOptionFlow"
+}

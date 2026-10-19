@@ -1,0 +1,33 @@
+# BasicBuilderPublicFlow
+
+main: kit: flow: BasicBuilderPublicFlow:
+{
+  entity: "builder_public",
+  kind: "basic",
+  name: "BasicBuilderPublicFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_public_ref01",
+        srcdatavar: "builder_public_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "builder_public01",
+        type: "type01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-builder_public_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBuilderPublicFlow"
+}

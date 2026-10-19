@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "application_application": {
+      "APPLICATION_APPLICATION00": {
+        "workspace_id": "WORKSPACE01",
+        "id": "APPLICATION_APPLICATION00"
+      },
+      "APPLICATION_APPLICATION01": {
+        "workspace_id": "WORKSPACE01",
+        "id": "APPLICATION_APPLICATION01"
+      },
+      "APPLICATION_APPLICATION02": {
+        "workspace_id": "WORKSPACE01",
+        "id": "APPLICATION_APPLICATION02"
+      }
+    }
+  },
+  "new": {
+    "application_application": {
+      "application_application_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/applications/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/applications/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

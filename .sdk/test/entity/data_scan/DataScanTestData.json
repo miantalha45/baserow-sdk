@@ -1,0 +1,119 @@
+{
+  "existing": {
+    "data_scan": {
+      "DATA_SCAN00": {
+        "created_on": "sc8",
+        "frequency": "sc9",
+        "id": "DATA_SCAN00",
+        "is_running": false,
+        "last_error": "scc",
+        "last_run_finished_at": "scd",
+        "last_run_started_at": "sce",
+        "list_items": "scf",
+        "name": "sd0",
+        "pattern": "sd1",
+        "results_count": "sd2",
+        "scan_all_workspaces": false,
+        "scan_type": "sd4",
+        "source_database_id": "SOURCE_DATABASE01",
+        "source_field_id": "SOURCE_FIELD01",
+        "source_table_id": "SOURCE_TABLE01",
+        "source_workspace_id": "SOURCE_WORKSPACE01",
+        "updated_on": "sd9",
+        "whole_words": true,
+        "workspace_ids": "sdb"
+      },
+      "DATA_SCAN01": {
+        "created_on": "s190",
+        "frequency": "s191",
+        "id": "DATA_SCAN01",
+        "is_running": false,
+        "last_error": "s194",
+        "last_run_finished_at": "s195",
+        "last_run_started_at": "s196",
+        "list_items": "s197",
+        "name": "s198",
+        "pattern": "s199",
+        "results_count": "s19a",
+        "scan_all_workspaces": false,
+        "scan_type": "s19c",
+        "source_database_id": "SOURCE_DATABASE01",
+        "source_field_id": "SOURCE_FIELD01",
+        "source_table_id": "SOURCE_TABLE01",
+        "source_workspace_id": "SOURCE_WORKSPACE01",
+        "updated_on": "s1a1",
+        "whole_words": true,
+        "workspace_ids": "s1a3"
+      },
+      "DATA_SCAN02": {
+        "created_on": "s258",
+        "frequency": "s259",
+        "id": "DATA_SCAN02",
+        "is_running": false,
+        "last_error": "s25c",
+        "last_run_finished_at": "s25d",
+        "last_run_started_at": "s25e",
+        "list_items": "s25f",
+        "name": "s260",
+        "pattern": "s261",
+        "results_count": "s262",
+        "scan_all_workspaces": false,
+        "scan_type": "s264",
+        "source_database_id": "SOURCE_DATABASE01",
+        "source_field_id": "SOURCE_FIELD01",
+        "source_table_id": "SOURCE_TABLE01",
+        "source_workspace_id": "SOURCE_WORKSPACE01",
+        "updated_on": "s269",
+        "whole_words": true,
+        "workspace_ids": "s26b"
+      }
+    }
+  },
+  "new": {
+    "data_scan": {
+      "data_scan_ref01": {
+        "created_on": "s320",
+        "frequency": "s321",
+        "is_running": false,
+        "last_error": "s324",
+        "last_run_finished_at": "s325",
+        "last_run_started_at": "s326",
+        "list_items": "s327",
+        "name": "s328",
+        "pattern": "s329",
+        "results_count": "s32a",
+        "scan_all_workspaces": false,
+        "scan_type": "s32c",
+        "source_database_id": "SOURCE_DATABASE01",
+        "source_field_id": "SOURCE_FIELD01",
+        "source_table_id": "SOURCE_TABLE01",
+        "source_workspace_id": "SOURCE_WORKSPACE01",
+        "updated_on": "s331",
+        "whole_words": true,
+        "workspace_ids": "s333"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/admin/data-scanner/scans/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/data-scanner/scans/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/data-scanner/scans/{scan_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/admin/data-scanner/scans/{scan_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

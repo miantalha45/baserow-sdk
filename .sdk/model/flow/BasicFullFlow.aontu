@@ -1,0 +1,28 @@
+# BasicFullFlow
+
+main: kit: flow: BasicFullFlow:
+{
+  entity: "full",
+  kind: "basic",
+  name: "BasicFullFlow",
+  step: [
+    {
+      i: {
+        ref: "full_ref01",
+        srcdatavar: "full_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-full_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFullFlow"
+}

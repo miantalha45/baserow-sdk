@@ -1,0 +1,45 @@
+# BasicFormViewSubmittedFlow
+
+main: kit: flow: BasicFormViewSubmittedFlow:
+{
+  entity: "form_view_submitted",
+  kind: "basic",
+  name: "BasicFormViewSubmittedFlow",
+  step: [
+    {
+      i: {
+        ref: "form_view_submitted_ref01"
+      }
+
+      m: {
+        slug: "slug01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        slug: "slug01"
+      }
+
+      i: {
+        ref: "form_view_submitted_ref01",
+        srcdatavar: "form_view_submitted_ref01_data",
+        suffix: "_up0",
+        textfield: "field_1"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-form_view_submitted_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFormViewSubmittedFlow"
+}

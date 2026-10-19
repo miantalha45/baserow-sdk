@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "ai_assistant": {
+      "AI_ASSISTANT00": {
+        "content": "s14",
+        "ui_context": "s15",
+        "chat_id": "CHAT01",
+        "message_id": "MESSAGE01",
+        "id": "AI_ASSISTANT00"
+      },
+      "AI_ASSISTANT01": {
+        "content": "s28",
+        "ui_context": "s29",
+        "chat_id": "CHAT01",
+        "message_id": "MESSAGE01",
+        "id": "AI_ASSISTANT01"
+      },
+      "AI_ASSISTANT02": {
+        "content": "s3c",
+        "ui_context": "s3d",
+        "chat_id": "CHAT01",
+        "message_id": "MESSAGE01",
+        "id": "AI_ASSISTANT02"
+      }
+    }
+  },
+  "new": {
+    "ai_assistant": {
+      "ai_assistant_ref01": {
+        "content": "s50",
+        "ui_context": "s51"
+      }
+    }
+  },
+  "requests": {
+    "POST /assistant/chat/{chat_uuid}/cancel/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /assistant/chat/{chat_uuid}/messages/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /assistant/chat/{chat_uuid}/cancel/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /assistant/chat/{chat_uuid}/messages/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /assistant/messages/{message_id}/feedback/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

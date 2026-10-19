@@ -1,0 +1,22 @@
+# BasicDuplicateFlow
+
+main: kit: flow: BasicDuplicateFlow:
+{
+  entity: "duplicate",
+  kind: "basic",
+  name: "BasicDuplicateFlow",
+  step: [
+    {
+      i: {
+        ref: "duplicate_ref01"
+      }
+
+      m: {
+        element_id: "element01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicDuplicateFlow"
+}

@@ -1,0 +1,32 @@
+# BasicPaginationSerializerExampleRowResponseSerializerWithUserFlow
+
+main: kit: flow: BasicPaginationSerializerExampleRowResponseSerializerWithUserFlow:
+{
+  entity: "pagination_serializer_example_row_response_serializer_with_user",
+  kind: "basic",
+  name: "BasicPaginationSerializerExampleRowResponseSerializerWithUserFlow",
+  step: [
+    {
+      i: {
+        ref: "pagination_serializer_example_row_response_serializer_with_user_ref01",
+        srcdatavar: "pagination_serializer_example_row_response_serializer_with_user_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pagination_serializer_example_row_response_serializer_with_user01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pagination_serializer_example_row_response_serializer_with_user_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaginationSerializerExampleRowResponseSerializerWithUserFlow"
+}

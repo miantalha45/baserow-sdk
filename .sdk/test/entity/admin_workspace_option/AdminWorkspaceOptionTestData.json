@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "admin_workspace_option": {
+      "ADMIN_WORKSPACE_OPTION00": {
+        "id": "ADMIN_WORKSPACE_OPTION00",
+        "value": "s15"
+      },
+      "ADMIN_WORKSPACE_OPTION01": {
+        "id": "ADMIN_WORKSPACE_OPTION01",
+        "value": "s29"
+      },
+      "ADMIN_WORKSPACE_OPTION02": {
+        "id": "ADMIN_WORKSPACE_OPTION02",
+        "value": "s3d"
+      }
+    }
+  },
+  "new": {
+    "admin_workspace_option": {
+      "admin_workspace_option_ref01": {
+        "value": "s51"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/admin/workspaces/options/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

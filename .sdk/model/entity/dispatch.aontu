@@ -1,0 +1,139 @@
+# Entity: dispatch
+
+main: kit: entity: dispatch: {
+
+  alias: field: {}
+
+  fields: {
+    client_actions: {
+      h: "Client Actions"
+      n: "client_actions"
+      r: true
+      ro: true
+      sh: "Actions the browser runs itself, in order, after the server actions have completed."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 12
+      }
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+    row_id: {
+      h: "Row Id"
+      n: "row_id"
+      r: true
+      sh: "The id of the row the button was clicked on."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "dispatch"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "row_id"
+          ]
+          co: {
+            id: "POST /api/database/field/{field_id}/workflow_actions/dispatch/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/field/{field_id}/workflow_actions/dispatch/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "row_id"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "row_id"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "field"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "workflow_actions"
+            }
+            {
+              lit: "dispatch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.field")]
+  ]
+
+}

@@ -1,0 +1,117 @@
+# Entity: onboarding_prompt_suggestion
+
+main: kit: entity: onboarding_prompt_suggestion: {
+
+  alias: field: {}
+
+  fields: {
+    industry: {
+      h: "Industry"
+      n: "industry"
+      r: false
+      sh: "The industry the user works in."
+      t: "`$STRING`"
+    }
+    language: {
+      h: "Language"
+      n: "language"
+      r: false
+      sh: "ISO 639 language code the suggestions must be written in."
+      t: "`$STRING`"
+    }
+    suggestions: {
+      h: "Suggestions"
+      n: "suggestions"
+      r: true
+      t: "`$ARRAY`"
+    }
+    team: {
+      h: "Team"
+      n: "team"
+      r: false
+      sh: "The team the user is part of."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "onboarding_prompt_suggestion"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "industry"
+            "language"
+            "team"
+          ]
+          co: {
+            id: "POST /assistant/onboarding/prompt-suggestions/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/assistant/onboarding/prompt-suggestions/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "industry"
+                  }
+                  {
+                    name: "language"
+                  }
+                  {
+                    name: "team"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "industry"
+                  }
+                  {
+                    name: "language"
+                  }
+                  {
+                    name: "team"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "onboarding"
+            }
+            {
+              lit: "prompt-suggestions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

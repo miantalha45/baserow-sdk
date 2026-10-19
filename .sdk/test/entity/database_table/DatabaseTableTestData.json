@@ -1,0 +1,140 @@
+{
+  "existing": {
+    "database_table": {
+      "DATABASE_TABLE00": {
+        "configuration": {},
+        "created_on": "sdd",
+        "data": [],
+        "data_sync": "sdf",
+        "database_id": "DATABASE01",
+        "duplicated_table": "se1",
+        "error_code": "se2",
+        "first_row_header": false,
+        "human_readable_error": "se4",
+        "id": "DATABASE_TABLE00",
+        "importer_type": "se6",
+        "name": "se7",
+        "original_file_name": "se8",
+        "original_table": "se9",
+        "progress_percentage": 234,
+        "report": "seb",
+        "state": "sec",
+        "table_id": "TABLE01",
+        "triggered_by": "see",
+        "type": "sef",
+        "updated_on": "sf0",
+        "user_name": "sf1",
+        "data_sync_id": "DATA_SYNC01"
+      },
+      "DATABASE_TABLE01": {
+        "configuration": {},
+        "created_on": "s1b9",
+        "data": [],
+        "data_sync": "s1bb",
+        "database_id": "DATABASE01",
+        "duplicated_table": "s1bd",
+        "error_code": "s1be",
+        "first_row_header": false,
+        "human_readable_error": "s1c0",
+        "id": "DATABASE_TABLE01",
+        "importer_type": "s1c2",
+        "name": "s1c3",
+        "original_file_name": "s1c4",
+        "original_table": "s1c5",
+        "progress_percentage": 454,
+        "report": "s1c7",
+        "state": "s1c8",
+        "table_id": "TABLE01",
+        "triggered_by": "s1ca",
+        "type": "s1cb",
+        "updated_on": "s1cc",
+        "user_name": "s1cd",
+        "data_sync_id": "DATA_SYNC01"
+      },
+      "DATABASE_TABLE02": {
+        "configuration": {},
+        "created_on": "s295",
+        "data": [],
+        "data_sync": "s297",
+        "database_id": "DATABASE01",
+        "duplicated_table": "s299",
+        "error_code": "s29a",
+        "first_row_header": false,
+        "human_readable_error": "s29c",
+        "id": "DATABASE_TABLE02",
+        "importer_type": "s29e",
+        "name": "s29f",
+        "original_file_name": "s2a0",
+        "original_table": "s2a1",
+        "progress_percentage": 674,
+        "report": "s2a3",
+        "state": "s2a4",
+        "table_id": "TABLE01",
+        "triggered_by": "s2a6",
+        "type": "s2a7",
+        "updated_on": "s2a8",
+        "user_name": "s2a9",
+        "data_sync_id": "DATA_SYNC01"
+      }
+    }
+  },
+  "new": {
+    "database_table": {
+      "database_table_ref01": {
+        "configuration": {},
+        "created_on": "s371",
+        "data": [],
+        "data_sync": "s373",
+        "database_id": "DATABASE01",
+        "duplicated_table": "s375",
+        "error_code": "s376",
+        "first_row_header": false,
+        "human_readable_error": "s378",
+        "importer_type": "s37a",
+        "name": "s37b",
+        "original_file_name": "s37c",
+        "original_table": "s37d",
+        "progress_percentage": 894,
+        "report": "s37f",
+        "state": "s380",
+        "table_id": "TABLE01",
+        "triggered_by": "s382",
+        "type": "s383",
+        "updated_on": "s384",
+        "user_name": "s385"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/data-sync/{data_sync_id}/sync/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/tables/database/{database_id}/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/tables/database/{database_id}/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/tables/{table_id}/duplicate/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/tables/{table_id}/import/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/tables/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

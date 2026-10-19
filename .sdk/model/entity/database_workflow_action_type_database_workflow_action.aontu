@@ -1,0 +1,255 @@
+# Entity: database_workflow_action_type_database_workflow_action
+
+main: kit: entity: database_workflow_action_type_database_workflow_action: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "database_workflow_action_type_database_workflow_action"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "service"
+            "target"
+            "type"
+            "url"
+          ]
+          co: {
+            id: "POST /api/database/field/{field_id}/workflow_actions/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/field/{field_id}/workflow_actions/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "field"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "workflow_actions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/field/{field_id}/workflow_actions/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/field/{field_id}/workflow_actions/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "field"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "workflow_actions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "service"
+            "target"
+            "type"
+            "url"
+          ]
+          co: {
+            id: "PATCH /api/database/workflow_action/{workflow_action_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workflow_action_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/workflow_action/{workflow_action_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workflow_action_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "workflow_action"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.field")]
+  ]
+
+}

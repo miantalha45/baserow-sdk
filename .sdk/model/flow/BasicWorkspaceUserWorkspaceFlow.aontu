@@ -1,0 +1,18 @@
+# BasicWorkspaceUserWorkspaceFlow
+
+main: kit: flow: BasicWorkspaceUserWorkspaceFlow:
+{
+  entity: "workspace_user_workspace",
+  kind: "basic",
+  name: "BasicWorkspaceUserWorkspaceFlow",
+  step: [
+    {
+      i: {
+        ref: "workspace_user_workspace_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicWorkspaceUserWorkspaceFlow"
+}

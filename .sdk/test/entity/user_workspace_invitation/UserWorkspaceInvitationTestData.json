@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "user_workspace_invitation": {
+      "USER_WORKSPACE_INVITATION00": {
+        "created_on": "s46",
+        "email": "s47",
+        "email_exists": true,
+        "id": "USER_WORKSPACE_INVITATION00",
+        "invited_by": "s4a",
+        "workspace": "s4b",
+        "workspace_id": "WORKSPACE01",
+        "token": "TOKEN01"
+      },
+      "USER_WORKSPACE_INVITATION01": {
+        "created_on": "s8c",
+        "email": "s8d",
+        "email_exists": true,
+        "id": "USER_WORKSPACE_INVITATION01",
+        "invited_by": "s90",
+        "workspace": "s91",
+        "workspace_id": "WORKSPACE01",
+        "token": "TOKEN01"
+      },
+      "USER_WORKSPACE_INVITATION02": {
+        "created_on": "sd2",
+        "email": "sd3",
+        "email_exists": true,
+        "id": "USER_WORKSPACE_INVITATION02",
+        "invited_by": "sd6",
+        "workspace": "sd7",
+        "workspace_id": "WORKSPACE01",
+        "token": "TOKEN01"
+      }
+    }
+  },
+  "new": {
+    "user_workspace_invitation": {
+      "user_workspace_invitation_ref01": {
+        "created_on": "s118",
+        "email": "s119",
+        "email_exists": true,
+        "invited_by": "s11c",
+        "workspace": "s11d",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/workspaces/invitations/token/{token}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "automation_node_result": {
+      "AUTOMATION_NODE_RESULT00": {
+        "result": "sa",
+        "node_history_id": "NODE_HISTORY01",
+        "id": "AUTOMATION_NODE_RESULT00"
+      },
+      "AUTOMATION_NODE_RESULT01": {
+        "result": "s14",
+        "node_history_id": "NODE_HISTORY01",
+        "id": "AUTOMATION_NODE_RESULT01"
+      },
+      "AUTOMATION_NODE_RESULT02": {
+        "result": "s1e",
+        "node_history_id": "NODE_HISTORY01",
+        "id": "AUTOMATION_NODE_RESULT02"
+      }
+    }
+  },
+  "new": {
+    "automation_node_result": {
+      "automation_node_result_ref01": {
+        "result": "s28"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/automation/node_histories/{node_history_id}/result/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,197 @@
+# Entity: calendar
+
+main: kit: entity: calendar: {
+
+  alias: field: {}
+
+  fields: {
+    field_options: {
+      h: "Field Options"
+      n: "field_options"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    row_metadata: {
+      h: "Row Metadata"
+      n: "row_metadata"
+      r: false
+      sh: "An object keyed by row id with a value being an object containing additional metadata about that row."
+      t: "`$OBJECT`"
+    }
+    rows: {
+      h: "Rows"
+      n: "rows"
+      r: true
+      sh: "Every date bucket (e.g."
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "calendar"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/calendar/{view_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "from_timestamp"
+                or: "from_timestamp"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "limit_linked_item"
+                or: "limit_linked_items"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "to_timestamp"
+                or: "to_timestamp"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "UTC"
+                k: "query"
+                n: "user_timezone"
+                or: "user_timezone"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/calendar/{view_id}/"
+          q: {
+            exist: [
+              "from_timestamp"
+              "id"
+              "to_timestamp"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "calendar"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

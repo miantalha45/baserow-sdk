@@ -1,0 +1,504 @@
+# Entity: builder_data_source
+
+main: kit: entity: builder_data_source: {
+
+  alias: field: {}
+
+  fields: {
+    "1": {
+      h: "1"
+      n: "1"
+      r: false
+      t: "`$STRING`"
+    }
+    "2": {
+      h: "2"
+      n: "2"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: false
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Metadata of the dispatch payload."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 8
+      }
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "builder_data_source"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "metadata"
+          ]
+          co: {
+            id: "POST /api/builder/data-source/{data_source_id}/dispatch/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "data_source_id"
+                or: "data_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/data-source/{data_source_id}/dispatch/"
+          q: {
+            exist: [
+              "data_source_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "metadata"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "metadata"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "data-source"
+            }
+            {
+              var: "data_source_id"
+            }
+            {
+              lit: "dispatch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "metadata"
+          ]
+          co: {
+            id: "POST /api/builder/domains/published/data-source/{data_source_id}/dispatch/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "data_source_id"
+                or: "data_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/domains/published/data-source/{data_source_id}/dispatch/"
+          q: {
+            exist: [
+              "data_source_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "metadata"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "metadata"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              lit: "published"
+            }
+            {
+              lit: "data-source"
+            }
+            {
+              var: "data_source_id"
+            }
+            {
+              lit: "dispatch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/builder/domains/published/page/{page_id}/dispatch-data-sources/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/domains/published/page/{page_id}/dispatch-data-sources/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              lit: "published"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "dispatch-data-sources"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "metadata"
+          ]
+          co: {
+            id: "POST /api/builder/page/{page_id}/dispatch-data-sources/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/page/{page_id}/dispatch-data-sources/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "metadata"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "metadata"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "dispatch-data-sources"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/builder/data-source/{data_source_id}/record-names/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "data_source_id"
+                or: "data_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "record_id"
+                or: "record_ids"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/data-source/{data_source_id}/record-names/"
+          q: {
+            exist: [
+              "data_source_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "data-source"
+            }
+            {
+              var: "data_source_id"
+            }
+            {
+              lit: "record-names"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/builder/data-source/{data_source_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "data_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/builder/data-source/{data_source_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              data_source_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "data-source"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.page")]
+  ]
+
+}

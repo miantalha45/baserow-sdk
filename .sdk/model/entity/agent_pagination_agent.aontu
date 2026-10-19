@@ -1,0 +1,130 @@
+# Entity: agent_pagination_agent
+
+main: kit: entity: agent_pagination_agent: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The total amount of results."
+      t: "`$INTEGER`"
+    }
+    next: {
+      fo: "uri"
+      h: "Next"
+      n: "next"
+      r: true
+      sh: "URL to the next page."
+      t: "`$STRING`"
+    }
+    previous: {
+      fo: "uri"
+      h: "Previous"
+      n: "previous"
+      r: true
+      sh: "URL to the previous page."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "agent_pagination_agent"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/agents/workspace/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/agents/workspace/{workspace_id}/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "agents"
+            }
+            {
+              lit: "workspace"
+            }
+            {
+              var: "workspace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workspace")]
+  ]
+
+}

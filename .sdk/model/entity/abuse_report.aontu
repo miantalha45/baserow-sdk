@@ -1,0 +1,147 @@
+# Entity: abuse_report
+
+main: kit: entity: abuse_report: {
+
+  alias: field: {}
+
+  fields: {
+    captcha_token: {
+      h: "Captcha Token"
+      n: "captcha_token"
+      r: false
+      sh: "The captcha response token, required when captcha is enabled."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "A detailed description of why the resource is abusive."
+      t: "`$STRING`"
+    }
+    email: {
+      fo: "email"
+      h: "Email"
+      n: "email"
+      r: true
+      sh: "The email address of the person reporting the abuse."
+      t: "`$STRING`"
+    }
+    identifier: {
+      h: "Identifier"
+      n: "identifier"
+      r: true
+      sh: "The public identifier of the reported resource, for example the slug of a publicly shared view."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the person reporting the abuse."
+      t: "`$STRING`"
+    }
+    resource_type: {
+      h: "Resource Type"
+      n: "resource_type"
+      r: true
+      sh: "The type of publicly shared resource that is being reported."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "abuse_report"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "captcha_token"
+            "description"
+            "email"
+            "identifier"
+            "name"
+            "resource_type"
+          ]
+          co: {
+            id: "POST /api/abuse-reports/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/abuse-reports/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "captcha_token"
+                  }
+                  {
+                    name: "description"
+                  }
+                  {
+                    name: "email"
+                  }
+                  {
+                    name: "identifier"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "resource_type"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "captcha_token"
+                  }
+                  {
+                    name: "description"
+                  }
+                  {
+                    name: "email"
+                  }
+                  {
+                    name: "identifier"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "resource_type"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "abuse-reports"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

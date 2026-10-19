@@ -1,0 +1,79 @@
+# Entity: full
+
+main: kit: entity: full: {
+
+  alias: field: {}
+
+  fields: {
+    celery_export_queue_size: {
+      h: "Celery Export Queue Size"
+      n: "celery_export_queue_size"
+      r: true
+      sh: "The number of enqueued celery export worker tasks."
+      t: "`$INTEGER`"
+    }
+    celery_queue_size: {
+      h: "Celery Queue Size"
+      n: "celery_queue_size"
+      r: true
+      sh: "The number of enqueued celery tasks."
+      t: "`$INTEGER`"
+    }
+    checks: {
+      h: "Checks"
+      n: "checks"
+      r: true
+      ro: true
+      sh: "An object keyed by the name of the health check and the value being the result."
+      t: "`$OBJECT`"
+    }
+    passing: {
+      h: "Passing"
+      n: "passing"
+      r: true
+      ro: true
+      sh: "False if any of the critical service health checks are failing, true otherwise."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "full"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/_health/full/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/_health/full/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "_health"
+            }
+            {
+              lit: "full"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

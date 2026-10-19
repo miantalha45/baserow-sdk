@@ -1,0 +1,102 @@
+{
+  "existing": {
+    "user_source": {
+      "USER_SOURCE00": {
+        "RelayState": "s32",
+        "SAMLResponse": "s33",
+        "access_token": "s34",
+        "id": "USER_SOURCE00",
+        "refresh": "s36",
+        "application_id": "APPLICATION01"
+      },
+      "USER_SOURCE01": {
+        "RelayState": "s64",
+        "SAMLResponse": "s65",
+        "access_token": "s66",
+        "id": "USER_SOURCE01",
+        "refresh": "s68",
+        "application_id": "APPLICATION01"
+      },
+      "USER_SOURCE02": {
+        "RelayState": "s96",
+        "SAMLResponse": "s97",
+        "access_token": "s98",
+        "id": "USER_SOURCE02",
+        "refresh": "s9a",
+        "application_id": "APPLICATION01"
+      }
+    }
+  },
+  "new": {
+    "user_source": {
+      "user_source_ref01": {
+        "RelayState": "sc8",
+        "SAMLResponse": "sc9",
+        "access_token": "sca",
+        "refresh": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/application/{application_id}/user-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user-source/{user_source_id}/force-token-auth": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user-source/{user_source_id}/token-auth": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user-source-auth-refresh/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user-source-token-blacklist/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user-source/sso/saml/acs/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/application/{application_id}/user-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/login/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/user-source/{user_source_uid}/sso/saml/login/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/user-source/{user_source_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/user-source/{user_source_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

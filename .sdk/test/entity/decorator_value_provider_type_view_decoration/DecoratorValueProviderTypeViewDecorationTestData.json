@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "decorator_value_provider_type_view_decoration": {
+      "DECORATOR_VALUE_PROVIDER_TYPE_VIEW_DECORATION00": {
+        "id": "DECORATOR_VALUE_PROVIDER_TYPE_VIEW_DECORATION00",
+        "view_id": "VIEW01"
+      },
+      "DECORATOR_VALUE_PROVIDER_TYPE_VIEW_DECORATION01": {
+        "id": "DECORATOR_VALUE_PROVIDER_TYPE_VIEW_DECORATION01",
+        "view_id": "VIEW01"
+      },
+      "DECORATOR_VALUE_PROVIDER_TYPE_VIEW_DECORATION02": {
+        "id": "DECORATOR_VALUE_PROVIDER_TYPE_VIEW_DECORATION02",
+        "view_id": "VIEW01"
+      }
+    }
+  },
+  "new": {
+    "decorator_value_provider_type_view_decoration": {
+      "decorator_value_provider_type_view_decoration_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{view_id}/decorations/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/{view_id}/decorations/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/decoration/{view_decoration_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/views/decoration/{view_decoration_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

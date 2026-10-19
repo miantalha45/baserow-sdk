@@ -1,0 +1,22 @@
+# BasicFieldFieldSerializerWithRelatedFieldFlow
+
+main: kit: flow: BasicFieldFieldSerializerWithRelatedFieldFlow:
+{
+  entity: "field_field_serializer_with_related_field",
+  kind: "basic",
+  name: "BasicFieldFieldSerializerWithRelatedFieldFlow",
+  step: [
+    {
+      i: {
+        ref: "field_field_serializer_with_related_field_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicFieldFieldSerializerWithRelatedFieldFlow"
+}

@@ -1,0 +1,9 @@
+# BasicDatabaseTableViewDecorationFlow
+
+main: kit: flow: BasicDatabaseTableViewDecorationFlow:
+{
+  entity: "database_table_view_decoration",
+  kind: "basic",
+  name: "BasicDatabaseTableViewDecorationFlow",
+  "key$": "BasicDatabaseTableViewDecorationFlow"
+}

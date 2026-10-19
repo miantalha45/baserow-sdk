@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "row_history": {
+      "ROW_HISTORY00": {
+        "action_command_type": "s50",
+        "action_type": "s51",
+        "after": "s52",
+        "before": "s53",
+        "fields_metadata": "s54",
+        "id": "ROW_HISTORY00",
+        "timestamp": "s56",
+        "user": "s57",
+        "row_id": "ROW01",
+        "table_id": "TABLE01"
+      },
+      "ROW_HISTORY01": {
+        "action_command_type": "sa0",
+        "action_type": "sa1",
+        "after": "sa2",
+        "before": "sa3",
+        "fields_metadata": "sa4",
+        "id": "ROW_HISTORY01",
+        "timestamp": "sa6",
+        "user": "sa7",
+        "row_id": "ROW01",
+        "table_id": "TABLE01"
+      },
+      "ROW_HISTORY02": {
+        "action_command_type": "sf0",
+        "action_type": "sf1",
+        "after": "sf2",
+        "before": "sf3",
+        "fields_metadata": "sf4",
+        "id": "ROW_HISTORY02",
+        "timestamp": "sf6",
+        "user": "sf7",
+        "row_id": "ROW01",
+        "table_id": "TABLE01"
+      }
+    }
+  },
+  "new": {
+    "row_history": {
+      "row_history_ref01": {
+        "action_command_type": "s140",
+        "action_type": "s141",
+        "after": "s142",
+        "before": "s143",
+        "fields_metadata": "s144",
+        "timestamp": "s146",
+        "user": "s147"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/rows/table/{table_id}/{row_id}/history/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

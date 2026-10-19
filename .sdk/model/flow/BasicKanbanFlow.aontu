@@ -1,0 +1,32 @@
+# BasicKanbanFlow
+
+main: kit: flow: BasicKanbanFlow:
+{
+  entity: "kanban",
+  kind: "basic",
+  name: "BasicKanbanFlow",
+  step: [
+    {
+      i: {
+        ref: "kanban_ref01",
+        srcdatavar: "kanban_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "kanban01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-kanban_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicKanbanFlow"
+}

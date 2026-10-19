@@ -1,0 +1,192 @@
+# Entity: database_table_view_grouping
+
+main: kit: entity: database_table_view_grouping: {
+
+  alias: field: {}
+
+  fields: {
+    view_group_by_ids: {
+      h: "View Group By Ids"
+      n: "view_group_by_ids"
+      r: true
+      sh: "View group by ids in the desired priority order."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "database_table_view_grouping"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "view_group_by_ids"
+          ]
+          co: {
+            id: "POST /api/database/views/{view_id}/group_bys/prioritize/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "view_id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/views/{view_id}/group_bys/prioritize/"
+          q: {
+            exist: [
+              "view_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "view_group_by_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "view_group_by_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "view_id"
+            }
+            {
+              lit: "group_bys"
+            }
+            {
+              lit: "prioritize"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/database/views/group_by/{view_group_by_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "view_group_by_id"
+                or: "view_group_by_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/database/views/group_by/{view_group_by_id}/"
+          q: {
+            exist: [
+              "view_group_by_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "group_by"
+            }
+            {
+              var: "view_group_by_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

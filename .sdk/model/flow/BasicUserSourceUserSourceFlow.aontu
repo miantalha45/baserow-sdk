@@ -1,0 +1,28 @@
+# BasicUserSourceUserSourceFlow
+
+main: kit: flow: BasicUserSourceUserSourceFlow:
+{
+  entity: "user_source_user_source",
+  kind: "basic",
+  name: "BasicUserSourceUserSourceFlow",
+  step: [
+    {
+      i: {
+        ref: "user_source_user_source_ref01",
+        srcdatavar: "user_source_user_source_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_source_user_source_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserSourceUserSourceFlow"
+}

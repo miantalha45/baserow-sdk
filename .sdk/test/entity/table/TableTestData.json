@@ -1,0 +1,138 @@
+{
+  "existing": {
+    "table": {
+      "TABLE00": {
+        "active": true,
+        "calls": [],
+        "created_on": "sd4",
+        "data": [],
+        "data_sync": {},
+        "database_id": "DATABASE01",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 218,
+        "first_row_header": false,
+        "headers": {},
+        "id": "TABLE00",
+        "importer_type": "sde",
+        "include_all_events": false,
+        "name": "se0",
+        "order": 225,
+        "original_file_name": "se2",
+        "request_method": "se3",
+        "updated_on": "se4",
+        "url": "se5",
+        "use_user_field_names": true
+      },
+      "TABLE01": {
+        "active": true,
+        "calls": [],
+        "created_on": "s1a6",
+        "data": [],
+        "data_sync": {},
+        "database_id": "DATABASE01",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 428,
+        "first_row_header": false,
+        "headers": {},
+        "id": "TABLE01",
+        "importer_type": "s1b0",
+        "include_all_events": false,
+        "name": "s1b2",
+        "order": 435,
+        "original_file_name": "s1b4",
+        "request_method": "s1b5",
+        "updated_on": "s1b6",
+        "url": "s1b7",
+        "use_user_field_names": true
+      },
+      "TABLE02": {
+        "active": true,
+        "calls": [],
+        "created_on": "s278",
+        "data": [],
+        "data_sync": {},
+        "database_id": "DATABASE01",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 638,
+        "first_row_header": false,
+        "headers": {},
+        "id": "TABLE02",
+        "importer_type": "s282",
+        "include_all_events": false,
+        "name": "s284",
+        "order": 645,
+        "original_file_name": "s286",
+        "request_method": "s287",
+        "updated_on": "s288",
+        "url": "s289",
+        "use_user_field_names": true
+      }
+    }
+  },
+  "new": {
+    "table": {
+      "table_ref01": {
+        "active": true,
+        "calls": [],
+        "created_on": "s34a",
+        "data": [],
+        "data_sync": {},
+        "database_id": "DATABASE01",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 848,
+        "first_row_header": false,
+        "headers": {},
+        "importer_type": "s354",
+        "include_all_events": false,
+        "name": "s356",
+        "order": 855,
+        "original_file_name": "s358",
+        "request_method": "s359",
+        "updated_on": "s35a",
+        "url": "s35b",
+        "use_user_field_names": true
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/data-sync/database/{database_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/tables/database/{database_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/webhooks/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/tables/database/{database_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/tables/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/webhooks/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/tables/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

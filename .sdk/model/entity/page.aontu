@@ -1,0 +1,387 @@
+# Entity: page
+
+main: kit: entity: page: {
+
+  alias: field: {}
+
+  fields: {
+    builder_id: {
+      h: "Builder Id"
+      n: "builder_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    graph: {
+      h: "Graph"
+      n: "graph"
+      r: true
+      ro: true
+      sh: "A JSON serialized graph containing the points and edges."
+      t: "`$ANY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: true
+      sh: "Lowest first."
+      t: "`$INTEGER`"
+    }
+    path: {
+      h: "Path"
+      n: "path"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    path_params: {
+      h: "Path Params"
+      n: "path_params"
+      r: false
+      t: "`$ARRAY`"
+    }
+    query_params: {
+      h: "Query Params"
+      n: "query_params"
+      r: false
+      t: "`$ARRAY`"
+    }
+    role_type: {
+      h: "Role Type"
+      n: "role_type"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "Role type is used in conjunction with roles to control access to this page."
+      t: "`$STRING`"
+    }
+    roles: {
+      h: "Roles"
+      n: "roles"
+      op: {
+        update: {
+          req: false
+          type: "`$ANY`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "List of user roles that are associated with this page."
+      t: "`$ANY`"
+    }
+    shared: {
+      h: "Shared"
+      n: "shared"
+      r: true
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    visibility: {
+      h: "Visibility"
+      n: "visibility"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "Controls the page's visibility."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "page"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "name"
+            "path"
+            "path_params"
+            "query_params"
+          ]
+          co: {
+            id: "POST /api/builder/{builder_id}/pages/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "builder_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/{builder_id}/pages/"
+          q: {
+            exist: [
+              "builder_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "path"
+                  }
+                  {
+                    list: true
+                    name: "path_params"
+                  }
+                  {
+                    list: true
+                    name: "query_params"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "path"
+                  }
+                  {
+                    list: true
+                    name: "path_params"
+                  }
+                  {
+                    list: true
+                    name: "query_params"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              var: "builder_id"
+            }
+            {
+              lit: "pages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "name"
+            "path"
+            "path_params"
+            "query_params"
+            "role_type"
+            "roles"
+            "visibility"
+          ]
+          co: {
+            id: "PATCH /api/builder/pages/{page_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/builder/pages/{page_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              page_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "path"
+                  }
+                  {
+                    list: true
+                    name: "path_params"
+                  }
+                  {
+                    list: true
+                    name: "query_params"
+                  }
+                  {
+                    name: "role_type"
+                  }
+                  {
+                    name: "roles"
+                  }
+                  {
+                    name: "visibility"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "path"
+                  }
+                  {
+                    list: true
+                    name: "path_params"
+                  }
+                  {
+                    list: true
+                    name: "query_params"
+                  }
+                  {
+                    name: "role_type"
+                  }
+                  {
+                    name: "roles"
+                  }
+                  {
+                    name: "visibility"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

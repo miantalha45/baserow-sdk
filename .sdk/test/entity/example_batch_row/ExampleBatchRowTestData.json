@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "example_batch_row": {
+      "EXAMPLE_BATCH_ROW00": {
+        "items": [],
+        "table_id": "TABLE01",
+        "id": "EXAMPLE_BATCH_ROW00"
+      },
+      "EXAMPLE_BATCH_ROW01": {
+        "items": [],
+        "table_id": "TABLE01",
+        "id": "EXAMPLE_BATCH_ROW01"
+      },
+      "EXAMPLE_BATCH_ROW02": {
+        "items": [],
+        "table_id": "TABLE01",
+        "id": "EXAMPLE_BATCH_ROW02"
+      }
+    }
+  },
+  "new": {
+    "example_batch_row": {
+      "example_batch_row_ref01": {
+        "items": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/rows/table/{table_id}/batch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

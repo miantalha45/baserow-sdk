@@ -1,0 +1,57 @@
+# BasicBuilderDataSourceFlow
+
+main: kit: flow: BasicBuilderDataSourceFlow:
+{
+  entity: "builder_data_source",
+  kind: "basic",
+  name: "BasicBuilderDataSourceFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_data_source_ref01"
+      }
+
+      m: {
+        page_id: "page01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "builder_data_source_ref01",
+        srcdatavar: "builder_data_source_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "builder_data_source01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-builder_data_source_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "builder_data_source_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "builder_data_source01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicBuilderDataSourceFlow"
+}

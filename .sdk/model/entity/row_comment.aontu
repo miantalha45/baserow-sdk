@@ -1,0 +1,344 @@
+# Entity: row_comment
+
+main: kit: entity: row_comment: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    edited: {
+      h: "Edited"
+      n: "edited"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    first_name: {
+      h: "First Name"
+      n: "first_name"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      ro: true
+      sh: "The rich text comment content."
+      t: "`$STRING`"
+    }
+    row_id: {
+      h: "Row Id"
+      n: "row_id"
+      r: true
+      sh: "The id of the row the comment is for."
+      t: "`$INTEGER`"
+    }
+    table_id: {
+      h: "Table Id"
+      n: "table_id"
+      r: true
+      ro: true
+      sh: "The table the row this comment is for is found in."
+      t: "`$INTEGER`"
+    }
+    trashed: {
+      h: "Trashed"
+      n: "trashed"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    user_id: {
+      h: "User Id"
+      n: "user_id"
+      r: true
+      ro: true
+      sh: "The user who made the comment."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "row_comment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "message"
+          ]
+          co: {
+            id: "POST /api/row_comments/{table_id}/{row_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "row_id"
+                or: "row_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "view"
+                or: "view"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/row_comments/{table_id}/{row_id}/"
+          q: {
+            exist: [
+              "row_id"
+              "table_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "message"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "message"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "row_comments"
+            }
+            {
+              var: "table_id"
+            }
+            {
+              var: "row_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/row_comments/{table_id}/comment/{comment_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "comment_id"
+                or: "comment_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "view"
+                or: "view"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/row_comments/{table_id}/comment/{comment_id}/"
+          q: {
+            exist: [
+              "comment_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "row_comments"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "comment"
+            }
+            {
+              var: "comment_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /api/row_comments/{table_id}/comment/{comment_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "comment_id"
+                or: "comment_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "view"
+                or: "view"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/row_comments/{table_id}/comment/{comment_id}/"
+          q: {
+            exist: [
+              "comment_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "row_comments"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "comment"
+            }
+            {
+              var: "comment_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

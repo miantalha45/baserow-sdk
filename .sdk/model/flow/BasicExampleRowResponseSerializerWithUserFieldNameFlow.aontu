@@ -1,0 +1,86 @@
+# BasicExampleRowResponseSerializerWithUserFieldNameFlow
+
+main: kit: flow: BasicExampleRowResponseSerializerWithUserFieldNameFlow:
+{
+  entity: "example_row_response_serializer_with_user_field_name",
+  kind: "basic",
+  name: "BasicExampleRowResponseSerializerWithUserFieldNameFlow",
+  step: [
+    {
+      i: {
+        ref: "example_row_response_serializer_with_user_field_name_ref01"
+      }
+
+      m: {
+        row_id: "row01",
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        row_id: "row01",
+        table_id: "table01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "example_row_response_serializer_with_user_field_name_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        table_id: "table01"
+      }
+
+      i: {
+        ref: "example_row_response_serializer_with_user_field_name_ref01",
+        srcdatavar: "example_row_response_serializer_with_user_field_name_ref01_data",
+        suffix: "_up0",
+        textfield: "field_1"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-example_row_response_serializer_with_user_field_name_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "example_row_response_serializer_with_user_field_name_ref01",
+        srcdatavar: "example_row_response_serializer_with_user_field_name_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "example_row_response_serializer_with_user_field_name01",
+        table_id: "table01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-example_row_response_serializer_with_user_field_name_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicExampleRowResponseSerializerWithUserFieldNameFlow"
+}

@@ -1,0 +1,121 @@
+# Entity: integration_integration
+
+main: kit: entity: integration_integration: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "integration_integration"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "before_id"
+          ]
+          co: {
+            id: "PATCH /api/integration/{integration_id}/move/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "integration_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/integration/{integration_id}/move/"
+          q: {
+            "$action": "move"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              integration_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "before_id"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "before_id"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "integration"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "move"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

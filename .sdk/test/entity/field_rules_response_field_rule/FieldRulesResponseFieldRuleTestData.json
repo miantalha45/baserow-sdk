@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "field_rules_response_field_rule": {
+      "FIELD_RULES_RESPONSE_FIELD_RULE00": {
+        "id": "FIELD_RULES_RESPONSE_FIELD_RULE00",
+        "field_rule_id": "FIELD_RULE01"
+      },
+      "FIELD_RULES_RESPONSE_FIELD_RULE01": {
+        "id": "FIELD_RULES_RESPONSE_FIELD_RULE01",
+        "field_rule_id": "FIELD_RULE01"
+      },
+      "FIELD_RULES_RESPONSE_FIELD_RULE02": {
+        "id": "FIELD_RULES_RESPONSE_FIELD_RULE02",
+        "field_rule_id": "FIELD_RULE01"
+      }
+    }
+  },
+  "new": {
+    "field_rules_response_field_rule": {
+      "field_rules_response_field_rule_ref01": {}
+    }
+  },
+  "requests": {
+    "PUT /api/database/field-rules/{table_id}/rule/{rule_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

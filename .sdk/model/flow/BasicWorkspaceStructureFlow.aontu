@@ -1,0 +1,32 @@
+# BasicWorkspaceStructureFlow
+
+main: kit: flow: BasicWorkspaceStructureFlow:
+{
+  entity: "workspace_structure",
+  kind: "basic",
+  name: "BasicWorkspaceStructureFlow",
+  step: [
+    {
+      i: {
+        ref: "workspace_structure_ref01",
+        srcdatavar: "workspace_structure_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "workspace_structure01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workspace_structure_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkspaceStructureFlow"
+}

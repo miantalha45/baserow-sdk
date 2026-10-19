@@ -1,0 +1,509 @@
+# Entity: element
+
+main: kit: entity: element: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "element"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "alignment"
+            "allow_same_origin"
+            "allowed_filetypes"
+            "alt_text"
+            "behaviour"
+            "button_load_more_label"
+            "color"
+            "column_amount"
+            "column_gap"
+            "column_stacking"
+            "column_weights"
+            "css_classes"
+            "data_source_id"
+            "date_format"
+            "default_name"
+            "default_url"
+            "default_value"
+            "embed"
+            "fields"
+            "format"
+            "formula_name"
+            "formula_value"
+            "height"
+            "help_text"
+            "horizontal_gap"
+            "image_file"
+            "image_source_type"
+            "image_url"
+            "include_time"
+            "input_type"
+            "is_multiline"
+            "items_per_page"
+            "items_per_row"
+            "label"
+            "labels"
+            "layout_type"
+            "level"
+            "login_button_label"
+            "max_filesize"
+            "max_value"
+            "menu_items"
+            "multiple"
+            "navigate_to_page_id"
+            "navigate_to_url"
+            "navigation_type"
+            "option_name_suffix"
+            "option_type"
+            "options"
+            "orientation"
+            "page_parameters"
+            "pages"
+            "place_in_container"
+            "placeholder"
+            "position"
+            "preview"
+            "property_options"
+            "query_parameters"
+            "rating_style"
+            "reference_element_id"
+            "required"
+            "reset_initial_values_post_submission"
+            "rows"
+            "schema_property"
+            "series"
+            "share_type"
+            "show_as_dropdown"
+            "source_type"
+            "style_background"
+            "style_background_color"
+            "style_background_file"
+            "style_background_mode"
+            "style_background_radius"
+            "style_border_bottom_color"
+            "style_border_bottom_size"
+            "style_border_left_color"
+            "style_border_left_size"
+            "style_border_radius"
+            "style_border_right_color"
+            "style_border_right_size"
+            "style_border_top_color"
+            "style_border_top_size"
+            "style_margin_bottom"
+            "style_margin_left"
+            "style_margin_right"
+            "style_margin_top"
+            "style_padding_bottom"
+            "style_padding_left"
+            "style_padding_right"
+            "style_padding_top"
+            "style_width"
+            "style_width_child"
+            "styles"
+            "submit_button_label"
+            "target"
+            "time_format"
+            "type"
+            "url"
+            "user_source_id"
+            "validation_type"
+            "value"
+            "variant"
+            "vertical_gap"
+            "visibility"
+            "visibility_condition"
+          ]
+          co: {
+            id: "POST /api/builder/page/{page_id}/elements/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/page/{page_id}/elements/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "elements"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/builder/domains/published/page/{page_id}/elements/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/domains/published/page/{page_id}/elements/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              lit: "published"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "elements"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/builder/page/{page_id}/elements/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/page/{page_id}/elements/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "elements"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "alignment"
+            "allow_same_origin"
+            "allowed_filetypes"
+            "alt_text"
+            "behaviour"
+            "button_load_more_label"
+            "color"
+            "column_amount"
+            "column_gap"
+            "column_stacking"
+            "column_weights"
+            "css_classes"
+            "data_source_id"
+            "date_format"
+            "default_name"
+            "default_url"
+            "default_value"
+            "embed"
+            "fields"
+            "format"
+            "formula_name"
+            "formula_value"
+            "height"
+            "help_text"
+            "horizontal_gap"
+            "image_file"
+            "image_source_type"
+            "image_url"
+            "include_time"
+            "input_type"
+            "is_multiline"
+            "items_per_page"
+            "items_per_row"
+            "label"
+            "labels"
+            "layout_type"
+            "level"
+            "login_button_label"
+            "max_filesize"
+            "max_value"
+            "menu_items"
+            "multiple"
+            "navigate_to_page_id"
+            "navigate_to_url"
+            "navigation_type"
+            "option_name_suffix"
+            "option_type"
+            "options"
+            "orientation"
+            "page_parameters"
+            "pages"
+            "placeholder"
+            "preview"
+            "property_options"
+            "query_parameters"
+            "rating_style"
+            "required"
+            "reset_initial_values_post_submission"
+            "role_type"
+            "roles"
+            "rows"
+            "schema_property"
+            "series"
+            "share_type"
+            "show_as_dropdown"
+            "source_type"
+            "style_background"
+            "style_background_color"
+            "style_background_file"
+            "style_background_mode"
+            "style_background_radius"
+            "style_border_bottom_color"
+            "style_border_bottom_size"
+            "style_border_left_color"
+            "style_border_left_size"
+            "style_border_radius"
+            "style_border_right_color"
+            "style_border_right_size"
+            "style_border_top_color"
+            "style_border_top_size"
+            "style_margin_bottom"
+            "style_margin_left"
+            "style_margin_right"
+            "style_margin_top"
+            "style_padding_bottom"
+            "style_padding_left"
+            "style_padding_right"
+            "style_padding_top"
+            "style_width"
+            "style_width_child"
+            "styles"
+            "submit_button_label"
+            "target"
+            "time_format"
+            "url"
+            "user_source_id"
+            "validation_type"
+            "value"
+            "variant"
+            "vertical_gap"
+            "visibility"
+            "visibility_condition"
+          ]
+          co: {
+            id: "PATCH /api/builder/element/{element_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "element_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/builder/element/{element_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              element_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "element"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.page")]
+  ]
+
+}

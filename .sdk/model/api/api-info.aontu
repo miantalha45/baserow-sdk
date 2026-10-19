@@ -1,0 +1,61 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://baserow.io/contact"
+      }
+      description: `For more information about our REST API, please visit [this page](https://baserow.io/docs/apis%2Frest-api).
+
+For more information about our deprecation policy, please visit [this page](https://baserow.io/docs/apis%2Fdeprecations).`
+      license: {
+        name: "MIT"
+        url: "https://github.com/baserow/baserow/blob/develop/LICENSE"
+      }
+      security: {
+        alternatives: [
+          [
+            {
+              in: "header"
+              name: "Authorization"
+              prefix: "Bearer"
+              scheme: "JWT"
+              type: "http"
+            }
+          ]
+          [
+            {
+              in: "header"
+              name: "Authorization"
+              prefix: "Bearer"
+              scheme: "UserSource JWT"
+              type: "http"
+            }
+          ]
+        ]
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "Database token"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "{base}"
+          variables: {
+            base: {
+              description: "The base URL of the API, which its definition does not name."
+            }
+          }
+        }
+      ]
+      summary: "For more information about our REST API, please visit [this page](https://baserow.io/docs/apis%2Frest-api)."
+      title: "Baserow API spec"
+      version: "2.4.1"
+      website: "https://baserow.io/contact"
+    }
+  }
+}
+

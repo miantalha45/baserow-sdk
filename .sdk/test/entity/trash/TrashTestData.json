@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "trash": {
+      "TRASH00": {
+        "applications": [],
+        "id": "TRASH00",
+        "name": "s2a",
+        "trashed": false,
+        "workspace_id": "WORKSPACE01"
+      },
+      "TRASH01": {
+        "applications": [],
+        "id": "TRASH01",
+        "name": "s52",
+        "trashed": false,
+        "workspace_id": "WORKSPACE01"
+      },
+      "TRASH02": {
+        "applications": [],
+        "id": "TRASH02",
+        "name": "s7a",
+        "trashed": false,
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "trash": {
+      "trash_ref01": {
+        "applications": [],
+        "name": "sa2",
+        "trashed": false
+      }
+    }
+  },
+  "requests": {
+    "GET /api/trash/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/trash/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/trash/restore/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

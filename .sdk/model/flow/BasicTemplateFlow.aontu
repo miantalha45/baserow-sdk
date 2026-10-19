@@ -1,0 +1,35 @@
+# BasicTemplateFlow
+
+main: kit: flow: BasicTemplateFlow:
+{
+  entity: "template",
+  kind: "basic",
+  name: "BasicTemplateFlow",
+  step: [
+    {
+      i: {
+        ref: "template_ref01"
+      }
+
+      m: {
+        install_id: "install01",
+        template_id: "template01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "template_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTemplateFlow"
+}

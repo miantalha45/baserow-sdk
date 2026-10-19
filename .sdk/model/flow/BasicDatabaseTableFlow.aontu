@@ -1,0 +1,35 @@
+# BasicDatabaseTableFlow
+
+main: kit: flow: BasicDatabaseTableFlow:
+{
+  entity: "database_table",
+  kind: "basic",
+  name: "BasicDatabaseTableFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "database_table_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "database_table01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicDatabaseTableFlow"
+}

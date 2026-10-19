@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "table_webhook_test_call": {
+      "TABLE_WEBHOOK_TEST_CALL00": {
+        "event_type": "s64",
+        "headers": {},
+        "id": "TABLE_WEBHOOK_TEST_CALL00",
+        "is_unreachable": false,
+        "request": "s68",
+        "request_method": "s69",
+        "response": "s6a",
+        "status_code": 107,
+        "url": "s6c",
+        "use_user_field_names": false
+      },
+      "TABLE_WEBHOOK_TEST_CALL01": {
+        "event_type": "sc8",
+        "headers": {},
+        "id": "TABLE_WEBHOOK_TEST_CALL01",
+        "is_unreachable": false,
+        "request": "scc",
+        "request_method": "scd",
+        "response": "sce",
+        "status_code": 207,
+        "url": "sd0",
+        "use_user_field_names": false
+      },
+      "TABLE_WEBHOOK_TEST_CALL02": {
+        "event_type": "s12c",
+        "headers": {},
+        "id": "TABLE_WEBHOOK_TEST_CALL02",
+        "is_unreachable": false,
+        "request": "s130",
+        "request_method": "s131",
+        "response": "s132",
+        "status_code": 307,
+        "url": "s134",
+        "use_user_field_names": false
+      }
+    }
+  },
+  "new": {
+    "table_webhook_test_call": {
+      "table_webhook_test_call_ref01": {
+        "event_type": "s190",
+        "headers": {},
+        "is_unreachable": false,
+        "request": "s194",
+        "request_method": "s195",
+        "response": "s196",
+        "status_code": 407,
+        "url": "s198",
+        "use_user_field_names": false
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/webhooks/table/{table_id}/test-call/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

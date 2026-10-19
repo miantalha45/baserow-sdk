@@ -1,0 +1,107 @@
+# Entity: duplicate
+
+main: kit: entity: duplicate: {
+
+  alias: field: {}
+
+  fields: {
+    elements: {
+      h: "Elements"
+      n: "elements"
+      r: true
+      ro: true
+      sh: "The duplicated elements."
+      t: "`$ARRAY`"
+    }
+    graph: {
+      h: "Graph"
+      n: "graph"
+      r: true
+      ro: true
+      sh: "The updated page graph."
+      t: "`$STRING`"
+    }
+    workflow_actions: {
+      h: "Workflow Actions"
+      n: "workflow_actions"
+      r: true
+      ro: true
+      sh: "The duplicated workflow actions"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "duplicate"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/builder/element/{element_id}/duplicate/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "element_id"
+                or: "element_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/element/{element_id}/duplicate/"
+          q: {
+            exist: [
+              "element_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "element"
+            }
+            {
+              var: "element_id"
+            }
+            {
+              lit: "duplicate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.element")]
+  ]
+
+}

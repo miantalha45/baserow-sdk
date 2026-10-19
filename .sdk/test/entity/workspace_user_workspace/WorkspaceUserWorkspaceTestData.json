@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "workspace_user_workspace": {
+      "WORKSPACE_USER_WORKSPACE00": {
+        "ai_features": "s50",
+        "generative_ai_models_enabled": "s51",
+        "id": "WORKSPACE_USER_WORKSPACE00",
+        "name": "s53",
+        "order": 84,
+        "permissions": "s55",
+        "unread_notifications_count": 86,
+        "users": [],
+        "invitation_id": "INVITATION01"
+      },
+      "WORKSPACE_USER_WORKSPACE01": {
+        "ai_features": "sa0",
+        "generative_ai_models_enabled": "sa1",
+        "id": "WORKSPACE_USER_WORKSPACE01",
+        "name": "sa3",
+        "order": 164,
+        "permissions": "sa5",
+        "unread_notifications_count": 166,
+        "users": [],
+        "invitation_id": "INVITATION01"
+      },
+      "WORKSPACE_USER_WORKSPACE02": {
+        "ai_features": "sf0",
+        "generative_ai_models_enabled": "sf1",
+        "id": "WORKSPACE_USER_WORKSPACE02",
+        "name": "sf3",
+        "order": 244,
+        "permissions": "sf5",
+        "unread_notifications_count": 246,
+        "users": [],
+        "invitation_id": "INVITATION01"
+      }
+    }
+  },
+  "new": {
+    "workspace_user_workspace": {
+      "workspace_user_workspace_ref01": {
+        "ai_features": "s140",
+        "generative_ai_models_enabled": "s141",
+        "name": "s143",
+        "order": 324,
+        "permissions": "s145",
+        "unread_notifications_count": 326,
+        "users": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/workspaces/invitations/{workspace_invitation_id}/accept/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/create-initial-workspace/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

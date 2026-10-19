@@ -1,0 +1,1884 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 173
+  metrics: count: path: 312
+  metrics: count: method: 424
+
+  entity: abuse_report: {
+    path: "/api/abuse-reports/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: admin: {
+    path: "/api/admin/users/impersonate/": {
+      op: create: method: *POST
+    }
+    path: "/api/admin/users/{user_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/admin/users/{user_id}/two-factor-auth/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/admin/workspaces/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/admin/workspaces/{workspace_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/licenses/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/licenses/{id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/licenses/{id}/remove-all-users/": {
+      rename: param: "id": *"license_id"
+      op: create: method: *POST
+    }
+    path: "/api/licenses/{id}/{user_id}/": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: admin_dashboard: {
+    path: "/api/admin/dashboard/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: admin_data_scanner: {
+    path: "/api/admin/data-scanner/results/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/admin/data-scanner/results/export/": {
+      op: create: method: *POST
+    }
+    path: "/api/admin/data-scanner/results/{result_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/admin/data-scanner/scans/{scan_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/admin/data-scanner/scans/{scan_id}/trigger/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: admin_view: {
+    path: "/api/database/admin/views/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/database/admin/views/{view_id}/": {
+      rename: param: "view_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/admin/views/{view_id}/rotate-slug/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: admin_workspace_option: {
+    path: "/api/admin/workspaces/options/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: agent: {
+    path: "/api/agents/workspace/{workspace_id}/": {
+      op: create: method: *POST
+    }
+    path: "/api/agents/{agent_id}/": {
+      rename: param: "agent_id": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: agent_pagination_agent: {
+    path: "/api/agents/workspace/{workspace_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: ai_assistant: {
+    path: "/assistant/chat/{chat_uuid}/cancel/": {
+      rename: param: "chat_uuid": *"chat_id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/assistant/chat/{chat_uuid}/messages/": {
+      rename: param: "chat_uuid": *"chat_id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/assistant/messages/{message_id}/feedback/": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: ai_provider: {
+    path: "/api/ai-providers/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/ai-providers/models/{model_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/ai-providers/{provider_id}/": {
+      rename: param: "provider_id": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: ai_provider_feature_setting: {
+    path: "/api/ai-providers/features/": {
+      op: list: method: *GET
+    }
+    path: "/api/ai-providers/features/{feature_type}/": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: ai_provider_model: {
+    path: "/api/ai-providers/models/{model_id}/": {
+      rename: param: "model_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/ai-providers/{provider_id}/models/": {
+      rename: param: "provider_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: ai_provider_model_discovery: {
+    path: "/api/ai-providers/models/discover/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.models`")|top
+    }
+  }
+
+  entity: ai_provider_model_usage_entry: {
+    path: "/api/ai-providers/models/{model_id}/usage/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.usage`")|top
+    }
+  }
+
+  entity: ai_provider_models_test: {
+    path: "/api/ai-providers/models/test/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: ai_provider_type: {
+    path: "/api/ai-providers/types/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: application: {
+    path: "/api/applications/": {
+      op: list: method: *GET
+    }
+    path: "/api/applications/workspace/{workspace_id}/order/": {
+      op: create: method: *POST
+    }
+    path: "/api/applications/{application_id}/": {
+      rename: param: "application_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/applications/{application_id}/duplicate/async/": {
+      action: "duplicate_async": {}
+      rename: param: "application_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: application_application: {
+    path: "/api/applications/workspace/{workspace_id}/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: assistant_chat: {
+    path: "/assistant/chat/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: audit_log: {
+    path: "/api/admin/audit-log/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/admin/audit-log/export/": {
+      action: "export": {}
+      op: create: method: *POST
+    }
+    path: "/api/audit-log/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/audit-log/export/": {
+      action: "export": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: audit_log_action_type: {
+    path: "/api/admin/audit-log/action-types/": {
+      op: list: method: *GET
+    }
+    path: "/api/audit-log/action-types/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: audit_log_user: {
+    path: "/api/admin/audit-log/users/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/audit-log/users/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: auth: {
+    path: "/api/admin/auth-provider/{auth_provider_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/auth-provider/login-options/": {
+      op: load: method: *GET
+    }
+    path: "/api/sso/saml/acs/": {
+      op: create: method: *POST
+    }
+    path: "/api/sso/saml/login-url/": {
+      op: load: method: *GET
+    }
+    path: "/api/sso/saml/login/": {
+      op: load: method: *GET
+    }
+    path: "/api/two-factor-auth/disable/": {
+      op: create: method: *POST
+    }
+    path: "/api/two-factor-auth/verify/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: authentication_provider_auth_provider: {
+    path: "/api/admin/auth-provider/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/admin/auth-provider/{auth_provider_id}/": {
+      rename: param: "auth_provider_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: automation_node: {
+    path: "/api/automation/node/{node_id}/": {
+      rename: param: "node_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: automation_node_history: {
+    path: "/api/automation/workflow_histories/{workflow_history_id}/node_histories/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: automation_node_result: {
+    path: "/api/automation/node_histories/{node_history_id}/result/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: automation_node_type_automation_node: {
+    path: "/api/automation/node/{node_id}/": {
+      rename: param: "node_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/automation/node/{node_id}/duplicate/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/node/{node_id}/move/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/node/{node_id}/replace/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/node/{node_id}/simulate-dispatch/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/workflow/{workflow_id}/nodes/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: automation_workflow: {
+    path: "/api/automation/workflows/{workflow_id}/": {
+      rename: param: "workflow_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/automation/workflows/{workflow_id}/duplicate/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/workflows/{workflow_id}/publish/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/workflows/{workflow_id}/test/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/{automation_id}/workflows/": {
+      rename: param: "automation_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/automation/{automation_id}/workflows/order/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: automation_workflow_history: {
+    path: "/api/automation/workflow_histories/{workflow_history_id}/cancel/": {
+      op: create: method: *POST
+    }
+    path: "/api/automation/workflows/{workflow_id}/history/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: builder_data_source: {
+    path: "/api/builder/data-source/{data_source_id}/": {
+      rename: param: "data_source_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/builder/data-source/{data_source_id}/dispatch/": {
+      op: create: method: *POST
+    }
+    path: "/api/builder/data-source/{data_source_id}/record-names/": {
+      op: load: method: *GET
+    }
+    path: "/api/builder/domains/published/data-source/{data_source_id}/dispatch/": {
+      op: create: method: *POST
+    }
+    path: "/api/builder/domains/published/page/{page_id}/dispatch-data-sources/": {
+      op: create: method: *POST
+    }
+    path: "/api/builder/page/{page_id}/dispatch-data-sources/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: builder_domain: {
+    path: "/api/builder/domains/ask-public-domain-exists/": {
+      op: load: method: *GET
+    }
+    path: "/api/builder/domains/{domain_id}/": {
+      rename: param: "domain_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/builder/domains/{domain_id}/publish/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/builder/{builder_id}/domains/order/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: builder_element: {
+    path: "/api/builder/element/{element_id}/": {
+      rename: param: "element_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: builder_page: {
+    path: "/api/builder/pages/{page_id}/": {
+      rename: param: "page_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/builder/pages/{page_id}/duplicate/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/builder/{builder_id}/pages/order/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: builder_preview: {
+    path: "/api/builder/preview/exchange/{token}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: builder_preview_grant: {
+    path: "/api/builder/preview/{builder_id}/grant/": {
+      rename: param: "builder_id": *"preview_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: builder_preview_handoff: {
+    path: "/api/builder/preview/handoff/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: builder_public: {
+    path: "/api/builder/preview/{builder_id}/custom-code/css/": {
+      rename: param: "builder_id": *"preview_id"
+      op: load: method: *GET
+    }
+    path: "/api/builder/preview/{builder_id}/custom-code/js/": {
+      rename: param: "builder_id": *"preview_id"
+      op: load: method: *GET
+    }
+    path: "/api/custom_code/{builder_id}/css/public/": {
+      rename: param: "builder_id": *"custom_code_id"
+      op: load: method: *GET
+    }
+    path: "/api/custom_code/{builder_id}/js/public/": {
+      rename: param: "builder_id": *"custom_code_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: builder_workflow_action: {
+    path: "/api/builder/page/{page_id}/workflow_actions/order/": {
+      op: create: method: *POST
+    }
+    path: "/api/builder/workflow_action/{workflow_action_id}/": {
+      rename: param: "workflow_action_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/builder/workflow_action/{workflow_action_id}/dispatch/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: builder_workflow_action_type_builder_workflow_action: {
+    path: "/api/builder/page/{page_id}/workflow_actions/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/builder/workflow_action/{workflow_action_id}/": {
+      rename: param: "workflow_action_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: by_id: {
+    path: "/api/builder/domains/published/by_id/{builder_id}/": {
+      rename: param: "builder_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: by_name: {
+    path: "/api/builder/domains/published/by_name/{domain_name}/": {
+      rename: param: "domain_name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: calendar: {
+    path: "/api/database/views/calendar/{view_id}/": {
+      rename: param: "view_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: calendar_view_example: {
+    path: "/api/database/views/calendar/{slug}/public/rows/": {
+      rename: param: "slug": *"calendar_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.field_options`")|top
+    }
+  }
+
+  entity: callback: {
+    path: "/api/sso/oauth2/callback/{provider_id}/": {
+      rename: param: "provider_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: cancel: {
+    path: "/assistant/chat/{chat_uuid}/cancel/": {
+      rename: param: "chat_uuid": *"chat_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.messages`")|top
+    }
+  }
+
+  entity: color_typography_button_image_page_input_table_linklink_active_text: {
+    path: "/api/builder/{builder_id}/theme/": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: core_webhook: {
+    path: "/api/webhooks/{webhook_uid}/": {
+      rename: param: "webhook_uid": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: dashboard_data_source: {
+    path: "/api/dashboard/data-sources/{data_source_id}/dispatch/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: dashboard_widget: {
+    path: "/api/dashboard/widgets/{widget_id}/": {
+      rename: param: "widget_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: dashboard_widget_widget: {
+    path: "/api/dashboard/widgets/{widget_id}/": {
+      rename: param: "widget_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/dashboard/{dashboard_id}/widgets/": {
+      rename: param: "dashboard_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/dashboard/{dashboard_id}/widgets/layout/": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: data_scan: {
+    path: "/api/admin/data-scanner/scans/": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/admin/data-scanner/scans/{scan_id}/": {
+      rename: param: "scan_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: data_sync: {
+    path: "/api/database/data-sync/{data_sync_id}/": {
+      rename: param: "data_sync_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: database_table: {
+    path: "/api/database/data-sync/{data_sync_id}/sync/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/tables/database/{database_id}/async/": {
+      action: "async": {}
+      rename: param: "database_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/database/tables/database/{database_id}/order/": {
+      action: "order": {}
+      rename: param: "database_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/database/tables/{table_id}/": {
+      rename: param: "table_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/database/tables/{table_id}/duplicate/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/tables/{table_id}/import/async/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: database_table_field: {
+    path: "/api/database/field/{field_id}/workflow_actions/order/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/fields/{field_id}/duplicate/async/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/fields/{field_id}/generate-ai-field-values/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/workflow_action/{workflow_action_id}/": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: database_table_grid_view: {
+    path: "/api/database/views/grid/{slug}/public/aggregations/": {
+      rename: param: "slug": *"grid_id"
+      op: load: method: *GET
+    }
+    path: "/api/database/views/grid/{view_id}/aggregation/{field_id}/": {
+      rename: param: "view_id": *"grid_id"
+      op: load: method: *GET
+    }
+    path: "/api/database/views/grid/{view_id}/aggregations/": {
+      rename: param: "view_id": *"grid_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: database_table_row: {
+    path: "/api/database/rows/names/": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.{table_id}*`")|top
+    }
+    path: "/api/database/rows/table/{table_id}/batch-delete/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/rows/table/{table_id}/{row_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/row_comments/{table_id}/{row_id}/notification-mode/": {
+      rename: param: "table_id": *"row_comment_id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: database_table_view: {
+    path: "/api/database/views/calendar/{ical_slug}.ics": {
+      op: load: method: *GET
+    }
+    path: "/api/database/views/table/{table_id}/order/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/views/{view_id}/": {
+      rename: param: "view_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: database_table_view_decoration: {
+    path: "/api/database/views/decoration/{view_decoration_id}/": {
+      rename: param: "view_decoration_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: database_table_view_filter: {
+    path: "/api/database/views/filter-group/{view_filter_group_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/database/views/filter/{view_filter_id}/": {
+      rename: param: "view_filter_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: database_table_view_grouping: {
+    path: "/api/database/views/group_by/{view_group_by_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/database/views/{view_id}/group_bys/prioritize/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: database_table_view_sorting: {
+    path: "/api/database/views/sort/{view_sort_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/database/views/{view_id}/sortings/prioritize/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: database_table_webhook: {
+    path: "/api/database/webhooks/{webhook_id}/": {
+      rename: param: "webhook_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: database_token: {
+    path: "/api/database/tokens/check/": {
+      op: load: method: *GET
+    }
+    path: "/api/database/tokens/{token_id}/": {
+      rename: param: "token_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: database_workflow_action_type_database_workflow_action: {
+    path: "/api/database/field/{field_id}/workflow_actions/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/database/workflow_action/{workflow_action_id}/": {
+      rename: param: "workflow_action_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: decorator_value_provider_type_view_decoration: {
+    path: "/api/database/views/decoration/{view_decoration_id}/": {
+      rename: param: "view_decoration_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/{view_id}/decorations/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: dispatch: {
+    path: "/api/database/field/{field_id}/workflow_actions/dispatch/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: domain: {
+    path: "/api/builder/domains/{domain_id}/": {
+      rename: param: "domain_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/builder/{builder_id}/domains/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: duplicate: {
+    path: "/api/builder/element/{element_id}/duplicate/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: element: {
+    path: "/api/builder/domains/published/page/{page_id}/elements/": {
+      op: list: method: *GET
+    }
+    path: "/api/builder/element/{element_id}/": {
+      rename: param: "element_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/builder/page/{page_id}/elements/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: element_type_element: {
+    path: "/api/builder/element/{element_id}/move/": {
+      action: "move": {}
+      rename: param: "element_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: email: {
+    path: "/api/_health/email/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: example_batch_row: {
+    path: "/api/database/rows/table/{table_id}/batch/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: example_batch_update_row: {
+    path: "/api/database/rows/table/{table_id}/batch/": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: example_public_row_response_serializer_with_user_field_name: {
+    path: "/api/database/views/{slug}/row/{row_id}/": {
+      rename: param: "slug": *"view_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: example_row: {
+    path: "/api/database/views/form/{slug}/edit-row/{row_token}/": {
+      rename: param: "slug": *"form_id"
+      op: load: method: *GET
+    }
+    path: "/api/database/views/grid/{view_id}/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: example_row_response_serializer_with_user_field_name: {
+    path: "/api/database/rows/table/{table_id}/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/rows/table/{table_id}/{row_id}/": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/rows/table/{table_id}/{row_id}/adjacent/": {
+      op: list: method: *GET
+    }
+    path: "/api/database/rows/table/{table_id}/{row_id}/move/": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: export: {
+    path: "/api/database/export/{job_id}/": {
+      rename: param: "job_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/workspaces/{workspace_id}/export/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: export_job: {
+    path: "/api/database/export/table/{table_id}/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/view/get-public-view-export/{job_id}/": {
+      op: load: method: *GET
+    }
+    path: "/api/database/view/{slug}/export-public-view/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: field: {
+    path: "/api/database/fields/{field_id}/": {
+      rename: param: "field_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: field_field: {
+    path: "/api/database/fields/table/{table_id}/": {
+      op: load: method: *GET
+    }
+    path: "/api/database/fields/table/{table_id}/change-primary-field/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: field_field_serializer_with_related_field: {
+    path: "/api/database/fields/table/{table_id}/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: field_permission_subject_option: {
+    path: "/api/field-permissions/{field_id}/subjects/": {
+      action: "subjects": {}
+      rename: param: "field_id": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: field_rule: {
+    path: "/api/database/field-rules/{table_id}/": {
+      rename: param: "table_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/database/field-rules/{table_id}/rule/{rule_id}/": {
+      rename: param: "table_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: field_rules_response_field_rule: {
+    path: "/api/database/field-rules/{table_id}/rule/{rule_id}/": {
+      rename: param: "rule_id": *"id"
+      rename: param: "table_id": *"field_rule_id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: form_view_submitted: {
+    path: "/api/database/views/form/{slug}/edit-row/{row_token}/": {
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/form/{slug}/submit/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: full: {
+    path: "/api/_health/full/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: generate_formula_with_ai: {
+    path: "/api/database/fields/table/{table_id}/generate-ai-formula/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: grid_view_group_by_data: {
+    path: "/api/database/views/grid/{slug}/public/group-by-data/": {
+      rename: param: "slug": *"grid_id"
+      op: list: method: *GET
+    }
+    path: "/api/database/views/grid/{view_id}/group-by-data/": {
+      rename: param: "view_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: health: {
+    path: "/api/_health/celery-queue/": {
+      action: "celery_queue": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: inbound_email: {
+    path: "/api/inbound-email/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: install: {
+    path: "/api/templates/install/{workspace_id}/{template_id}/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: instance_id: {
+    path: "/api/settings/instance-id/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: integration: {
+    path: "/api/application/{application_id}/integrations/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/integration/{integration_id}/": {
+      rename: param: "integration_id": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: integration_integration: {
+    path: "/api/integration/{integration_id}/move/": {
+      action: "move": {}
+      rename: param: "integration_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: integration_service_dashboard_data_source: {
+    path: "/api/dashboard/data-sources/{data_source_id}/": {
+      rename: param: "data_source_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/dashboard/{dashboard_id}/data-sources/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: integration_service_data_source: {
+    path: "/api/builder/data-source/{data_source_id}/": {
+      rename: param: "data_source_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/builder/data-source/{data_source_id}/move/": {
+      op: patch: method: *PATCH
+    }
+    path: "/api/builder/page/{page_id}/data-sources/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: integration_service_public_data_source: {
+    path: "/api/builder/domains/published/page/{page_id}/data_sources/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: invalid_row: {
+    path: "/api/database/field-rules/{table_id}/invalid-rows/": {
+      rename: param: "table_id": *"field_rule_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: job: {
+    path: "/api/jobs/": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.jobs`")|top
+    }
+    path: "/api/jobs/{job_id}/": {
+      rename: param: "job_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/snapshots/{snapshot_id}/restore/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: job_type_job: {
+    path: "/api/jobs/{job_id}/cancel/": {
+      action: "cancel": {}
+      rename: param: "job_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: kanban: {
+    path: "/api/database/views/kanban/{view_id}/": {
+      rename: param: "view_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: kanban_view_example: {
+    path: "/api/database/views/kanban/{slug}/public/rows/": {
+      rename: param: "slug": *"kanban_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.field_options`")|top
+    }
+  }
+
+  entity: last_viewed_item: {
+    path: "/api/last-viewed/items/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: license: {
+    path: "/api/licenses/{id}/": {
+      op: load: method: *GET
+    }
+    path: "/api/licenses/{id}/{user_id}/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: license_user: {
+    path: "/api/licenses/{id}/fill-seats/": {
+      action: "fill-seats": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: license_user_lookup: {
+    path: "/api/licenses/{id}/lookup-users/": {
+      action: "lookup-users": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: license_with_user: {
+    path: "/api/licenses/{id}/check/": {
+      action: "check": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.users`")|top
+    }
+  }
+
+  entity: list_data_sync_property: {
+    path: "/api/database/data-sync/database/{database_id}/properties/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/data-sync/{data_sync_id}/properties/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: login: {
+    path: "/api/sso/oauth2/login/{provider_id}/": {
+      rename: param: "provider_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: mcp_endpoint: {
+    path: "/api/mcp/endpoint/{endpoint_id}/": {
+      rename: param: "endpoint_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/mcp/endpoints/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: message: {
+    path: "/assistant/chat/{chat_uuid}/messages/": {
+      rename: param: "chat_uuid": *"chat_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.messages`")|top
+    }
+  }
+
+  entity: notification: {
+    path: "/api/notifications/{workspace_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/notifications/{workspace_id}/mark-all-as-read/": {
+      action: "mark_all_as_read": {}
+      rename: param: "workspace_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/notifications/{workspace_id}/{notification_id}/": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: onboarding_prompt_suggestion: {
+    path: "/assistant/onboarding/prompt-suggestions/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: open_api_role_assignment: {
+    path: "/api/role/{workspace_id}/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/role/{workspace_id}/batch/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: page: {
+    path: "/api/builder/pages/{page_id}/": {
+      rename: param: "page_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/builder/{builder_id}/pages/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: pagination_serializer_example_row_response_serializer_with_user: {
+    path: "/api/database/rows/table/{table_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_link_row_value: {
+    path: "/api/database/views/{slug}/link-row-field-lookup/{field_id}/": {
+      rename: param: "slug": *"view_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_notification_recipient: {
+    path: "/api/notifications/{workspace_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_row_comment: {
+    path: "/api/row_comments/{table_id}/{row_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_trash_content: {
+    path: "/api/trash/workspace/{workspace_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_with_gallery_view_field_options_example_row: {
+    path: "/api/database/views/gallery/{view_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_with_grid_view_field_options_example_row: {
+    path: "/api/database/views/grid/{view_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pagination_serializer_with_timeline_view_field_options_example_row: {
+    path: "/api/database/views/timeline/{view_id}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: password_field_authentication: {
+    path: "/api/database/fields/password-authentication/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: periodic_data_sync_interval: {
+    path: "/api/data-sync/{data_sync_id}/periodic-interval/": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: permission: {
+    path: "/api/workspaces/{workspace_id}/permissions/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: public_builder_workflow_action_type_builder_workflow_action: {
+    path: "/api/builder/domains/published/page/{page_id}/workflow_actions/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: public_form_view: {
+    path: "/api/database/views/form/{slug}/submit/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: public_pagination_serializer_with_gallery_view_field_options: {
+    path: "/api/database/views/gallery/{slug}/public/rows/": {
+      rename: param: "slug": *"gallery_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: public_pagination_serializer_with_grid_view_field_options_example: {
+    path: "/api/database/views/grid/{slug}/public/rows/": {
+      rename: param: "slug": *"grid_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: public_pagination_serializer_with_timeline_view_field_options: {
+    path: "/api/database/views/timeline/{slug}/public/rows/": {
+      rename: param: "slug": *"timeline_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: public_view_auth: {
+    path: "/api/database/views/{slug}/public/auth/": {
+      rename: param: "slug": *"view_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: public_view_info: {
+    path: "/api/database/views/{slug}/public/info/": {
+      rename: param: "slug": *"view_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.fields`")|top
+    }
+  }
+
+  entity: related_field: {
+    path: "/api/database/fields/{field_id}/": {
+      rename: param: "field_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: row_comment: {
+    path: "/api/row_comments/{table_id}/comment/{comment_id}/": {
+      rename: param: "table_id": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/row_comments/{table_id}/{row_id}/": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: row_history: {
+    path: "/api/database/rows/table/{table_id}/{row_id}/history/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+  }
+
+  entity: secure_file_serve: {
+    path: "/api/files/{signed_data}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: setting: {
+    path: "/api/settings/": {
+      op: load: method: *GET
+    }
+    path: "/api/settings/update/": {
+      action: "update": {}
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: snapshot: {
+    path: "/api/snapshots/application/{application_id}/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/snapshots/{snapshot_id}/": {
+      rename: param: "snapshot_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: table: {
+    path: "/api/database/data-sync/database/{database_id}/": {
+      op: create: method: *POST
+    }
+    path: "/api/database/tables/database/{database_id}/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/database/tables/{table_id}/": {
+      rename: param: "table_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/webhooks/table/{table_id}/": {
+      rename: param: "table_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: table_webhook: {
+    path: "/api/database/webhooks/{webhook_id}/": {
+      rename: param: "webhook_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: table_webhook_test_call: {
+    path: "/api/database/webhooks/table/{table_id}/test-call/": {
+      rename: param: "table_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: table_without_data_sync: {
+    path: "/api/database/tables/all-tables/": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: team: {
+    path: "/api/teams/workspace/{workspace_id}/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/teams/{team_id}/": {
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/api/teams/{team_id}/subjects/{subject_id}/": {
+      rename: param: "team_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: team_subject: {
+    path: "/api/teams/{team_id}/subjects/": {
+      rename: param: "team_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/teams/{team_id}/subjects/{subject_id}/": {
+      rename: param: "subject_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: template: {
+    path: "/api/templates/": {
+      op: list: method: *GET
+    }
+    path: "/api/templates/install/{workspace_id}/{template_id}/async/": {
+      rename: param: "workspace_id": *"install_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.template`")|top
+    }
+  }
+
+  entity: token: {
+    path: "/api/database/tokens/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/database/tokens/{token_id}/": {
+      rename: param: "token_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: trash: {
+    path: "/api/trash/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.workspaces`")|top
+    }
+    path: "/api/trash/restore/": {
+      action: "restore": {}
+      op: patch: method: *PATCH
+    }
+    path: "/api/trash/workspace/{workspace_id}/": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: two_factor_auth_type_two_factor_auth: {
+    path: "/api/two-factor-auth/configuration/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: type: {
+    path: "/api/database/formula/{table_id}/type/": {
+      rename: param: "table_id": *"formula_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: unique_row_value: {
+    path: "/api/database/fields/{field_id}/unique_row_values/": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.values`")|top
+    }
+  }
+
+  entity: update_field_permission: {
+    path: "/api/field-permissions/{field_id}/": {
+      rename: param: "field_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: user: {
+    path: "/api/admin/users/": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
+    }
+    path: "/api/admin/users/{user_id}/": {
+      rename: param: "user_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/user/": {
+      op: create: method: *POST
+    }
+    path: "/api/user/account/": {
+      action: "account": {}
+      op: patch: method: *PATCH
+    }
+    path: "/api/user/change-email/": {
+      action: "change_email": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/change-password/": {
+      action: "change_password": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/dashboard/": {
+      action: "dashboard": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.workspace_invitations`")|top
+    }
+    path: "/api/user/preferences/": {
+      action: "preference": {}
+      op: patch: method: *PATCH
+    }
+    path: "/api/user/redo/": {
+      action: "redo": {}
+      op: patch: method: *PATCH
+    }
+    path: "/api/user/reset-password/": {
+      action: "reset_password": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/schedule-account-deletion/": {
+      action: "schedule_account_deletion": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/send-change-email-confirmation/": {
+      action: "send_change_email_confirmation": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/send-reset-password-email/": {
+      action: "send_reset_password_email": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/send-verify-email/": {
+      action: "send_verify_email": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/token-auth/": {
+      action: "token_auth": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/token-blacklist/": {
+      action: "token_blacklist": {}
+      op: create: method: *POST
+    }
+    path: "/api/user/token-refresh/": {
+      action: "token_refresh": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+    }
+    path: "/api/user/token-verify/": {
+      action: "token_verify": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+    }
+    path: "/api/user/undo/": {
+      action: "undo": {}
+      op: patch: method: *PATCH
+    }
+    path: "/api/user/verify-email/": {
+      action: "verify_email": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: user_file: {
+    path: "/api/database/views/form/{slug}/upload-file/": {
+      op: create: method: *POST
+    }
+    path: "/api/user-files/upload-file/": {
+      action: "upload_file": {}
+      op: create: method: *POST
+    }
+    path: "/api/user-files/upload-via-url/": {
+      action: "upload_via_url": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: user_source: {
+    path: "/api/application/{application_id}/user-sources/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/user-source-auth-refresh/": {
+      op: create: method: *POST
+    }
+    path: "/api/user-source-token-blacklist/": {
+      op: create: method: *POST
+    }
+    path: "/api/user-source/sso/saml/acs/": {
+      op: create: method: *POST
+    }
+    path: "/api/user-source/{user_source_id}/": {
+      rename: param: "user_source_id": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/user-source/{user_source_id}/force-token-auth": {
+      action: "force_token_auth": {}
+      rename: param: "user_source_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/user-source/{user_source_id}/token-auth": {
+      action: "token_auth": {}
+      rename: param: "user_source_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/": {
+      rename: param: "user_source_uid": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/user-source/{user_source_uid}/sso/oauth2/openid_connect/login/": {
+      rename: param: "user_source_uid": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/user-source/{user_source_uid}/sso/saml/login/": {
+      rename: param: "user_source_uid": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: user_source_user_source: {
+    path: "/api/user-source/{user_source_id}/move/": {
+      action: "move": {}
+      rename: param: "user_source_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: user_source_user_source_role: {
+    path: "/api/application/{application_id}/user-sources/roles/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: user_workspace_invitation: {
+    path: "/api/workspaces/invitations/token/{token}/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: users_per_user_source: {
+    path: "/api/application/{application_id}/list-user-source-users/": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.users_per_user_sources`")|top
+    }
+  }
+
+  entity: view: {
+    path: "/api/database/view/{view_id}/premium": {
+      action: "premium": {}
+      rename: param: "view_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/{view_id}/": {
+      rename: param: "view_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: view_default_value: {
+    path: "/api/database/views/{view_id}/default-values/": {
+      rename: param: "view_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: view_field_option: {
+    path: "/api/database/views/{view_id}/field-options/": {
+      rename: param: "view_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: view_filter: {
+    path: "/api/database/views/filter/{view_filter_id}/": {
+      rename: param: "view_filter_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/{view_id}/filters/": {
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: view_filter_group: {
+    path: "/api/database/views/filter-group/{view_filter_group_id}/": {
+      rename: param: "view_filter_group_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/{view_id}/filter-groups/": {
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: view_group_by: {
+    path: "/api/database/views/group_by/{view_group_by_id}/": {
+      rename: param: "view_group_by_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/{view_id}/group_bys/": {
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: view_sort: {
+    path: "/api/database/views/sort/{view_sort_id}/": {
+      rename: param: "view_sort_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/database/views/{view_id}/sortings/": {
+      action: "sortings": {}
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: view_view: {
+    path: "/api/database/views/calendar/{view_id}/ical_slug_rotate/": {
+      rename: param: "view_id": *"calendar_id"
+      op: create: method: *POST
+    }
+    path: "/api/database/views/table/{table_id}/": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/database/views/{view_id}/copy-configuration/": {
+      action: "copy-configuration": {}
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/database/views/{view_id}/duplicate/": {
+      action: "duplicate": {}
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/database/views/{view_id}/rotate-slug/": {
+      action: "rotate-slug": {}
+      rename: param: "view_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: workspace: {
+    path: "/api/search/workspace/{workspace_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/workspaces/": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/workspaces/invitations/workspace/{workspace_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/api/workspaces/order/": {
+      action: "order": {}
+      op: create: method: *POST
+    }
+    path: "/api/workspaces/users/workspace/{workspace_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/workspaces/users/{workspace_user_id}/": {
+      op: remove: method: *DELETE
+    }
+    path: "/api/workspaces/{workspace_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/workspaces/{workspace_id}/export/async/": {
+      action: "export_async": {}
+      rename: param: "workspace_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/workspaces/{workspace_id}/import/async/": {
+      action: "import_async": {}
+      rename: param: "workspace_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/workspaces/{workspace_id}/import/upload-file/": {
+      action: "import_upload_file": {}
+      rename: param: "workspace_id": *"id"
+      op: create: method: *POST
+    }
+    path: "/api/workspaces/{workspace_id}/import/{resource_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/workspaces/{workspace_id}/leave/": {
+      action: "leave": {}
+      rename: param: "workspace_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: workspace_invitation: {
+    path: "/api/workspaces/invitations/{workspace_invitation_id}/": {
+      rename: param: "workspace_invitation_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/api/workspaces/invitations/{workspace_invitation_id}/reject/": {
+      rename: param: "workspace_invitation_id": *"invitation_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: workspace_structure: {
+    path: "/api/admin/data-scanner/workspace-structure/{workspace_id}/": {
+      rename: param: "workspace_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: workspace_user: {
+    path: "/api/workspaces/users/{workspace_user_id}/": {
+      rename: param: "workspace_user_id": *"id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: workspace_user_workspace: {
+    path: "/api/workspaces/create-initial-workspace/": {
+      op: create: method: *POST
+    }
+    path: "/api/workspaces/invitations/{workspace_invitation_id}/accept/": {
+      rename: param: "workspace_invitation_id": *"invitation_id"
+      op: create: method: *POST
+    }
+  }
+
+}

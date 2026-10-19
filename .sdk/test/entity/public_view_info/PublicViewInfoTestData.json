@@ -1,0 +1,83 @@
+{
+  "existing": {
+    "public_view_info": {
+      "PUBLIC_VIEW_INFO00": {
+        "database_id": "DATABASE01",
+        "db_index": false,
+        "description": "s8e",
+        "field_constraints": "s8f",
+        "id": "PUBLIC_VIEW_INFO00",
+        "immutable_properties": false,
+        "immutable_type": true,
+        "name": "s93",
+        "order": 148,
+        "primary": false,
+        "read_only": true,
+        "table_id": "TABLE01",
+        "type": "s98",
+        "workspace_id": "WORKSPACE01",
+        "view_id": "VIEW01"
+      },
+      "PUBLIC_VIEW_INFO01": {
+        "database_id": "DATABASE01",
+        "db_index": false,
+        "description": "s11a",
+        "field_constraints": "s11b",
+        "id": "PUBLIC_VIEW_INFO01",
+        "immutable_properties": false,
+        "immutable_type": true,
+        "name": "s11f",
+        "order": 288,
+        "primary": false,
+        "read_only": true,
+        "table_id": "TABLE01",
+        "type": "s124",
+        "workspace_id": "WORKSPACE01",
+        "view_id": "VIEW01"
+      },
+      "PUBLIC_VIEW_INFO02": {
+        "database_id": "DATABASE01",
+        "db_index": false,
+        "description": "s1a6",
+        "field_constraints": "s1a7",
+        "id": "PUBLIC_VIEW_INFO02",
+        "immutable_properties": false,
+        "immutable_type": true,
+        "name": "s1ab",
+        "order": 428,
+        "primary": false,
+        "read_only": true,
+        "table_id": "TABLE01",
+        "type": "s1b0",
+        "workspace_id": "WORKSPACE01",
+        "view_id": "VIEW01"
+      }
+    }
+  },
+  "new": {
+    "public_view_info": {
+      "public_view_info_ref01": {
+        "database_id": "DATABASE01",
+        "db_index": false,
+        "description": "s232",
+        "field_constraints": "s233",
+        "immutable_properties": false,
+        "immutable_type": true,
+        "name": "s237",
+        "order": 568,
+        "primary": false,
+        "read_only": true,
+        "table_id": "TABLE01",
+        "type": "s23c",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/{slug}/public/info/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

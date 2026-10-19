@@ -1,0 +1,32 @@
+# BasicDatabaseTableGridViewFlow
+
+main: kit: flow: BasicDatabaseTableGridViewFlow:
+{
+  entity: "database_table_grid_view",
+  kind: "basic",
+  name: "BasicDatabaseTableGridViewFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_grid_view_ref01",
+        srcdatavar: "database_table_grid_view_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "database_table_grid_view01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-database_table_grid_view_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDatabaseTableGridViewFlow"
+}

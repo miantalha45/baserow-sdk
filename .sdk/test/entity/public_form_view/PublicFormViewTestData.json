@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "public_form_view": {
+      "PUBLIC_FORM_VIEW00": {
+        "condition_groups": [],
+        "condition_type": "s6f",
+        "conditions": [],
+        "description": "s71",
+        "field": "s72",
+        "field_component": "s73",
+        "groups": [],
+        "name": "s75",
+        "order": 118,
+        "required": false,
+        "show_when_matching_conditions": true,
+        "slug": "SLUG01"
+      },
+      "PUBLIC_FORM_VIEW01": {
+        "condition_groups": [],
+        "condition_type": "sdd",
+        "conditions": [],
+        "description": "sdf",
+        "field": "se0",
+        "field_component": "se1",
+        "groups": [],
+        "name": "se3",
+        "order": 228,
+        "required": false,
+        "show_when_matching_conditions": true,
+        "slug": "SLUG01"
+      },
+      "PUBLIC_FORM_VIEW02": {
+        "condition_groups": [],
+        "condition_type": "s14b",
+        "conditions": [],
+        "description": "s14d",
+        "field": "s14e",
+        "field_component": "s14f",
+        "groups": [],
+        "name": "s151",
+        "order": 338,
+        "required": false,
+        "show_when_matching_conditions": true,
+        "slug": "SLUG01"
+      }
+    }
+  },
+  "new": {
+    "public_form_view": {
+      "public_form_view_ref01": {
+        "condition_groups": [],
+        "condition_type": "s1b9",
+        "conditions": [],
+        "description": "s1bb",
+        "field": "s1bc",
+        "field_component": "s1bd",
+        "groups": [],
+        "name": "s1bf",
+        "order": 448,
+        "required": false,
+        "show_when_matching_conditions": true
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/form/{slug}/submit/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

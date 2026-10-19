@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "two_factor_auth_type_two_factor_auth": {
+      "TWO_FACTOR_AUTH_TYPE_TWO_FACTOR_AUTH00": {
+        "id": "TWO_FACTOR_AUTH_TYPE_TWO_FACTOR_AUTH00"
+      },
+      "TWO_FACTOR_AUTH_TYPE_TWO_FACTOR_AUTH01": {
+        "id": "TWO_FACTOR_AUTH_TYPE_TWO_FACTOR_AUTH01"
+      },
+      "TWO_FACTOR_AUTH_TYPE_TWO_FACTOR_AUTH02": {
+        "id": "TWO_FACTOR_AUTH_TYPE_TWO_FACTOR_AUTH02"
+      }
+    }
+  },
+  "new": {
+    "two_factor_auth_type_two_factor_auth": {
+      "two_factor_auth_type_two_factor_auth_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/two-factor-auth/configuration/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/two-factor-auth/configuration/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

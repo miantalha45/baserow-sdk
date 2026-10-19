@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "view_view": {
+      "VIEW_VIEW00": {
+        "id": "VIEW_VIEW00",
+        "calendar_id": "CALENDAR01",
+        "table_id": "TABLE01"
+      },
+      "VIEW_VIEW01": {
+        "id": "VIEW_VIEW01",
+        "calendar_id": "CALENDAR01",
+        "table_id": "TABLE01"
+      },
+      "VIEW_VIEW02": {
+        "id": "VIEW_VIEW02",
+        "calendar_id": "CALENDAR01",
+        "table_id": "TABLE01"
+      }
+    }
+  },
+  "new": {
+    "view_view": {
+      "view_view_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/database/views/calendar/{view_id}/ical_slug_rotate/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/views/{view_id}/copy-configuration/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/views/{view_id}/duplicate/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/views/{view_id}/rotate-slug/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/views/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

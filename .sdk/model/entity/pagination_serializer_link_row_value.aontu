@@ -1,0 +1,135 @@
+# Entity: pagination_serializer_link_row_value
+
+main: kit: entity: pagination_serializer_link_row_value: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The total amount of results."
+      t: "`$INTEGER`"
+    }
+    next: {
+      fo: "uri"
+      h: "Next"
+      n: "next"
+      r: true
+      sh: "URL to the next page."
+      t: "`$STRING`"
+    }
+    previous: {
+      fo: "uri"
+      h: "Previous"
+      n: "previous"
+      r: true
+      sh: "URL to the previous page."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "pagination_serializer_link_row_value"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/{slug}/link-row-field-lookup/{field_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "view_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/{slug}/link-row-field-lookup/{field_id}/"
+          q: {
+            exist: [
+              "field_id"
+              "view_id"
+            ]
+          }
+          r: {
+            param: {
+              slug: "view_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "view_id"
+            }
+            {
+              lit: "link-row-field-lookup"
+            }
+            {
+              var: "field_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

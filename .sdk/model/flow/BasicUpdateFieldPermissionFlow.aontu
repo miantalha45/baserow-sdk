@@ -1,0 +1,51 @@
+# BasicUpdateFieldPermissionFlow
+
+main: kit: flow: BasicUpdateFieldPermissionFlow:
+{
+  entity: "update_field_permission",
+  kind: "basic",
+  name: "BasicUpdateFieldPermissionFlow",
+  step: [
+    {
+      i: {
+        ref: "update_field_permission_ref01",
+        srcdatavar: "update_field_permission_ref01_data",
+        suffix: "_up0",
+        textfield: "role"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-update_field_permission_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "update_field_permission_ref01",
+        srcdatavar: "update_field_permission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "update_field_permission01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-update_field_permission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUpdateFieldPermissionFlow"
+}

@@ -1,0 +1,22 @@
+# BasicPublicViewAuthFlow
+
+main: kit: flow: BasicPublicViewAuthFlow:
+{
+  entity: "public_view_auth",
+  kind: "basic",
+  name: "BasicPublicViewAuthFlow",
+  step: [
+    {
+      i: {
+        ref: "public_view_auth_ref01"
+      }
+
+      m: {
+        view_id: "view01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicPublicViewAuthFlow"
+}

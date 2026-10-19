@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "page": {
+      "PAGE00": {
+        "builder_id": "BUILDER01",
+        "graph": "s79",
+        "id": "PAGE00",
+        "name": "s7b",
+        "order": 124,
+        "path": "s7d",
+        "path_params": [],
+        "query_params": [],
+        "role_type": "s80",
+        "roles": "s81",
+        "shared": true,
+        "visibility": "s83"
+      },
+      "PAGE01": {
+        "builder_id": "BUILDER01",
+        "graph": "sf1",
+        "id": "PAGE01",
+        "name": "sf3",
+        "order": 244,
+        "path": "sf5",
+        "path_params": [],
+        "query_params": [],
+        "role_type": "sf8",
+        "roles": "sf9",
+        "shared": true,
+        "visibility": "sfb"
+      },
+      "PAGE02": {
+        "builder_id": "BUILDER01",
+        "graph": "s169",
+        "id": "PAGE02",
+        "name": "s16b",
+        "order": 364,
+        "path": "s16d",
+        "path_params": [],
+        "query_params": [],
+        "role_type": "s170",
+        "roles": "s171",
+        "shared": true,
+        "visibility": "s173"
+      }
+    }
+  },
+  "new": {
+    "page": {
+      "page_ref01": {
+        "builder_id": "BUILDER01",
+        "graph": "s1e1",
+        "name": "s1e3",
+        "order": 484,
+        "path": "s1e5",
+        "path_params": [],
+        "query_params": [],
+        "role_type": "s1e8",
+        "roles": "s1e9",
+        "shared": true,
+        "visibility": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/{builder_id}/pages/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/builder/pages/{page_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

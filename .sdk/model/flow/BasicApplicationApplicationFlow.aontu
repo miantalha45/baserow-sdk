@@ -1,0 +1,44 @@
+# BasicApplicationApplicationFlow
+
+main: kit: flow: BasicApplicationApplicationFlow:
+{
+  entity: "application_application",
+  kind: "basic",
+  name: "BasicApplicationApplicationFlow",
+  step: [
+    {
+      i: {
+        ref: "application_application_ref01"
+      }
+
+      m: {
+        workspace_id: "workspace01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "application_application_ref01",
+        srcdatavar: "application_application_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "application_application01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-application_application_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApplicationApplicationFlow"
+}

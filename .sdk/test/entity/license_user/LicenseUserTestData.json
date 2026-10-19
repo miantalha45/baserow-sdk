@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "license_user": {
+      "LICENSE_USER00": {
+        "id": "LICENSE_USER00"
+      },
+      "LICENSE_USER01": {
+        "id": "LICENSE_USER01"
+      },
+      "LICENSE_USER02": {
+        "id": "LICENSE_USER02"
+      }
+    }
+  },
+  "new": {
+    "license_user": {
+      "license_user_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/licenses/{id}/fill-seats/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

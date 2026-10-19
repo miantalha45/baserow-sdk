@@ -1,0 +1,102 @@
+# Entity: two_factor_auth_type_two_factor_auth
+
+main: kit: entity: two_factor_auth_type_two_factor_auth: {
+
+  alias: field: {}
+
+  name: "two_factor_auth_type_two_factor_auth"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "backup_codes"
+            "provisioning_qr_code"
+            "provisioning_url"
+            "type"
+          ]
+          co: {
+            id: "POST /api/two-factor-auth/configuration/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/two-factor-auth/configuration/"
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "two-factor-auth"
+            }
+            {
+              lit: "configuration"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/two-factor-auth/configuration/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/two-factor-auth/configuration/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "two-factor-auth"
+            }
+            {
+              lit: "configuration"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

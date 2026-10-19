@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "ai_provider": {
+      "AI_PROVIDER00": {
+        "api_key": "s3c",
+        "extra_settings": {},
+        "id": "AI_PROVIDER00",
+        "is_active": false,
+        "models": [],
+        "provider_type": "s41",
+        "model_id": "MODEL01"
+      },
+      "AI_PROVIDER01": {
+        "api_key": "s78",
+        "extra_settings": {},
+        "id": "AI_PROVIDER01",
+        "is_active": false,
+        "models": [],
+        "provider_type": "s7d",
+        "model_id": "MODEL01"
+      },
+      "AI_PROVIDER02": {
+        "api_key": "sb4",
+        "extra_settings": {},
+        "id": "AI_PROVIDER02",
+        "is_active": false,
+        "models": [],
+        "provider_type": "sb9",
+        "model_id": "MODEL01"
+      }
+    }
+  },
+  "new": {
+    "ai_provider": {
+      "ai_provider_ref01": {
+        "api_key": "sf0",
+        "extra_settings": {},
+        "is_active": false,
+        "models": [],
+        "provider_type": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/ai-providers/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/ai-providers/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/ai-providers/{provider_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/ai-providers/models/{model_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/ai-providers/{provider_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+# Entity: builder_preview
+
+main: kit: entity: builder_preview: {
+
+  alias: field: {}
+
+  name: "builder_preview"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/builder/preview/exchange/{token}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "token"
+                or: "token"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "redirect"
+                or: "redirect"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/preview/exchange/{token}/"
+          q: {
+            exist: [
+              "token"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "preview"
+            }
+            {
+              lit: "exchange"
+            }
+            {
+              var: "token"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

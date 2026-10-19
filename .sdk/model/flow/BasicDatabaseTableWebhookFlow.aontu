@@ -1,0 +1,9 @@
+# BasicDatabaseTableWebhookFlow
+
+main: kit: flow: BasicDatabaseTableWebhookFlow:
+{
+  entity: "database_table_webhook",
+  kind: "basic",
+  name: "BasicDatabaseTableWebhookFlow",
+  "key$": "BasicDatabaseTableWebhookFlow"
+}

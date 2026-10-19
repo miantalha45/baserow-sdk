@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "by_name": {
+      "BY_NAME00": {
+        "id": "BY_NAME00"
+      },
+      "BY_NAME01": {
+        "id": "BY_NAME01"
+      },
+      "BY_NAME02": {
+        "id": "BY_NAME02"
+      }
+    }
+  },
+  "new": {
+    "by_name": {
+      "by_name_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/builder/domains/published/by_name/{domain_name}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

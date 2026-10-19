@@ -1,0 +1,18 @@
+# BasicOnboardingPromptSuggestionFlow
+
+main: kit: flow: BasicOnboardingPromptSuggestionFlow:
+{
+  entity: "onboarding_prompt_suggestion",
+  kind: "basic",
+  name: "BasicOnboardingPromptSuggestionFlow",
+  step: [
+    {
+      i: {
+        ref: "onboarding_prompt_suggestion_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicOnboardingPromptSuggestionFlow"
+}

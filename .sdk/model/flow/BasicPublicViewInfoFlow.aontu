@@ -1,0 +1,26 @@
+# BasicPublicViewInfoFlow
+
+main: kit: flow: BasicPublicViewInfoFlow:
+{
+  entity: "public_view_info",
+  kind: "basic",
+  name: "BasicPublicViewInfoFlow",
+  step: [
+    {
+      m: {
+        view_id: "view01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_view_info_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicViewInfoFlow"
+}

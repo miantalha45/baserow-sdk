@@ -1,0 +1,423 @@
+# Entity: view
+
+main: kit: entity: view: {
+
+  alias: field: {}
+
+  fields: {
+    allow_public_export: {
+      h: "Allow Public Export"
+      n: "allow_public_export"
+      r: false
+      sh: "Indicates whether it's allowed to export a publicly shared view."
+      t: "`$BOOLEAN`"
+    }
+    decorations: {
+      h: "Decorations"
+      n: "decorations"
+      r: false
+      t: "`$ARRAY`"
+    }
+    default_row_values: {
+      h: "Default Row Values"
+      n: "default_row_values"
+      r: false
+      t: "`$ARRAY`"
+    }
+    filter_groups: {
+      h: "Filter Groups"
+      n: "filter_groups"
+      r: false
+      t: "`$ARRAY`"
+    }
+    filter_type: {
+      h: "Filter Type"
+      n: "filter_type"
+      r: false
+      sh: "Indicates whether all the rows should apply to all filters (AND) or to any filter (OR)."
+      t: "`$STRING`"
+    }
+    filters: {
+      h: "Filters"
+      n: "filters"
+      r: false
+      t: "`$ARRAY`"
+    }
+    filters_disabled: {
+      h: "Filters Disabled"
+      n: "filters_disabled"
+      r: false
+      sh: "Allows users to see results unfiltered while still keeping the filters saved for the view."
+      t: "`$BOOLEAN`"
+    }
+    group_bys: {
+      h: "Group Bys"
+      n: "group_bys"
+      r: false
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: true
+      t: "`$INTEGER`"
+    }
+    owned_by_id: {
+      h: "Owned By Id"
+      n: "owned_by_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    ownership_type: {
+      h: "Ownership Type"
+      n: "ownership_type"
+      r: true
+      t: "`$STRING`"
+    }
+    public_view_has_password: {
+      h: "Public View Has Password"
+      n: "public_view_has_password"
+      r: true
+      ro: true
+      sh: "Indicates whether the public view is password protected or not."
+      t: "`$BOOLEAN`"
+    }
+    show_logo: {
+      h: "Show Logo"
+      n: "show_logo"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    sortings: {
+      h: "Sortings"
+      n: "sortings"
+      r: false
+      t: "`$ARRAY`"
+    }
+    table: {
+      h: "Table"
+      n: "table"
+      r: true
+      t: "`$OBJECT`"
+    }
+    table_id: {
+      h: "Table Id"
+      n: "table_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "view"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/{view_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/{view_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "allow_public_export"
+            "show_logo"
+          ]
+          co: {
+            id: "PATCH /api/database/view/{view_id}/premium"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/view/{view_id}/premium"
+          q: {
+            "$action": "premium"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "allow_public_export"
+                  }
+                  {
+                    name: "show_logo"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "allow_public_export"
+                  }
+                  {
+                    name: "show_logo"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "view"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "premium"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "card_cover_image_field"
+            "cover_image"
+            "date_field"
+            "description"
+            "end_date_field"
+            "filter_type"
+            "filters_disabled"
+            "frozen_column_count"
+            "group_by_layout"
+            "ical_public"
+            "logo_image"
+            "mode"
+            "name"
+            "ownership_type"
+            "public"
+            "public_view_password"
+            "row_height_size"
+            "row_identifier_type"
+            "single_select_field"
+            "start_date_field"
+            "submit_action"
+            "submit_action_message"
+            "submit_action_redirect_url"
+            "submit_text"
+            "timescale"
+            "title"
+          ]
+          co: {
+            id: "PATCH /api/database/views/{view_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/views/{view_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

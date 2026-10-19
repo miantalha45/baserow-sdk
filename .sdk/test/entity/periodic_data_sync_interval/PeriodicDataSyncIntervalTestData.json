@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "periodic_data_sync_interval": {
+      "PERIODIC_DATA_SYNC_INTERVAL00": {
+        "automatically_deactivated": true,
+        "interval": "s1f",
+        "when": "s20",
+        "data_sync_id": "DATA_SYNC01",
+        "id": "PERIODIC_DATA_SYNC_INTERVAL00"
+      },
+      "PERIODIC_DATA_SYNC_INTERVAL01": {
+        "automatically_deactivated": true,
+        "interval": "s3d",
+        "when": "s3e",
+        "data_sync_id": "DATA_SYNC01",
+        "id": "PERIODIC_DATA_SYNC_INTERVAL01"
+      },
+      "PERIODIC_DATA_SYNC_INTERVAL02": {
+        "automatically_deactivated": true,
+        "interval": "s5b",
+        "when": "s5c",
+        "data_sync_id": "DATA_SYNC01",
+        "id": "PERIODIC_DATA_SYNC_INTERVAL02"
+      }
+    }
+  },
+  "new": {
+    "periodic_data_sync_interval": {
+      "periodic_data_sync_interval_ref01": {
+        "automatically_deactivated": true,
+        "interval": "s79",
+        "when": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/data-sync/{data_sync_id}/periodic-interval/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/data-sync/{data_sync_id}/periodic-interval/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

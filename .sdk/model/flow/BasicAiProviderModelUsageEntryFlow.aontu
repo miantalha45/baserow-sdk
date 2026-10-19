@@ -1,0 +1,26 @@
+# BasicAiProviderModelUsageEntryFlow
+
+main: kit: flow: BasicAiProviderModelUsageEntryFlow:
+{
+  entity: "ai_provider_model_usage_entry",
+  kind: "basic",
+  name: "BasicAiProviderModelUsageEntryFlow",
+  step: [
+    {
+      m: {
+        model_id: "model01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_provider_model_usage_entry_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiProviderModelUsageEntryFlow"
+}

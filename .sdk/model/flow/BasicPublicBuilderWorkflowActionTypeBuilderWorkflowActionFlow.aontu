@@ -1,0 +1,26 @@
+# BasicPublicBuilderWorkflowActionTypeBuilderWorkflowActionFlow
+
+main: kit: flow: BasicPublicBuilderWorkflowActionTypeBuilderWorkflowActionFlow:
+{
+  entity: "public_builder_workflow_action_type_builder_workflow_action",
+  kind: "basic",
+  name: "BasicPublicBuilderWorkflowActionTypeBuilderWorkflowActionFlow",
+  step: [
+    {
+      m: {
+        page_id: "page01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_builder_workflow_action_type_builder_workflow_action_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicBuilderWorkflowActionTypeBuilderWorkflowActionFlow"
+}

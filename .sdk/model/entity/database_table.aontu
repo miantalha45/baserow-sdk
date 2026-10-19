@@ -1,0 +1,707 @@
+# Entity: database_table
+
+main: kit: entity: database_table: {
+
+  alias: field: {}
+
+  fields: {
+    configuration: {
+      h: "Configuration"
+      n: "configuration"
+      r: false
+      sh: "Additional table import configuration."
+      t: "`$OBJECT`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      sh: "A list of rows you want to add to the specified table."
+      t: "`$ARRAY`"
+    }
+    data_sync: {
+      h: "Data Sync"
+      n: "data_sync"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    database_id: {
+      h: "Database Id"
+      n: "database_id"
+      r: true
+      sh: "Database id where the table will be created."
+      t: "`$INTEGER`"
+    }
+    duplicated_table: {
+      h: "Duplicated Table"
+      n: "duplicated_table"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "A machine readable error code indicating why the job failed."
+      t: "`$STRING`"
+    }
+    first_row_header: {
+      h: "First Row Header"
+      n: "first_row_header"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    human_readable_error: {
+      h: "Human Readable Error"
+      n: "human_readable_error"
+      r: false
+      sh: "A human readable error message indicating what went wrong."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    importer_type: {
+      h: "Importer Type"
+      n: "importer_type"
+      r: false
+      sh: "The frontend importer identifier used to parse the file."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the new table."
+      t: "`$STRING`"
+    }
+    original_file_name: {
+      h: "Original File Name"
+      n: "original_file_name"
+      r: false
+      sh: "The original name of the uploaded file."
+      t: "`$STRING`"
+    }
+    original_table: {
+      h: "Original Table"
+      n: "original_table"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    progress_percentage: {
+      h: "Progress Percentage"
+      n: "progress_percentage"
+      r: true
+      sh: "A percentage indicating how far along the job is."
+      t: "`$INTEGER`"
+    }
+    report: {
+      h: "Report"
+      n: "report"
+      r: true
+      sh: "Import error report."
+      t: "`$ANY`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "Indicates the state of the import job."
+      t: "`$STRING`"
+    }
+    table_id: {
+      h: "Table Id"
+      n: "table_id"
+      r: false
+      sh: "Table id where the data will be imported."
+      t: "`$INTEGER`"
+    }
+    triggered_by: {
+      h: "Triggered By"
+      n: "triggered_by"
+      r: true
+      ro: true
+      sh: "Whether this sync run was started manually or periodically."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "The type of the job."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    user_name: {
+      h: "User Name"
+      n: "user_name"
+      r: true
+      ro: true
+      sh: "The name of the user that started this sync run."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "database_table"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/database/data-sync/{data_sync_id}/sync/async/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "data_sync_id"
+                or: "data_sync_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/data-sync/{data_sync_id}/sync/async/"
+          q: {
+            exist: [
+              "data_sync_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "data-sync"
+            }
+            {
+              var: "data_sync_id"
+            }
+            {
+              lit: "sync"
+            }
+            {
+              lit: "async"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "data"
+            "first_row_header"
+            "importer_type"
+            "name"
+            "original_file_name"
+          ]
+          co: {
+            id: "POST /api/database/tables/database/{database_id}/async/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "database_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/tables/database/{database_id}/async/"
+          q: {
+            "$action": "async"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              database_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "data"
+                  }
+                  {
+                    name: "first_row_header"
+                  }
+                  {
+                    name: "importer_type"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "original_file_name"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "data"
+                  }
+                  {
+                    name: "first_row_header"
+                  }
+                  {
+                    name: "importer_type"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "original_file_name"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              lit: "database"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "async"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "table_ids"
+          ]
+          co: {
+            id: "POST /api/database/tables/database/{database_id}/order/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "database_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/tables/database/{database_id}/order/"
+          q: {
+            "$action": "order"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              database_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "table_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "table_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              lit: "database"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "order"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/database/tables/{table_id}/duplicate/async/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/tables/{table_id}/duplicate/async/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              var: "table_id"
+            }
+            {
+              lit: "duplicate"
+            }
+            {
+              lit: "async"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "configuration"
+            "data"
+            "importer_type"
+            "original_file_name"
+          ]
+          co: {
+            id: "POST /api/database/tables/{table_id}/import/async/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/tables/{table_id}/import/async/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "configuration"
+                  }
+                  {
+                    list: true
+                    name: "data"
+                  }
+                  {
+                    name: "importer_type"
+                  }
+                  {
+                    name: "original_file_name"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "configuration"
+                  }
+                  {
+                    list: true
+                    name: "data"
+                  }
+                  {
+                    name: "importer_type"
+                  }
+                  {
+                    name: "original_file_name"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              var: "table_id"
+            }
+            {
+              lit: "import"
+            }
+            {
+              lit: "async"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/database/tables/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/database/tables/{table_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.data_sync")]
+    [path("$.main.kit.entity.table")]
+  ]
+
+}

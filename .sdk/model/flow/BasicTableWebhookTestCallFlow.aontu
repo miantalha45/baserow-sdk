@@ -1,0 +1,22 @@
+# BasicTableWebhookTestCallFlow
+
+main: kit: flow: BasicTableWebhookTestCallFlow:
+{
+  entity: "table_webhook_test_call",
+  kind: "basic",
+  name: "BasicTableWebhookTestCallFlow",
+  step: [
+    {
+      i: {
+        ref: "table_webhook_test_call_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicTableWebhookTestCallFlow"
+}

@@ -1,0 +1,851 @@
+# Entity: user_source
+
+main: kit: entity: user_source: {
+
+  alias: field: {}
+
+  fields: {
+    RelayState: {
+      h: "Relay State"
+      n: "RelayState"
+      r: true
+      sh: "The frontend URL where redirect the authenticated user."
+      t: "`$STRING`"
+    }
+    SAMLResponse: {
+      h: "Saml Response"
+      n: "SAMLResponse"
+      r: true
+      sh: "The encoded SAML response from the IdP."
+      t: "`$STRING`"
+    }
+    access_token: {
+      h: "Access Token"
+      n: "access_token"
+      r: false
+      sh: "'access_token' can be used to authorize for other endpoints that require authorization."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    refresh: {
+      h: "Refresh"
+      n: "refresh"
+      r: true
+      t: "`$STRING`"
+      wo: true
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "user_source"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "auth_providers"
+            "before_id"
+            "email_field_id"
+            "integration_id"
+            "name"
+            "name_field_id"
+            "role_field_id"
+            "table_id"
+            "type"
+          ]
+          co: {
+            id: "POST /api/application/{application_id}/user-sources/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/application/{application_id}/user-sources/"
+          q: {
+            exist: [
+              "application_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "application"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "user-sources"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/user-source/{user_source_id}/force-token-auth"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/user-source/{user_source_id}/force-token-auth"
+          q: {
+            "$action": "force_token_auth"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "force-token-auth"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "password"
+            "username"
+          ]
+          co: {
+            id: "POST /api/user-source/{user_source_id}/token-auth"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/user-source/{user_source_id}/token-auth"
+          q: {
+            "$action": "token_auth"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "access"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "refresh"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "access"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "refresh"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "token-auth"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/user-source-auth-refresh/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user-source-auth-refresh/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source-auth-refresh"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "refresh"
+          ]
+          co: {
+            id: "POST /api/user-source-token-blacklist/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user-source-token-blacklist/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "refresh"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "refresh"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source-token-blacklist"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "RelayState"
+            "SAMLResponse"
+          ]
+          co: {
+            id: "POST /api/user-source/sso/saml/acs/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user-source/sso/saml/acs/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "RelayState"
+                  }
+                  {
+                    name: "SAMLResponse"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "RelayState"
+                  }
+                  {
+                    name: "SAMLResponse"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "saml"
+            }
+            {
+              lit: "acs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/application/{application_id}/user-sources/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/application/{application_id}/user-sources/"
+          q: {
+            exist: [
+              "application_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "application"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "user-sources"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_uid"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "code"
+                or: "code"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "state"
+                or: "state"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "oauth2"
+            }
+            {
+              lit: "openid_connect"
+            }
+            {
+              lit: "callback"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/login/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_uid"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "iss"
+                or: "iss"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "original"
+                or: "original"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/user-source/{user_source_uid}/sso/oauth2/openid_connect/login/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "oauth2"
+            }
+            {
+              lit: "openid_connect"
+            }
+            {
+              lit: "login"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/user-source/{user_source_uid}/sso/saml/login/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_uid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "original"
+                or: "original"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/user-source/{user_source_uid}/sso/saml/login/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_uid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "saml"
+            }
+            {
+              lit: "login"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/user-source/{user_source_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/user-source/{user_source_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "auth_providers"
+            "email_field_id"
+            "integration_id"
+            "name"
+            "name_field_id"
+            "role_field_id"
+            "table_id"
+          ]
+          co: {
+            id: "PATCH /api/user-source/{user_source_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/user-source/{user_source_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_source_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-source"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.application")]
+  ]
+
+}

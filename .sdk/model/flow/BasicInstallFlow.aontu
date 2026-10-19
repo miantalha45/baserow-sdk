@@ -1,0 +1,23 @@
+# BasicInstallFlow
+
+main: kit: flow: BasicInstallFlow:
+{
+  entity: "install",
+  kind: "basic",
+  name: "BasicInstallFlow",
+  step: [
+    {
+      i: {
+        ref: "install_ref01"
+      }
+
+      m: {
+        template_id: "template01",
+        workspace_id: "workspace01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicInstallFlow"
+}

@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "login": {
+      "LOGIN00": {
+        "id": "LOGIN00"
+      },
+      "LOGIN01": {
+        "id": "LOGIN01"
+      },
+      "LOGIN02": {
+        "id": "LOGIN02"
+      }
+    }
+  },
+  "new": {
+    "login": {
+      "login_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/sso/oauth2/login/{provider_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+# Entity: pagination_serializer_trash_content
+
+main: kit: entity: pagination_serializer_trash_content: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The total amount of results."
+      t: "`$INTEGER`"
+    }
+    next: {
+      fo: "uri"
+      h: "Next"
+      n: "next"
+      r: true
+      sh: "URL to the next page."
+      t: "`$STRING`"
+    }
+    previous: {
+      fo: "uri"
+      h: "Previous"
+      n: "previous"
+      r: true
+      sh: "URL to the previous page."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "pagination_serializer_trash_content"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/trash/workspace/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "application_id"
+                or: "application_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/trash/workspace/{workspace_id}/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "trash"
+            }
+            {
+              lit: "workspace"
+            }
+            {
+              var: "workspace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workspace")]
+  ]
+
+}

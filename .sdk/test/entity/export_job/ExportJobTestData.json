@@ -1,0 +1,83 @@
+{
+  "existing": {
+    "export_job": {
+      "EXPORT_JOB00": {
+        "created_at": "s64",
+        "exported_file_name": "s65",
+        "exporter_type": "s66",
+        "id": "EXPORT_JOB00",
+        "progress_percentage": 104,
+        "state": "s69",
+        "status": "s6a",
+        "table": 107,
+        "url": "s6c",
+        "view": 109,
+        "slug": "SLUG01",
+        "table_id": "TABLE01",
+        "job_id": "JOB01"
+      },
+      "EXPORT_JOB01": {
+        "created_at": "sc8",
+        "exported_file_name": "sc9",
+        "exporter_type": "sca",
+        "id": "EXPORT_JOB01",
+        "progress_percentage": 204,
+        "state": "scd",
+        "status": "sce",
+        "table": 207,
+        "url": "sd0",
+        "view": 209,
+        "slug": "SLUG01",
+        "table_id": "TABLE01",
+        "job_id": "JOB01"
+      },
+      "EXPORT_JOB02": {
+        "created_at": "s12c",
+        "exported_file_name": "s12d",
+        "exporter_type": "s12e",
+        "id": "EXPORT_JOB02",
+        "progress_percentage": 304,
+        "state": "s131",
+        "status": "s132",
+        "table": 307,
+        "url": "s134",
+        "view": 309,
+        "slug": "SLUG01",
+        "table_id": "TABLE01",
+        "job_id": "JOB01"
+      }
+    }
+  },
+  "new": {
+    "export_job": {
+      "export_job_ref01": {
+        "created_at": "s190",
+        "exported_file_name": "s191",
+        "exporter_type": "s192",
+        "progress_percentage": 404,
+        "state": "s195",
+        "status": "s196",
+        "table": 407,
+        "url": "s198",
+        "view": 409
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/view/{slug}/export-public-view/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/export/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/view/get-public-view-export/{job_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

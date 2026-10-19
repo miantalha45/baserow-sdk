@@ -1,0 +1,79 @@
+# BasicViewSortFlow
+
+main: kit: flow: BasicViewSortFlow:
+{
+  entity: "view_sort",
+  kind: "basic",
+  name: "BasicViewSortFlow",
+  step: [
+    {
+      i: {
+        ref: "view_sort_ref01"
+      }
+
+      m: {
+        view_id: "view01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        view_id: "view01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "view_sort_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "view_sort_ref01",
+        srcdatavar: "view_sort_ref01_data",
+        suffix: "_up0",
+        textfield: "order"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_sort_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "view_sort_ref01",
+        srcdatavar: "view_sort_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "view_sort01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_sort_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicViewSortFlow"
+}

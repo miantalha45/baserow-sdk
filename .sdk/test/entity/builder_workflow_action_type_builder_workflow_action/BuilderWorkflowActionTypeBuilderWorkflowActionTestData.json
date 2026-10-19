@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "builder_workflow_action_type_builder_workflow_action": {
+      "BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION00": {
+        "id": "BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION00",
+        "page_id": "PAGE01"
+      },
+      "BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION01": {
+        "id": "BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION01",
+        "page_id": "PAGE01"
+      },
+      "BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION02": {
+        "id": "BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION02",
+        "page_id": "PAGE01"
+      }
+    }
+  },
+  "new": {
+    "builder_workflow_action_type_builder_workflow_action": {
+      "builder_workflow_action_type_builder_workflow_action_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/builder/page/{page_id}/workflow_actions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/page/{page_id}/workflow_actions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/builder/workflow_action/{workflow_action_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

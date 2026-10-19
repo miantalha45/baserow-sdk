@@ -1,0 +1,80 @@
+# Entity: public_builder_workflow_action_type_builder_workflow_action
+
+main: kit: entity: public_builder_workflow_action_type_builder_workflow_action: {
+
+  alias: field: {}
+
+  name: "public_builder_workflow_action_type_builder_workflow_action"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/builder/domains/published/page/{page_id}/workflow_actions/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/domains/published/page/{page_id}/workflow_actions/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "domains"
+            }
+            {
+              lit: "published"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "workflow_actions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.page")]
+  ]
+
+}

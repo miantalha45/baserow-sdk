@@ -1,0 +1,18 @@
+# BasicAiProviderModelsTestFlow
+
+main: kit: flow: BasicAiProviderModelsTestFlow:
+{
+  entity: "ai_provider_models_test",
+  kind: "basic",
+  name: "BasicAiProviderModelsTestFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_provider_models_test_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAiProviderModelsTestFlow"
+}

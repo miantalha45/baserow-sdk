@@ -1,0 +1,189 @@
+# Entity: public_view_info
+
+main: kit: entity: public_view_info: {
+
+  alias: field: {}
+
+  fields: {
+    database_id: {
+      h: "Database Id"
+      n: "database_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    db_index: {
+      h: "Db Index"
+      n: "db_index"
+      r: false
+      sh: "If true, then an index will be added to the Baserow field to increase lookup and filter speed."
+      t: "`$BOOLEAN`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Field description"
+      t: "`$STRING`"
+    }
+    field_constraints: {
+      h: "Field Constraints"
+      n: "field_constraints"
+      r: true
+      ro: true
+      sh: "The constraints applied to this field."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    immutable_properties: {
+      h: "Immutable Properties"
+      n: "immutable_properties"
+      r: true
+      ro: true
+      sh: "Indicates whether the field properties are immutable."
+      t: "`$BOOLEAN`"
+    }
+    immutable_type: {
+      h: "Immutable Type"
+      n: "immutable_type"
+      r: true
+      ro: true
+      sh: "Indicates whether the field type is immutable."
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: true
+      sh: "Lowest first."
+      t: "`$INTEGER`"
+    }
+    primary: {
+      h: "Primary"
+      n: "primary"
+      r: false
+      sh: "Indicates if the field is a primary field."
+      t: "`$BOOLEAN`"
+    }
+    read_only: {
+      h: "Read Only"
+      n: "read_only"
+      r: true
+      ro: true
+      sh: "Indicates whether the field is a read only field."
+      t: "`$BOOLEAN`"
+    }
+    table_id: {
+      h: "Table Id"
+      n: "table_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "The type of the related field."
+      t: "`$STRING`"
+    }
+    workspace_id: {
+      h: "Workspace Id"
+      n: "workspace_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "public_view_info"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/{slug}/public/info/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "view_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/{slug}/public/info/"
+          q: {
+            exist: [
+              "view_id"
+            ]
+          }
+          r: {
+            param: {
+              slug: "view_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "view_id"
+            }
+            {
+              lit: "public"
+            }
+            {
+              lit: "info"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.fields`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

@@ -1,0 +1,26 @@
+# BasicInvalidRowFlow
+
+main: kit: flow: BasicInvalidRowFlow:
+{
+  entity: "invalid_row",
+  kind: "basic",
+  name: "BasicInvalidRowFlow",
+  step: [
+    {
+      m: {
+        field_rule_id: "field_rule01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "invalid_row_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInvalidRowFlow"
+}

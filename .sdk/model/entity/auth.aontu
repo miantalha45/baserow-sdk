@@ -1,0 +1,445 @@
+# Entity: auth
+
+main: kit: entity: auth: {
+
+  alias: field: {}
+
+  fields: {
+    RelayState: {
+      h: "Relay State"
+      n: "RelayState"
+      r: true
+      sh: "The frontend URL where redirect the authenticated user."
+      t: "`$STRING`"
+    }
+    SAMLResponse: {
+      h: "Saml Response"
+      n: "SAMLResponse"
+      r: true
+      sh: "The encoded SAML response from the IdP."
+      t: "`$STRING`"
+    }
+    backup_code: {
+      h: "Backup Code"
+      n: "backup_code"
+      r: false
+      t: "`$STRING`"
+    }
+    code: {
+      h: "Code"
+      n: "code"
+      r: false
+      t: "`$STRING`"
+    }
+    email: {
+      fo: "email"
+      h: "Email"
+      n: "email"
+      r: false
+      sh: "Deprecated."
+      t: "`$STRING`"
+    }
+    password: {
+      h: "Password"
+      n: "password"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "auth"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "RelayState"
+            "SAMLResponse"
+          ]
+          co: {
+            id: "POST /api/sso/saml/acs/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/sso/saml/acs/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "RelayState"
+                  }
+                  {
+                    name: "SAMLResponse"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "RelayState"
+                  }
+                  {
+                    name: "SAMLResponse"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "saml"
+            }
+            {
+              lit: "acs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "password"
+          ]
+          co: {
+            id: "POST /api/two-factor-auth/disable/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/two-factor-auth/disable/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "password"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "password"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "two-factor-auth"
+            }
+            {
+              lit: "disable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "backup_code"
+            "code"
+            "email"
+          ]
+          co: {
+            id: "POST /api/two-factor-auth/verify/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/two-factor-auth/verify/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "backup_code"
+                  }
+                  {
+                    name: "code"
+                  }
+                  {
+                    name: "email"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "backup_code"
+                  }
+                  {
+                    name: "code"
+                  }
+                  {
+                    name: "email"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "two-factor-auth"
+            }
+            {
+              lit: "verify"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/auth-provider/login-options/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/auth-provider/login-options/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "auth-provider"
+            }
+            {
+              lit: "login-options"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/sso/saml/login-url/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "original"
+                or: "original"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "workspace_invitation_token"
+                or: "workspace_invitation_token"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/sso/saml/login-url/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "saml"
+            }
+            {
+              lit: "login-url"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/sso/saml/login/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "original"
+                or: "original"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "workspace_invitation_token"
+                or: "workspace_invitation_token"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/sso/saml/login/"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "sso"
+            }
+            {
+              lit: "saml"
+            }
+            {
+              lit: "login"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/admin/auth-provider/{auth_provider_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "auth_provider_id"
+                or: "auth_provider_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/admin/auth-provider/{auth_provider_id}/"
+          q: {
+            exist: [
+              "auth_provider_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "auth-provider"
+            }
+            {
+              var: "auth_provider_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "calendar_view_example": {
+      "CALENDAR_VIEW_EXAMPLE00": {
+        "hidden": true,
+        "order": 21,
+        "calendar_id": "CALENDAR01"
+      },
+      "CALENDAR_VIEW_EXAMPLE01": {
+        "hidden": true,
+        "order": 41,
+        "calendar_id": "CALENDAR01"
+      },
+      "CALENDAR_VIEW_EXAMPLE02": {
+        "hidden": true,
+        "order": 61,
+        "calendar_id": "CALENDAR01"
+      }
+    }
+  },
+  "new": {
+    "calendar_view_example": {
+      "calendar_view_example_ref01": {
+        "hidden": true,
+        "order": 81
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/calendar/{slug}/public/rows/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

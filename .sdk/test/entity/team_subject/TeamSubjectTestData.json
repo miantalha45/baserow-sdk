@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "team_subject": {
+      "TEAM_SUBJECT00": {
+        "id": "TEAM_SUBJECT00",
+        "subject_id": "SUBJECT01",
+        "subject_type": "s34",
+        "subject_user_email": "s35",
+        "team": 54,
+        "team_id": "TEAM01"
+      },
+      "TEAM_SUBJECT01": {
+        "id": "TEAM_SUBJECT01",
+        "subject_id": "SUBJECT01",
+        "subject_type": "s66",
+        "subject_user_email": "s67",
+        "team": 104,
+        "team_id": "TEAM01"
+      },
+      "TEAM_SUBJECT02": {
+        "id": "TEAM_SUBJECT02",
+        "subject_id": "SUBJECT01",
+        "subject_type": "s98",
+        "subject_user_email": "s99",
+        "team": 154,
+        "team_id": "TEAM01"
+      }
+    }
+  },
+  "new": {
+    "team_subject": {
+      "team_subject_ref01": {
+        "subject_id": "SUBJECT01",
+        "subject_type": "sca",
+        "subject_user_email": "scb",
+        "team": 204
+      }
+    }
+  },
+  "requests": {
+    "POST /api/teams/{team_id}/subjects/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/teams/{team_id}/subjects/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/teams/{team_id}/subjects/{subject_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

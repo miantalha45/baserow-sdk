@@ -1,0 +1,184 @@
+{
+  "existing": {
+    "workspace": {
+      "WORKSPACE00": {
+        "ai_features": "sd2",
+        "base_url": "sd3",
+        "captcha_token": "sd4",
+        "created_on": "sd5",
+        "email": "sd6",
+        "generative_ai_models_enabled": "sd7",
+        "has_more": true,
+        "highest_role_uid": "sd9",
+        "id": "WORKSPACE00",
+        "name": "sdb",
+        "order": 220,
+        "permissions": "sdd",
+        "results": [],
+        "role_uid": "sdf",
+        "teams": [],
+        "to_be_deleted": false,
+        "two_factor_auth": "se2",
+        "unread_notifications_count": 227,
+        "user_id": "USER01",
+        "users": [],
+        "workspace": 230,
+        "resource_id": "RESOURCE01",
+        "workspace_user_id": "WORKSPACE_USER01"
+      },
+      "WORKSPACE01": {
+        "ai_features": "s1a4",
+        "base_url": "s1a5",
+        "captcha_token": "s1a6",
+        "created_on": "s1a7",
+        "email": "s1a8",
+        "generative_ai_models_enabled": "s1a9",
+        "has_more": true,
+        "highest_role_uid": "s1ab",
+        "id": "WORKSPACE01",
+        "name": "s1ad",
+        "order": 430,
+        "permissions": "s1af",
+        "results": [],
+        "role_uid": "s1b1",
+        "teams": [],
+        "to_be_deleted": false,
+        "two_factor_auth": "s1b4",
+        "unread_notifications_count": 437,
+        "user_id": "USER01",
+        "users": [],
+        "workspace": 440,
+        "resource_id": "RESOURCE01",
+        "workspace_user_id": "WORKSPACE_USER01"
+      },
+      "WORKSPACE02": {
+        "ai_features": "s276",
+        "base_url": "s277",
+        "captcha_token": "s278",
+        "created_on": "s279",
+        "email": "s27a",
+        "generative_ai_models_enabled": "s27b",
+        "has_more": true,
+        "highest_role_uid": "s27d",
+        "id": "WORKSPACE02",
+        "name": "s27f",
+        "order": 640,
+        "permissions": "s281",
+        "results": [],
+        "role_uid": "s283",
+        "teams": [],
+        "to_be_deleted": false,
+        "two_factor_auth": "s286",
+        "unread_notifications_count": 647,
+        "user_id": "USER01",
+        "users": [],
+        "workspace": 650,
+        "resource_id": "RESOURCE01",
+        "workspace_user_id": "WORKSPACE_USER01"
+      }
+    }
+  },
+  "new": {
+    "workspace": {
+      "workspace_ref01": {
+        "ai_features": "s348",
+        "base_url": "s349",
+        "captcha_token": "s34a",
+        "created_on": "s34b",
+        "email": "s34c",
+        "generative_ai_models_enabled": "s34d",
+        "has_more": true,
+        "highest_role_uid": "s34f",
+        "name": "s351",
+        "order": 850,
+        "permissions": "s353",
+        "results": [],
+        "role_uid": "s355",
+        "teams": [],
+        "to_be_deleted": false,
+        "two_factor_auth": "s358",
+        "unread_notifications_count": 857,
+        "user_id": "USER01",
+        "users": [],
+        "workspace": 860
+      }
+    }
+  },
+  "requests": {
+    "POST /api/workspaces/invitations/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/{workspace_id}/export/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/{workspace_id}/import/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/{workspace_id}/import/upload-file/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/{workspace_id}/leave/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/workspaces/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/workspaces/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/search/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/workspaces/invitations/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/workspaces/users/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/workspaces/{workspace_id}/import/{resource_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/workspaces/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/workspaces/users/{workspace_user_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/workspaces/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

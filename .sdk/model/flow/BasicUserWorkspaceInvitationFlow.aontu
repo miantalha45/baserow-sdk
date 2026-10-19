@@ -1,0 +1,32 @@
+# BasicUserWorkspaceInvitationFlow
+
+main: kit: flow: BasicUserWorkspaceInvitationFlow:
+{
+  entity: "user_workspace_invitation",
+  kind: "basic",
+  name: "BasicUserWorkspaceInvitationFlow",
+  step: [
+    {
+      i: {
+        ref: "user_workspace_invitation_ref01",
+        srcdatavar: "user_workspace_invitation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "user_workspace_invitation01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_workspace_invitation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserWorkspaceInvitationFlow"
+}

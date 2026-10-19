@@ -1,0 +1,58 @@
+# BasicDatabaseTableViewFlow
+
+main: kit: flow: BasicDatabaseTableViewFlow:
+{
+  entity: "database_table_view",
+  kind: "basic",
+  name: "BasicDatabaseTableViewFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_view_ref01"
+      }
+
+      m: {
+        ical_slug: "ical_slug01",
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "database_table_view_ref01",
+        srcdatavar: "database_table_view_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        ical_slug: "ical_slug01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-database_table_view_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "database_table_view_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "database_table_view01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicDatabaseTableViewFlow"
+}

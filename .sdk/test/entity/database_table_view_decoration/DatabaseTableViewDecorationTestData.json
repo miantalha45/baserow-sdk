@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "database_table_view_decoration": {
+      "DATABASE_TABLE_VIEW_DECORATION00": {
+        "id": "DATABASE_TABLE_VIEW_DECORATION00"
+      },
+      "DATABASE_TABLE_VIEW_DECORATION01": {
+        "id": "DATABASE_TABLE_VIEW_DECORATION01"
+      },
+      "DATABASE_TABLE_VIEW_DECORATION02": {
+        "id": "DATABASE_TABLE_VIEW_DECORATION02"
+      }
+    }
+  },
+  "new": {
+    "database_table_view_decoration": {
+      "database_table_view_decoration_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/database/views/decoration/{view_decoration_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

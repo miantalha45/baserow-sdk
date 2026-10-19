@@ -1,0 +1,93 @@
+{
+  "existing": {
+    "admin_dashboard": {
+      "ADMIN_DASHBOARD00": {
+        "active_users_last_24_hours": 170,
+        "active_users_last_30_days": 171,
+        "active_users_last_7_days": 172,
+        "active_users_per_day": [],
+        "new_users_last_24_hours": 174,
+        "new_users_last_30_days": 175,
+        "new_users_last_7_days": 176,
+        "new_users_per_day": [],
+        "previous_active_users_last_24_hours": 178,
+        "previous_active_users_last_30_days": 179,
+        "previous_active_users_last_7_days": 180,
+        "previous_new_users_last_24_hours": 181,
+        "previous_new_users_last_30_days": 182,
+        "previous_new_users_last_7_days": 183,
+        "total_applications": 184,
+        "total_users": 185,
+        "total_workspaces": 186
+      },
+      "ADMIN_DASHBOARD01": {
+        "active_users_last_24_hours": 340,
+        "active_users_last_30_days": 341,
+        "active_users_last_7_days": 342,
+        "active_users_per_day": [],
+        "new_users_last_24_hours": 344,
+        "new_users_last_30_days": 345,
+        "new_users_last_7_days": 346,
+        "new_users_per_day": [],
+        "previous_active_users_last_24_hours": 348,
+        "previous_active_users_last_30_days": 349,
+        "previous_active_users_last_7_days": 350,
+        "previous_new_users_last_24_hours": 351,
+        "previous_new_users_last_30_days": 352,
+        "previous_new_users_last_7_days": 353,
+        "total_applications": 354,
+        "total_users": 355,
+        "total_workspaces": 356
+      },
+      "ADMIN_DASHBOARD02": {
+        "active_users_last_24_hours": 510,
+        "active_users_last_30_days": 511,
+        "active_users_last_7_days": 512,
+        "active_users_per_day": [],
+        "new_users_last_24_hours": 514,
+        "new_users_last_30_days": 515,
+        "new_users_last_7_days": 516,
+        "new_users_per_day": [],
+        "previous_active_users_last_24_hours": 518,
+        "previous_active_users_last_30_days": 519,
+        "previous_active_users_last_7_days": 520,
+        "previous_new_users_last_24_hours": 521,
+        "previous_new_users_last_30_days": 522,
+        "previous_new_users_last_7_days": 523,
+        "total_applications": 524,
+        "total_users": 525,
+        "total_workspaces": 526
+      }
+    }
+  },
+  "new": {
+    "admin_dashboard": {
+      "admin_dashboard_ref01": {
+        "active_users_last_24_hours": 680,
+        "active_users_last_30_days": 681,
+        "active_users_last_7_days": 682,
+        "active_users_per_day": [],
+        "new_users_last_24_hours": 684,
+        "new_users_last_30_days": 685,
+        "new_users_last_7_days": 686,
+        "new_users_per_day": [],
+        "previous_active_users_last_24_hours": 688,
+        "previous_active_users_last_30_days": 689,
+        "previous_active_users_last_7_days": 690,
+        "previous_new_users_last_24_hours": 691,
+        "previous_new_users_last_30_days": 692,
+        "previous_new_users_last_7_days": 693,
+        "total_applications": 694,
+        "total_users": 695,
+        "total_workspaces": 696
+      }
+    }
+  },
+  "requests": {
+    "GET /api/admin/dashboard/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

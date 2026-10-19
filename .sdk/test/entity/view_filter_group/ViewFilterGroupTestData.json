@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "view_filter_group": {
+      "VIEW_FILTER_GROUP00": {
+        "filter_type": "s28",
+        "id": "VIEW_FILTER_GROUP00",
+        "parent_group": 42,
+        "view": 43
+      },
+      "VIEW_FILTER_GROUP01": {
+        "filter_type": "s50",
+        "id": "VIEW_FILTER_GROUP01",
+        "parent_group": 82,
+        "view": 83
+      },
+      "VIEW_FILTER_GROUP02": {
+        "filter_type": "s78",
+        "id": "VIEW_FILTER_GROUP02",
+        "parent_group": 122,
+        "view": 123
+      }
+    }
+  },
+  "new": {
+    "view_filter_group": {
+      "view_filter_group_ref01": {
+        "filter_type": "sa0",
+        "parent_group": 162,
+        "view": 163
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{view_id}/filter-groups/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/filter-group/{view_filter_group_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/views/filter-group/{view_filter_group_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

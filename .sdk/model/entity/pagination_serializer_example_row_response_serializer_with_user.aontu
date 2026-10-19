@@ -1,0 +1,196 @@
+# Entity: pagination_serializer_example_row_response_serializer_with_user
+
+main: kit: entity: pagination_serializer_example_row_response_serializer_with_user: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The total amount of results."
+      t: "`$INTEGER`"
+    }
+    next: {
+      fo: "uri"
+      h: "Next"
+      n: "next"
+      r: true
+      sh: "URL to the next page."
+      t: "`$STRING`"
+    }
+    previous: {
+      fo: "uri"
+      h: "Previous"
+      n: "previous"
+      r: true
+      sh: "URL to the previous page."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "pagination_serializer_example_row_response_serializer_with_user"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/rows/table/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "exclude"
+                or: "exclude"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "user_field_name"
+                or: "user_field_names"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "view_id"
+                or: "view_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "{link_row_field}_join={target_field},{target_field2}"
+                or: "{link_row_field}__join={target_field},{target_field2}"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/rows/table/{table_id}/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "rows"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "table_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.table")]
+  ]
+
+}

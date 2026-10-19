@@ -1,0 +1,22 @@
+# BasicAdminWorkspaceOptionFlow
+
+main: kit: flow: BasicAdminWorkspaceOptionFlow:
+{
+  entity: "admin_workspace_option",
+  kind: "basic",
+  name: "BasicAdminWorkspaceOptionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "admin_workspace_option_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminWorkspaceOptionFlow"
+}

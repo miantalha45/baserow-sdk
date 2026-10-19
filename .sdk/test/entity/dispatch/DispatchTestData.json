@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "dispatch": {
+      "DISPATCH00": {
+        "client_actions": "s1e",
+        "results": [],
+        "row_id": "ROW01",
+        "field_id": "FIELD01",
+        "id": "DISPATCH00"
+      },
+      "DISPATCH01": {
+        "client_actions": "s3c",
+        "results": [],
+        "row_id": "ROW01",
+        "field_id": "FIELD01",
+        "id": "DISPATCH01"
+      },
+      "DISPATCH02": {
+        "client_actions": "s5a",
+        "results": [],
+        "row_id": "ROW01",
+        "field_id": "FIELD01",
+        "id": "DISPATCH02"
+      }
+    }
+  },
+  "new": {
+    "dispatch": {
+      "dispatch_ref01": {
+        "client_actions": "s78",
+        "results": [],
+        "row_id": "ROW01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/field/{field_id}/workflow_actions/dispatch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

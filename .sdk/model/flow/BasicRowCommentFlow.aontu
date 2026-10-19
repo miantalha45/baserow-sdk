@@ -1,0 +1,55 @@
+# BasicRowCommentFlow
+
+main: kit: flow: BasicRowCommentFlow:
+{
+  entity: "row_comment",
+  kind: "basic",
+  name: "BasicRowCommentFlow",
+  step: [
+    {
+      i: {
+        ref: "row_comment_ref01"
+      }
+
+      m: {
+        row_id: "row01",
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "row_comment_ref01",
+        srcdatavar: "row_comment_ref01_data",
+        suffix: "_up0",
+        textfield: "first_name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-row_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "row_comment_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "row_comment01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicRowCommentFlow"
+}

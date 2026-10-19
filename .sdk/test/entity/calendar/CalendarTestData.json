@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "calendar": {
+      "CALENDAR00": {
+        "field_options": [],
+        "id": "CALENDAR00",
+        "row_metadata": {},
+        "rows": {}
+      },
+      "CALENDAR01": {
+        "field_options": [],
+        "id": "CALENDAR01",
+        "row_metadata": {},
+        "rows": {}
+      },
+      "CALENDAR02": {
+        "field_options": [],
+        "id": "CALENDAR02",
+        "row_metadata": {},
+        "rows": {}
+      }
+    }
+  },
+  "new": {
+    "calendar": {
+      "calendar_ref01": {
+        "field_options": [],
+        "row_metadata": {},
+        "rows": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/calendar/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

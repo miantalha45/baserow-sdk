@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "field_permission_subject_option": {
+      "FIELD_PERMISSION_SUBJECT_OPTION00": {
+        "id": "FIELD_PERMISSION_SUBJECT_OPTION00"
+      },
+      "FIELD_PERMISSION_SUBJECT_OPTION01": {
+        "id": "FIELD_PERMISSION_SUBJECT_OPTION01"
+      },
+      "FIELD_PERMISSION_SUBJECT_OPTION02": {
+        "id": "FIELD_PERMISSION_SUBJECT_OPTION02"
+      }
+    }
+  },
+  "new": {
+    "field_permission_subject_option": {
+      "field_permission_subject_option_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/field-permissions/{field_id}/subjects/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

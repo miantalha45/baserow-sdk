@@ -1,0 +1,317 @@
+# Entity: builder_page
+
+main: kit: entity: builder_page: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    duplicated_page: {
+      h: "Duplicated Page"
+      n: "duplicated_page"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "A machine readable error code indicating why the job failed."
+      t: "`$STRING`"
+    }
+    human_readable_error: {
+      h: "Human Readable Error"
+      n: "human_readable_error"
+      r: false
+      sh: "A human readable error message indicating what went wrong."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    original_page: {
+      h: "Original Page"
+      n: "original_page"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    page_ids: {
+      h: "Page Ids"
+      n: "page_ids"
+      r: true
+      sh: "The ids of the pages in the order they are supposed to be set in"
+      t: "`$ARRAY`"
+    }
+    progress_percentage: {
+      h: "Progress Percentage"
+      n: "progress_percentage"
+      r: true
+      sh: "A percentage indicating how far along the job is."
+      t: "`$INTEGER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "Indicates the state of the import job."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "The type of the job."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "builder_page"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "page_ids"
+          ]
+          co: {
+            id: "POST /api/builder/{builder_id}/pages/order/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "builder_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/{builder_id}/pages/order/"
+          q: {
+            exist: [
+              "builder_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "page_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "page_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              var: "builder_id"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              lit: "order"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/builder/pages/{page_id}/duplicate/async/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/pages/{page_id}/duplicate/async/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "duplicate"
+            }
+            {
+              lit: "async"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/builder/pages/{page_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/builder/pages/{page_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              page_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.page")]
+  ]
+
+}

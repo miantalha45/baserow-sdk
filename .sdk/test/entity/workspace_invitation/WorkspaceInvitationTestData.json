@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "workspace_invitation": {
+      "WORKSPACE_INVITATION00": {
+        "created_on": "s32",
+        "email": "s33",
+        "id": "WORKSPACE_INVITATION00",
+        "permissions": "s35",
+        "workspace": 54,
+        "invitation_id": "INVITATION01"
+      },
+      "WORKSPACE_INVITATION01": {
+        "created_on": "s64",
+        "email": "s65",
+        "id": "WORKSPACE_INVITATION01",
+        "permissions": "s67",
+        "workspace": 104,
+        "invitation_id": "INVITATION01"
+      },
+      "WORKSPACE_INVITATION02": {
+        "created_on": "s96",
+        "email": "s97",
+        "id": "WORKSPACE_INVITATION02",
+        "permissions": "s99",
+        "workspace": 154,
+        "invitation_id": "INVITATION01"
+      }
+    }
+  },
+  "new": {
+    "workspace_invitation": {
+      "workspace_invitation_ref01": {
+        "created_on": "sc8",
+        "email": "sc9",
+        "permissions": "scb",
+        "workspace": 204
+      }
+    }
+  },
+  "requests": {
+    "POST /api/workspaces/invitations/{workspace_invitation_id}/reject/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/workspaces/invitations/{workspace_invitation_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/workspaces/invitations/{workspace_invitation_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/workspaces/invitations/{workspace_invitation_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

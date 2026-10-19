@@ -1,0 +1,182 @@
+# Entity: field_field
+
+main: kit: entity: field_field: {
+
+  alias: field: {}
+
+  fields: {
+    new_primary_field_id: {
+      h: "New Primary Field Id"
+      n: "new_primary_field_id"
+      r: true
+      sh: "The ID of the new primary field."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "field_field"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "new_primary_field_id"
+          ]
+          co: {
+            id: "POST /api/database/fields/table/{table_id}/change-primary-field/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/fields/table/{table_id}/change-primary-field/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "new_primary_field_id"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "new_primary_field_id"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "table_id"
+            }
+            {
+              lit: "change-primary-field"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/fields/table/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/fields/table/{table_id}/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "table_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.table")]
+  ]
+
+}

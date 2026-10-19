@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "workspace_user": {
+      "WORKSPACE_USER00": {
+        "created_on": "s5a",
+        "email": "s5b",
+        "id": "WORKSPACE_USER00",
+        "name": "s5d",
+        "permissions": "s5e",
+        "to_be_deleted": false,
+        "two_factor_auth": "s60",
+        "user_id": "USER01",
+        "workspace": 98
+      },
+      "WORKSPACE_USER01": {
+        "created_on": "sb4",
+        "email": "sb5",
+        "id": "WORKSPACE_USER01",
+        "name": "sb7",
+        "permissions": "sb8",
+        "to_be_deleted": false,
+        "two_factor_auth": "sba",
+        "user_id": "USER01",
+        "workspace": 188
+      },
+      "WORKSPACE_USER02": {
+        "created_on": "s10e",
+        "email": "s10f",
+        "id": "WORKSPACE_USER02",
+        "name": "s111",
+        "permissions": "s112",
+        "to_be_deleted": false,
+        "two_factor_auth": "s114",
+        "user_id": "USER01",
+        "workspace": 278
+      }
+    }
+  },
+  "new": {
+    "workspace_user": {
+      "workspace_user_ref01": {
+        "created_on": "s168",
+        "email": "s169",
+        "name": "s16b",
+        "permissions": "s16c",
+        "to_be_deleted": false,
+        "two_factor_auth": "s16e",
+        "user_id": "USER01",
+        "workspace": 368
+      }
+    }
+  },
+  "requests": {
+    "PATCH /api/workspaces/users/{workspace_user_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

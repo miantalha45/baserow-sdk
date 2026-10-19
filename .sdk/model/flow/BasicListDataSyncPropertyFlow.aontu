@@ -1,0 +1,39 @@
+# BasicListDataSyncPropertyFlow
+
+main: kit: flow: BasicListDataSyncPropertyFlow:
+{
+  entity: "list_data_sync_property",
+  kind: "basic",
+  name: "BasicListDataSyncPropertyFlow",
+  step: [
+    {
+      i: {
+        ref: "list_data_sync_property_ref01"
+      }
+
+      m: {
+        data_sync_id: "data_sync01",
+        database_id: "database01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        data_sync_id: "data_sync01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_data_sync_property_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListDataSyncPropertyFlow"
+}

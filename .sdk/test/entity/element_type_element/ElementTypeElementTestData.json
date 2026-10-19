@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "element_type_element": {
+      "ELEMENT_TYPE_ELEMENT00": {
+        "id": "ELEMENT_TYPE_ELEMENT00"
+      },
+      "ELEMENT_TYPE_ELEMENT01": {
+        "id": "ELEMENT_TYPE_ELEMENT01"
+      },
+      "ELEMENT_TYPE_ELEMENT02": {
+        "id": "ELEMENT_TYPE_ELEMENT02"
+      }
+    }
+  },
+  "new": {
+    "element_type_element": {
+      "element_type_element_ref01": {}
+    }
+  },
+  "requests": {
+    "PATCH /api/builder/element/{element_id}/move/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

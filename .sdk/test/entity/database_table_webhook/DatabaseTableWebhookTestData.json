@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "database_table_webhook": {
+      "DATABASE_TABLE_WEBHOOK00": {
+        "id": "DATABASE_TABLE_WEBHOOK00"
+      },
+      "DATABASE_TABLE_WEBHOOK01": {
+        "id": "DATABASE_TABLE_WEBHOOK01"
+      },
+      "DATABASE_TABLE_WEBHOOK02": {
+        "id": "DATABASE_TABLE_WEBHOOK02"
+      }
+    }
+  },
+  "new": {
+    "database_table_webhook": {
+      "database_table_webhook_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/database/webhooks/{webhook_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

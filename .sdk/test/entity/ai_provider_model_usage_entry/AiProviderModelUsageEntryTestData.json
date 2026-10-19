@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "ai_provider_model_usage_entry": {
+      "AI_PROVIDER_MODEL_USAGE_ENTRY00": {
+        "count": 20,
+        "feature_type": "s15",
+        "model_id": "MODEL01"
+      },
+      "AI_PROVIDER_MODEL_USAGE_ENTRY01": {
+        "count": 40,
+        "feature_type": "s29",
+        "model_id": "MODEL01"
+      },
+      "AI_PROVIDER_MODEL_USAGE_ENTRY02": {
+        "count": 60,
+        "feature_type": "s3d",
+        "model_id": "MODEL01"
+      }
+    }
+  },
+  "new": {
+    "ai_provider_model_usage_entry": {
+      "ai_provider_model_usage_entry_ref01": {
+        "count": 80,
+        "feature_type": "s51"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/ai-providers/models/{model_id}/usage/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+# BasicAdminDataScannerFlow
+
+main: kit: flow: BasicAdminDataScannerFlow:
+{
+  entity: "admin_data_scanner",
+  kind: "basic",
+  name: "BasicAdminDataScannerFlow",
+  step: [
+    {
+      i: {
+        ref: "admin_data_scanner_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "admin_data_scanner_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "admin_data_scanner_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "admin_data_scanner01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "admin_data_scanner_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminDataScannerFlow"
+}

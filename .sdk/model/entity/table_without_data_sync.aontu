@@ -1,0 +1,84 @@
+# Entity: table_without_data_sync
+
+main: kit: entity: table_without_data_sync: {
+
+  alias: field: {}
+
+  fields: {
+    database_id: {
+      h: "Database Id"
+      n: "database_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: true
+      sh: "Lowest first."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "table_without_data_sync"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/tables/all-tables/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/database/tables/all-tables/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              lit: "all-tables"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

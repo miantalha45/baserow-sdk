@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "row_comment": {
+      "ROW_COMMENT00": {
+        "created_on": "s64",
+        "edited": "s65",
+        "first_name": "s66",
+        "id": "ROW_COMMENT00",
+        "message": "s68",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "trashed": false,
+        "updated_on": "s6c",
+        "user_id": "USER01",
+        "comment_id": "COMMENT01"
+      },
+      "ROW_COMMENT01": {
+        "created_on": "sc8",
+        "edited": "sc9",
+        "first_name": "sca",
+        "id": "ROW_COMMENT01",
+        "message": "scc",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "trashed": false,
+        "updated_on": "sd0",
+        "user_id": "USER01",
+        "comment_id": "COMMENT01"
+      },
+      "ROW_COMMENT02": {
+        "created_on": "s12c",
+        "edited": "s12d",
+        "first_name": "s12e",
+        "id": "ROW_COMMENT02",
+        "message": "s130",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "trashed": false,
+        "updated_on": "s134",
+        "user_id": "USER01",
+        "comment_id": "COMMENT01"
+      }
+    }
+  },
+  "new": {
+    "row_comment": {
+      "row_comment_ref01": {
+        "created_on": "s190",
+        "edited": "s191",
+        "first_name": "s192",
+        "message": "s194",
+        "row_id": "ROW01",
+        "table_id": "TABLE01",
+        "trashed": false,
+        "updated_on": "s198",
+        "user_id": "USER01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/row_comments/{table_id}/{row_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/row_comments/{table_id}/comment/{comment_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/row_comments/{table_id}/comment/{comment_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

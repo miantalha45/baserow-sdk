@@ -1,0 +1,44 @@
+# BasicViewViewFlow
+
+main: kit: flow: BasicViewViewFlow:
+{
+  entity: "view_view",
+  kind: "basic",
+  name: "BasicViewViewFlow",
+  step: [
+    {
+      i: {
+        ref: "view_view_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "view_view_ref01",
+        srcdatavar: "view_view_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "view_view01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_view_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicViewViewFlow"
+}

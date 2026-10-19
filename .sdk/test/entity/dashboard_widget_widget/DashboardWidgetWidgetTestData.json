@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "dashboard_widget_widget": {
+      "DASHBOARD_WIDGET_WIDGET00": {
+        "id": "DASHBOARD_WIDGET_WIDGET00",
+        "widgets": [],
+        "dashboard_id": "DASHBOARD01"
+      },
+      "DASHBOARD_WIDGET_WIDGET01": {
+        "id": "DASHBOARD_WIDGET_WIDGET01",
+        "widgets": [],
+        "dashboard_id": "DASHBOARD01"
+      },
+      "DASHBOARD_WIDGET_WIDGET02": {
+        "id": "DASHBOARD_WIDGET_WIDGET02",
+        "widgets": [],
+        "dashboard_id": "DASHBOARD01"
+      }
+    }
+  },
+  "new": {
+    "dashboard_widget_widget": {
+      "dashboard_widget_widget_ref01": {
+        "widgets": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/dashboard/{dashboard_id}/widgets/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/dashboard/{dashboard_id}/widgets/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/dashboard/{dashboard_id}/widgets/layout/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/dashboard/widgets/{widget_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

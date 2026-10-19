@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "token": {
+      "TOKEN00": {
+        "id": "TOKEN00",
+        "key": "s3d",
+        "name": "s3e",
+        "permissions": {},
+        "rotate_key": true,
+        "workspace": 65
+      },
+      "TOKEN01": {
+        "id": "TOKEN01",
+        "key": "s79",
+        "name": "s7a",
+        "permissions": {},
+        "rotate_key": true,
+        "workspace": 125
+      },
+      "TOKEN02": {
+        "id": "TOKEN02",
+        "key": "sb5",
+        "name": "sb6",
+        "permissions": {},
+        "rotate_key": true,
+        "workspace": 185
+      }
+    }
+  },
+  "new": {
+    "token": {
+      "token_ref01": {
+        "key": "sf1",
+        "name": "sf2",
+        "permissions": {},
+        "rotate_key": true,
+        "workspace": 245
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/tokens/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/tokens/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/tokens/{token_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/tokens/{token_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

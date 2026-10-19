@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "builder_element": {
+      "BUILDER_ELEMENT00": {
+        "id": "BUILDER_ELEMENT00"
+      },
+      "BUILDER_ELEMENT01": {
+        "id": "BUILDER_ELEMENT01"
+      },
+      "BUILDER_ELEMENT02": {
+        "id": "BUILDER_ELEMENT02"
+      }
+    }
+  },
+  "new": {
+    "builder_element": {
+      "builder_element_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/builder/element/{element_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

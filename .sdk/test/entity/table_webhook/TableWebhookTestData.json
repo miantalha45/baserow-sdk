@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "table_webhook": {
+      "TABLE_WEBHOOK00": {
+        "active": true,
+        "calls": [],
+        "created_on": "s8e",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 145,
+        "headers": {},
+        "id": "TABLE_WEBHOOK00",
+        "include_all_events": true,
+        "name": "s95",
+        "request_method": "s96",
+        "updated_on": "s97",
+        "url": "s98",
+        "use_user_field_names": false
+      },
+      "TABLE_WEBHOOK01": {
+        "active": true,
+        "calls": [],
+        "created_on": "s11a",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 285,
+        "headers": {},
+        "id": "TABLE_WEBHOOK01",
+        "include_all_events": true,
+        "name": "s121",
+        "request_method": "s122",
+        "updated_on": "s123",
+        "url": "s124",
+        "use_user_field_names": false
+      },
+      "TABLE_WEBHOOK02": {
+        "active": true,
+        "calls": [],
+        "created_on": "s1a6",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 425,
+        "headers": {},
+        "id": "TABLE_WEBHOOK02",
+        "include_all_events": true,
+        "name": "s1ad",
+        "request_method": "s1ae",
+        "updated_on": "s1af",
+        "url": "s1b0",
+        "use_user_field_names": false
+      }
+    }
+  },
+  "new": {
+    "table_webhook": {
+      "table_webhook_ref01": {
+        "active": true,
+        "calls": [],
+        "created_on": "s232",
+        "event_config": [],
+        "events": {},
+        "failed_triggers": 565,
+        "headers": {},
+        "include_all_events": true,
+        "name": "s239",
+        "request_method": "s23a",
+        "updated_on": "s23b",
+        "url": "s23c",
+        "use_user_field_names": false
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/webhooks/{webhook_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/webhooks/{webhook_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

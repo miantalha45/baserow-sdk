@@ -1,0 +1,9 @@
+# BasicAutomationNodeFlow
+
+main: kit: flow: BasicAutomationNodeFlow:
+{
+  entity: "automation_node",
+  kind: "basic",
+  name: "BasicAutomationNodeFlow",
+  "key$": "BasicAutomationNodeFlow"
+}

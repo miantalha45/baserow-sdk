@@ -1,0 +1,192 @@
+# Entity: database_table_view_sorting
+
+main: kit: entity: database_table_view_sorting: {
+
+  alias: field: {}
+
+  fields: {
+    view_sort_ids: {
+      h: "View Sort Ids"
+      n: "view_sort_ids"
+      r: true
+      sh: "View sort ids in the desired priority order."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "database_table_view_sorting"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "view_sort_ids"
+          ]
+          co: {
+            id: "POST /api/database/views/{view_id}/sortings/prioritize/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "view_id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/views/{view_id}/sortings/prioritize/"
+          q: {
+            exist: [
+              "view_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "view_sort_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "view_sort_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "view_id"
+            }
+            {
+              lit: "sortings"
+            }
+            {
+              lit: "prioritize"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/database/views/sort/{view_sort_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "view_sort_id"
+                or: "view_sort_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/database/views/sort/{view_sort_id}/"
+          q: {
+            exist: [
+              "view_sort_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "sort"
+            }
+            {
+              var: "view_sort_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "dashboard_widget": {
+      "DASHBOARD_WIDGET00": {
+        "id": "DASHBOARD_WIDGET00"
+      },
+      "DASHBOARD_WIDGET01": {
+        "id": "DASHBOARD_WIDGET01"
+      },
+      "DASHBOARD_WIDGET02": {
+        "id": "DASHBOARD_WIDGET02"
+      }
+    }
+  },
+  "new": {
+    "dashboard_widget": {
+      "dashboard_widget_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/dashboard/widgets/{widget_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

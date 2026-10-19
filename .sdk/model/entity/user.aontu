@@ -1,0 +1,1544 @@
+# Entity: user
+
+main: kit: entity: user: {
+
+  alias: field: {}
+
+  fields: {
+    authenticate: {
+      h: "Authenticate"
+      n: "authenticate"
+      r: false
+      sh: "Indicates whether an authentication JWT should be generated and be included in the response."
+      t: "`$BOOLEAN`"
+    }
+    captcha_token: {
+      h: "Captcha Token"
+      n: "captcha_token"
+      r: false
+      sh: "The captcha response token, required when captcha is enabled."
+      t: "`$STRING`"
+    }
+    date_joined: {
+      fo: "date-time"
+      h: "Date Joined"
+      n: "date_joined"
+      r: false
+      t: "`$STRING`"
+    }
+    email: {
+      fo: "email"
+      h: "Email"
+      n: "email"
+      r: true
+      sh: "The email address is also going to be the username."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_active: {
+      h: "Is Active"
+      n: "is_active"
+      r: false
+      sh: "Designates whether this user should be treated as active."
+      t: "`$BOOLEAN`"
+    }
+    is_staff: {
+      h: "Is Staff"
+      n: "is_staff"
+      r: false
+      sh: "Designates whether this user is an admin and has access to all workspaces and Baserow's admin areas."
+      t: "`$BOOLEAN`"
+    }
+    language: {
+      h: "Language"
+      n: "language"
+      r: false
+      sh: "An ISO 639 language code (with optional variant) selected by the user."
+      t: "`$STRING`"
+    }
+    last_login: {
+      fo: "date-time"
+      h: "Last Login"
+      n: "last_login"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    password: {
+      h: "Password"
+      n: "password"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    template_id: {
+      h: "Template Id"
+      n: "template_id"
+      r: false
+      sh: "The id of the template that must be installed after creating the account."
+      t: "`$INTEGER`"
+    }
+    two_factor_auth: {
+      h: "Two Factor Auth"
+      n: "two_factor_auth"
+      r: true
+      ro: true
+      sh: "The user's two factor auth provider state, or null when no provider is configured."
+      t: "`$OBJECT`"
+    }
+    username: {
+      fo: "email"
+      h: "Username"
+      n: "username"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    workspace_invitation_token: {
+      h: "Workspace Invitation Token"
+      n: "workspace_invitation_token"
+      r: false
+      sh: "If provided and valid, the user accepts the workspace invitation and will have access to the workspace after signing up."
+      t: "`$STRING`"
+    }
+    workspaces: {
+      h: "Workspaces"
+      n: "workspaces"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "user"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "is_active"
+            "is_staff"
+            "name"
+            "password"
+            "username"
+          ]
+          co: {
+            id: "POST /api/admin/users/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/admin/users/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "is_active"
+                  }
+                  {
+                    name: "is_staff"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "is_active"
+                  }
+                  {
+                    name: "is_staff"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "authenticate"
+            "captcha_token"
+            "email"
+            "language"
+            "name"
+            "password"
+            "template_id"
+            "workspace_invitation_token"
+          ]
+          co: {
+            id: "POST /api/user/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "authenticate"
+                  }
+                  {
+                    name: "captcha_token"
+                  }
+                  {
+                    name: "email"
+                  }
+                  {
+                    name: "language"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "template_id"
+                  }
+                  {
+                    name: "workspace_invitation_token"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "authenticate"
+                  }
+                  {
+                    name: "captcha_token"
+                  }
+                  {
+                    name: "email"
+                  }
+                  {
+                    name: "language"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "template_id"
+                  }
+                  {
+                    name: "workspace_invitation_token"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "token"
+          ]
+          co: {
+            id: "POST /api/user/change-email/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/change-email/"
+          q: {
+            "$action": "change_email"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "change-email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "new_password"
+            "old_password"
+          ]
+          co: {
+            id: "POST /api/user/change-password/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/change-password/"
+          q: {
+            "$action": "change_password"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "new_password"
+                  }
+                  {
+                    name: "old_password"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "new_password"
+                  }
+                  {
+                    name: "old_password"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "change-password"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "password"
+            "token"
+          ]
+          co: {
+            id: "POST /api/user/reset-password/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/reset-password/"
+          q: {
+            "$action": "reset_password"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "reset-password"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/user/schedule-account-deletion/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/schedule-account-deletion/"
+          q: {
+            "$action": "schedule_account_deletion"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "schedule-account-deletion"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "base_url"
+            "new_email"
+            "password"
+          ]
+          co: {
+            id: "POST /api/user/send-change-email-confirmation/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/send-change-email-confirmation/"
+          q: {
+            "$action": "send_change_email_confirmation"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "base_url"
+                  }
+                  {
+                    name: "new_email"
+                  }
+                  {
+                    name: "password"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "base_url"
+                  }
+                  {
+                    name: "new_email"
+                  }
+                  {
+                    name: "password"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "send-change-email-confirmation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "base_url"
+            "email"
+          ]
+          co: {
+            id: "POST /api/user/send-reset-password-email/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/send-reset-password-email/"
+          q: {
+            "$action": "send_reset_password_email"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "base_url"
+                  }
+                  {
+                    name: "email"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "base_url"
+                  }
+                  {
+                    name: "email"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "send-reset-password-email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/user/send-verify-email/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/send-verify-email/"
+          q: {
+            "$action": "send_verify_email"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "send-verify-email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "email"
+            "password"
+            "username"
+          ]
+          co: {
+            id: "POST /api/user/token-auth/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/token-auth/"
+          q: {
+            "$action": "token_auth"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "email"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "email"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "token-auth"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "refresh"
+          ]
+          co: {
+            id: "POST /api/user/token-blacklist/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/token-blacklist/"
+          q: {
+            "$action": "token_blacklist"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "refresh"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "refresh"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "token-blacklist"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "refresh_token"
+            "token"
+          ]
+          co: {
+            id: "POST /api/user/token-refresh/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/token-refresh/"
+          q: {
+            "$action": "token_refresh"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "access"
+                  }
+                  {
+                    name: "refresh_token"
+                  }
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "access"
+                  }
+                  {
+                    name: "refresh_token"
+                  }
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "token-refresh"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.user`"
+          }
+        }
+        {
+          bf: [
+            "refresh_token"
+            "token"
+          ]
+          co: {
+            id: "POST /api/user/token-verify/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/token-verify/"
+          q: {
+            "$action": "token_verify"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "refresh_token"
+                  }
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "refresh_token"
+                  }
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "token-verify"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.user`"
+          }
+        }
+        {
+          bf: [
+            "token"
+          ]
+          co: {
+            id: "POST /api/user/verify-email/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user/verify-email/"
+          q: {
+            "$action": "verify_email"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "token"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "verify-email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/admin/users/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/admin/users/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/user/dashboard/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/user/dashboard/"
+          q: {
+            "$action": "dashboard"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "dashboard"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.workspace_invitations`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "scopes"
+          ]
+          co: {
+            id: "PATCH /api/user/redo/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/user/redo/"
+          q: {
+            "$action": "redo"
+            exist: [
+              "client_session_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "scopes"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "scopes"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "redo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "scopes"
+          ]
+          co: {
+            id: "PATCH /api/user/undo/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/user/undo/"
+          q: {
+            "$action": "undo"
+            exist: [
+              "client_session_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "scopes"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "scopes"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "undo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "is_active"
+            "is_staff"
+            "name"
+            "password"
+            "username"
+          ]
+          co: {
+            id: "PATCH /api/admin/users/{user_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "user_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/admin/users/{user_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              user_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "is_active"
+                  }
+                  {
+                    name: "is_staff"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "is_active"
+                  }
+                  {
+                    name: "is_staff"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "password"
+                  }
+                  {
+                    name: "username"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "users"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "completed_guided_tours"
+            "completed_onboarding"
+            "email_notification_frequency"
+            "first_name"
+            "language"
+          ]
+          co: {
+            id: "PATCH /api/user/account/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PATCH"
+          o: "/api/user/account/"
+          q: {
+            "$action": "account"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "completed_guided_tours"
+                  }
+                  {
+                    name: "completed_onboarding"
+                  }
+                  {
+                    name: "email_notification_frequency"
+                  }
+                  {
+                    name: "first_name"
+                  }
+                  {
+                    name: "language"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "completed_guided_tours"
+                  }
+                  {
+                    name: "completed_onboarding"
+                  }
+                  {
+                    name: "email_notification_frequency"
+                  }
+                  {
+                    name: "first_name"
+                  }
+                  {
+                    name: "language"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "account"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "all_workspaces_sort_by"
+            "all_workspaces_view_mode"
+            "recently_viewed_view_mode"
+            "workspace_recently_viewed_view_mode"
+          ]
+          co: {
+            id: "PATCH /api/user/preferences/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PATCH"
+          o: "/api/user/preferences/"
+          q: {
+            "$action": "preference"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "all_workspaces_sort_by"
+                  }
+                  {
+                    name: "all_workspaces_view_mode"
+                  }
+                  {
+                    name: "recently_viewed_view_mode"
+                  }
+                  {
+                    name: "workspace_recently_viewed_view_mode"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "all_workspaces_sort_by"
+                  }
+                  {
+                    name: "all_workspaces_view_mode"
+                  }
+                  {
+                    name: "recently_viewed_view_mode"
+                  }
+                  {
+                    name: "workspace_recently_viewed_view_mode"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user"
+            }
+            {
+              lit: "preferences"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

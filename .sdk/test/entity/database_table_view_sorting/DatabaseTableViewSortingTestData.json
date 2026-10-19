@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "database_table_view_sorting": {
+      "DATABASE_TABLE_VIEW_SORTING00": {
+        "view_sort_ids": [],
+        "view_id": "VIEW01",
+        "view_sort_id": "VIEW_SORT01",
+        "id": "DATABASE_TABLE_VIEW_SORTING00"
+      },
+      "DATABASE_TABLE_VIEW_SORTING01": {
+        "view_sort_ids": [],
+        "view_id": "VIEW01",
+        "view_sort_id": "VIEW_SORT01",
+        "id": "DATABASE_TABLE_VIEW_SORTING01"
+      },
+      "DATABASE_TABLE_VIEW_SORTING02": {
+        "view_sort_ids": [],
+        "view_id": "VIEW01",
+        "view_sort_id": "VIEW_SORT01",
+        "id": "DATABASE_TABLE_VIEW_SORTING02"
+      }
+    }
+  },
+  "new": {
+    "database_table_view_sorting": {
+      "database_table_view_sorting_ref01": {
+        "view_sort_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{view_id}/sortings/prioritize/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/views/sort/{view_sort_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

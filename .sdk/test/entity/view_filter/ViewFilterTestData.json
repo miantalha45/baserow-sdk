@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "view_filter": {
+      "VIEW_FILTER00": {
+        "field": 70,
+        "group": 71,
+        "id": "VIEW_FILTER00",
+        "preload_values": {},
+        "type": "s4a",
+        "value": "s4b",
+        "view": 76
+      },
+      "VIEW_FILTER01": {
+        "field": 140,
+        "group": 141,
+        "id": "VIEW_FILTER01",
+        "preload_values": {},
+        "type": "s90",
+        "value": "s91",
+        "view": 146
+      },
+      "VIEW_FILTER02": {
+        "field": 210,
+        "group": 211,
+        "id": "VIEW_FILTER02",
+        "preload_values": {},
+        "type": "sd6",
+        "value": "sd7",
+        "view": 216
+      }
+    }
+  },
+  "new": {
+    "view_filter": {
+      "view_filter_ref01": {
+        "field": 280,
+        "group": 281,
+        "preload_values": {},
+        "type": "s11c",
+        "value": "s11d",
+        "view": 286
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{view_id}/filters/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/{view_id}/filters/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/filter/{view_filter_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/views/filter/{view_filter_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

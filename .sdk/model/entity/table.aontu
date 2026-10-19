@@ -1,0 +1,827 @@
+# Entity: table
+
+main: kit: entity: table: {
+
+  alias: field: {}
+
+  fields: {
+    active: {
+      h: "Active"
+      n: "active"
+      r: false
+      sh: "Indicates whether the web hook is active."
+      t: "`$BOOLEAN`"
+    }
+    calls: {
+      h: "Calls"
+      n: "calls"
+      r: true
+      sh: "All the calls that this webhook made."
+      t: "`$ARRAY`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "A list of rows that needs to be created as initial table data."
+      t: "`$ARRAY`"
+    }
+    data_sync: {
+      h: "Data Sync"
+      n: "data_sync"
+      r: true
+      t: "`$OBJECT`"
+    }
+    database_id: {
+      h: "Database Id"
+      n: "database_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    event_config: {
+      h: "Event Config"
+      n: "event_config"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "A list containing the addition event options."
+      t: "`$ARRAY`"
+    }
+    events: {
+      h: "Events"
+      n: "events"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "A list containing the events that will trigger this webhook."
+      t: "`$OBJECT`"
+    }
+    failed_triggers: {
+      h: "Failed Triggers"
+      n: "failed_triggers"
+      r: false
+      sh: "The amount of failed webhook calls."
+      t: "`$INTEGER`"
+    }
+    first_row_header: {
+      h: "First Row Header"
+      n: "first_row_header"
+      r: false
+      sh: "Indicates if the first provided row is the header."
+      t: "`$BOOLEAN`"
+    }
+    headers: {
+      h: "Headers"
+      n: "headers"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "The additional headers as an object where the key is the name and the value the value."
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    importer_type: {
+      h: "Importer Type"
+      n: "importer_type"
+      r: false
+      sh: "The frontend importer identifier used to parse the file."
+      t: "`$STRING`"
+    }
+    include_all_events: {
+      h: "Include All Events"
+      n: "include_all_events"
+      r: false
+      sh: "Indicates whether this webhook should listen to all events."
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "An internal name of the webhook."
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: true
+      sh: "Lowest first."
+      t: "`$INTEGER`"
+    }
+    original_file_name: {
+      h: "Original File Name"
+      n: "original_file_name"
+      r: false
+      sh: "The original name of the uploaded file."
+      t: "`$STRING`"
+    }
+    request_method: {
+      h: "Request Method"
+      n: "request_method"
+      r: false
+      sh: "The request method that be used when the event occurs."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL that must be called when the webhook is triggered."
+      t: "`$STRING`"
+    }
+    use_user_field_names: {
+      h: "Use User Field Names"
+      n: "use_user_field_names"
+      r: false
+      sh: "Indicates whether the field names must be used as payload key instead of the id."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "table"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "auto_add_new_properties"
+            "delete_unmatched_rows"
+            "github_issues_owner"
+            "github_issues_repo"
+            "gitlab_project_id"
+            "gitlab_url"
+            "ical_url"
+            "jira_authentication"
+            "jira_project_key"
+            "jira_url"
+            "jira_username"
+            "postgresql_database"
+            "postgresql_host"
+            "postgresql_port"
+            "postgresql_schema"
+            "postgresql_sslmode"
+            "postgresql_table"
+            "postgresql_username"
+            "source_table_id"
+            "source_table_view_id"
+            "synced_properties"
+            "table_name"
+            "two_way_sync"
+            "type"
+          ]
+          co: {
+            id: "POST /api/database/data-sync/database/{database_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "database_id"
+                or: "database_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/data-sync/database/{database_id}/"
+          q: {
+            exist: [
+              "database_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "data-sync"
+            }
+            {
+              lit: "database"
+            }
+            {
+              var: "database_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "data"
+            "first_row_header"
+            "importer_type"
+            "name"
+            "original_file_name"
+          ]
+          co: {
+            id: "POST /api/database/tables/database/{database_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "database_id"
+                or: "database_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/tables/database/{database_id}/"
+          q: {
+            exist: [
+              "database_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "data"
+                  }
+                  {
+                    name: "first_row_header"
+                  }
+                  {
+                    name: "importer_type"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "original_file_name"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "data"
+                  }
+                  {
+                    name: "first_row_header"
+                  }
+                  {
+                    name: "importer_type"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "original_file_name"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              lit: "database"
+            }
+            {
+              var: "database_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "event_config"
+            "events"
+            "headers"
+            "include_all_events"
+            "name"
+            "request_method"
+            "url"
+            "use_user_field_names"
+          ]
+          co: {
+            id: "POST /api/database/webhooks/table/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/webhooks/table/{table_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "event_config"
+                  }
+                  {
+                    list: true
+                    name: "events"
+                  }
+                  {
+                    name: "headers"
+                  }
+                  {
+                    name: "include_all_events"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "request_method"
+                  }
+                  {
+                    name: "url"
+                  }
+                  {
+                    name: "use_user_field_names"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "event_config"
+                  }
+                  {
+                    list: true
+                    name: "events"
+                  }
+                  {
+                    name: "headers"
+                  }
+                  {
+                    name: "include_all_events"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "request_method"
+                  }
+                  {
+                    name: "url"
+                  }
+                  {
+                    name: "use_user_field_names"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/tables/database/{database_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "database_id"
+                or: "database_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/tables/database/{database_id}/"
+          q: {
+            exist: [
+              "database_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              lit: "database"
+            }
+            {
+              var: "database_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/database/tables/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/tables/{table_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/database/webhooks/table/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/webhooks/table/{table_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "name"
+          ]
+          co: {
+            id: "PATCH /api/database/tables/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/tables/{table_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "name"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "name"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "tables"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

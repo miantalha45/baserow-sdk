@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "field": {
+      "FIELD00": {
+        "id": "FIELD00"
+      },
+      "FIELD01": {
+        "id": "FIELD01"
+      },
+      "FIELD02": {
+        "id": "FIELD02"
+      }
+    }
+  },
+  "new": {
+    "field": {
+      "field_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/database/fields/{field_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/fields/{field_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

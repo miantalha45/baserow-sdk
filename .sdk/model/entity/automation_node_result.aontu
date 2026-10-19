@@ -1,0 +1,87 @@
+# Entity: automation_node_result
+
+main: kit: entity: automation_node_result: {
+
+  alias: field: {}
+
+  fields: {
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      sh: "Contains node results."
+      t: "`$ANY`"
+    }
+  }
+
+  name: "automation_node_result"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/automation/node_histories/{node_history_id}/result/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "node_history_id"
+                or: "node_history_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/automation/node_histories/{node_history_id}/result/"
+          q: {
+            exist: [
+              "node_history_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "automation"
+            }
+            {
+              lit: "node_histories"
+            }
+            {
+              var: "node_history_id"
+            }
+            {
+              lit: "result"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

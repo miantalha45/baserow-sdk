@@ -1,0 +1,87 @@
+# Entity: ai_provider_model_discovery
+
+main: kit: entity: ai_provider_model_discovery: {
+
+  alias: field: {}
+
+  fields: {
+    models: {
+      h: "Models"
+      n: "models"
+      r: true
+      t: "`$ARRAY`"
+    }
+    supported: {
+      h: "Supported"
+      n: "supported"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "ai_provider_model_discovery"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/ai-providers/models/discover/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "provider_type"
+                or: "provider_type"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/ai-providers/models/discover/"
+          q: {
+            exist: [
+              "provider_type"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "models"
+            }
+            {
+              lit: "discover"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.models`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

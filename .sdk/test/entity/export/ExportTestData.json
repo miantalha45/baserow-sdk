@@ -1,0 +1,93 @@
+{
+  "existing": {
+    "export": {
+      "EXPORT00": {
+        "created_at": "sa0",
+        "created_on": "sa1",
+        "error_code": "sa2",
+        "exported_file_name": "sa3",
+        "exporter_type": "sa4",
+        "human_readable_error": "sa5",
+        "id": "EXPORT00",
+        "progress_percentage": 167,
+        "state": "sa8",
+        "status": "sa9",
+        "table": 170,
+        "type": "sab",
+        "updated_on": "sac",
+        "url": "sad",
+        "view": 174,
+        "workspace_id": "WORKSPACE01"
+      },
+      "EXPORT01": {
+        "created_at": "s140",
+        "created_on": "s141",
+        "error_code": "s142",
+        "exported_file_name": "s143",
+        "exporter_type": "s144",
+        "human_readable_error": "s145",
+        "id": "EXPORT01",
+        "progress_percentage": 327,
+        "state": "s148",
+        "status": "s149",
+        "table": 330,
+        "type": "s14b",
+        "updated_on": "s14c",
+        "url": "s14d",
+        "view": 334,
+        "workspace_id": "WORKSPACE01"
+      },
+      "EXPORT02": {
+        "created_at": "s1e0",
+        "created_on": "s1e1",
+        "error_code": "s1e2",
+        "exported_file_name": "s1e3",
+        "exporter_type": "s1e4",
+        "human_readable_error": "s1e5",
+        "id": "EXPORT02",
+        "progress_percentage": 487,
+        "state": "s1e8",
+        "status": "s1e9",
+        "table": 490,
+        "type": "s1eb",
+        "updated_on": "s1ec",
+        "url": "s1ed",
+        "view": 494,
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "export": {
+      "export_ref01": {
+        "created_at": "s280",
+        "created_on": "s281",
+        "error_code": "s282",
+        "exported_file_name": "s283",
+        "exporter_type": "s284",
+        "human_readable_error": "s285",
+        "progress_percentage": 647,
+        "state": "s288",
+        "status": "s289",
+        "table": 650,
+        "type": "s28b",
+        "updated_on": "s28c",
+        "url": "s28d",
+        "view": 654,
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/workspaces/{workspace_id}/export/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/export/{job_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

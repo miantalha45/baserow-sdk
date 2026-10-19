@@ -1,0 +1,316 @@
+# Entity: snapshot
+
+main: kit: entity: snapshot: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    created_by: {
+      h: "Created By"
+      n: "created_by"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "A machine readable error code indicating why the job failed."
+      t: "`$STRING`"
+    }
+    human_readable_error: {
+      h: "Human Readable Error"
+      n: "human_readable_error"
+      r: false
+      sh: "A human readable error message indicating what went wrong."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    progress_percentage: {
+      h: "Progress Percentage"
+      n: "progress_percentage"
+      r: true
+      sh: "A percentage indicating how far along the job is."
+      t: "`$INTEGER`"
+    }
+    snapshot_from_application: {
+      h: "Snapshot From Application"
+      n: "snapshot_from_application"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "Indicates the state of the import job."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "The type of the job."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "snapshot"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "name"
+          ]
+          co: {
+            id: "POST /api/snapshots/application/{application_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/snapshots/application/{application_id}/"
+          q: {
+            exist: [
+              "application_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "created_at"
+                  }
+                  {
+                    name: "created_by"
+                  }
+                  {
+                    name: "id"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "snapshot_from_application"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "created_at"
+                  }
+                  {
+                    name: "created_by"
+                  }
+                  {
+                    name: "id"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "snapshot_from_application"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "snapshots"
+            }
+            {
+              lit: "application"
+            }
+            {
+              var: "application_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/snapshots/application/{application_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/snapshots/application/{application_id}/"
+          q: {
+            exist: [
+              "application_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "snapshots"
+            }
+            {
+              lit: "application"
+            }
+            {
+              var: "application_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/snapshots/{snapshot_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "snapshot_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/snapshots/{snapshot_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              snapshot_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "snapshots"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.application")]
+  ]
+
+}

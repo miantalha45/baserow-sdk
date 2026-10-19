@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "field_rule": {
+      "FIELD_RULE00": {
+        "id": "FIELD_RULE00",
+        "rule_id": "RULE01"
+      },
+      "FIELD_RULE01": {
+        "id": "FIELD_RULE01",
+        "rule_id": "RULE01"
+      },
+      "FIELD_RULE02": {
+        "id": "FIELD_RULE02",
+        "rule_id": "RULE01"
+      }
+    }
+  },
+  "new": {
+    "field_rule": {
+      "field_rule_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/database/field-rules/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/field-rules/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/field-rules/{table_id}/rule/{rule_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

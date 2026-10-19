@@ -1,0 +1,230 @@
+# Entity: user_file
+
+main: kit: entity: user_file: {
+
+  alias: field: {}
+
+  fields: {
+    image_height: {
+      h: "Image Height"
+      n: "image_height"
+      r: false
+      t: "`$INTEGER`"
+    }
+    image_width: {
+      h: "Image Width"
+      n: "image_width"
+      r: false
+      t: "`$INTEGER`"
+    }
+    is_image: {
+      h: "Is Image"
+      n: "is_image"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    mime_type: {
+      h: "Mime Type"
+      n: "mime_type"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    original_name: {
+      h: "Original Name"
+      n: "original_name"
+      r: true
+      t: "`$STRING`"
+    }
+    size: {
+      fo: "int64"
+      h: "Size"
+      n: "size"
+      r: true
+      t: "`$INTEGER`"
+    }
+    thumbnails: {
+      h: "Thumbnails"
+      n: "thumbnails"
+      r: true
+      ro: true
+      t: "`$OBJECT`"
+    }
+    uploaded_at: {
+      fo: "date-time"
+      h: "Uploaded At"
+      n: "uploaded_at"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "user_file"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/database/views/form/{slug}/upload-file/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/views/form/{slug}/upload-file/"
+          q: {
+            exist: [
+              "slug"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "form"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "upload-file"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/user-files/upload-file/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user-files/upload-file/"
+          q: {
+            "$action": "upload_file"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-files"
+            }
+            {
+              lit: "upload-file"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "url"
+          ]
+          co: {
+            id: "POST /api/user-files/upload-via-url/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/user-files/upload-via-url/"
+          q: {
+            "$action": "upload_via_url"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "user-files"
+            }
+            {
+              lit: "upload-via-url"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

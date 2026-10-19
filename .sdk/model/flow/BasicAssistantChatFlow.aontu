@@ -1,0 +1,22 @@
+# BasicAssistantChatFlow
+
+main: kit: flow: BasicAssistantChatFlow:
+{
+  entity: "assistant_chat",
+  kind: "basic",
+  name: "BasicAssistantChatFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "assistant_chat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAssistantChatFlow"
+}

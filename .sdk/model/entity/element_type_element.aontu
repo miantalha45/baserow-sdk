@@ -1,0 +1,145 @@
+# Entity: element_type_element
+
+main: kit: entity: element_type_element: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "element_type_element"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "place_in_container"
+            "position"
+            "reference_element_id"
+            "target_page_id"
+          ]
+          co: {
+            id: "PATCH /api/builder/element/{element_id}/move/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "element_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/builder/element/{element_id}/move/"
+          q: {
+            "$action": "move"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              element_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "place_in_container"
+                  }
+                  {
+                    name: "position"
+                  }
+                  {
+                    name: "reference_element_id"
+                  }
+                  {
+                    name: "target_page_id"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "place_in_container"
+                  }
+                  {
+                    name: "position"
+                  }
+                  {
+                    name: "reference_element_id"
+                  }
+                  {
+                    name: "target_page_id"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "element"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "move"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

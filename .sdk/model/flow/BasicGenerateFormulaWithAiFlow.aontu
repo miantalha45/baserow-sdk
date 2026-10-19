@@ -1,0 +1,22 @@
+# BasicGenerateFormulaWithAiFlow
+
+main: kit: flow: BasicGenerateFormulaWithAiFlow:
+{
+  entity: "generate_formula_with_ai",
+  kind: "basic",
+  name: "BasicGenerateFormulaWithAiFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_formula_with_ai_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGenerateFormulaWithAiFlow"
+}

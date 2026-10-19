@@ -1,0 +1,218 @@
+# Entity: automation_workflow_history
+
+main: kit: entity: automation_workflow_history: {
+
+  alias: field: {}
+
+  fields: {
+    cancellation_requested_on: {
+      fo: "date-time"
+      h: "Cancellation Requested On"
+      n: "cancellation_requested_on"
+      r: false
+      sh: "When the cancellation of this run was requested."
+      t: "`$STRING`"
+    }
+    completed_on: {
+      fo: "date-time"
+      h: "Completed On"
+      n: "completed_on"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_test_run: {
+      h: "Is Test Run"
+      n: "is_test_run"
+      r: true
+      sh: "True when the workflow is being simulated."
+      t: "`$BOOLEAN`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      t: "`$STRING`"
+    }
+    plugin_data: {
+      h: "Plugin Data"
+      n: "plugin_data"
+      r: true
+      ro: true
+      t: "`$OBJECT`"
+    }
+    simulate_until_node: {
+      h: "Simulate Until Node"
+      n: "simulate_until_node"
+      r: false
+      t: "`$INTEGER`"
+    }
+    started_on: {
+      fo: "date-time"
+      h: "Started On"
+      n: "started_on"
+      r: true
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "* `success` - Success * `error` - Error * `disabled` - Disabled * `started` - Started * `skipped` - Skipped * `cancelled` - Cancelled"
+      t: "`$STRING`"
+    }
+    triggered_by: {
+      h: "Triggered By"
+      n: "triggered_by"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "automation_workflow_history"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/automation/workflow_histories/{workflow_history_id}/cancel/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "workflow_history_id"
+                or: "workflow_history_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/automation/workflow_histories/{workflow_history_id}/cancel/"
+          q: {
+            exist: [
+              "workflow_history_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "automation"
+            }
+            {
+              lit: "workflow_histories"
+            }
+            {
+              var: "workflow_history_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/automation/workflows/{workflow_id}/history/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflow_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/automation/workflows/{workflow_id}/history/"
+          q: {
+            exist: [
+              "workflow_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "automation"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "history"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

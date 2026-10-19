@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "mcp_endpoint": {
+      "MCP_ENDPOINT00": {
+        "created": "s3c",
+        "id": "MCP_ENDPOINT00",
+        "key": "s3e",
+        "name": "s3f",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "s41"
+      },
+      "MCP_ENDPOINT01": {
+        "created": "s78",
+        "id": "MCP_ENDPOINT01",
+        "key": "s7a",
+        "name": "s7b",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "s7d"
+      },
+      "MCP_ENDPOINT02": {
+        "created": "sb4",
+        "id": "MCP_ENDPOINT02",
+        "key": "sb6",
+        "name": "sb7",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "sb9"
+      }
+    }
+  },
+  "new": {
+    "mcp_endpoint": {
+      "mcp_endpoint_ref01": {
+        "created": "sf0",
+        "key": "sf2",
+        "name": "sf3",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/mcp/endpoints/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/mcp/endpoints/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/mcp/endpoint/{endpoint_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/mcp/endpoint/{endpoint_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/mcp/endpoint/{endpoint_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

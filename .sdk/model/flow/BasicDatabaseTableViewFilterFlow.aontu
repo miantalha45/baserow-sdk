@@ -1,0 +1,9 @@
+# BasicDatabaseTableViewFilterFlow
+
+main: kit: flow: BasicDatabaseTableViewFilterFlow:
+{
+  entity: "database_table_view_filter",
+  kind: "basic",
+  name: "BasicDatabaseTableViewFilterFlow",
+  "key$": "BasicDatabaseTableViewFilterFlow"
+}

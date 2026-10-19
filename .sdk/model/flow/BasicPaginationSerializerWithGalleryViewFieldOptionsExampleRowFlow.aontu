@@ -1,0 +1,32 @@
+# BasicPaginationSerializerWithGalleryViewFieldOptionsExampleRowFlow
+
+main: kit: flow: BasicPaginationSerializerWithGalleryViewFieldOptionsExampleRowFlow:
+{
+  entity: "pagination_serializer_with_gallery_view_field_options_example_row",
+  kind: "basic",
+  name: "BasicPaginationSerializerWithGalleryViewFieldOptionsExampleRowFlow",
+  step: [
+    {
+      i: {
+        ref: "pagination_serializer_with_gallery_view_field_options_example_row_ref01",
+        srcdatavar: "pagination_serializer_with_gallery_view_field_options_example_row_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pagination_serializer_with_gallery_view_field_options_example_row01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pagination_serializer_with_gallery_view_field_options_example_row_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaginationSerializerWithGalleryViewFieldOptionsExampleRowFlow"
+}

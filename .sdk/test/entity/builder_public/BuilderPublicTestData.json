@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "builder_public": {
+      "BUILDER_PUBLIC00": {
+        "custom_code_id": "CUSTOM_CODE01",
+        "type": "TYPE01",
+        "preview_id": "PREVIEW01",
+        "id": "BUILDER_PUBLIC00"
+      },
+      "BUILDER_PUBLIC01": {
+        "custom_code_id": "CUSTOM_CODE01",
+        "type": "TYPE01",
+        "preview_id": "PREVIEW01",
+        "id": "BUILDER_PUBLIC01"
+      },
+      "BUILDER_PUBLIC02": {
+        "custom_code_id": "CUSTOM_CODE01",
+        "type": "TYPE01",
+        "preview_id": "PREVIEW01",
+        "id": "BUILDER_PUBLIC02"
+      }
+    }
+  },
+  "new": {
+    "builder_public": {
+      "builder_public_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/custom_code/{builder_id}/css/public/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/custom_code/{builder_id}/js/public/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/preview/{builder_id}/custom-code/css/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/preview/{builder_id}/custom-code/js/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

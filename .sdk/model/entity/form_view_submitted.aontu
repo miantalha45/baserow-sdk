@@ -1,0 +1,591 @@
+# Entity: form_view_submitted
+
+main: kit: entity: form_view_submitted: {
+
+  alias: field: {}
+
+  fields: {
+    field_1: {
+      h: "Field 1"
+      n: "field_1"
+      r: false
+      sh: "This field represents the `text` field."
+      t: "`$STRING`"
+    }
+    field_13: {
+      fo: "float"
+      h: "Field 13"
+      n: "field_13"
+      r: false
+      sh: "This field represents the `duration` field."
+      t: "`$NUMBER`"
+    }
+    field_14: {
+      h: "Field 14"
+      n: "field_14"
+      r: false
+      sh: "This field represents the `link_row` field."
+      t: "`$ARRAY`"
+    }
+    field_15: {
+      h: "Field 15"
+      n: "field_15"
+      r: false
+      sh: "This field represents the `file` field."
+      t: "`$ARRAY`"
+    }
+    field_16: {
+      h: "Field 16"
+      n: "field_16"
+      r: false
+      sh: "Accepts one of the following option ids as integer value This field accepts an `integer` representing the chosen select option id related to the field."
+      t: "`$INTEGER`"
+    }
+    field_17: {
+      h: "Field 17"
+      n: "field_17"
+      r: false
+      sh: "This field represents the `multiple_select` field."
+      t: "`$ARRAY`"
+    }
+    field_18: {
+      h: "Field 18"
+      n: "field_18"
+      r: false
+      sh: "This field represents the `phone_number` field."
+      t: "`$STRING`"
+    }
+    field_2: {
+      h: "Field 2"
+      n: "field_2"
+      r: false
+      sh: "This field represents the `long_text` field."
+      t: "`$STRING`"
+    }
+    field_23: {
+      h: "Field 23"
+      n: "field_23"
+      r: false
+      sh: "This field represents the `multiple_collaborators` field."
+      t: "`$ARRAY`"
+    }
+    field_26: {
+      h: "Field 26"
+      n: "field_26"
+      r: false
+      sh: "This field represents the `password` field."
+      t: "`$STRING`"
+    }
+    field_29: {
+      h: "Field 29"
+      n: "field_29"
+      r: false
+      sh: "This field represents the `ai` field."
+      t: "`$STRING`"
+    }
+    field_3: {
+      h: "Field 3"
+      n: "field_3"
+      r: false
+      sh: "This field represents the `url` field."
+      t: "`$STRING`"
+    }
+    field_4: {
+      h: "Field 4"
+      n: "field_4"
+      r: false
+      sh: "This field represents the `email` field."
+      t: "`$STRING`"
+    }
+    field_5: {
+      fo: "decimal"
+      h: "Field 5"
+      n: "field_5"
+      r: false
+      sh: "This field represents the `number` field."
+      t: "`$STRING`"
+    }
+    field_6: {
+      h: "Field 6"
+      n: "field_6"
+      r: false
+      sh: "This field represents the `rating` field."
+      t: "`$INTEGER`"
+    }
+    field_7: {
+      h: "Field 7"
+      n: "field_7"
+      r: false
+      sh: "This field represents the `boolean` field."
+      t: "`$BOOLEAN`"
+    }
+    field_8: {
+      fo: "date"
+      h: "Field 8"
+      n: "field_8"
+      r: false
+      sh: "This field represents the `date` field."
+      t: "`$STRING`"
+    }
+    row_id: {
+      h: "Row Id"
+      n: "row_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    submit_action: {
+      h: "Submit Action"
+      n: "submit_action"
+      r: false
+      sh: "The action that must be performed after the visitor has filled out the form."
+      t: "`$STRING`"
+    }
+    submit_action_message: {
+      h: "Submit Action Message"
+      n: "submit_action_message"
+      r: false
+      sh: "If the `submit_action` is MESSAGE, then this message will be shown to the visitor after submitting the form."
+      t: "`$STRING`"
+    }
+    submit_action_redirect_url: {
+      h: "Submit Action Redirect Url"
+      n: "submit_action_redirect_url"
+      r: false
+      sh: "If the `submit_action` is REDIRECT,then the visitors will be redirected to the this URL after submitting the form."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+  }
+
+  name: "form_view_submitted"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "field_1"
+            "field_13"
+            "field_14"
+            "field_15"
+            "field_16"
+            "field_17"
+            "field_18"
+            "field_2"
+            "field_23"
+            "field_26"
+            "field_29"
+            "field_3"
+            "field_4"
+            "field_5"
+            "field_6"
+            "field_7"
+            "field_8"
+          ]
+          co: {
+            id: "POST /api/database/views/form/{slug}/submit/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/views/form/{slug}/submit/"
+          q: {
+            exist: [
+              "slug"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "field_1"
+                  }
+                  {
+                    name: "field_13"
+                  }
+                  {
+                    list: true
+                    name: "field_14"
+                  }
+                  {
+                    list: true
+                    name: "field_15"
+                  }
+                  {
+                    name: "field_16"
+                  }
+                  {
+                    list: true
+                    name: "field_17"
+                  }
+                  {
+                    name: "field_18"
+                  }
+                  {
+                    name: "field_2"
+                  }
+                  {
+                    list: true
+                    name: "field_23"
+                  }
+                  {
+                    name: "field_26"
+                  }
+                  {
+                    name: "field_29"
+                  }
+                  {
+                    name: "field_3"
+                  }
+                  {
+                    name: "field_4"
+                  }
+                  {
+                    name: "field_5"
+                  }
+                  {
+                    name: "field_6"
+                  }
+                  {
+                    name: "field_7"
+                  }
+                  {
+                    name: "field_8"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "field_1"
+                  }
+                  {
+                    name: "field_13"
+                  }
+                  {
+                    list: true
+                    name: "field_14"
+                  }
+                  {
+                    list: true
+                    name: "field_15"
+                  }
+                  {
+                    name: "field_16"
+                  }
+                  {
+                    list: true
+                    name: "field_17"
+                  }
+                  {
+                    name: "field_18"
+                  }
+                  {
+                    name: "field_2"
+                  }
+                  {
+                    list: true
+                    name: "field_23"
+                  }
+                  {
+                    name: "field_26"
+                  }
+                  {
+                    name: "field_29"
+                  }
+                  {
+                    name: "field_3"
+                  }
+                  {
+                    name: "field_4"
+                  }
+                  {
+                    name: "field_5"
+                  }
+                  {
+                    name: "field_6"
+                  }
+                  {
+                    name: "field_7"
+                  }
+                  {
+                    name: "field_8"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "form"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "submit"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "field_1"
+            "field_13"
+            "field_14"
+            "field_15"
+            "field_16"
+            "field_17"
+            "field_18"
+            "field_2"
+            "field_23"
+            "field_26"
+            "field_29"
+            "field_3"
+            "field_4"
+            "field_5"
+            "field_6"
+            "field_7"
+            "field_8"
+          ]
+          co: {
+            id: "PATCH /api/database/views/form/{slug}/edit-row/{row_token}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "row_token"
+                or: "row_token"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/views/form/{slug}/edit-row/{row_token}/"
+          q: {
+            exist: [
+              "row_token"
+              "slug"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "field_1"
+                  }
+                  {
+                    name: "field_13"
+                  }
+                  {
+                    list: true
+                    name: "field_14"
+                  }
+                  {
+                    list: true
+                    name: "field_15"
+                  }
+                  {
+                    name: "field_16"
+                  }
+                  {
+                    list: true
+                    name: "field_17"
+                  }
+                  {
+                    name: "field_18"
+                  }
+                  {
+                    name: "field_2"
+                  }
+                  {
+                    list: true
+                    name: "field_23"
+                  }
+                  {
+                    name: "field_26"
+                  }
+                  {
+                    name: "field_29"
+                  }
+                  {
+                    name: "field_3"
+                  }
+                  {
+                    name: "field_4"
+                  }
+                  {
+                    name: "field_5"
+                  }
+                  {
+                    name: "field_6"
+                  }
+                  {
+                    name: "field_7"
+                  }
+                  {
+                    name: "field_8"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "field_1"
+                  }
+                  {
+                    name: "field_13"
+                  }
+                  {
+                    list: true
+                    name: "field_14"
+                  }
+                  {
+                    list: true
+                    name: "field_15"
+                  }
+                  {
+                    name: "field_16"
+                  }
+                  {
+                    list: true
+                    name: "field_17"
+                  }
+                  {
+                    name: "field_18"
+                  }
+                  {
+                    name: "field_2"
+                  }
+                  {
+                    list: true
+                    name: "field_23"
+                  }
+                  {
+                    name: "field_26"
+                  }
+                  {
+                    name: "field_29"
+                  }
+                  {
+                    name: "field_3"
+                  }
+                  {
+                    name: "field_4"
+                  }
+                  {
+                    name: "field_5"
+                  }
+                  {
+                    name: "field_6"
+                  }
+                  {
+                    name: "field_7"
+                  }
+                  {
+                    name: "field_8"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "form"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "edit-row"
+            }
+            {
+              var: "row_token"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

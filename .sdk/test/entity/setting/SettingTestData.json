@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "setting": {
+      "SETTING00": {
+        "account_deletion_grace_delay": 130,
+        "allow_global_workspace_creation": false,
+        "allow_new_signups": true,
+        "allow_reporting_abuse": false,
+        "allow_reset_password": true,
+        "allow_signups_via_workspace_invitations": false,
+        "co_branding_logo": "s88",
+        "email_verification": "s89",
+        "inbound_email_enabled": true,
+        "show_admin_signup_page": false,
+        "show_baserow_help_request": true,
+        "track_workspace_usage": false,
+        "verify_import_signature": true,
+        "id": "SETTING00"
+      },
+      "SETTING01": {
+        "account_deletion_grace_delay": 260,
+        "allow_global_workspace_creation": false,
+        "allow_new_signups": true,
+        "allow_reporting_abuse": false,
+        "allow_reset_password": true,
+        "allow_signups_via_workspace_invitations": false,
+        "co_branding_logo": "s10a",
+        "email_verification": "s10b",
+        "inbound_email_enabled": true,
+        "show_admin_signup_page": false,
+        "show_baserow_help_request": true,
+        "track_workspace_usage": false,
+        "verify_import_signature": true,
+        "id": "SETTING01"
+      },
+      "SETTING02": {
+        "account_deletion_grace_delay": 390,
+        "allow_global_workspace_creation": false,
+        "allow_new_signups": true,
+        "allow_reporting_abuse": false,
+        "allow_reset_password": true,
+        "allow_signups_via_workspace_invitations": false,
+        "co_branding_logo": "s18c",
+        "email_verification": "s18d",
+        "inbound_email_enabled": true,
+        "show_admin_signup_page": false,
+        "show_baserow_help_request": true,
+        "track_workspace_usage": false,
+        "verify_import_signature": true,
+        "id": "SETTING02"
+      }
+    }
+  },
+  "new": {
+    "setting": {
+      "setting_ref01": {
+        "account_deletion_grace_delay": 520,
+        "allow_global_workspace_creation": false,
+        "allow_new_signups": true,
+        "allow_reporting_abuse": false,
+        "allow_reset_password": true,
+        "allow_signups_via_workspace_invitations": false,
+        "co_branding_logo": "s20e",
+        "email_verification": "s20f",
+        "inbound_email_enabled": true,
+        "show_admin_signup_page": false,
+        "show_baserow_help_request": true,
+        "track_workspace_usage": false,
+        "verify_import_signature": true
+      }
+    }
+  },
+  "requests": {
+    "GET /api/settings/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/settings/update/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

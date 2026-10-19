@@ -1,0 +1,76 @@
+# BasicWorkspaceInvitationFlow
+
+main: kit: flow: BasicWorkspaceInvitationFlow:
+{
+  entity: "workspace_invitation",
+  kind: "basic",
+  name: "BasicWorkspaceInvitationFlow",
+  step: [
+    {
+      i: {
+        ref: "workspace_invitation_ref01"
+      }
+
+      m: {
+        invitation_id: "invitation01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "workspace_invitation_ref01",
+        srcdatavar: "workspace_invitation_ref01_data",
+        suffix: "_up0",
+        textfield: "email"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workspace_invitation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workspace_invitation_ref01",
+        srcdatavar: "workspace_invitation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "workspace_invitation01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workspace_invitation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workspace_invitation_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "workspace_invitation01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicWorkspaceInvitationFlow"
+}

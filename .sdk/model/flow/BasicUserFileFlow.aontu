@@ -1,0 +1,18 @@
+# BasicUserFileFlow
+
+main: kit: flow: BasicUserFileFlow:
+{
+  entity: "user_file",
+  kind: "basic",
+  name: "BasicUserFileFlow",
+  step: [
+    {
+      i: {
+        ref: "user_file_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUserFileFlow"
+}

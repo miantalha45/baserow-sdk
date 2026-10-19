@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "open_api_role_assignment": {
+      "OPEN_API_ROLE_ASSIGNMENT00": {
+        "id": "OPEN_API_ROLE_ASSIGNMENT00",
+        "items": [],
+        "role": "s52",
+        "scope_id": "SCOPE01",
+        "scope_type": "s54",
+        "subject": "s55",
+        "subject_id": "SUBJECT01",
+        "subject_type": "s57",
+        "workspace_id": "WORKSPACE01"
+      },
+      "OPEN_API_ROLE_ASSIGNMENT01": {
+        "id": "OPEN_API_ROLE_ASSIGNMENT01",
+        "items": [],
+        "role": "sa2",
+        "scope_id": "SCOPE01",
+        "scope_type": "sa4",
+        "subject": "sa5",
+        "subject_id": "SUBJECT01",
+        "subject_type": "sa7",
+        "workspace_id": "WORKSPACE01"
+      },
+      "OPEN_API_ROLE_ASSIGNMENT02": {
+        "id": "OPEN_API_ROLE_ASSIGNMENT02",
+        "items": [],
+        "role": "sf2",
+        "scope_id": "SCOPE01",
+        "scope_type": "sf4",
+        "subject": "sf5",
+        "subject_id": "SUBJECT01",
+        "subject_type": "sf7",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "open_api_role_assignment": {
+      "open_api_role_assignment_ref01": {
+        "items": [],
+        "role": "s142",
+        "scope_id": "SCOPE01",
+        "scope_type": "s144",
+        "subject": "s145",
+        "subject_id": "SUBJECT01",
+        "subject_type": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/role/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/role/{workspace_id}/batch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/role/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

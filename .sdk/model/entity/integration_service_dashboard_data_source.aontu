@@ -1,0 +1,236 @@
+# Entity: integration_service_dashboard_data_source
+
+main: kit: entity: integration_service_dashboard_data_source: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "integration_service_dashboard_data_source"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/dashboard/{dashboard_id}/data-sources/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "dashboard_id"
+                or: "dashboard_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/dashboard/{dashboard_id}/data-sources/"
+          q: {
+            exist: [
+              "dashboard_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "dashboard"
+            }
+            {
+              var: "dashboard_id"
+            }
+            {
+              lit: "data-sources"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "aggregation_group_bys"
+            "aggregation_series"
+            "aggregation_sorts"
+            "aggregation_type"
+            "ai_choices"
+            "ai_generative_ai_model"
+            "ai_generative_ai_type"
+            "ai_output_type"
+            "ai_prompt"
+            "ai_temperature"
+            "bcc_emails"
+            "body"
+            "body_content"
+            "body_type"
+            "cc_emails"
+            "channel"
+            "code"
+            "condition"
+            "csv"
+            "day_of_month"
+            "day_of_week"
+            "default_edge_label"
+            "default_result_count"
+            "destination_service_id"
+            "edges"
+            "encoding"
+            "exclude_get"
+            "field_id"
+            "field_ids"
+            "field_mappings"
+            "file"
+            "filter_type"
+            "first_line_is_header"
+            "form_data"
+            "from_email"
+            "from_name"
+            "headers"
+            "hour"
+            "http_method"
+            "injections"
+            "input_type"
+            "integration_id"
+            "interval"
+            "is_public"
+            "minute"
+            "name"
+            "query_params"
+            "response_timeout_seconds"
+            "row_id"
+            "rows"
+            "search_query"
+            "separator"
+            "sheet_name"
+            "source"
+            "status_code"
+            "subject"
+            "table_id"
+            "text"
+            "timeout"
+            "timezone"
+            "to_emails"
+            "token"
+            "uid"
+            "url"
+            "use_instance_smtp_settings"
+            "view_id"
+            "wait_for_response"
+            "workflow_id"
+          ]
+          co: {
+            id: "PATCH /api/dashboard/data-sources/{data_source_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "data_source_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/dashboard/data-sources/{data_source_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              data_source_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "dashboard"
+            }
+            {
+              lit: "data-sources"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

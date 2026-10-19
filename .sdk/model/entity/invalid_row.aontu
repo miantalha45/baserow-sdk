@@ -1,0 +1,91 @@
+# Entity: invalid_row
+
+main: kit: entity: invalid_row: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "invalid_row"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/field-rules/{table_id}/invalid-rows/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "field_rule_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/field-rules/{table_id}/invalid-rows/"
+          q: {
+            exist: [
+              "field_rule_id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "field_rule_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "field-rules"
+            }
+            {
+              var: "field_rule_id"
+            }
+            {
+              lit: "invalid-rows"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.field_rule")]
+  ]
+
+}

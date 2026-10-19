@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "ai_provider_type": {
+      "AI_PROVIDER_TYPE00": {
+        "extra_fields": [],
+        "name": "s29",
+        "type": "s2a",
+        "uses_api_key": false
+      },
+      "AI_PROVIDER_TYPE01": {
+        "extra_fields": [],
+        "name": "s51",
+        "type": "s52",
+        "uses_api_key": false
+      },
+      "AI_PROVIDER_TYPE02": {
+        "extra_fields": [],
+        "name": "s79",
+        "type": "s7a",
+        "uses_api_key": false
+      }
+    }
+  },
+  "new": {
+    "ai_provider_type": {
+      "ai_provider_type_ref01": {
+        "extra_fields": [],
+        "name": "sa1",
+        "type": "sa2",
+        "uses_api_key": false
+      }
+    }
+  },
+  "requests": {
+    "GET /api/ai-providers/types/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

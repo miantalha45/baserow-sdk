@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "cancel": {
+      "CANCEL00": {
+        "messages": [],
+        "chat_id": "CHAT01"
+      },
+      "CANCEL01": {
+        "messages": [],
+        "chat_id": "CHAT01"
+      },
+      "CANCEL02": {
+        "messages": [],
+        "chat_id": "CHAT01"
+      }
+    }
+  },
+  "new": {
+    "cancel": {
+      "cancel_ref01": {
+        "messages": []
+      }
+    }
+  },
+  "requests": {
+    "GET /assistant/chat/{chat_uuid}/cancel/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

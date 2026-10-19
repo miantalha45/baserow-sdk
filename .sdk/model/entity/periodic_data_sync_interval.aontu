@@ -1,0 +1,197 @@
+# Entity: periodic_data_sync_interval
+
+main: kit: entity: periodic_data_sync_interval: {
+
+  alias: field: {}
+
+  fields: {
+    automatically_deactivated: {
+      h: "Automatically Deactivated"
+      n: "automatically_deactivated"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "Indicates whether the periodic data sync has been deactivated."
+      t: "`$BOOLEAN`"
+    }
+    interval: {
+      h: "Interval"
+      n: "interval"
+      r: false
+      sh: "* `MANUAL` - MANUAL * `DAILY` - DAILY * `HOURLY` - HOURLY"
+      t: "`$STRING`"
+    }
+    when: {
+      fo: "time"
+      h: "When"
+      n: "when"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "periodic_data_sync_interval"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/data-sync/{data_sync_id}/periodic-interval/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "data_sync_id"
+                or: "data_sync_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/data-sync/{data_sync_id}/periodic-interval/"
+          q: {
+            exist: [
+              "data_sync_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "data-sync"
+            }
+            {
+              var: "data_sync_id"
+            }
+            {
+              lit: "periodic-interval"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "interval"
+            "when"
+          ]
+          co: {
+            id: "PATCH /api/data-sync/{data_sync_id}/periodic-interval/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "data_sync_id"
+                or: "data_sync_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/data-sync/{data_sync_id}/periodic-interval/"
+          q: {
+            exist: [
+              "data_sync_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "automatically_deactivated"
+                  }
+                  {
+                    name: "interval"
+                  }
+                  {
+                    name: "when"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "automatically_deactivated"
+                  }
+                  {
+                    name: "interval"
+                  }
+                  {
+                    name: "when"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "data-sync"
+            }
+            {
+              var: "data_sync_id"
+            }
+            {
+              lit: "periodic-interval"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.data_sync")]
+  ]
+
+}

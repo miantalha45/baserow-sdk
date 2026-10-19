@@ -1,0 +1,29 @@
+# BasicWorkspaceUserFlow
+
+main: kit: flow: BasicWorkspaceUserFlow:
+{
+  entity: "workspace_user",
+  kind: "basic",
+  name: "BasicWorkspaceUserFlow",
+  step: [
+    {
+      i: {
+        ref: "workspace_user_ref01",
+        srcdatavar: "workspace_user_ref01_data",
+        suffix: "_up0",
+        textfield: "permissions"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workspace_user_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkspaceUserFlow"
+}

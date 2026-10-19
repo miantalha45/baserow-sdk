@@ -1,0 +1,194 @@
+# Entity: automation_node_history
+
+main: kit: entity: automation_node_history: {
+
+  alias: field: {}
+
+  fields: {
+    completed_on: {
+      fo: "date-time"
+      h: "Completed On"
+      n: "completed_on"
+      r: false
+      t: "`$STRING`"
+    }
+    destination_label: {
+      h: "Destination Label"
+      n: "destination_label"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    destination_node_id: {
+      h: "Destination Node Id"
+      n: "destination_node_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    destination_node_type: {
+      h: "Destination Node Type"
+      n: "destination_node_type"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    edge_label: {
+      h: "Edge Label"
+      n: "edge_label"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    iteration: {
+      h: "Iteration"
+      n: "iteration"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    iteration_path: {
+      h: "Iteration Path"
+      n: "iteration_path"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      t: "`$STRING`"
+    }
+    node: {
+      h: "Node"
+      n: "node"
+      r: true
+      t: "`$INTEGER`"
+    }
+    node_label: {
+      h: "Node Label"
+      n: "node_label"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    node_type: {
+      h: "Node Type"
+      n: "node_type"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    parent_node_id: {
+      h: "Parent Node Id"
+      n: "parent_node_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    started_on: {
+      fo: "date-time"
+      h: "Started On"
+      n: "started_on"
+      r: true
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "* `success` - Success * `error` - Error * `disabled` - Disabled * `started` - Started * `skipped` - Skipped * `cancelled` - Cancelled"
+      t: "`$STRING`"
+    }
+    workflow_history: {
+      h: "Workflow History"
+      n: "workflow_history"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "automation_node_history"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/automation/workflow_histories/{workflow_history_id}/node_histories/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "workflow_history_id"
+                or: "workflow_history_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/automation/workflow_histories/{workflow_history_id}/node_histories/"
+          q: {
+            exist: [
+              "workflow_history_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "automation"
+            }
+            {
+              lit: "workflow_histories"
+            }
+            {
+              var: "workflow_history_id"
+            }
+            {
+              lit: "node_histories"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

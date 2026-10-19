@@ -1,0 +1,370 @@
+# Entity: admin_view
+
+main: kit: entity: admin_view: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    database_id: {
+      h: "Database Id"
+      n: "database_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    database_name: {
+      h: "Database Name"
+      n: "database_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    owned_by_id: {
+      h: "Owned By Id"
+      n: "owned_by_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    owned_by_username: {
+      h: "Owned By Username"
+      n: "owned_by_username"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    ownership_type: {
+      h: "Ownership Type"
+      n: "ownership_type"
+      r: false
+      sh: "Indicates how the access to the view is determined."
+      t: "`$STRING`"
+    }
+    public: {
+      h: "Public"
+      n: "public"
+      r: false
+      sh: "Indicates whether the view is publicly accessible to visitors."
+      t: "`$BOOLEAN`"
+    }
+    public_view_has_password: {
+      h: "Public View Has Password"
+      n: "public_view_has_password"
+      r: true
+      ro: true
+      t: "`$BOOLEAN`"
+    }
+    slug: {
+      h: "Slug"
+      n: "slug"
+      r: false
+      sh: "The unique slug where the view can be accessed publicly on."
+      t: "`$STRING`"
+    }
+    table_id: {
+      h: "Table Id"
+      n: "table_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    table_name: {
+      h: "Table Name"
+      n: "table_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    workspace_id: {
+      h: "Workspace Id"
+      n: "workspace_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    workspace_name: {
+      h: "Workspace Name"
+      n: "workspace_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "admin_view"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/database/admin/views/{view_id}/rotate-slug/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "view_id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/admin/views/{view_id}/rotate-slug/"
+          q: {
+            exist: [
+              "view_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "view_id"
+            }
+            {
+              lit: "rotate-slug"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/admin/views/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "only_public"
+                or: "only_public"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/admin/views/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "views"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "public"
+          ]
+          co: {
+            id: "PATCH /api/database/admin/views/{view_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/admin/views/{view_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "public"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "public"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

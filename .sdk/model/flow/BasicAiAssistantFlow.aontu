@@ -1,0 +1,54 @@
+# BasicAiAssistantFlow
+
+main: kit: flow: BasicAiAssistantFlow:
+{
+  entity: "ai_assistant",
+  kind: "basic",
+  name: "BasicAiAssistantFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_assistant_ref01"
+      }
+
+      m: {
+        chat_id: "chat01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "ai_assistant_ref01",
+        srcdatavar: "ai_assistant_ref01_data",
+        suffix: "_up0",
+        textfield: "content"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_assistant_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_assistant_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "ai_assistant01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicAiAssistantFlow"
+}

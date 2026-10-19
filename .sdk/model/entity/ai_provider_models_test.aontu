@@ -1,0 +1,104 @@
+# Entity: ai_provider_models_test
+
+main: kit: entity: ai_provider_models_test: {
+
+  alias: field: {}
+
+  fields: {
+    model_ids: {
+      h: "Model Ids"
+      n: "model_ids"
+      r: true
+      t: "`$ARRAY`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "ai_provider_models_test"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "model_ids"
+          ]
+          co: {
+            id: "POST /api/ai-providers/models/test/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/ai-providers/models/test/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "model_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "model_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "models"
+            }
+            {
+              lit: "test"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

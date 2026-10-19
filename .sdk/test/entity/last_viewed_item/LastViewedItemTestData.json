@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "last_viewed_item": {
+      "LAST_VIEWED_ITEM00": {
+        "application": {},
+        "item": "s3d",
+        "last_viewed": "s3e",
+        "sub_type": "s3f",
+        "type": "s40",
+        "workspace": {}
+      },
+      "LAST_VIEWED_ITEM01": {
+        "application": {},
+        "item": "s79",
+        "last_viewed": "s7a",
+        "sub_type": "s7b",
+        "type": "s7c",
+        "workspace": {}
+      },
+      "LAST_VIEWED_ITEM02": {
+        "application": {},
+        "item": "sb5",
+        "last_viewed": "sb6",
+        "sub_type": "sb7",
+        "type": "sb8",
+        "workspace": {}
+      }
+    }
+  },
+  "new": {
+    "last_viewed_item": {
+      "last_viewed_item_ref01": {
+        "application": {},
+        "item": "sf1",
+        "last_viewed": "sf2",
+        "sub_type": "sf3",
+        "type": "sf4",
+        "workspace": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /api/last-viewed/items/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

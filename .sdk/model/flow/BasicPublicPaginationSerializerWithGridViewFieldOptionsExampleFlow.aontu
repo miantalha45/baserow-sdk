@@ -1,0 +1,26 @@
+# BasicPublicPaginationSerializerWithGridViewFieldOptionsExampleFlow
+
+main: kit: flow: BasicPublicPaginationSerializerWithGridViewFieldOptionsExampleFlow:
+{
+  entity: "public_pagination_serializer_with_grid_view_field_options_example",
+  kind: "basic",
+  name: "BasicPublicPaginationSerializerWithGridViewFieldOptionsExampleFlow",
+  step: [
+    {
+      m: {
+        grid_id: "grid01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_pagination_serializer_with_grid_view_field_options_example_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicPaginationSerializerWithGridViewFieldOptionsExampleFlow"
+}

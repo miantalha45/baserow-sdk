@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "unique_row_value": {
+      "UNIQUE_ROW_VALUE00": {
+        "values": [],
+        "field_id": "FIELD01"
+      },
+      "UNIQUE_ROW_VALUE01": {
+        "values": [],
+        "field_id": "FIELD01"
+      },
+      "UNIQUE_ROW_VALUE02": {
+        "values": [],
+        "field_id": "FIELD01"
+      }
+    }
+  },
+  "new": {
+    "unique_row_value": {
+      "unique_row_value_ref01": {
+        "values": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/fields/{field_id}/unique_row_values/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

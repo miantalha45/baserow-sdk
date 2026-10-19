@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "view_default_value": {
+      "VIEW_DEFAULT_VALUE00": {
+        "id": "VIEW_DEFAULT_VALUE00",
+        "view_default_values": []
+      },
+      "VIEW_DEFAULT_VALUE01": {
+        "id": "VIEW_DEFAULT_VALUE01",
+        "view_default_values": []
+      },
+      "VIEW_DEFAULT_VALUE02": {
+        "id": "VIEW_DEFAULT_VALUE02",
+        "view_default_values": []
+      }
+    }
+  },
+  "new": {
+    "view_default_value": {
+      "view_default_value_ref01": {
+        "view_default_values": []
+      }
+    }
+  },
+  "requests": {
+    "PATCH /api/database/views/{view_id}/default-values/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

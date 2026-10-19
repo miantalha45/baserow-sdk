@@ -1,0 +1,603 @@
+# Entity: admin_data_scanner
+
+main: kit: entity: admin_data_scanner: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      sh: "The date and time when the export job was created."
+      t: "`$STRING`"
+    }
+    csv_column_separator: {
+      h: "Csv Column Separator"
+      n: "csv_column_separator"
+      r: false
+      sh: "The value used to separate columns in the resulting csv file."
+      t: "`$STRING`"
+    }
+    csv_first_row_header: {
+      h: "Csv First Row Header"
+      n: "csv_first_row_header"
+      r: false
+      sh: "Whether or not to generate a header row at the top of the csv file."
+      t: "`$BOOLEAN`"
+    }
+    database_id: {
+      h: "Database Id"
+      n: "database_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    database_name: {
+      h: "Database Name"
+      n: "database_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    export_charset: {
+      h: "Export Charset"
+      n: "export_charset"
+      r: false
+      sh: "The character set to use when creating the export file."
+      t: "`$STRING`"
+    }
+    exported_file_name: {
+      h: "Exported File Name"
+      n: "exported_file_name"
+      r: true
+      ro: true
+      sh: "The name of the file that was created by the export job."
+      t: "`$STRING`"
+    }
+    field_name: {
+      h: "Field Name"
+      n: "field_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    filter_scan_id: {
+      h: "Filter Scan Id"
+      n: "filter_scan_id"
+      r: false
+      sh: "Optional: Filter results by scan ID."
+      t: "`$INTEGER`"
+    }
+    first_identified_on: {
+      fo: "date-time"
+      h: "First Identified On"
+      n: "first_identified_on"
+      r: true
+      t: "`$STRING`"
+    }
+    frequency: {
+      h: "Frequency"
+      n: "frequency"
+      r: false
+      sh: "* `manual` - Manual * `hourly` - Hourly * `daily` - Daily * `weekly` - Weekly"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_running: {
+      h: "Is Running"
+      n: "is_running"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    last_error: {
+      h: "Last Error"
+      n: "last_error"
+      r: false
+      t: "`$STRING`"
+    }
+    last_identified_on: {
+      fo: "date-time"
+      h: "Last Identified On"
+      n: "last_identified_on"
+      r: true
+      t: "`$STRING`"
+    }
+    last_run_finished_at: {
+      fo: "date-time"
+      h: "Last Run Finished At"
+      n: "last_run_finished_at"
+      r: false
+      t: "`$STRING`"
+    }
+    last_run_started_at: {
+      fo: "date-time"
+      h: "Last Run Started At"
+      n: "last_run_started_at"
+      r: false
+      t: "`$STRING`"
+    }
+    list_items: {
+      h: "List Items"
+      n: "list_items"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    matched_value: {
+      h: "Matched Value"
+      n: "matched_value"
+      r: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    pattern: {
+      h: "Pattern"
+      n: "pattern"
+      r: false
+      t: "`$STRING`"
+    }
+    results_count: {
+      h: "Results Count"
+      n: "results_count"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    row_id: {
+      h: "Row Id"
+      n: "row_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    scan_all_workspaces: {
+      h: "Scan All Workspaces"
+      n: "scan_all_workspaces"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    scan_id: {
+      h: "Scan Id"
+      n: "scan_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    scan_name: {
+      h: "Scan Name"
+      n: "scan_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    scan_type: {
+      h: "Scan Type"
+      n: "scan_type"
+      r: true
+      sh: "* `pattern` - Pattern * `list_of_values` - List of values * `list_table` - List Table"
+      t: "`$STRING`"
+    }
+    source_database_id: {
+      h: "Source Database Id"
+      n: "source_database_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    source_field_id: {
+      h: "Source Field Id"
+      n: "source_field_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    source_table_id: {
+      h: "Source Table Id"
+      n: "source_table_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    source_workspace_id: {
+      h: "Source Workspace Id"
+      n: "source_workspace_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    table_id: {
+      h: "Table Id"
+      n: "table_id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    table_name: {
+      h: "Table Name"
+      n: "table_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      ro: true
+      sh: "The URL to download the exported file."
+      t: "`$STRING`"
+    }
+    whole_words: {
+      h: "Whole Words"
+      n: "whole_words"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    workspace_ids: {
+      h: "Workspace Ids"
+      n: "workspace_ids"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    workspace_name: {
+      h: "Workspace Name"
+      n: "workspace_name"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "admin_data_scanner"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/admin/data-scanner/scans/{scan_id}/trigger/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "scan_id"
+                or: "scan_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/admin/data-scanner/scans/{scan_id}/trigger/"
+          q: {
+            exist: [
+              "scan_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "scans"
+            }
+            {
+              var: "scan_id"
+            }
+            {
+              lit: "trigger"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "csv_column_separator"
+            "csv_first_row_header"
+            "export_charset"
+            "filter_scan_id"
+          ]
+          co: {
+            id: "POST /api/admin/data-scanner/results/export/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/admin/data-scanner/results/export/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "csv_column_separator"
+                  }
+                  {
+                    name: "csv_first_row_header"
+                  }
+                  {
+                    name: "export_charset"
+                  }
+                  {
+                    name: "filter_scan_id"
+                  }
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "csv_column_separator"
+                  }
+                  {
+                    name: "csv_first_row_header"
+                  }
+                  {
+                    name: "export_charset"
+                  }
+                  {
+                    name: "filter_scan_id"
+                  }
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "results"
+            }
+            {
+              lit: "export"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/admin/data-scanner/results/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/admin/data-scanner/results/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "results"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/admin/data-scanner/results/{result_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "result_id"
+                or: "result_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/admin/data-scanner/results/{result_id}/"
+          q: {
+            exist: [
+              "result_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "results"
+            }
+            {
+              var: "result_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /api/admin/data-scanner/scans/{scan_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "scan_id"
+                or: "scan_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/admin/data-scanner/scans/{scan_id}/"
+          q: {
+            exist: [
+              "scan_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "scans"
+            }
+            {
+              var: "scan_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "install": {
+      "INSTALL00": {
+        "template_id": "TEMPLATE01",
+        "workspace_id": "WORKSPACE01",
+        "id": "INSTALL00"
+      },
+      "INSTALL01": {
+        "template_id": "TEMPLATE01",
+        "workspace_id": "WORKSPACE01",
+        "id": "INSTALL01"
+      },
+      "INSTALL02": {
+        "template_id": "TEMPLATE01",
+        "workspace_id": "WORKSPACE01",
+        "id": "INSTALL02"
+      }
+    }
+  },
+  "new": {
+    "install": {
+      "install_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/templates/install/{workspace_id}/{template_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

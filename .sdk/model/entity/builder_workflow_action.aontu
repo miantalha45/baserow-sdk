@@ -1,0 +1,260 @@
+# Entity: builder_workflow_action
+
+main: kit: entity: builder_workflow_action: {
+
+  alias: field: {}
+
+  fields: {
+    element_id: {
+      h: "Element Id"
+      n: "element_id"
+      r: false
+      sh: "The element the workflow actions belong to"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    workflow_action_ids: {
+      h: "Workflow Action Ids"
+      n: "workflow_action_ids"
+      r: true
+      sh: "The ids of the workflow actions in the order they are supposed to be set in"
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "builder_workflow_action"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "element_id"
+            "workflow_action_ids"
+          ]
+          co: {
+            id: "POST /api/builder/page/{page_id}/workflow_actions/order/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "page_id"
+                or: "page_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/page/{page_id}/workflow_actions/order/"
+          q: {
+            exist: [
+              "page_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "element_id"
+                  }
+                  {
+                    list: true
+                    name: "workflow_action_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "element_id"
+                  }
+                  {
+                    list: true
+                    name: "workflow_action_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "page_id"
+            }
+            {
+              lit: "workflow_actions"
+            }
+            {
+              lit: "order"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/builder/workflow_action/{workflow_action_id}/dispatch/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "workflow_action_id"
+                or: "workflow_action_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/workflow_action/{workflow_action_id}/dispatch/"
+          q: {
+            exist: [
+              "workflow_action_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "workflow_action"
+            }
+            {
+              var: "workflow_action_id"
+            }
+            {
+              lit: "dispatch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/builder/workflow_action/{workflow_action_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workflow_action_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/builder/workflow_action/{workflow_action_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workflow_action_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "workflow_action"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.page")]
+  ]
+
+}

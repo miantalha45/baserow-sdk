@@ -1,0 +1,26 @@
+# BasicGridViewGroupByDataFlow
+
+main: kit: flow: BasicGridViewGroupByDataFlow:
+{
+  entity: "grid_view_group_by_data",
+  kind: "basic",
+  name: "BasicGridViewGroupByDataFlow",
+  step: [
+    {
+      m: {
+        view_id: "view01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "grid_view_group_by_data_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGridViewGroupByDataFlow"
+}

@@ -1,0 +1,95 @@
+{
+  "existing": {
+    "type": {
+      "TYPE00": {
+        "array_formula_type": "sa0",
+        "date_force_timezone": "sa1",
+        "date_format": "sa2",
+        "date_include_time": false,
+        "date_show_tzinfo": true,
+        "date_time_format": "sa5",
+        "duration_format": "sa6",
+        "error": "sa7",
+        "formula": "sa8",
+        "formula_type": "sa9",
+        "name": "saa",
+        "nullable": false,
+        "number_decimal_places": "sac",
+        "number_prefix": "sad",
+        "number_separator": "sae",
+        "number_suffix": "saf",
+        "formula_id": "FORMULA01",
+        "id": "TYPE00"
+      },
+      "TYPE01": {
+        "array_formula_type": "s140",
+        "date_force_timezone": "s141",
+        "date_format": "s142",
+        "date_include_time": false,
+        "date_show_tzinfo": true,
+        "date_time_format": "s145",
+        "duration_format": "s146",
+        "error": "s147",
+        "formula": "s148",
+        "formula_type": "s149",
+        "name": "s14a",
+        "nullable": false,
+        "number_decimal_places": "s14c",
+        "number_prefix": "s14d",
+        "number_separator": "s14e",
+        "number_suffix": "s14f",
+        "formula_id": "FORMULA01",
+        "id": "TYPE01"
+      },
+      "TYPE02": {
+        "array_formula_type": "s1e0",
+        "date_force_timezone": "s1e1",
+        "date_format": "s1e2",
+        "date_include_time": false,
+        "date_show_tzinfo": true,
+        "date_time_format": "s1e5",
+        "duration_format": "s1e6",
+        "error": "s1e7",
+        "formula": "s1e8",
+        "formula_type": "s1e9",
+        "name": "s1ea",
+        "nullable": false,
+        "number_decimal_places": "s1ec",
+        "number_prefix": "s1ed",
+        "number_separator": "s1ee",
+        "number_suffix": "s1ef",
+        "formula_id": "FORMULA01",
+        "id": "TYPE02"
+      }
+    }
+  },
+  "new": {
+    "type": {
+      "type_ref01": {
+        "array_formula_type": "s280",
+        "date_force_timezone": "s281",
+        "date_format": "s282",
+        "date_include_time": false,
+        "date_show_tzinfo": true,
+        "date_time_format": "s285",
+        "duration_format": "s286",
+        "error": "s287",
+        "formula": "s288",
+        "formula_type": "s289",
+        "name": "s28a",
+        "nullable": false,
+        "number_decimal_places": "s28c",
+        "number_prefix": "s28d",
+        "number_separator": "s28e",
+        "number_suffix": "s28f"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/formula/{table_id}/type/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

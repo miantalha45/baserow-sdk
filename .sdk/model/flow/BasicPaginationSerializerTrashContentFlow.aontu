@@ -1,0 +1,32 @@
+# BasicPaginationSerializerTrashContentFlow
+
+main: kit: flow: BasicPaginationSerializerTrashContentFlow:
+{
+  entity: "pagination_serializer_trash_content",
+  kind: "basic",
+  name: "BasicPaginationSerializerTrashContentFlow",
+  step: [
+    {
+      i: {
+        ref: "pagination_serializer_trash_content_ref01",
+        srcdatavar: "pagination_serializer_trash_content_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pagination_serializer_trash_content01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pagination_serializer_trash_content_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaginationSerializerTrashContentFlow"
+}

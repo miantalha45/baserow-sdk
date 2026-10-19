@@ -1,0 +1,33 @@
+# BasicPaginationSerializerLinkRowValueFlow
+
+main: kit: flow: BasicPaginationSerializerLinkRowValueFlow:
+{
+  entity: "pagination_serializer_link_row_value",
+  kind: "basic",
+  name: "BasicPaginationSerializerLinkRowValueFlow",
+  step: [
+    {
+      i: {
+        ref: "pagination_serializer_link_row_value_ref01",
+        srcdatavar: "pagination_serializer_link_row_value_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pagination_serializer_link_row_value01",
+        view_id: "view01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pagination_serializer_link_row_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaginationSerializerLinkRowValueFlow"
+}

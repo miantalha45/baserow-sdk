@@ -1,0 +1,188 @@
+{
+  "existing": {
+    "user": {
+      "USER00": {
+        "authenticate": true,
+        "captcha_token": "sa1",
+        "date_joined": "sa2",
+        "email": "sa3",
+        "id": "USER00",
+        "is_active": false,
+        "is_staff": true,
+        "language": "sa7",
+        "last_login": "sa8",
+        "name": "sa9",
+        "password": "saa",
+        "template_id": "TEMPLATE01",
+        "two_factor_auth": {},
+        "username": "sad",
+        "workspace_invitation_token": "sae",
+        "workspaces": []
+      },
+      "USER01": {
+        "authenticate": true,
+        "captcha_token": "s141",
+        "date_joined": "s142",
+        "email": "s143",
+        "id": "USER01",
+        "is_active": false,
+        "is_staff": true,
+        "language": "s147",
+        "last_login": "s148",
+        "name": "s149",
+        "password": "s14a",
+        "template_id": "TEMPLATE01",
+        "two_factor_auth": {},
+        "username": "s14d",
+        "workspace_invitation_token": "s14e",
+        "workspaces": []
+      },
+      "USER02": {
+        "authenticate": true,
+        "captcha_token": "s1e1",
+        "date_joined": "s1e2",
+        "email": "s1e3",
+        "id": "USER02",
+        "is_active": false,
+        "is_staff": true,
+        "language": "s1e7",
+        "last_login": "s1e8",
+        "name": "s1e9",
+        "password": "s1ea",
+        "template_id": "TEMPLATE01",
+        "two_factor_auth": {},
+        "username": "s1ed",
+        "workspace_invitation_token": "s1ee",
+        "workspaces": []
+      }
+    }
+  },
+  "new": {
+    "user": {
+      "user_ref01": {
+        "authenticate": true,
+        "captcha_token": "s281",
+        "date_joined": "s282",
+        "email": "s283",
+        "is_active": false,
+        "is_staff": true,
+        "language": "s287",
+        "last_login": "s288",
+        "name": "s289",
+        "password": "s28a",
+        "template_id": "TEMPLATE01",
+        "two_factor_auth": {},
+        "username": "s28d",
+        "workspace_invitation_token": "s28e",
+        "workspaces": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/admin/users/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/change-email/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/change-password/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/reset-password/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/schedule-account-deletion/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/send-change-email-confirmation/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/send-reset-password-email/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/send-verify-email/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/token-auth/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/token-blacklist/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/token-refresh/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/token-verify/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/user/verify-email/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/users/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/user/dashboard/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/user/redo/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/user/undo/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/admin/users/{user_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/user/account/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/user/preferences/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

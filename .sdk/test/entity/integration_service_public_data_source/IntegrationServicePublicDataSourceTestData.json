@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "integration_service_public_data_source": {
+      "INTEGRATION_SERVICE_PUBLIC_DATA_SOURCE00": {
+        "page_id": "PAGE01"
+      },
+      "INTEGRATION_SERVICE_PUBLIC_DATA_SOURCE01": {
+        "page_id": "PAGE01"
+      },
+      "INTEGRATION_SERVICE_PUBLIC_DATA_SOURCE02": {
+        "page_id": "PAGE01"
+      }
+    }
+  },
+  "new": {
+    "integration_service_public_data_source": {
+      "integration_service_public_data_source_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/builder/domains/published/page/{page_id}/data_sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

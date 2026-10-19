@@ -1,0 +1,56 @@
+# Entity: instance_id
+
+main: kit: entity: instance_id: {
+
+  alias: field: {}
+
+  fields: {
+    instance_id: {
+      h: "Instance Id"
+      n: "instance_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "instance_id"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/settings/instance-id/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/settings/instance-id/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "instance-id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

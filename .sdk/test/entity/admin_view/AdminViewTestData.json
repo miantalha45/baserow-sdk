@@ -1,0 +1,101 @@
+{
+  "existing": {
+    "admin_view": {
+      "ADMIN_VIEW00": {
+        "created_on": "sa0",
+        "database_id": "DATABASE01",
+        "database_name": "sa2",
+        "id": "ADMIN_VIEW00",
+        "name": "sa4",
+        "owned_by_id": "OWNED_BY01",
+        "owned_by_username": "sa6",
+        "ownership_type": "sa7",
+        "public": true,
+        "public_view_has_password": false,
+        "slug": "saa",
+        "table_id": "TABLE01",
+        "table_name": "sac",
+        "type": "sad",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "saf",
+        "view_id": "VIEW01"
+      },
+      "ADMIN_VIEW01": {
+        "created_on": "s140",
+        "database_id": "DATABASE01",
+        "database_name": "s142",
+        "id": "ADMIN_VIEW01",
+        "name": "s144",
+        "owned_by_id": "OWNED_BY01",
+        "owned_by_username": "s146",
+        "ownership_type": "s147",
+        "public": true,
+        "public_view_has_password": false,
+        "slug": "s14a",
+        "table_id": "TABLE01",
+        "table_name": "s14c",
+        "type": "s14d",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "s14f",
+        "view_id": "VIEW01"
+      },
+      "ADMIN_VIEW02": {
+        "created_on": "s1e0",
+        "database_id": "DATABASE01",
+        "database_name": "s1e2",
+        "id": "ADMIN_VIEW02",
+        "name": "s1e4",
+        "owned_by_id": "OWNED_BY01",
+        "owned_by_username": "s1e6",
+        "ownership_type": "s1e7",
+        "public": true,
+        "public_view_has_password": false,
+        "slug": "s1ea",
+        "table_id": "TABLE01",
+        "table_name": "s1ec",
+        "type": "s1ed",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "s1ef",
+        "view_id": "VIEW01"
+      }
+    }
+  },
+  "new": {
+    "admin_view": {
+      "admin_view_ref01": {
+        "created_on": "s280",
+        "database_id": "DATABASE01",
+        "database_name": "s282",
+        "name": "s284",
+        "owned_by_id": "OWNED_BY01",
+        "owned_by_username": "s286",
+        "ownership_type": "s287",
+        "public": true,
+        "public_view_has_password": false,
+        "slug": "s28a",
+        "table_id": "TABLE01",
+        "table_name": "s28c",
+        "type": "s28d",
+        "workspace_id": "WORKSPACE01",
+        "workspace_name": "s28f"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/admin/views/{view_id}/rotate-slug/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/admin/views/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/admin/views/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

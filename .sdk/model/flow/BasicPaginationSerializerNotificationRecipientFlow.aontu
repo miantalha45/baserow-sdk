@@ -1,0 +1,32 @@
+# BasicPaginationSerializerNotificationRecipientFlow
+
+main: kit: flow: BasicPaginationSerializerNotificationRecipientFlow:
+{
+  entity: "pagination_serializer_notification_recipient",
+  kind: "basic",
+  name: "BasicPaginationSerializerNotificationRecipientFlow",
+  step: [
+    {
+      i: {
+        ref: "pagination_serializer_notification_recipient_ref01",
+        srcdatavar: "pagination_serializer_notification_recipient_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pagination_serializer_notification_recipient01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pagination_serializer_notification_recipient_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaginationSerializerNotificationRecipientFlow"
+}

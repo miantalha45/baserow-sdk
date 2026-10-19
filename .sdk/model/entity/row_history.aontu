@@ -1,0 +1,166 @@
+# Entity: row_history
+
+main: kit: entity: row_history: {
+
+  alias: field: {}
+
+  fields: {
+    action_command_type: {
+      h: "Action Command Type"
+      n: "action_command_type"
+      r: false
+      sh: "The type of command that was performed."
+      t: "`$STRING`"
+    }
+    action_type: {
+      h: "Action Type"
+      n: "action_type"
+      r: true
+      sh: "The type of the action that was performed."
+      t: "`$STRING`"
+    }
+    after: {
+      h: "After"
+      n: "after"
+      r: true
+      sh: "The mapping between field_ids and values for the row after the action was performed."
+      t: "`$ANY`"
+    }
+    before: {
+      h: "Before"
+      n: "before"
+      r: true
+      sh: "The mapping between field_ids and values for the row before the action was performed."
+      t: "`$ANY`"
+    }
+    fields_metadata: {
+      h: "Fields Metadata"
+      n: "fields_metadata"
+      r: true
+      sh: "The metadata of the fields that were changed."
+      t: "`$ANY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    timestamp: {
+      fo: "date-time"
+      h: "Timestamp"
+      n: "timestamp"
+      r: true
+      sh: "The timestamp of the action that was performed."
+      t: "`$STRING`"
+    }
+    user: {
+      h: "User"
+      n: "user"
+      r: true
+      sh: "The user that performed the action."
+      t: "`$ANY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "row_history"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/rows/table/{table_id}/{row_id}/history/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "row_id"
+                or: "row_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/rows/table/{table_id}/{row_id}/history/"
+          q: {
+            exist: [
+              "row_id"
+              "table_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "rows"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "table_id"
+            }
+            {
+              var: "row_id"
+            }
+            {
+              lit: "history"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.table")]
+  ]
+
+}

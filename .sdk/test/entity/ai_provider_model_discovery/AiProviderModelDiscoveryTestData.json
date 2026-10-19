@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "ai_provider_model_discovery": {
+      "AI_PROVIDER_MODEL_DISCOVERY00": {
+        "models": [],
+        "supported": false
+      },
+      "AI_PROVIDER_MODEL_DISCOVERY01": {
+        "models": [],
+        "supported": false
+      },
+      "AI_PROVIDER_MODEL_DISCOVERY02": {
+        "models": [],
+        "supported": false
+      }
+    }
+  },
+  "new": {
+    "ai_provider_model_discovery": {
+      "ai_provider_model_discovery_ref01": {
+        "models": [],
+        "supported": false
+      }
+    }
+  },
+  "requests": {
+    "GET /api/ai-providers/models/discover/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

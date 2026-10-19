@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "by_id": {
+      "BY_ID00": {
+        "id": "BY_ID00"
+      },
+      "BY_ID01": {
+        "id": "BY_ID01"
+      },
+      "BY_ID02": {
+        "id": "BY_ID02"
+      }
+    }
+  },
+  "new": {
+    "by_id": {
+      "by_id_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/builder/domains/published/by_id/{builder_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

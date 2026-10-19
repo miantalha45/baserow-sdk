@@ -1,0 +1,32 @@
+# BasicBuilderPreviewFlow
+
+main: kit: flow: BasicBuilderPreviewFlow:
+{
+  entity: "builder_preview",
+  kind: "basic",
+  name: "BasicBuilderPreviewFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_preview_ref01",
+        srcdatavar: "builder_preview_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "builder_preview01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-builder_preview_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBuilderPreviewFlow"
+}

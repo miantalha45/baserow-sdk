@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "ai_provider_model": {
+      "AI_PROVIDER_MODEL00": {
+        "feature_types": [],
+        "id": "AI_PROVIDER_MODEL00",
+        "is_enabled": true,
+        "last_test_at": "s53",
+        "last_test_error": "s54",
+        "last_test_feature_results": [],
+        "last_test_status": "s56",
+        "model_identifier": "s57"
+      },
+      "AI_PROVIDER_MODEL01": {
+        "feature_types": [],
+        "id": "AI_PROVIDER_MODEL01",
+        "is_enabled": true,
+        "last_test_at": "sa3",
+        "last_test_error": "sa4",
+        "last_test_feature_results": [],
+        "last_test_status": "sa6",
+        "model_identifier": "sa7"
+      },
+      "AI_PROVIDER_MODEL02": {
+        "feature_types": [],
+        "id": "AI_PROVIDER_MODEL02",
+        "is_enabled": true,
+        "last_test_at": "sf3",
+        "last_test_error": "sf4",
+        "last_test_feature_results": [],
+        "last_test_status": "sf6",
+        "model_identifier": "sf7"
+      }
+    }
+  },
+  "new": {
+    "ai_provider_model": {
+      "ai_provider_model_ref01": {
+        "feature_types": [],
+        "is_enabled": true,
+        "last_test_at": "s143",
+        "last_test_error": "s144",
+        "last_test_feature_results": [],
+        "last_test_status": "s146",
+        "model_identifier": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/ai-providers/{provider_id}/models/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/ai-providers/models/{model_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

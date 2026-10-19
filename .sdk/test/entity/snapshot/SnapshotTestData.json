@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "snapshot": {
+      "SNAPSHOT00": {
+        "created_at": "s78",
+        "created_by": "s79",
+        "created_on": "s7a",
+        "error_code": "s7b",
+        "human_readable_error": "s7c",
+        "id": "SNAPSHOT00",
+        "name": "s7e",
+        "progress_percentage": 127,
+        "snapshot_from_application": 128,
+        "state": "s81",
+        "type": "s82",
+        "updated_on": "s83",
+        "application_id": "APPLICATION01"
+      },
+      "SNAPSHOT01": {
+        "created_at": "sf0",
+        "created_by": "sf1",
+        "created_on": "sf2",
+        "error_code": "sf3",
+        "human_readable_error": "sf4",
+        "id": "SNAPSHOT01",
+        "name": "sf6",
+        "progress_percentage": 247,
+        "snapshot_from_application": 248,
+        "state": "sf9",
+        "type": "sfa",
+        "updated_on": "sfb",
+        "application_id": "APPLICATION01"
+      },
+      "SNAPSHOT02": {
+        "created_at": "s168",
+        "created_by": "s169",
+        "created_on": "s16a",
+        "error_code": "s16b",
+        "human_readable_error": "s16c",
+        "id": "SNAPSHOT02",
+        "name": "s16e",
+        "progress_percentage": 367,
+        "snapshot_from_application": 368,
+        "state": "s171",
+        "type": "s172",
+        "updated_on": "s173",
+        "application_id": "APPLICATION01"
+      }
+    }
+  },
+  "new": {
+    "snapshot": {
+      "snapshot_ref01": {
+        "created_at": "s1e0",
+        "created_by": "s1e1",
+        "created_on": "s1e2",
+        "error_code": "s1e3",
+        "human_readable_error": "s1e4",
+        "name": "s1e6",
+        "progress_percentage": 487,
+        "snapshot_from_application": 488,
+        "state": "s1e9",
+        "type": "s1ea",
+        "updated_on": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/snapshots/application/{application_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/snapshots/application/{application_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/snapshots/{snapshot_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "example_batch_update_row": {
+      "EXAMPLE_BATCH_UPDATE_ROW00": {
+        "items": [],
+        "metadata": "s15",
+        "table_id": "TABLE01",
+        "id": "EXAMPLE_BATCH_UPDATE_ROW00"
+      },
+      "EXAMPLE_BATCH_UPDATE_ROW01": {
+        "items": [],
+        "metadata": "s29",
+        "table_id": "TABLE01",
+        "id": "EXAMPLE_BATCH_UPDATE_ROW01"
+      },
+      "EXAMPLE_BATCH_UPDATE_ROW02": {
+        "items": [],
+        "metadata": "s3d",
+        "table_id": "TABLE01",
+        "id": "EXAMPLE_BATCH_UPDATE_ROW02"
+      }
+    }
+  },
+  "new": {
+    "example_batch_update_row": {
+      "example_batch_update_row_ref01": {
+        "items": [],
+        "metadata": "s51"
+      }
+    }
+  },
+  "requests": {
+    "PATCH /api/database/rows/table/{table_id}/batch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

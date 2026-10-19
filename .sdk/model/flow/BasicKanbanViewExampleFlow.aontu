@@ -1,0 +1,26 @@
+# BasicKanbanViewExampleFlow
+
+main: kit: flow: BasicKanbanViewExampleFlow:
+{
+  entity: "kanban_view_example",
+  kind: "basic",
+  name: "BasicKanbanViewExampleFlow",
+  step: [
+    {
+      m: {
+        kanban_id: "kanban01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "kanban_view_example_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicKanbanViewExampleFlow"
+}

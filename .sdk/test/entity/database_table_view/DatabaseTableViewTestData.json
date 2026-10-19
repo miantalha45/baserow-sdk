@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "database_table_view": {
+      "DATABASE_TABLE_VIEW00": {
+        "id": "DATABASE_TABLE_VIEW00",
+        "view_ids": [],
+        "table_id": "TABLE01",
+        "ical_slug": "ICAL_SLUG01"
+      },
+      "DATABASE_TABLE_VIEW01": {
+        "id": "DATABASE_TABLE_VIEW01",
+        "view_ids": [],
+        "table_id": "TABLE01",
+        "ical_slug": "ICAL_SLUG01"
+      },
+      "DATABASE_TABLE_VIEW02": {
+        "id": "DATABASE_TABLE_VIEW02",
+        "view_ids": [],
+        "table_id": "TABLE01",
+        "ical_slug": "ICAL_SLUG01"
+      }
+    }
+  },
+  "new": {
+    "database_table_view": {
+      "database_table_view_ref01": {
+        "view_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/table/{table_id}/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/calendar/{ical_slug}.ics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/views/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

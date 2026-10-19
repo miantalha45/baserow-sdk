@@ -1,0 +1,28 @@
+# BasicElementTypeElementFlow
+
+main: kit: flow: BasicElementTypeElementFlow:
+{
+  entity: "element_type_element",
+  kind: "basic",
+  name: "BasicElementTypeElementFlow",
+  step: [
+    {
+      i: {
+        ref: "element_type_element_ref01",
+        srcdatavar: "element_type_element_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-element_type_element_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicElementTypeElementFlow"
+}

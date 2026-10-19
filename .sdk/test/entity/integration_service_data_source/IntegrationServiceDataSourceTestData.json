@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "integration_service_data_source": {
+      "INTEGRATION_SERVICE_DATA_SOURCE00": {
+        "before_id": "BEFORE01",
+        "id": "INTEGRATION_SERVICE_DATA_SOURCE00",
+        "page_id": "PAGE01",
+        "data_source_id": "DATA_SOURCE01"
+      },
+      "INTEGRATION_SERVICE_DATA_SOURCE01": {
+        "before_id": "BEFORE01",
+        "id": "INTEGRATION_SERVICE_DATA_SOURCE01",
+        "page_id": "PAGE01",
+        "data_source_id": "DATA_SOURCE01"
+      },
+      "INTEGRATION_SERVICE_DATA_SOURCE02": {
+        "before_id": "BEFORE01",
+        "id": "INTEGRATION_SERVICE_DATA_SOURCE02",
+        "page_id": "PAGE01",
+        "data_source_id": "DATA_SOURCE01"
+      }
+    }
+  },
+  "new": {
+    "integration_service_data_source": {
+      "integration_service_data_source_ref01": {
+        "before_id": "BEFORE01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/page/{page_id}/data-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/page/{page_id}/data-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/builder/data-source/{data_source_id}/move/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/builder/data-source/{data_source_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

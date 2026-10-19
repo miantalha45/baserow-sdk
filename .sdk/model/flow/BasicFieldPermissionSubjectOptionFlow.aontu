@@ -1,0 +1,26 @@
+# BasicFieldPermissionSubjectOptionFlow
+
+main: kit: flow: BasicFieldPermissionSubjectOptionFlow:
+{
+  entity: "field_permission_subject_option",
+  kind: "basic",
+  name: "BasicFieldPermissionSubjectOptionFlow",
+  step: [
+    {
+      m: {
+        field_id: "field01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "field_permission_subject_option_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFieldPermissionSubjectOptionFlow"
+}

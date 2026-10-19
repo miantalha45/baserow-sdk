@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "grid_view_group_by_data": {
+      "GRID_VIEW_GROUP_BY_DATA00": {
+        "group_count": 60,
+        "groups": [],
+        "id": "GRID_VIEW_GROUP_BY_DATA00",
+        "limit": 63,
+        "offset": 64,
+        "parent": {},
+        "grid_id": "GRID01"
+      },
+      "GRID_VIEW_GROUP_BY_DATA01": {
+        "group_count": 120,
+        "groups": [],
+        "id": "GRID_VIEW_GROUP_BY_DATA01",
+        "limit": 123,
+        "offset": 124,
+        "parent": {},
+        "grid_id": "GRID01"
+      },
+      "GRID_VIEW_GROUP_BY_DATA02": {
+        "group_count": 180,
+        "groups": [],
+        "id": "GRID_VIEW_GROUP_BY_DATA02",
+        "limit": 183,
+        "offset": 184,
+        "parent": {},
+        "grid_id": "GRID01"
+      }
+    }
+  },
+  "new": {
+    "grid_view_group_by_data": {
+      "grid_view_group_by_data_ref01": {
+        "group_count": 240,
+        "groups": [],
+        "limit": 243,
+        "offset": 244,
+        "parent": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/grid/{slug}/public/group-by-data/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/grid/{view_id}/group-by-data/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

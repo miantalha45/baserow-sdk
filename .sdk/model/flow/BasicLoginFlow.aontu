@@ -1,0 +1,32 @@
+# BasicLoginFlow
+
+main: kit: flow: BasicLoginFlow:
+{
+  entity: "login",
+  kind: "basic",
+  name: "BasicLoginFlow",
+  step: [
+    {
+      i: {
+        ref: "login_ref01",
+        srcdatavar: "login_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "login01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-login_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLoginFlow"
+}

@@ -1,0 +1,539 @@
+# Entity: audit_log
+
+main: kit: entity: audit_log: {
+
+  alias: field: {}
+
+  fields: {
+    action_type: {
+      h: "Action Type"
+      n: "action_type"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    ip_address: {
+      h: "Ip Address"
+      n: "ip_address"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    timestamp: {
+      fo: "date-time"
+      h: "Timestamp"
+      n: "timestamp"
+      r: true
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    user: {
+      h: "User"
+      n: "user"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    workspace: {
+      h: "Workspace"
+      n: "workspace"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "audit_log"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "csv_column_separator"
+            "csv_first_row_header"
+            "exclude_columns"
+            "export_charset"
+            "filter_action_type"
+            "filter_from_timestamp"
+            "filter_to_timestamp"
+            "filter_user_id"
+            "filter_workspace_id"
+          ]
+          co: {
+            id: "POST /api/admin/audit-log/export/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/admin/audit-log/export/"
+          q: {
+            "$action": "export"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "csv_column_separator"
+                  }
+                  {
+                    name: "csv_first_row_header"
+                  }
+                  {
+                    name: "exclude_columns"
+                  }
+                  {
+                    name: "export_charset"
+                  }
+                  {
+                    name: "filter_action_type"
+                  }
+                  {
+                    name: "filter_from_timestamp"
+                  }
+                  {
+                    name: "filter_to_timestamp"
+                  }
+                  {
+                    name: "filter_user_id"
+                  }
+                  {
+                    name: "filter_workspace_id"
+                  }
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "csv_column_separator"
+                  }
+                  {
+                    name: "csv_first_row_header"
+                  }
+                  {
+                    name: "exclude_columns"
+                  }
+                  {
+                    name: "export_charset"
+                  }
+                  {
+                    name: "filter_action_type"
+                  }
+                  {
+                    name: "filter_from_timestamp"
+                  }
+                  {
+                    name: "filter_to_timestamp"
+                  }
+                  {
+                    name: "filter_user_id"
+                  }
+                  {
+                    name: "filter_workspace_id"
+                  }
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "audit-log"
+            }
+            {
+              lit: "export"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "csv_column_separator"
+            "csv_first_row_header"
+            "exclude_columns"
+            "export_charset"
+            "filter_action_type"
+            "filter_from_timestamp"
+            "filter_to_timestamp"
+            "filter_user_id"
+            "filter_workspace_id"
+          ]
+          co: {
+            id: "POST /api/audit-log/export/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/audit-log/export/"
+          q: {
+            "$action": "export"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "csv_column_separator"
+                  }
+                  {
+                    name: "csv_first_row_header"
+                  }
+                  {
+                    name: "exclude_columns"
+                  }
+                  {
+                    name: "export_charset"
+                  }
+                  {
+                    name: "filter_action_type"
+                  }
+                  {
+                    name: "filter_from_timestamp"
+                  }
+                  {
+                    name: "filter_to_timestamp"
+                  }
+                  {
+                    name: "filter_user_id"
+                  }
+                  {
+                    name: "filter_workspace_id"
+                  }
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "csv_column_separator"
+                  }
+                  {
+                    name: "csv_first_row_header"
+                  }
+                  {
+                    name: "exclude_columns"
+                  }
+                  {
+                    name: "export_charset"
+                  }
+                  {
+                    name: "filter_action_type"
+                  }
+                  {
+                    name: "filter_from_timestamp"
+                  }
+                  {
+                    name: "filter_to_timestamp"
+                  }
+                  {
+                    name: "filter_user_id"
+                  }
+                  {
+                    name: "filter_workspace_id"
+                  }
+                  {
+                    name: "url"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "audit-log"
+            }
+            {
+              lit: "export"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/admin/audit-log/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "action_type"
+                or: "action_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "from_timestamp"
+                or: "from_timestamp"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "to_timestamp"
+                or: "to_timestamp"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "user_id"
+                or: "user_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/admin/audit-log/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "audit-log"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/audit-log/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "action_type"
+                or: "action_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "from_timestamp"
+                or: "from_timestamp"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "to_timestamp"
+                or: "to_timestamp"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "user_id"
+                or: "user_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/audit-log/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "audit-log"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

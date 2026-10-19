@@ -1,0 +1,305 @@
+# Entity: ai_provider_model
+
+main: kit: entity: ai_provider_model: {
+
+  alias: field: {}
+
+  fields: {
+    feature_types: {
+      h: "Feature Types"
+      n: "feature_types"
+      r: false
+      sh: "The AI features allowed to select this model."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_enabled: {
+      h: "Is Enabled"
+      n: "is_enabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    last_test_at: {
+      fo: "date-time"
+      h: "Last Test At"
+      n: "last_test_at"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    last_test_error: {
+      h: "Last Test Error"
+      n: "last_test_error"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    last_test_feature_results: {
+      h: "Last Test Feature Results"
+      n: "last_test_feature_results"
+      r: true
+      ro: true
+      t: "`$ARRAY`"
+    }
+    last_test_status: {
+      h: "Last Test Status"
+      n: "last_test_status"
+      r: true
+      ro: true
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    model_identifier: {
+      h: "Model Identifier"
+      n: "model_identifier"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_provider_model"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "feature_types"
+            "is_enabled"
+            "model_identifier"
+          ]
+          co: {
+            id: "POST /api/ai-providers/{provider_id}/models/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "provider_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/ai-providers/{provider_id}/models/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              provider_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "feature_types"
+                  }
+                  {
+                    name: "is_enabled"
+                  }
+                  {
+                    name: "model_identifier"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "feature_types"
+                  }
+                  {
+                    name: "is_enabled"
+                  }
+                  {
+                    name: "model_identifier"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "models"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "feature_types"
+            "is_enabled"
+            "model_identifier"
+          ]
+          co: {
+            id: "PATCH /api/ai-providers/models/{model_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "model_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/ai-providers/models/{model_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              model_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "feature_types"
+                  }
+                  {
+                    name: "is_enabled"
+                  }
+                  {
+                    name: "model_identifier"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "feature_types"
+                  }
+                  {
+                    name: "is_enabled"
+                  }
+                  {
+                    name: "model_identifier"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "models"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

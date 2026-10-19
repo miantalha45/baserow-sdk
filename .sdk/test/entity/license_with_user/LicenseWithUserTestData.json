@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "license_with_user": {
+      "LICENSE_WITH_USER00": {
+        "id": "LICENSE_WITH_USER00"
+      },
+      "LICENSE_WITH_USER01": {
+        "id": "LICENSE_WITH_USER01"
+      },
+      "LICENSE_WITH_USER02": {
+        "id": "LICENSE_WITH_USER02"
+      }
+    }
+  },
+  "new": {
+    "license_with_user": {
+      "license_with_user_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/licenses/{id}/check/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

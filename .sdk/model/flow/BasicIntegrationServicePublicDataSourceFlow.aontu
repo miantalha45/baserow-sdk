@@ -1,0 +1,26 @@
+# BasicIntegrationServicePublicDataSourceFlow
+
+main: kit: flow: BasicIntegrationServicePublicDataSourceFlow:
+{
+  entity: "integration_service_public_data_source",
+  kind: "basic",
+  name: "BasicIntegrationServicePublicDataSourceFlow",
+  step: [
+    {
+      m: {
+        page_id: "page01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "integration_service_public_data_source_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIntegrationServicePublicDataSourceFlow"
+}

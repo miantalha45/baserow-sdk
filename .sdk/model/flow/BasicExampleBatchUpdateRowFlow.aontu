@@ -1,0 +1,28 @@
+# BasicExampleBatchUpdateRowFlow
+
+main: kit: flow: BasicExampleBatchUpdateRowFlow:
+{
+  entity: "example_batch_update_row",
+  kind: "basic",
+  name: "BasicExampleBatchUpdateRowFlow",
+  step: [
+    {
+      i: {
+        ref: "example_batch_update_row_ref01",
+        srcdatavar: "example_batch_update_row_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-example_batch_update_row_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicExampleBatchUpdateRowFlow"
+}

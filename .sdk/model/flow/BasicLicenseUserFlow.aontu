@@ -1,0 +1,18 @@
+# BasicLicenseUserFlow
+
+main: kit: flow: BasicLicenseUserFlow:
+{
+  entity: "license_user",
+  kind: "basic",
+  name: "BasicLicenseUserFlow",
+  step: [
+    {
+      i: {
+        ref: "license_user_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicLicenseUserFlow"
+}

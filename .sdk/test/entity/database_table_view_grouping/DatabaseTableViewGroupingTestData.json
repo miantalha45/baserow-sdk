@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "database_table_view_grouping": {
+      "DATABASE_TABLE_VIEW_GROUPING00": {
+        "view_group_by_ids": [],
+        "view_id": "VIEW01",
+        "view_group_by_id": "VIEW_GROUP_BY01",
+        "id": "DATABASE_TABLE_VIEW_GROUPING00"
+      },
+      "DATABASE_TABLE_VIEW_GROUPING01": {
+        "view_group_by_ids": [],
+        "view_id": "VIEW01",
+        "view_group_by_id": "VIEW_GROUP_BY01",
+        "id": "DATABASE_TABLE_VIEW_GROUPING01"
+      },
+      "DATABASE_TABLE_VIEW_GROUPING02": {
+        "view_group_by_ids": [],
+        "view_id": "VIEW01",
+        "view_group_by_id": "VIEW_GROUP_BY01",
+        "id": "DATABASE_TABLE_VIEW_GROUPING02"
+      }
+    }
+  },
+  "new": {
+    "database_table_view_grouping": {
+      "database_table_view_grouping_ref01": {
+        "view_group_by_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{view_id}/group_bys/prioritize/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/views/group_by/{view_group_by_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

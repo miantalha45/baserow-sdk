@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "authentication_provider_auth_provider": {
+      "AUTHENTICATION_PROVIDER_AUTH_PROVIDER00": {
+        "id": "AUTHENTICATION_PROVIDER_AUTH_PROVIDER00"
+      },
+      "AUTHENTICATION_PROVIDER_AUTH_PROVIDER01": {
+        "id": "AUTHENTICATION_PROVIDER_AUTH_PROVIDER01"
+      },
+      "AUTHENTICATION_PROVIDER_AUTH_PROVIDER02": {
+        "id": "AUTHENTICATION_PROVIDER_AUTH_PROVIDER02"
+      }
+    }
+  },
+  "new": {
+    "authentication_provider_auth_provider": {
+      "authentication_provider_auth_provider_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/admin/auth-provider/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/auth-provider/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/auth-provider/{auth_provider_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/admin/auth-provider/{auth_provider_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

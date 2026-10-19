@@ -1,0 +1,41 @@
+# BasicPageFlow
+
+main: kit: flow: BasicPageFlow:
+{
+  entity: "page",
+  kind: "basic",
+  name: "BasicPageFlow",
+  step: [
+    {
+      i: {
+        ref: "page_ref01"
+      }
+
+      m: {
+        builder_id: "builder01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "page_ref01",
+        srcdatavar: "page_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-page_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPageFlow"
+}

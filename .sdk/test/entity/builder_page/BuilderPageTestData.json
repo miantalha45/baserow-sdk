@@ -1,0 +1,84 @@
+{
+  "existing": {
+    "builder_page": {
+      "BUILDER_PAGE00": {
+        "created_on": "s6e",
+        "duplicated_page": "s6f",
+        "error_code": "s70",
+        "human_readable_error": "s71",
+        "id": "BUILDER_PAGE00",
+        "original_page": "s73",
+        "page_ids": [],
+        "progress_percentage": 117,
+        "state": "s76",
+        "type": "s77",
+        "updated_on": "s78",
+        "builder_id": "BUILDER01",
+        "page_id": "PAGE01"
+      },
+      "BUILDER_PAGE01": {
+        "created_on": "sdc",
+        "duplicated_page": "sdd",
+        "error_code": "sde",
+        "human_readable_error": "sdf",
+        "id": "BUILDER_PAGE01",
+        "original_page": "se1",
+        "page_ids": [],
+        "progress_percentage": 227,
+        "state": "se4",
+        "type": "se5",
+        "updated_on": "se6",
+        "builder_id": "BUILDER01",
+        "page_id": "PAGE01"
+      },
+      "BUILDER_PAGE02": {
+        "created_on": "s14a",
+        "duplicated_page": "s14b",
+        "error_code": "s14c",
+        "human_readable_error": "s14d",
+        "id": "BUILDER_PAGE02",
+        "original_page": "s14f",
+        "page_ids": [],
+        "progress_percentage": 337,
+        "state": "s152",
+        "type": "s153",
+        "updated_on": "s154",
+        "builder_id": "BUILDER01",
+        "page_id": "PAGE01"
+      }
+    }
+  },
+  "new": {
+    "builder_page": {
+      "builder_page_ref01": {
+        "created_on": "s1b8",
+        "duplicated_page": "s1b9",
+        "error_code": "s1ba",
+        "human_readable_error": "s1bb",
+        "original_page": "s1bd",
+        "page_ids": [],
+        "progress_percentage": 447,
+        "state": "s1c0",
+        "type": "s1c1",
+        "updated_on": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/{builder_id}/pages/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/builder/pages/{page_id}/duplicate/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/builder/pages/{page_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

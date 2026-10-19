@@ -1,0 +1,22 @@
+# BasicBuilderPreviewGrantFlow
+
+main: kit: flow: BasicBuilderPreviewGrantFlow:
+{
+  entity: "builder_preview_grant",
+  kind: "basic",
+  name: "BasicBuilderPreviewGrantFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_preview_grant_ref01"
+      }
+
+      m: {
+        preview_id: "preview01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicBuilderPreviewGrantFlow"
+}

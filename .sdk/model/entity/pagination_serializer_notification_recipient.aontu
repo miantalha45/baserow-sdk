@@ -1,0 +1,113 @@
+# Entity: pagination_serializer_notification_recipient
+
+main: kit: entity: pagination_serializer_notification_recipient: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The total amount of results."
+      t: "`$INTEGER`"
+    }
+    next: {
+      fo: "uri"
+      h: "Next"
+      n: "next"
+      r: true
+      sh: "URL to the next page."
+      t: "`$STRING`"
+    }
+    previous: {
+      fo: "uri"
+      h: "Previous"
+      n: "previous"
+      r: true
+      sh: "URL to the previous page."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "pagination_serializer_notification_recipient"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/notifications/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/notifications/{workspace_id}/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "notifications"
+            }
+            {
+              var: "workspace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.notification")]
+  ]
+
+}

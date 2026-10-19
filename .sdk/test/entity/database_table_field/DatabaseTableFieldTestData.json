@@ -1,0 +1,110 @@
+{
+  "existing": {
+    "database_table_field": {
+      "DATABASE_TABLE_FIELD00": {
+        "created_on": "saa",
+        "duplicated_field": "sab",
+        "element_id": "ELEMENT01",
+        "error_code": "sad",
+        "field_id": "FIELD01",
+        "human_readable_error": "saf",
+        "id": "DATABASE_TABLE_FIELD00",
+        "is_auto_update": false,
+        "only_empty": true,
+        "original_field": "sb3",
+        "progress_percentage": 180,
+        "row_ids": [],
+        "state": "sb6",
+        "type": "sb7",
+        "updated_on": "sb8",
+        "view_id": "VIEW01",
+        "workflow_action_ids": [],
+        "workflow_action_id": "WORKFLOW_ACTION01"
+      },
+      "DATABASE_TABLE_FIELD01": {
+        "created_on": "s154",
+        "duplicated_field": "s155",
+        "element_id": "ELEMENT01",
+        "error_code": "s157",
+        "field_id": "FIELD01",
+        "human_readable_error": "s159",
+        "id": "DATABASE_TABLE_FIELD01",
+        "is_auto_update": false,
+        "only_empty": true,
+        "original_field": "s15d",
+        "progress_percentage": 350,
+        "row_ids": [],
+        "state": "s160",
+        "type": "s161",
+        "updated_on": "s162",
+        "view_id": "VIEW01",
+        "workflow_action_ids": [],
+        "workflow_action_id": "WORKFLOW_ACTION01"
+      },
+      "DATABASE_TABLE_FIELD02": {
+        "created_on": "s1fe",
+        "duplicated_field": "s1ff",
+        "element_id": "ELEMENT01",
+        "error_code": "s201",
+        "field_id": "FIELD01",
+        "human_readable_error": "s203",
+        "id": "DATABASE_TABLE_FIELD02",
+        "is_auto_update": false,
+        "only_empty": true,
+        "original_field": "s207",
+        "progress_percentage": 520,
+        "row_ids": [],
+        "state": "s20a",
+        "type": "s20b",
+        "updated_on": "s20c",
+        "view_id": "VIEW01",
+        "workflow_action_ids": [],
+        "workflow_action_id": "WORKFLOW_ACTION01"
+      }
+    }
+  },
+  "new": {
+    "database_table_field": {
+      "database_table_field_ref01": {
+        "created_on": "s2a8",
+        "duplicated_field": "s2a9",
+        "element_id": "ELEMENT01",
+        "error_code": "s2ab",
+        "field_id": "FIELD01",
+        "human_readable_error": "s2ad",
+        "is_auto_update": false,
+        "only_empty": true,
+        "original_field": "s2b1",
+        "progress_percentage": 690,
+        "row_ids": [],
+        "state": "s2b4",
+        "type": "s2b5",
+        "updated_on": "s2b6",
+        "view_id": "VIEW01",
+        "workflow_action_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/field/{field_id}/workflow_actions/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/fields/{field_id}/duplicate/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/database/fields/{field_id}/generate-ai-field-values/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/workflow_action/{workflow_action_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

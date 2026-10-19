@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "builder_preview": {
+      "BUILDER_PREVIEW00": {
+        "token": "TOKEN01",
+        "id": "BUILDER_PREVIEW00"
+      },
+      "BUILDER_PREVIEW01": {
+        "token": "TOKEN01",
+        "id": "BUILDER_PREVIEW01"
+      },
+      "BUILDER_PREVIEW02": {
+        "token": "TOKEN01",
+        "id": "BUILDER_PREVIEW02"
+      }
+    }
+  },
+  "new": {
+    "builder_preview": {
+      "builder_preview_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/builder/preview/exchange/{token}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

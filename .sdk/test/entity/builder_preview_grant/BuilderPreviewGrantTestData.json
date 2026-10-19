@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "builder_preview_grant": {
+      "BUILDER_PREVIEW_GRANT00": {
+        "path": "s14",
+        "url": "s15",
+        "preview_id": "PREVIEW01",
+        "id": "BUILDER_PREVIEW_GRANT00"
+      },
+      "BUILDER_PREVIEW_GRANT01": {
+        "path": "s28",
+        "url": "s29",
+        "preview_id": "PREVIEW01",
+        "id": "BUILDER_PREVIEW_GRANT01"
+      },
+      "BUILDER_PREVIEW_GRANT02": {
+        "path": "s3c",
+        "url": "s3d",
+        "preview_id": "PREVIEW01",
+        "id": "BUILDER_PREVIEW_GRANT02"
+      }
+    }
+  },
+  "new": {
+    "builder_preview_grant": {
+      "builder_preview_grant_ref01": {
+        "path": "s50",
+        "url": "s51"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/preview/{builder_id}/grant/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

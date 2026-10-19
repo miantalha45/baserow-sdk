@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "integration": {
+      "INTEGRATION00": {
+        "id": "INTEGRATION00",
+        "application_id": "APPLICATION01"
+      },
+      "INTEGRATION01": {
+        "id": "INTEGRATION01",
+        "application_id": "APPLICATION01"
+      },
+      "INTEGRATION02": {
+        "id": "INTEGRATION02",
+        "application_id": "APPLICATION01"
+      }
+    }
+  },
+  "new": {
+    "integration": {
+      "integration_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/application/{application_id}/integrations/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/application/{application_id}/integrations/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/integration/{integration_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/integration/{integration_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "pagination_serializer_example_row_response_serializer_with_user": {
+      "PAGINATION_SERIALIZER_EXAMPLE_ROW_RESPONSE_SERIALIZER_WITH_USER00": {
+        "count": 40,
+        "next": "s29",
+        "previous": "s2a",
+        "results": [],
+        "table_id": "TABLE01",
+        "id": "PAGINATION_SERIALIZER_EXAMPLE_ROW_RESPONSE_SERIALIZER_WITH_USER00"
+      },
+      "PAGINATION_SERIALIZER_EXAMPLE_ROW_RESPONSE_SERIALIZER_WITH_USER01": {
+        "count": 80,
+        "next": "s51",
+        "previous": "s52",
+        "results": [],
+        "table_id": "TABLE01",
+        "id": "PAGINATION_SERIALIZER_EXAMPLE_ROW_RESPONSE_SERIALIZER_WITH_USER01"
+      },
+      "PAGINATION_SERIALIZER_EXAMPLE_ROW_RESPONSE_SERIALIZER_WITH_USER02": {
+        "count": 120,
+        "next": "s79",
+        "previous": "s7a",
+        "results": [],
+        "table_id": "TABLE01",
+        "id": "PAGINATION_SERIALIZER_EXAMPLE_ROW_RESPONSE_SERIALIZER_WITH_USER02"
+      }
+    }
+  },
+  "new": {
+    "pagination_serializer_example_row_response_serializer_with_user": {
+      "pagination_serializer_example_row_response_serializer_with_user_ref01": {
+        "count": 160,
+        "next": "sa1",
+        "previous": "sa2",
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/rows/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "builder_preview_handoff": {
+      "BUILDER_PREVIEW_HANDOFF00": {
+        "builder_id": "BUILDER01",
+        "expires_in": 41,
+        "preview_handoff": "s2a",
+        "preview_session": "s2b",
+        "id": "BUILDER_PREVIEW_HANDOFF00"
+      },
+      "BUILDER_PREVIEW_HANDOFF01": {
+        "builder_id": "BUILDER01",
+        "expires_in": 81,
+        "preview_handoff": "s52",
+        "preview_session": "s53",
+        "id": "BUILDER_PREVIEW_HANDOFF01"
+      },
+      "BUILDER_PREVIEW_HANDOFF02": {
+        "builder_id": "BUILDER01",
+        "expires_in": 121,
+        "preview_handoff": "s7a",
+        "preview_session": "s7b",
+        "id": "BUILDER_PREVIEW_HANDOFF02"
+      }
+    }
+  },
+  "new": {
+    "builder_preview_handoff": {
+      "builder_preview_handoff_ref01": {
+        "builder_id": "BUILDER01",
+        "expires_in": 161,
+        "preview_handoff": "sa2",
+        "preview_session": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/preview/handoff/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

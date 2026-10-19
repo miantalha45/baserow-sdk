@@ -1,0 +1,26 @@
+# BasicPublicPaginationSerializerWithGalleryViewFieldOptionsFlow
+
+main: kit: flow: BasicPublicPaginationSerializerWithGalleryViewFieldOptionsFlow:
+{
+  entity: "public_pagination_serializer_with_gallery_view_field_options",
+  kind: "basic",
+  name: "BasicPublicPaginationSerializerWithGalleryViewFieldOptionsFlow",
+  step: [
+    {
+      m: {
+        gallery_id: "gallery01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_pagination_serializer_with_gallery_view_field_options_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicPaginationSerializerWithGalleryViewFieldOptionsFlow"
+}

@@ -1,0 +1,9 @@
+# BasicBuilderElementFlow
+
+main: kit: flow: BasicBuilderElementFlow:
+{
+  entity: "builder_element",
+  kind: "basic",
+  name: "BasicBuilderElementFlow",
+  "key$": "BasicBuilderElementFlow"
+}

@@ -1,0 +1,18 @@
+# BasicBuilderPreviewHandoffFlow
+
+main: kit: flow: BasicBuilderPreviewHandoffFlow:
+{
+  entity: "builder_preview_handoff",
+  kind: "basic",
+  name: "BasicBuilderPreviewHandoffFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_preview_handoff_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicBuilderPreviewHandoffFlow"
+}

@@ -1,0 +1,205 @@
+# Entity: ai_provider_feature_setting
+
+main: kit: entity: ai_provider_feature_setting: {
+
+  alias: field: {}
+
+  fields: {
+    feature_type: {
+      h: "Feature Type"
+      n: "feature_type"
+      r: true
+      t: "`$STRING`"
+    }
+    inherited_model: {
+      h: "Inherited Model"
+      n: "inherited_model"
+      r: true
+      t: "`$ANY`"
+    }
+    inherited_state: {
+      h: "Inherited State"
+      n: "inherited_state"
+      r: true
+      sh: "The state of the instance selection this workspace inherits, or null at instance scope."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    mode: {
+      h: "Mode"
+      n: "mode"
+      r: true
+      sh: "* `inherit` - inherit * `legacy` - legacy * `model` - model * `disabled` - disabled"
+      t: "`$STRING`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      t: "`$ANY`"
+    }
+    model_id: {
+      h: "Model Id"
+      n: "model_id"
+      r: false
+      t: "`$INTEGER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "* `configured` - configured * `inherited` - inherited * `overridden` - overridden * `disabled` - disabled * `unconfigured` - unconfigured * `invalid` - invalid"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "ai_provider_feature_setting"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/ai-providers/features/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/ai-providers/features/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "features"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "mode"
+            "model_id"
+          ]
+          co: {
+            id: "PUT /api/ai-providers/features/{feature_type}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "feature_type"
+                or: "feature_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/api/ai-providers/features/{feature_type}/"
+          q: {
+            exist: [
+              "feature_type"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "mode"
+                  }
+                  {
+                    name: "model_id"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "mode"
+                  }
+                  {
+                    name: "model_id"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "features"
+            }
+            {
+              var: "feature_type"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

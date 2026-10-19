@@ -1,0 +1,22 @@
+# BasicAiProviderTypeFlow
+
+main: kit: flow: BasicAiProviderTypeFlow:
+{
+  entity: "ai_provider_type",
+  kind: "basic",
+  name: "BasicAiProviderTypeFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_provider_type_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiProviderTypeFlow"
+}

@@ -1,0 +1,208 @@
+# Entity: trash
+
+main: kit: entity: trash: {
+
+  alias: field: {}
+
+  fields: {
+    applications: {
+      h: "Applications"
+      n: "applications"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    trashed: {
+      h: "Trashed"
+      n: "trashed"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "trash"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/trash/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/trash/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "trash"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.workspaces`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/trash/workspace/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "application_id"
+                or: "application_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/trash/workspace/{workspace_id}/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "trash"
+            }
+            {
+              lit: "workspace"
+            }
+            {
+              var: "workspace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "parent_trash_item_id"
+            "trash_item_id"
+            "trash_item_type"
+          ]
+          co: {
+            id: "PATCH /api/trash/restore/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PATCH"
+          o: "/api/trash/restore/"
+          q: {
+            "$action": "restore"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "parent_trash_item_id"
+                  }
+                  {
+                    name: "trash_item_id"
+                  }
+                  {
+                    name: "trash_item_type"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "parent_trash_item_id"
+                  }
+                  {
+                    name: "trash_item_id"
+                  }
+                  {
+                    name: "trash_item_type"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "trash"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workspace")]
+  ]
+
+}

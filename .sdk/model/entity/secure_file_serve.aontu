@@ -1,0 +1,66 @@
+# Entity: secure_file_serve
+
+main: kit: entity: secure_file_serve: {
+
+  alias: field: {}
+
+  name: "secure_file_serve"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/files/{signed_data}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "signed_data"
+                or: "signed_data"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/files/{signed_data}"
+          q: {
+            exist: [
+              "signed_data"
+            ]
+          }
+          rs: {
+            binary: true
+            kind: "raw"
+            media: "application/octet-stream"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "files"
+            }
+            {
+              var: "signed_data"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

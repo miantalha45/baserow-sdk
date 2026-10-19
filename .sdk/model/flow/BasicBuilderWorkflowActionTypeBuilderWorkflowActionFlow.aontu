@@ -1,0 +1,56 @@
+# BasicBuilderWorkflowActionTypeBuilderWorkflowActionFlow
+
+main: kit: flow: BasicBuilderWorkflowActionTypeBuilderWorkflowActionFlow:
+{
+  entity: "builder_workflow_action_type_builder_workflow_action",
+  kind: "basic",
+  name: "BasicBuilderWorkflowActionTypeBuilderWorkflowActionFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_workflow_action_type_builder_workflow_action_ref01"
+      }
+
+      m: {
+        page_id: "page01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        page_id: "page01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "builder_workflow_action_type_builder_workflow_action_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "builder_workflow_action_type_builder_workflow_action_ref01",
+        srcdatavar: "builder_workflow_action_type_builder_workflow_action_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-builder_workflow_action_type_builder_workflow_action_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBuilderWorkflowActionTypeBuilderWorkflowActionFlow"
+}

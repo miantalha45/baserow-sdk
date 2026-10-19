@@ -1,0 +1,225 @@
+# Entity: update_field_permission
+
+main: kit: entity: update_field_permission: {
+
+  alias: field: {}
+
+  fields: {
+    allow_in_forms: {
+      h: "Allow In Forms"
+      n: "allow_in_forms"
+      r: false
+      sh: "Whether to allow this field to be shown in forms."
+      t: "`$BOOLEAN`"
+    }
+    can_write_values: {
+      h: "Can Write Values"
+      n: "can_write_values"
+      r: false
+      sh: "Whether the user can write values to this field."
+      t: "`$BOOLEAN`"
+    }
+    field_id: {
+      h: "Field Id"
+      n: "field_id"
+      r: true
+      sh: "The ID of the field whose permissions were updated."
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    role: {
+      h: "Role"
+      n: "role"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The role required to update the data for this field."
+      t: "`$STRING`"
+    }
+    subjects: {
+      h: "Subjects"
+      n: "subjects"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "update_field_permission"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/field-permissions/{field_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/field-permissions/{field_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              field_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "field-permissions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "allow_in_forms"
+            "role"
+            "subjects"
+          ]
+          co: {
+            id: "PATCH /api/field-permissions/{field_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/field-permissions/{field_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              field_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "allow_in_forms"
+                  }
+                  {
+                    name: "role"
+                  }
+                  {
+                    list: true
+                    name: "subjects"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "allow_in_forms"
+                  }
+                  {
+                    name: "role"
+                  }
+                  {
+                    list: true
+                    name: "subjects"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "field-permissions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

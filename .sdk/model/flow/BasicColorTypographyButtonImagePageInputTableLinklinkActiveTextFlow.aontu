@@ -1,0 +1,29 @@
+# BasicColorTypographyButtonImagePageInputTableLinklinkActiveTextFlow
+
+main: kit: flow: BasicColorTypographyButtonImagePageInputTableLinklinkActiveTextFlow:
+{
+  entity: "color_typography_button_image_page_input_table_linklink_active_text",
+  kind: "basic",
+  name: "BasicColorTypographyButtonImagePageInputTableLinklinkActiveTextFlow",
+  step: [
+    {
+      i: {
+        ref: "color_typography_button_image_page_input_table_linklink_active_text_ref01",
+        srcdatavar: "color_typography_button_image_page_input_table_linklink_active_text_ref01_data",
+        suffix: "_up0",
+        textfield: "body_font_family"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-color_typography_button_image_page_input_table_linklink_active_text_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicColorTypographyButtonImagePageInputTableLinklinkActiveTextFlow"
+}

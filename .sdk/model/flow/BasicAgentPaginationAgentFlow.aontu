@@ -1,0 +1,32 @@
+# BasicAgentPaginationAgentFlow
+
+main: kit: flow: BasicAgentPaginationAgentFlow:
+{
+  entity: "agent_pagination_agent",
+  kind: "basic",
+  name: "BasicAgentPaginationAgentFlow",
+  step: [
+    {
+      i: {
+        ref: "agent_pagination_agent_ref01",
+        srcdatavar: "agent_pagination_agent_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "agent_pagination_agent01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-agent_pagination_agent_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAgentPaginationAgentFlow"
+}

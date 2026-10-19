@@ -1,0 +1,18 @@
+# BasicAbuseReportFlow
+
+main: kit: flow: BasicAbuseReportFlow:
+{
+  entity: "abuse_report",
+  kind: "basic",
+  name: "BasicAbuseReportFlow",
+  step: [
+    {
+      i: {
+        ref: "abuse_report_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAbuseReportFlow"
+}

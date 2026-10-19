@@ -1,0 +1,26 @@
+# BasicCancelFlow
+
+main: kit: flow: BasicCancelFlow:
+{
+  entity: "cancel",
+  kind: "basic",
+  name: "BasicCancelFlow",
+  step: [
+    {
+      m: {
+        chat_id: "chat01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "cancel_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCancelFlow"
+}

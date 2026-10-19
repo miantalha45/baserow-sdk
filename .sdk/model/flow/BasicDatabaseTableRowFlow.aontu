@@ -1,0 +1,78 @@
+# BasicDatabaseTableRowFlow
+
+main: kit: flow: BasicDatabaseTableRowFlow:
+{
+  entity: "database_table_row",
+  kind: "basic",
+  name: "BasicDatabaseTableRowFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_row_ref01"
+      }
+
+      m: {
+        row_comment_id: "row_comment01",
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        row_comment_id: "row_comment01"
+      }
+
+      i: {
+        ref: "database_table_row_ref01",
+        srcdatavar: "database_table_row_ref01_data",
+        suffix: "_up0",
+        textfield: "mode"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-database_table_row_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "database_table_row_ref01",
+        srcdatavar: "database_table_row_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-database_table_row_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "database_table_row_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "database_table_row01",
+        table_id: "table01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicDatabaseTableRowFlow"
+}

@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "view_group_by": {
+      "VIEW_GROUP_BY00": {
+        "field": 70,
+        "id": "VIEW_GROUP_BY00",
+        "order": "s48",
+        "priority": 73,
+        "type": "s4a",
+        "view": 75,
+        "width": 76
+      },
+      "VIEW_GROUP_BY01": {
+        "field": 140,
+        "id": "VIEW_GROUP_BY01",
+        "order": "s8e",
+        "priority": 143,
+        "type": "s90",
+        "view": 145,
+        "width": 146
+      },
+      "VIEW_GROUP_BY02": {
+        "field": 210,
+        "id": "VIEW_GROUP_BY02",
+        "order": "sd4",
+        "priority": 213,
+        "type": "sd6",
+        "view": 215,
+        "width": 216
+      }
+    }
+  },
+  "new": {
+    "view_group_by": {
+      "view_group_by_ref01": {
+        "field": 280,
+        "order": "s11a",
+        "priority": 283,
+        "type": "s11c",
+        "view": 285,
+        "width": 286
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{view_id}/group_bys/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/{view_id}/group_bys/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/views/group_by/{view_group_by_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/views/group_by/{view_group_by_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+# Entity: public_view_auth
+
+main: kit: entity: public_view_auth: {
+
+  alias: field: {}
+
+  fields: {
+    access_token: {
+      h: "Access Token"
+      n: "access_token"
+      r: true
+      t: "`$STRING`"
+    }
+    password: {
+      h: "Password"
+      n: "password"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "public_view_auth"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "password"
+          ]
+          co: {
+            id: "POST /api/database/views/{slug}/public/auth/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "view_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/views/{slug}/public/auth/"
+          q: {
+            exist: [
+              "view_id"
+            ]
+          }
+          r: {
+            param: {
+              slug: "view_id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "password"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "password"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "view_id"
+            }
+            {
+              lit: "public"
+            }
+            {
+              lit: "auth"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

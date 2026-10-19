@@ -1,0 +1,9 @@
+# BasicDashboardWidgetFlow
+
+main: kit: flow: BasicDashboardWidgetFlow:
+{
+  entity: "dashboard_widget",
+  kind: "basic",
+  name: "BasicDashboardWidgetFlow",
+  "key$": "BasicDashboardWidgetFlow"
+}

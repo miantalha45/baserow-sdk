@@ -1,0 +1,57 @@
+# BasicSnapshotFlow
+
+main: kit: flow: BasicSnapshotFlow:
+{
+  entity: "snapshot",
+  kind: "basic",
+  name: "BasicSnapshotFlow",
+  step: [
+    {
+      i: {
+        ref: "snapshot_ref01"
+      }
+
+      m: {
+        application_id: "application01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "snapshot_ref01",
+        srcdatavar: "snapshot_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "snapshot01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-snapshot_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "snapshot_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "snapshot01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicSnapshotFlow"
+}

@@ -1,0 +1,22 @@
+# BasicDispatchFlow
+
+main: kit: flow: BasicDispatchFlow:
+{
+  entity: "dispatch",
+  kind: "basic",
+  name: "BasicDispatchFlow",
+  step: [
+    {
+      i: {
+        ref: "dispatch_ref01"
+      }
+
+      m: {
+        field_id: "field01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicDispatchFlow"
+}

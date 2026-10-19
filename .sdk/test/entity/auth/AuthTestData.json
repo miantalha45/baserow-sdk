@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "auth": {
+      "AUTH00": {
+        "RelayState": "s3c",
+        "SAMLResponse": "s3d",
+        "backup_code": "s3e",
+        "code": "s3f",
+        "email": "s40",
+        "password": "s41",
+        "auth_provider_id": "AUTH_PROVIDER01",
+        "id": "AUTH00"
+      },
+      "AUTH01": {
+        "RelayState": "s78",
+        "SAMLResponse": "s79",
+        "backup_code": "s7a",
+        "code": "s7b",
+        "email": "s7c",
+        "password": "s7d",
+        "auth_provider_id": "AUTH_PROVIDER01",
+        "id": "AUTH01"
+      },
+      "AUTH02": {
+        "RelayState": "sb4",
+        "SAMLResponse": "sb5",
+        "backup_code": "sb6",
+        "code": "sb7",
+        "email": "sb8",
+        "password": "sb9",
+        "auth_provider_id": "AUTH_PROVIDER01",
+        "id": "AUTH02"
+      }
+    }
+  },
+  "new": {
+    "auth": {
+      "auth_ref01": {
+        "RelayState": "sf0",
+        "SAMLResponse": "sf1",
+        "backup_code": "sf2",
+        "code": "sf3",
+        "email": "sf4",
+        "password": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/sso/saml/acs/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/two-factor-auth/disable/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/two-factor-auth/verify/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/auth-provider/login-options/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/sso/saml/login-url/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/sso/saml/login/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/admin/auth-provider/{auth_provider_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

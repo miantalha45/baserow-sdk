@@ -1,0 +1,80 @@
+{
+  "existing": {
+    "automation_node_type_automation_node": {
+      "AUTOMATION_NODE_TYPE_AUTOMATION_NODE00": {
+        "id": "AUTOMATION_NODE_TYPE_AUTOMATION_NODE00",
+        "new_type": "s33",
+        "output": "s34",
+        "position": "s35",
+        "reference_node_id": "REFERENCE_NODE01",
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01"
+      },
+      "AUTOMATION_NODE_TYPE_AUTOMATION_NODE01": {
+        "id": "AUTOMATION_NODE_TYPE_AUTOMATION_NODE01",
+        "new_type": "s65",
+        "output": "s66",
+        "position": "s67",
+        "reference_node_id": "REFERENCE_NODE01",
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01"
+      },
+      "AUTOMATION_NODE_TYPE_AUTOMATION_NODE02": {
+        "id": "AUTOMATION_NODE_TYPE_AUTOMATION_NODE02",
+        "new_type": "s97",
+        "output": "s98",
+        "position": "s99",
+        "reference_node_id": "REFERENCE_NODE01",
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01"
+      }
+    }
+  },
+  "new": {
+    "automation_node_type_automation_node": {
+      "automation_node_type_automation_node_ref01": {
+        "new_type": "sc9",
+        "output": "sca",
+        "position": "scb",
+        "reference_node_id": "REFERENCE_NODE01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/automation/node/{node_id}/duplicate/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/node/{node_id}/move/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/node/{node_id}/replace/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/node/{node_id}/simulate-dispatch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/workflow/{workflow_id}/nodes/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/automation/workflow/{workflow_id}/nodes/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/automation/node/{node_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

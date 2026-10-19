@@ -1,0 +1,26 @@
+# BasicAutomationNodeHistoryFlow
+
+main: kit: flow: BasicAutomationNodeHistoryFlow:
+{
+  entity: "automation_node_history",
+  kind: "basic",
+  name: "BasicAutomationNodeHistoryFlow",
+  step: [
+    {
+      m: {
+        workflow_history_id: "workflow_history01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "automation_node_history_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAutomationNodeHistoryFlow"
+}

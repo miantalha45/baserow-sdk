@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "ai_provider_models_test": {
+      "AI_PROVIDER_MODELS_TEST00": {
+        "model_ids": [],
+        "results": [],
+        "id": "AI_PROVIDER_MODELS_TEST00"
+      },
+      "AI_PROVIDER_MODELS_TEST01": {
+        "model_ids": [],
+        "results": [],
+        "id": "AI_PROVIDER_MODELS_TEST01"
+      },
+      "AI_PROVIDER_MODELS_TEST02": {
+        "model_ids": [],
+        "results": [],
+        "id": "AI_PROVIDER_MODELS_TEST02"
+      }
+    }
+  },
+  "new": {
+    "ai_provider_models_test": {
+      "ai_provider_models_test_ref01": {
+        "model_ids": [],
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/ai-providers/models/test/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

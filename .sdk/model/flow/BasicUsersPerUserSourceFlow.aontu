@@ -1,0 +1,32 @@
+# BasicUsersPerUserSourceFlow
+
+main: kit: flow: BasicUsersPerUserSourceFlow:
+{
+  entity: "users_per_user_source",
+  kind: "basic",
+  name: "BasicUsersPerUserSourceFlow",
+  step: [
+    {
+      i: {
+        ref: "users_per_user_source_ref01",
+        srcdatavar: "users_per_user_source_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "users_per_user_source01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-users_per_user_source_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUsersPerUserSourceFlow"
+}

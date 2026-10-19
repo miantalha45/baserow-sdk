@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "kanban": {
+      "KANBAN00": {
+        "field_options": [],
+        "id": "KANBAN00",
+        "row_metadata": {},
+        "rows": {}
+      },
+      "KANBAN01": {
+        "field_options": [],
+        "id": "KANBAN01",
+        "row_metadata": {},
+        "rows": {}
+      },
+      "KANBAN02": {
+        "field_options": [],
+        "id": "KANBAN02",
+        "row_metadata": {},
+        "rows": {}
+      }
+    }
+  },
+  "new": {
+    "kanban": {
+      "kanban_ref01": {
+        "field_options": [],
+        "row_metadata": {},
+        "rows": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/kanban/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

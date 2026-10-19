@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "dashboard_data_source": {
+      "DASHBOARD_DATA_SOURCE00": {
+        "data_source_id": "DATA_SOURCE01",
+        "id": "DASHBOARD_DATA_SOURCE00"
+      },
+      "DASHBOARD_DATA_SOURCE01": {
+        "data_source_id": "DATA_SOURCE01",
+        "id": "DASHBOARD_DATA_SOURCE01"
+      },
+      "DASHBOARD_DATA_SOURCE02": {
+        "data_source_id": "DATA_SOURCE01",
+        "id": "DASHBOARD_DATA_SOURCE02"
+      }
+    }
+  },
+  "new": {
+    "dashboard_data_source": {
+      "dashboard_data_source_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/dashboard/data-sources/{data_source_id}/dispatch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

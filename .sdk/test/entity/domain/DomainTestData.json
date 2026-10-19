@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "domain": {
+      "DOMAIN00": {
+        "domain_name": "s1e",
+        "id": "DOMAIN00",
+        "type": "s20",
+        "builder_id": "BUILDER01"
+      },
+      "DOMAIN01": {
+        "domain_name": "s3c",
+        "id": "DOMAIN01",
+        "type": "s3e",
+        "builder_id": "BUILDER01"
+      },
+      "DOMAIN02": {
+        "domain_name": "s5a",
+        "id": "DOMAIN02",
+        "type": "s5c",
+        "builder_id": "BUILDER01"
+      }
+    }
+  },
+  "new": {
+    "domain": {
+      "domain_ref01": {
+        "domain_name": "s78",
+        "type": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/{builder_id}/domains/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/{builder_id}/domains/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/builder/domains/{domain_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

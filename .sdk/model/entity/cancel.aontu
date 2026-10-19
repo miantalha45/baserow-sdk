@@ -1,0 +1,84 @@
+# Entity: cancel
+
+main: kit: entity: cancel: {
+
+  alias: field: {}
+
+  fields: {
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 5
+      }
+    }
+  }
+
+  name: "cancel"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /assistant/chat/{chat_uuid}/cancel/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "chat_id"
+                or: "chat_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/assistant/chat/{chat_uuid}/cancel/"
+          q: {
+            exist: [
+              "chat_id"
+            ]
+          }
+          r: {
+            param: {
+              chat_uuid: "chat_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              var: "chat_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.messages`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

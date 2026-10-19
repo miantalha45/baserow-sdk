@@ -1,0 +1,92 @@
+# Entity: ai_provider_model_usage_entry
+
+main: kit: entity: ai_provider_model_usage_entry: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      t: "`$INTEGER`"
+    }
+    feature_type: {
+      h: "Feature Type"
+      n: "feature_type"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "ai_provider_model_usage_entry"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/ai-providers/models/{model_id}/usage/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "model_id"
+                or: "model_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/ai-providers/models/{model_id}/usage/"
+          q: {
+            exist: [
+              "model_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "models"
+            }
+            {
+              var: "model_id"
+            }
+            {
+              lit: "usage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.usage`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "onboarding_prompt_suggestion": {
+      "ONBOARDING_PROMPT_SUGGESTION00": {
+        "industry": "s28",
+        "language": "s29",
+        "suggestions": [],
+        "team": "s2b",
+        "id": "ONBOARDING_PROMPT_SUGGESTION00"
+      },
+      "ONBOARDING_PROMPT_SUGGESTION01": {
+        "industry": "s50",
+        "language": "s51",
+        "suggestions": [],
+        "team": "s53",
+        "id": "ONBOARDING_PROMPT_SUGGESTION01"
+      },
+      "ONBOARDING_PROMPT_SUGGESTION02": {
+        "industry": "s78",
+        "language": "s79",
+        "suggestions": [],
+        "team": "s7b",
+        "id": "ONBOARDING_PROMPT_SUGGESTION02"
+      }
+    }
+  },
+  "new": {
+    "onboarding_prompt_suggestion": {
+      "onboarding_prompt_suggestion_ref01": {
+        "industry": "sa0",
+        "language": "sa1",
+        "suggestions": [],
+        "team": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /assistant/onboarding/prompt-suggestions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

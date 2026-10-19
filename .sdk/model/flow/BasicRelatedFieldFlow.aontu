@@ -1,0 +1,9 @@
+# BasicRelatedFieldFlow
+
+main: kit: flow: BasicRelatedFieldFlow:
+{
+  entity: "related_field",
+  kind: "basic",
+  name: "BasicRelatedFieldFlow",
+  "key$": "BasicRelatedFieldFlow"
+}

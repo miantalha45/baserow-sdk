@@ -1,0 +1,289 @@
+# Entity: setting
+
+main: kit: entity: setting: {
+
+  alias: field: {}
+
+  fields: {
+    account_deletion_grace_delay: {
+      h: "Account Deletion Grace Delay"
+      n: "account_deletion_grace_delay"
+      r: false
+      sh: "Number of days after the last login for an account pending deletion to be deleted"
+      t: "`$INTEGER`"
+    }
+    allow_global_workspace_creation: {
+      h: "Allow Global Workspace Creation"
+      n: "allow_global_workspace_creation"
+      r: false
+      sh: "Indicates whether all users can create workspaces, or just staff."
+      t: "`$BOOLEAN`"
+    }
+    allow_new_signups: {
+      h: "Allow New Signups"
+      n: "allow_new_signups"
+      r: false
+      sh: "Indicates whether new users can create a new account when signing up."
+      t: "`$BOOLEAN`"
+    }
+    allow_reporting_abuse: {
+      h: "Allow Reporting Abuse"
+      n: "allow_reporting_abuse"
+      r: false
+      sh: "Indicates whether anonymous visitors can report publicly shared resources, like views and forms, for abuse."
+      t: "`$BOOLEAN`"
+    }
+    allow_reset_password: {
+      h: "Allow Reset Password"
+      n: "allow_reset_password"
+      r: false
+      sh: "Indicates whether users can request a password reset link."
+      t: "`$BOOLEAN`"
+    }
+    allow_signups_via_workspace_invitations: {
+      h: "Allow Signups Via Workspace Invitations"
+      n: "allow_signups_via_workspace_invitations"
+      r: false
+      sh: "Indicates whether invited users can create an account when signing up, even if allow_new_signups is disabled."
+      t: "`$BOOLEAN`"
+    }
+    co_branding_logo: {
+      h: "Co Branding Logo"
+      n: "co_branding_logo"
+      r: false
+      sh: "Co-branding logo that's placed next to the Baserow logo (176x29)."
+      t: "`$ANY`"
+    }
+    email_verification: {
+      h: "Email Verification"
+      n: "email_verification"
+      r: false
+      sh: "Controls whether user email addresses have to be verified."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    inbound_email_enabled: {
+      h: "Inbound Email Enabled"
+      n: "inbound_email_enabled"
+      r: true
+      ro: true
+      sh: "Whether this instance is configured to receive inbound email for the automation email trigger."
+      t: "`$BOOLEAN`"
+    }
+    show_admin_signup_page: {
+      h: "Show Admin Signup Page"
+      n: "show_admin_signup_page"
+      r: false
+      sh: "Indicates that there are no admin users in the database yet, so in the frontend the signup form will be shown instead of the login page."
+      t: "`$BOOLEAN`"
+    }
+    show_baserow_help_request: {
+      h: "Show Baserow Help Request"
+      n: "show_baserow_help_request"
+      r: false
+      sh: "Indicates whether the `We need your help!` message will be shown on the dashboard"
+      t: "`$BOOLEAN`"
+    }
+    track_workspace_usage: {
+      h: "Track Workspace Usage"
+      n: "track_workspace_usage"
+      r: false
+      sh: "Runs a job once per day which calculates per workspace row counts and file storage usage, displayed on the admin workspace page."
+      t: "`$BOOLEAN`"
+    }
+    verify_import_signature: {
+      h: "Verify Import Signature"
+      n: "verify_import_signature"
+      r: false
+      sh: "Indicates whether the signature of imported files should be verified."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "setting"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/settings/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/settings/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "settings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "account_deletion_grace_delay"
+            "allow_global_workspace_creation"
+            "allow_new_signups"
+            "allow_reporting_abuse"
+            "allow_reset_password"
+            "allow_signups_via_workspace_invitations"
+            "co_branding_logo"
+            "email_verification"
+            "show_admin_signup_page"
+            "show_baserow_help_request"
+            "track_workspace_usage"
+            "verify_import_signature"
+          ]
+          co: {
+            id: "PATCH /api/settings/update/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PATCH"
+          o: "/api/settings/update/"
+          q: {
+            "$action": "update"
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "account_deletion_grace_delay"
+                  }
+                  {
+                    name: "allow_global_workspace_creation"
+                  }
+                  {
+                    name: "allow_new_signups"
+                  }
+                  {
+                    name: "allow_reporting_abuse"
+                  }
+                  {
+                    name: "allow_reset_password"
+                  }
+                  {
+                    name: "allow_signups_via_workspace_invitations"
+                  }
+                  {
+                    name: "co_branding_logo"
+                  }
+                  {
+                    name: "email_verification"
+                  }
+                  {
+                    name: "inbound_email_enabled"
+                  }
+                  {
+                    name: "show_admin_signup_page"
+                  }
+                  {
+                    name: "show_baserow_help_request"
+                  }
+                  {
+                    name: "track_workspace_usage"
+                  }
+                  {
+                    name: "verify_import_signature"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "account_deletion_grace_delay"
+                  }
+                  {
+                    name: "allow_global_workspace_creation"
+                  }
+                  {
+                    name: "allow_new_signups"
+                  }
+                  {
+                    name: "allow_reporting_abuse"
+                  }
+                  {
+                    name: "allow_reset_password"
+                  }
+                  {
+                    name: "allow_signups_via_workspace_invitations"
+                  }
+                  {
+                    name: "co_branding_logo"
+                  }
+                  {
+                    name: "email_verification"
+                  }
+                  {
+                    name: "inbound_email_enabled"
+                  }
+                  {
+                    name: "show_admin_signup_page"
+                  }
+                  {
+                    name: "show_baserow_help_request"
+                  }
+                  {
+                    name: "track_workspace_usage"
+                  }
+                  {
+                    name: "verify_import_signature"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "update"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

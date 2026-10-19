@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "pagination_serializer_with_gallery_view_field_options_example_row": {
+      "PAGINATION_SERIALIZER_WITH_GALLERY_VIEW_FIELD_OPTIONS_EXAMPLE_ROW00": {
+        "count": 60,
+        "field_options": {},
+        "next": "s3e",
+        "previous": "s3f",
+        "results": [],
+        "row_metadata": {},
+        "view_id": "VIEW01",
+        "id": "PAGINATION_SERIALIZER_WITH_GALLERY_VIEW_FIELD_OPTIONS_EXAMPLE_ROW00"
+      },
+      "PAGINATION_SERIALIZER_WITH_GALLERY_VIEW_FIELD_OPTIONS_EXAMPLE_ROW01": {
+        "count": 120,
+        "field_options": {},
+        "next": "s7a",
+        "previous": "s7b",
+        "results": [],
+        "row_metadata": {},
+        "view_id": "VIEW01",
+        "id": "PAGINATION_SERIALIZER_WITH_GALLERY_VIEW_FIELD_OPTIONS_EXAMPLE_ROW01"
+      },
+      "PAGINATION_SERIALIZER_WITH_GALLERY_VIEW_FIELD_OPTIONS_EXAMPLE_ROW02": {
+        "count": 180,
+        "field_options": {},
+        "next": "sb6",
+        "previous": "sb7",
+        "results": [],
+        "row_metadata": {},
+        "view_id": "VIEW01",
+        "id": "PAGINATION_SERIALIZER_WITH_GALLERY_VIEW_FIELD_OPTIONS_EXAMPLE_ROW02"
+      }
+    }
+  },
+  "new": {
+    "pagination_serializer_with_gallery_view_field_options_example_row": {
+      "pagination_serializer_with_gallery_view_field_options_example_row_ref01": {
+        "count": 240,
+        "field_options": {},
+        "next": "sf2",
+        "previous": "sf3",
+        "results": [],
+        "row_metadata": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/gallery/{view_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

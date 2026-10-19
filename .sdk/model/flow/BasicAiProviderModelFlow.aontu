@@ -1,0 +1,41 @@
+# BasicAiProviderModelFlow
+
+main: kit: flow: BasicAiProviderModelFlow:
+{
+  entity: "ai_provider_model",
+  kind: "basic",
+  name: "BasicAiProviderModelFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_provider_model_ref01"
+      }
+
+      m: {
+        provider_id: "provider01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "ai_provider_model_ref01",
+        srcdatavar: "ai_provider_model_ref01_data",
+        suffix: "_up0",
+        textfield: "model_identifier"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_provider_model_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiProviderModelFlow"
+}

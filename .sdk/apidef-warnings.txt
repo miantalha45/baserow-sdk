@@ -1,0 +1,390 @@
+{
+  point: "warning"
+  note: "no server URL in the definition (servers[0].url): the SDK takes it as the server variable `base`; set the `server` build option to fix one"
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/admin/users/impersonate/ and POST /api/licenses/ on entity=admin op=create have the same selector (exist: none), so only POST /api/admin/users/impersonate/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "admin"
+  op: "create"
+  points: [
+    "POST /api/admin/users/impersonate/"
+    "POST /api/licenses/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/admin/workspaces/ and GET /api/licenses/ on entity=admin op=list have the same selector (exist: none), so only GET /api/admin/workspaces/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "admin"
+  op: "list"
+  points: [
+    "GET /api/admin/workspaces/"
+    "GET /api/licenses/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points DELETE /api/admin/users/{user_id}/ and DELETE /api/admin/users/{user_id}/two-factor-auth/ on entity=admin op=remove have the same selector (exist: user_id), so only DELETE /api/admin/users/{user_id}/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "admin"
+  op: "remove"
+  points: [
+    "DELETE /api/admin/users/{user_id}/"
+    "DELETE /api/admin/users/{user_id}/two-factor-auth/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /assistant/chat/{chat_uuid}/cancel/ and POST /assistant/chat/{chat_uuid}/messages/ on entity=ai_assistant op=create have the same selector (exist: chat_id), so only POST /assistant/chat/{chat_uuid}/cancel/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "ai_assistant"
+  op: "create"
+  points: [
+    "POST /assistant/chat/{chat_uuid}/cancel/"
+    "POST /assistant/chat/{chat_uuid}/messages/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points DELETE /assistant/chat/{chat_uuid}/cancel/ and DELETE /assistant/chat/{chat_uuid}/messages/ on entity=ai_assistant op=remove have the same selector (exist: chat_id), so only DELETE /assistant/chat/{chat_uuid}/cancel/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "ai_assistant"
+  op: "remove"
+  points: [
+    "DELETE /assistant/chat/{chat_uuid}/cancel/"
+    "DELETE /assistant/chat/{chat_uuid}/messages/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/admin/audit-log/export/ and POST /api/audit-log/export/ on entity=audit_log op=create have the same selector (exist: none; $action: export), so only POST /api/admin/audit-log/export/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "audit_log"
+  op: "create"
+  points: [
+    "POST /api/admin/audit-log/export/"
+    "POST /api/audit-log/export/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/admin/audit-log/ and GET /api/audit-log/ on entity=audit_log op=list have the same selector (exist: none), so only GET /api/admin/audit-log/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "audit_log"
+  op: "list"
+  points: [
+    "GET /api/admin/audit-log/"
+    "GET /api/audit-log/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/admin/audit-log/action-types/ and GET /api/audit-log/action-types/ on entity=audit_log_action_type op=list have the same selector (exist: none), so only GET /api/admin/audit-log/action-types/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "audit_log_action_type"
+  op: "list"
+  points: [
+    "GET /api/admin/audit-log/action-types/"
+    "GET /api/audit-log/action-types/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/admin/audit-log/users/ and GET /api/audit-log/users/ on entity=audit_log_user op=list have the same selector (exist: none), so only GET /api/admin/audit-log/users/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "audit_log_user"
+  op: "list"
+  points: [
+    "GET /api/admin/audit-log/users/"
+    "GET /api/audit-log/users/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/sso/saml/acs/, POST /api/two-factor-auth/disable/ and POST /api/two-factor-auth/verify/ on entity=auth op=create have the same selector (exist: none), so only POST /api/sso/saml/acs/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "auth"
+  op: "create"
+  points: [
+    "POST /api/sso/saml/acs/"
+    "POST /api/two-factor-auth/disable/"
+    "POST /api/two-factor-auth/verify/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/auth-provider/login-options/, GET /api/sso/saml/login-url/ and GET /api/sso/saml/login/ on entity=auth op=load have the same selector (exist: none), so only GET /api/auth-provider/login-options/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "auth"
+  op: "load"
+  points: [
+    "GET /api/auth-provider/login-options/"
+    "GET /api/sso/saml/login-url/"
+    "GET /api/sso/saml/login/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/automation/node/{node_id}/duplicate/, POST /api/automation/node/{node_id}/move/, POST /api/automation/node/{node_id}/replace/ and POST /api/automation/node/{node_id}/simulate-dispatch/ on entity=automation_node_type_automation_node op=create have the same selector (exist: node_id), so only POST /api/automation/node/{node_id}/duplicate/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "automation_node_type_automation_node"
+  op: "create"
+  points: [
+    "POST /api/automation/node/{node_id}/duplicate/"
+    "POST /api/automation/node/{node_id}/move/"
+    "POST /api/automation/node/{node_id}/replace/"
+    "POST /api/automation/node/{node_id}/simulate-dispatch/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/automation/workflows/{workflow_id}/duplicate/async/, POST /api/automation/workflows/{workflow_id}/publish/async/ and POST /api/automation/workflows/{workflow_id}/test/ on entity=automation_workflow op=create have the same selector (exist: workflow_id), so only POST /api/automation/workflows/{workflow_id}/duplicate/async/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "automation_workflow"
+  op: "create"
+  points: [
+    "POST /api/automation/workflows/{workflow_id}/duplicate/async/"
+    "POST /api/automation/workflows/{workflow_id}/publish/async/"
+    "POST /api/automation/workflows/{workflow_id}/test/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/builder/data-source/{data_source_id}/dispatch/ and POST /api/builder/domains/published/data-source/{data_source_id}/dispatch/ on entity=builder_data_source op=create have the same selector (exist: data_source_id), so only POST /api/builder/data-source/{data_source_id}/dispatch/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "builder_data_source"
+  op: "create"
+  points: [
+    "POST /api/builder/data-source/{data_source_id}/dispatch/"
+    "POST /api/builder/domains/published/data-source/{data_source_id}/dispatch/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/builder/domains/published/page/{page_id}/dispatch-data-sources/ and POST /api/builder/page/{page_id}/dispatch-data-sources/ on entity=builder_data_source op=create have the same selector (exist: page_id), so only POST /api/builder/domains/published/page/{page_id}/dispatch-data-sources/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "builder_data_source"
+  op: "create"
+  points: [
+    "POST /api/builder/domains/published/page/{page_id}/dispatch-data-sources/"
+    "POST /api/builder/page/{page_id}/dispatch-data-sources/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/custom_code/{builder_id}/css/public/ and GET /api/custom_code/{builder_id}/js/public/ on entity=builder_public op=load have the same selector (exist: custom_code_id,type), so only GET /api/custom_code/{builder_id}/css/public/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "builder_public"
+  op: "load"
+  points: [
+    "GET /api/custom_code/{builder_id}/css/public/"
+    "GET /api/custom_code/{builder_id}/js/public/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/builder/preview/{builder_id}/custom-code/css/ and GET /api/builder/preview/{builder_id}/custom-code/js/ on entity=builder_public op=load have the same selector (exist: preview_id,type), so only GET /api/builder/preview/{builder_id}/custom-code/css/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "builder_public"
+  op: "load"
+  points: [
+    "GET /api/builder/preview/{builder_id}/custom-code/css/"
+    "GET /api/builder/preview/{builder_id}/custom-code/js/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/database/tables/{table_id}/duplicate/async/ and POST /api/database/tables/{table_id}/import/async/ on entity=database_table op=create have the same selector (exist: table_id), so only POST /api/database/tables/{table_id}/duplicate/async/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "database_table"
+  op: "create"
+  points: [
+    "POST /api/database/tables/{table_id}/duplicate/async/"
+    "POST /api/database/tables/{table_id}/import/async/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/database/field/{field_id}/workflow_actions/order/, POST /api/database/fields/{field_id}/duplicate/async/ and POST /api/database/fields/{field_id}/generate-ai-field-values/ on entity=database_table_field op=create have the same selector (exist: field_id), so only POST /api/database/field/{field_id}/workflow_actions/order/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "database_table_field"
+  op: "create"
+  points: [
+    "POST /api/database/field/{field_id}/workflow_actions/order/"
+    "POST /api/database/fields/{field_id}/duplicate/async/"
+    "POST /api/database/fields/{field_id}/generate-ai-field-values/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/database/views/grid/{slug}/public/aggregations/ and GET /api/database/views/grid/{view_id}/aggregations/ on entity=database_table_grid_view op=load have the same selector (exist: grid_id), so only GET /api/database/views/grid/{slug}/public/aggregations/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "database_table_grid_view"
+  op: "load"
+  points: [
+    "GET /api/database/views/grid/{slug}/public/aggregations/"
+    "GET /api/database/views/grid/{view_id}/aggregations/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/builder/domains/published/page/{page_id}/elements/ and GET /api/builder/page/{page_id}/elements/ on entity=element op=list have the same selector (exist: page_id), so only GET /api/builder/domains/published/page/{page_id}/elements/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "element"
+  op: "list"
+  points: [
+    "GET /api/builder/domains/published/page/{page_id}/elements/"
+    "GET /api/builder/page/{page_id}/elements/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points PATCH /api/database/rows/table/{table_id}/{row_id}/ and PATCH /api/database/rows/table/{table_id}/{row_id}/move/ on entity=example_row_response_serializer_with_user_field_name op=update have the same selector (exist: row_id,table_id), so only PATCH /api/database/rows/table/{table_id}/{row_id}/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "example_row_response_serializer_with_user_field_name"
+  op: "update"
+  points: [
+    "PATCH /api/database/rows/table/{table_id}/{row_id}/"
+    "PATCH /api/database/rows/table/{table_id}/{row_id}/move/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/role/{workspace_id}/ and POST /api/role/{workspace_id}/batch/ on entity=open_api_role_assignment op=create have the same selector (exist: workspace_id), so only POST /api/role/{workspace_id}/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "open_api_role_assignment"
+  op: "create"
+  points: [
+    "POST /api/role/{workspace_id}/"
+    "POST /api/role/{workspace_id}/batch/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/database/data-sync/database/{database_id}/ and POST /api/database/tables/database/{database_id}/ on entity=table op=create have the same selector (exist: database_id), so only POST /api/database/data-sync/database/{database_id}/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "table"
+  op: "create"
+  points: [
+    "POST /api/database/data-sync/database/{database_id}/"
+    "POST /api/database/tables/database/{database_id}/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/database/tables/{table_id}/ and GET /api/database/webhooks/table/{table_id}/ on entity=table op=load have the same selector (exist: id), so only GET /api/database/tables/{table_id}/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "table"
+  op: "load"
+  points: [
+    "GET /api/database/tables/{table_id}/"
+    "GET /api/database/webhooks/table/{table_id}/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/admin/users/ and POST /api/user/ on entity=user op=create have the same selector (exist: none), so only POST /api/admin/users/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "user"
+  op: "create"
+  points: [
+    "POST /api/admin/users/"
+    "POST /api/user/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /api/user-source-auth-refresh/, POST /api/user-source-token-blacklist/ and POST /api/user-source/sso/saml/acs/ on entity=user_source op=create have the same selector (exist: none), so only POST /api/user-source-auth-refresh/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "user_source"
+  op: "create"
+  points: [
+    "POST /api/user-source-auth-refresh/"
+    "POST /api/user-source-token-blacklist/"
+    "POST /api/user-source/sso/saml/acs/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/, GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/login/ and GET /api/user-source/{user_source_uid}/sso/saml/login/ on entity=user_source op=load have the same selector (exist: id), so only GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "user_source"
+  op: "load"
+  points: [
+    "GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/callback/"
+    "GET /api/user-source/{user_source_uid}/sso/oauth2/openid_connect/login/"
+    "GET /api/user-source/{user_source_uid}/sso/saml/login/"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /api/search/workspace/{workspace_id}/, GET /api/workspaces/invitations/workspace/{workspace_id}/ and GET /api/workspaces/users/workspace/{workspace_id}/ on entity=workspace op=load have the same selector (exist: id), so only GET /api/search/workspace/{workspace_id}/ is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "workspace"
+  op: "load"
+  points: [
+    "GET /api/search/workspace/{workspace_id}/"
+    "GET /api/workspaces/invitations/workspace/{workspace_id}/"
+    "GET /api/workspaces/users/workspace/{workspace_id}/"
+  ]
+
+}

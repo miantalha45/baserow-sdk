@@ -1,0 +1,39 @@
+# BasicAutomationWorkflowHistoryFlow
+
+main: kit: flow: BasicAutomationWorkflowHistoryFlow:
+{
+  entity: "automation_workflow_history",
+  kind: "basic",
+  name: "BasicAutomationWorkflowHistoryFlow",
+  step: [
+    {
+      i: {
+        ref: "automation_workflow_history_ref01"
+      }
+
+      m: {
+        workflow_history_id: "workflow_history01",
+        workflow_id: "workflow01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        workflow_id: "workflow01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "automation_workflow_history_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAutomationWorkflowHistoryFlow"
+}

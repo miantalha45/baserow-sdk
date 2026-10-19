@@ -1,0 +1,172 @@
+# Entity: workspace_user_workspace
+
+main: kit: entity: workspace_user_workspace: {
+
+  alias: field: {}
+
+  fields: {
+    ai_features: {
+      h: "Ai Features"
+      n: "ai_features"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    generative_ai_models_enabled: {
+      h: "Generative Ai Models Enabled"
+      n: "generative_ai_models_enabled"
+      r: true
+      ro: true
+      sh: "Generative AI models available in this workspace."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      sh: "Workspace id."
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      ro: true
+      sh: "Workspace name."
+      t: "`$STRING`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: true
+      ro: true
+      sh: "The requesting user's order within the workspace users."
+      t: "`$INTEGER`"
+    }
+    permissions: {
+      h: "Permissions"
+      n: "permissions"
+      r: true
+      ro: true
+      sh: "The requesting user's permissions for the workspace."
+      t: "`$STRING`"
+    }
+    unread_notifications_count: {
+      h: "Unread Notifications Count"
+      n: "unread_notifications_count"
+      r: true
+      ro: true
+      sh: "The number of unread notifications for the requesting user."
+      t: "`$INTEGER`"
+    }
+    users: {
+      h: "Users"
+      n: "users"
+      r: true
+      ro: true
+      sh: "List of all workspace users."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "workspace_user_workspace"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/workspaces/invitations/{workspace_invitation_id}/accept/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "invitation_id"
+                or: "workspace_invitation_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/workspaces/invitations/{workspace_invitation_id}/accept/"
+          q: {
+            exist: [
+              "invitation_id"
+            ]
+          }
+          r: {
+            param: {
+              workspace_invitation_id: "invitation_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "workspaces"
+            }
+            {
+              lit: "invitations"
+            }
+            {
+              var: "invitation_id"
+            }
+            {
+              lit: "accept"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/workspaces/create-initial-workspace/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/workspaces/create-initial-workspace/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "workspaces"
+            }
+            {
+              lit: "create-initial-workspace"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

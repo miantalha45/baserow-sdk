@@ -1,0 +1,84 @@
+# Entity: ai_provider_type
+
+main: kit: entity: ai_provider_type: {
+
+  alias: field: {}
+
+  fields: {
+    extra_fields: {
+      h: "Extra Fields"
+      n: "extra_fields"
+      r: true
+      t: "`$ARRAY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      t: "`$STRING`"
+    }
+    uses_api_key: {
+      h: "Uses Api Key"
+      n: "uses_api_key"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "ai_provider_type"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/ai-providers/types/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/ai-providers/types/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ai-providers"
+            }
+            {
+              lit: "types"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

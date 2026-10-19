@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "agent": {
+      "AGENT00": {
+        "created_on": "s5a",
+        "id": "AGENT00",
+        "last_active": "s5c",
+        "name": "s5d",
+        "role_uid": "s5e",
+        "team_ids": [],
+        "teams": [],
+        "updated_on": "s61",
+        "workspace_id": "WORKSPACE01"
+      },
+      "AGENT01": {
+        "created_on": "sb4",
+        "id": "AGENT01",
+        "last_active": "sb6",
+        "name": "sb7",
+        "role_uid": "sb8",
+        "team_ids": [],
+        "teams": [],
+        "updated_on": "sbb",
+        "workspace_id": "WORKSPACE01"
+      },
+      "AGENT02": {
+        "created_on": "s10e",
+        "id": "AGENT02",
+        "last_active": "s110",
+        "name": "s111",
+        "role_uid": "s112",
+        "team_ids": [],
+        "teams": [],
+        "updated_on": "s115",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "agent": {
+      "agent_ref01": {
+        "created_on": "s168",
+        "last_active": "s16a",
+        "name": "s16b",
+        "role_uid": "s16c",
+        "team_ids": [],
+        "teams": [],
+        "updated_on": "s16f",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/agents/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/agents/{agent_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/agents/{agent_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,271 @@
+# Entity: license
+
+main: kit: entity: license: {
+
+  alias: field: {}
+
+  fields: {
+    application_users: {
+      h: "Application Users"
+      n: "application_users"
+      r: true
+      sh: "The amount of application builder users permitted in this license."
+      t: "`$INTEGER`"
+    }
+    application_users_taken: {
+      h: "Application Users Taken"
+      n: "application_users_taken"
+      r: true
+      ro: true
+      sh: "The amount of application builder users used so far in this license."
+      t: "`$INTEGER`"
+    }
+    email: {
+      h: "Email"
+      n: "email"
+      r: false
+      t: "`$STRING`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    first_name: {
+      h: "First Name"
+      n: "first_name"
+      r: false
+      t: "`$STRING`"
+    }
+    free_users_count: {
+      h: "Free Users Count"
+      n: "free_users_count"
+      r: true
+      ro: true
+      sh: "The amount of free users that are currently using the license."
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_active: {
+      h: "Is Active"
+      n: "is_active"
+      r: true
+      sh: "Indicates if the backend deems the license valid."
+      t: "`$BOOLEAN`"
+    }
+    issued_on: {
+      fo: "date-time"
+      h: "Issued On"
+      n: "issued_on"
+      r: true
+      sh: "The date when the license was issued."
+      t: "`$STRING`"
+    }
+    issued_to_email: {
+      fo: "email"
+      h: "Issued To Email"
+      n: "issued_to_email"
+      r: true
+      sh: "Indicates to which email address the license has been issued."
+      t: "`$STRING`"
+    }
+    issued_to_name: {
+      h: "Issued To Name"
+      n: "issued_to_name"
+      r: true
+      sh: "Indicates to whom the license has been issued."
+      t: "`$STRING`"
+    }
+    last_check: {
+      fo: "date-time"
+      h: "Last Check"
+      n: "last_check"
+      r: false
+      t: "`$STRING`"
+    }
+    license_id: {
+      h: "License Id"
+      n: "license_id"
+      r: true
+      sh: "Unique identifier of the license."
+      t: "`$STRING`"
+    }
+    product_code: {
+      h: "Product Code"
+      n: "product_code"
+      r: true
+      sh: "The product code that indicates what the license unlocks."
+      t: "`$STRING`"
+    }
+    seats: {
+      h: "Seats"
+      n: "seats"
+      r: true
+      sh: "The maximum amount of users that can use the license."
+      t: "`$INTEGER`"
+    }
+    seats_taken: {
+      h: "Seats Taken"
+      n: "seats_taken"
+      r: true
+      ro: true
+      sh: "The amount of users that are currently using the license."
+      t: "`$INTEGER`"
+    }
+    users: {
+      h: "Users"
+      n: "users"
+      r: true
+      ro: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 3
+      }
+    }
+    valid_from: {
+      fo: "date-time"
+      h: "Valid From"
+      n: "valid_from"
+      r: true
+      sh: "From which timestamp the license becomes active."
+      t: "`$STRING`"
+    }
+    valid_through: {
+      fo: "date-time"
+      h: "Valid Through"
+      n: "valid_through"
+      r: true
+      sh: "Until which timestamp the license is active."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "license"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/licenses/{id}/{user_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "user_id"
+                or: "user_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/licenses/{id}/{user_id}/"
+          q: {
+            exist: [
+              "id"
+              "user_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "licenses"
+            }
+            {
+              var: "id"
+            }
+            {
+              var: "user_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/licenses/{id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/licenses/{id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "licenses"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "automation_workflow_history": {
+      "AUTOMATION_WORKFLOW_HISTORY00": {
+        "cancellation_requested_on": "s64",
+        "completed_on": "s65",
+        "id": "AUTOMATION_WORKFLOW_HISTORY00",
+        "is_test_run": false,
+        "message": "s68",
+        "plugin_data": {},
+        "simulate_until_node": 106,
+        "started_on": "s6b",
+        "status": "s6c",
+        "triggered_by": "s6d",
+        "workflow_history_id": "WORKFLOW_HISTORY01",
+        "workflow_id": "WORKFLOW01"
+      },
+      "AUTOMATION_WORKFLOW_HISTORY01": {
+        "cancellation_requested_on": "sc8",
+        "completed_on": "sc9",
+        "id": "AUTOMATION_WORKFLOW_HISTORY01",
+        "is_test_run": false,
+        "message": "scc",
+        "plugin_data": {},
+        "simulate_until_node": 206,
+        "started_on": "scf",
+        "status": "sd0",
+        "triggered_by": "sd1",
+        "workflow_history_id": "WORKFLOW_HISTORY01",
+        "workflow_id": "WORKFLOW01"
+      },
+      "AUTOMATION_WORKFLOW_HISTORY02": {
+        "cancellation_requested_on": "s12c",
+        "completed_on": "s12d",
+        "id": "AUTOMATION_WORKFLOW_HISTORY02",
+        "is_test_run": false,
+        "message": "s130",
+        "plugin_data": {},
+        "simulate_until_node": 306,
+        "started_on": "s133",
+        "status": "s134",
+        "triggered_by": "s135",
+        "workflow_history_id": "WORKFLOW_HISTORY01",
+        "workflow_id": "WORKFLOW01"
+      }
+    }
+  },
+  "new": {
+    "automation_workflow_history": {
+      "automation_workflow_history_ref01": {
+        "cancellation_requested_on": "s190",
+        "completed_on": "s191",
+        "is_test_run": false,
+        "message": "s194",
+        "plugin_data": {},
+        "simulate_until_node": 406,
+        "started_on": "s197",
+        "status": "s198",
+        "triggered_by": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/automation/workflow_histories/{workflow_history_id}/cancel/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/automation/workflows/{workflow_id}/history/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# BasicLicenseWithUserFlow
+
+main: kit: flow: BasicLicenseWithUserFlow:
+{
+  entity: "license_with_user",
+  kind: "basic",
+  name: "BasicLicenseWithUserFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "license_with_user_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLicenseWithUserFlow"
+}

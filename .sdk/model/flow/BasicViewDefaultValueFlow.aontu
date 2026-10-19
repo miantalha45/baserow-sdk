@@ -1,0 +1,28 @@
+# BasicViewDefaultValueFlow
+
+main: kit: flow: BasicViewDefaultValueFlow:
+{
+  entity: "view_default_value",
+  kind: "basic",
+  name: "BasicViewDefaultValueFlow",
+  step: [
+    {
+      i: {
+        ref: "view_default_value_ref01",
+        srcdatavar: "view_default_value_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_default_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicViewDefaultValueFlow"
+}

@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "pagination_serializer_link_row_value": {
+      "PAGINATION_SERIALIZER_LINK_ROW_VALUE00": {
+        "count": 40,
+        "next": "s29",
+        "previous": "s2a",
+        "results": [],
+        "field_id": "FIELD01",
+        "view_id": "VIEW01",
+        "id": "PAGINATION_SERIALIZER_LINK_ROW_VALUE00"
+      },
+      "PAGINATION_SERIALIZER_LINK_ROW_VALUE01": {
+        "count": 80,
+        "next": "s51",
+        "previous": "s52",
+        "results": [],
+        "field_id": "FIELD01",
+        "view_id": "VIEW01",
+        "id": "PAGINATION_SERIALIZER_LINK_ROW_VALUE01"
+      },
+      "PAGINATION_SERIALIZER_LINK_ROW_VALUE02": {
+        "count": 120,
+        "next": "s79",
+        "previous": "s7a",
+        "results": [],
+        "field_id": "FIELD01",
+        "view_id": "VIEW01",
+        "id": "PAGINATION_SERIALIZER_LINK_ROW_VALUE02"
+      }
+    }
+  },
+  "new": {
+    "pagination_serializer_link_row_value": {
+      "pagination_serializer_link_row_value_ref01": {
+        "count": 160,
+        "next": "sa1",
+        "previous": "sa2",
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/views/{slug}/link-row-field-lookup/{field_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

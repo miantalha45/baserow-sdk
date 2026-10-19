@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "database_workflow_action_type_database_workflow_action": {
+      "DATABASE_WORKFLOW_ACTION_TYPE_DATABASE_WORKFLOW_ACTION00": {
+        "id": "DATABASE_WORKFLOW_ACTION_TYPE_DATABASE_WORKFLOW_ACTION00",
+        "field_id": "FIELD01"
+      },
+      "DATABASE_WORKFLOW_ACTION_TYPE_DATABASE_WORKFLOW_ACTION01": {
+        "id": "DATABASE_WORKFLOW_ACTION_TYPE_DATABASE_WORKFLOW_ACTION01",
+        "field_id": "FIELD01"
+      },
+      "DATABASE_WORKFLOW_ACTION_TYPE_DATABASE_WORKFLOW_ACTION02": {
+        "id": "DATABASE_WORKFLOW_ACTION_TYPE_DATABASE_WORKFLOW_ACTION02",
+        "field_id": "FIELD01"
+      }
+    }
+  },
+  "new": {
+    "database_workflow_action_type_database_workflow_action": {
+      "database_workflow_action_type_database_workflow_action_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/database/field/{field_id}/workflow_actions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/field/{field_id}/workflow_actions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/workflow_action/{workflow_action_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

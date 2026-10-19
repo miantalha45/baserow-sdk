@@ -1,0 +1,46 @@
+# BasicExampleRowFlow
+
+main: kit: flow: BasicExampleRowFlow:
+{
+  entity: "example_row",
+  kind: "basic",
+  name: "BasicExampleRowFlow",
+  step: [
+    {
+      i: {
+        ref: "example_row_ref01"
+      }
+
+      m: {
+        form_id: "form01",
+        view_id: "view01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "example_row_ref01",
+        srcdatavar: "example_row_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        form_id: "form01",
+        id: "example_row01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-example_row_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicExampleRowFlow"
+}

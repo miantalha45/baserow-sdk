@@ -1,0 +1,51 @@
+# BasicTableWebhookFlow
+
+main: kit: flow: BasicTableWebhookFlow:
+{
+  entity: "table_webhook",
+  kind: "basic",
+  name: "BasicTableWebhookFlow",
+  step: [
+    {
+      i: {
+        ref: "table_webhook_ref01",
+        srcdatavar: "table_webhook_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-table_webhook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "table_webhook_ref01",
+        srcdatavar: "table_webhook_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "table_webhook01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-table_webhook_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTableWebhookFlow"
+}

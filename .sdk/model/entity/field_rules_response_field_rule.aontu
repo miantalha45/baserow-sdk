@@ -1,0 +1,124 @@
+# Entity: field_rules_response_field_rule
+
+main: kit: entity: field_rules_response_field_rule: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "field_rules_response_field_rule"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "dependency_linkrow_field_id"
+            "duration_field_id"
+            "end_date_field_id"
+            "is_active"
+            "start_date_field_id"
+            "type"
+          ]
+          co: {
+            id: "PUT /api/database/field-rules/{table_id}/rule/{rule_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "field_rule_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "rule_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/api/database/field-rules/{table_id}/rule/{rule_id}/"
+          q: {
+            exist: [
+              "field_rule_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              rule_id: "id"
+              table_id: "field_rule_id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "field-rules"
+            }
+            {
+              var: "field_rule_id"
+            }
+            {
+              lit: "rule"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.field_rule")]
+  ]
+
+}

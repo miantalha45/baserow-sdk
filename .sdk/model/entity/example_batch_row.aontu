@@ -1,0 +1,165 @@
+# Entity: example_batch_row
+
+main: kit: entity: example_batch_row: {
+
+  alias: field: {}
+
+  fields: {
+    items: {
+      h: "Items"
+      n: "items"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "example_batch_row"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "items"
+          ]
+          co: {
+            id: "POST /api/database/rows/table/{table_id}/batch/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "before"
+                or: "before"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "include_metadata"
+                or: "include_metadata"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "send_webhook_event"
+                or: "send_webhook_events"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "user_field_name"
+                or: "user_field_names"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "view"
+                or: "view"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/rows/table/{table_id}/batch/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "items"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "items"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "rows"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "table_id"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.table")]
+  ]
+
+}

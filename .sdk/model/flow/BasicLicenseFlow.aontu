@@ -1,0 +1,44 @@
+# BasicLicenseFlow
+
+main: kit: flow: BasicLicenseFlow:
+{
+  entity: "license",
+  kind: "basic",
+  name: "BasicLicenseFlow",
+  step: [
+    {
+      i: {
+        ref: "license_ref01"
+      }
+
+      m: {
+        user_id: "user01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "license_ref01",
+        srcdatavar: "license_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "license01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-license_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLicenseFlow"
+}

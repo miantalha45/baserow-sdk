@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "core_webhook": {
+      "CORE_WEBHOOK00": {
+        "id": "CORE_WEBHOOK00"
+      },
+      "CORE_WEBHOOK01": {
+        "id": "CORE_WEBHOOK01"
+      },
+      "CORE_WEBHOOK02": {
+        "id": "CORE_WEBHOOK02"
+      }
+    }
+  },
+  "new": {
+    "core_webhook": {
+      "core_webhook_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/webhooks/{webhook_uid}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/webhooks/{webhook_uid}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/webhooks/{webhook_uid}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/webhooks/{webhook_uid}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /api/webhooks/{webhook_uid}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+# Entity: last_viewed_item
+
+main: kit: entity: last_viewed_item: {
+
+  alias: field: {}
+
+  fields: {
+    application: {
+      h: "Application"
+      n: "application"
+      r: true
+      t: "`$OBJECT`"
+    }
+    item: {
+      h: "Item"
+      n: "item"
+      r: true
+      ro: true
+      sh: "The `id` and `name` of the item, plus what the type adds."
+      t: "`$ANY`"
+      union: {
+        branches: 4
+        count: 1
+        depth: 2
+      }
+    }
+    last_viewed: {
+      fo: "date-time"
+      h: "Last Viewed"
+      n: "last_viewed"
+      r: true
+      t: "`$STRING`"
+    }
+    sub_type: {
+      h: "Sub Type"
+      n: "sub_type"
+      r: true
+      sh: "Set for polymorphic types, like the view type of a database view."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      t: "`$STRING`"
+    }
+    workspace: {
+      h: "Workspace"
+      n: "workspace"
+      r: true
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "last_viewed_item"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/last-viewed/items/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "types"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "workspace_id"
+                or: "workspace_ids"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/last-viewed/items/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "last-viewed"
+            }
+            {
+              lit: "items"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

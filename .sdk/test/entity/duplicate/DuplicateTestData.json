@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "duplicate": {
+      "DUPLICATE00": {
+        "elements": [],
+        "graph": "s1f",
+        "workflow_actions": [],
+        "element_id": "ELEMENT01",
+        "id": "DUPLICATE00"
+      },
+      "DUPLICATE01": {
+        "elements": [],
+        "graph": "s3d",
+        "workflow_actions": [],
+        "element_id": "ELEMENT01",
+        "id": "DUPLICATE01"
+      },
+      "DUPLICATE02": {
+        "elements": [],
+        "graph": "s5b",
+        "workflow_actions": [],
+        "element_id": "ELEMENT01",
+        "id": "DUPLICATE02"
+      }
+    }
+  },
+  "new": {
+    "duplicate": {
+      "duplicate_ref01": {
+        "elements": [],
+        "graph": "s79",
+        "workflow_actions": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/element/{element_id}/duplicate/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

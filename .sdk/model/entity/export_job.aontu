@@ -1,0 +1,312 @@
+# Entity: export_job
+
+main: kit: entity: export_job: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    exported_file_name: {
+      h: "Exported File Name"
+      n: "exported_file_name"
+      r: false
+      t: "`$STRING`"
+    }
+    exporter_type: {
+      h: "Exporter Type"
+      n: "exporter_type"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    progress_percentage: {
+      fo: "double"
+      h: "Progress Percentage"
+      n: "progress_percentage"
+      r: false
+      t: "`$NUMBER`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "* `pending` - pending * `exporting` - exporting * `cancelled` - cancelled * `finished` - finished * `failed` - failed * `expired` - expired"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      ro: true
+      sh: "DEPRECATED: Use state instead"
+      t: "`$STRING`"
+    }
+    table: {
+      h: "Table"
+      n: "table"
+      r: false
+      t: "`$INTEGER`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    view: {
+      h: "View"
+      n: "view"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "export_job"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "csv_column_separator"
+            "csv_include_header"
+            "excel_include_header"
+            "export_charset"
+            "exporter_type"
+            "fields"
+            "filters"
+            "group_by"
+            "include_primary_field"
+            "include_row_id"
+            "order_by"
+            "organize_files"
+            "view_id"
+          ]
+          co: {
+            id: "POST /api/database/view/{slug}/export-public-view/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "slug"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/view/{slug}/export-public-view/"
+          q: {
+            exist: [
+              "slug"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "view"
+            }
+            {
+              var: "slug"
+            }
+            {
+              lit: "export-public-view"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "csv_column_separator"
+            "csv_include_header"
+            "excel_include_header"
+            "export_charset"
+            "exporter_type"
+            "fields"
+            "filters"
+            "group_by"
+            "include_primary_field"
+            "include_row_id"
+            "order_by"
+            "organize_files"
+            "view_id"
+          ]
+          co: {
+            id: "POST /api/database/export/table/{table_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "table_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/export/table/{table_id}/"
+          q: {
+            exist: [
+              "table_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "export"
+            }
+            {
+              lit: "table"
+            }
+            {
+              var: "table_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/view/get-public-view-export/{job_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "job_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/view/get-public-view-export/{job_id}/"
+          q: {
+            exist: [
+              "job_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "view"
+            }
+            {
+              lit: "get-public-view-export"
+            }
+            {
+              var: "job_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.table")]
+    [path("$.main.kit.entity.view")]
+  ]
+
+}

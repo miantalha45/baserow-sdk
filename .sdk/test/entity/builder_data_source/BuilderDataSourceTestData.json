@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "builder_data_source": {
+      "BUILDER_DATA_SOURCE00": {
+        "1": "s32",
+        "2": "s33",
+        "id": "BUILDER_DATA_SOURCE00",
+        "key": "s35",
+        "metadata": "s36",
+        "data_source_id": "DATA_SOURCE01",
+        "page_id": "PAGE01"
+      },
+      "BUILDER_DATA_SOURCE01": {
+        "1": "s64",
+        "2": "s65",
+        "id": "BUILDER_DATA_SOURCE01",
+        "key": "s67",
+        "metadata": "s68",
+        "data_source_id": "DATA_SOURCE01",
+        "page_id": "PAGE01"
+      },
+      "BUILDER_DATA_SOURCE02": {
+        "1": "s96",
+        "2": "s97",
+        "id": "BUILDER_DATA_SOURCE02",
+        "key": "s99",
+        "metadata": "s9a",
+        "data_source_id": "DATA_SOURCE01",
+        "page_id": "PAGE01"
+      }
+    }
+  },
+  "new": {
+    "builder_data_source": {
+      "builder_data_source_ref01": {
+        "1": "sc8",
+        "2": "sc9",
+        "key": "scb",
+        "metadata": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/data-source/{data_source_id}/dispatch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/builder/domains/published/data-source/{data_source_id}/dispatch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/builder/domains/published/page/{page_id}/dispatch-data-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/builder/page/{page_id}/dispatch-data-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/data-source/{data_source_id}/record-names/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/builder/data-source/{data_source_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

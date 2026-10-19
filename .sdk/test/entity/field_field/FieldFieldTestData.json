@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "field_field": {
+      "FIELD_FIELD00": {
+        "new_primary_field_id": "NEW_PRIMARY_FIELD01",
+        "table_id": "TABLE01",
+        "id": "FIELD_FIELD00"
+      },
+      "FIELD_FIELD01": {
+        "new_primary_field_id": "NEW_PRIMARY_FIELD01",
+        "table_id": "TABLE01",
+        "id": "FIELD_FIELD01"
+      },
+      "FIELD_FIELD02": {
+        "new_primary_field_id": "NEW_PRIMARY_FIELD01",
+        "table_id": "TABLE01",
+        "id": "FIELD_FIELD02"
+      }
+    }
+  },
+  "new": {
+    "field_field": {
+      "field_field_ref01": {
+        "new_primary_field_id": "NEW_PRIMARY_FIELD01"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/fields/table/{table_id}/change-primary-field/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/fields/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

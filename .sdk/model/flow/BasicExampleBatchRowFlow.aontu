@@ -1,0 +1,22 @@
+# BasicExampleBatchRowFlow
+
+main: kit: flow: BasicExampleBatchRowFlow:
+{
+  entity: "example_batch_row",
+  kind: "basic",
+  name: "BasicExampleBatchRowFlow",
+  step: [
+    {
+      i: {
+        ref: "example_batch_row_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicExampleBatchRowFlow"
+}

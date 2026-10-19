@@ -1,0 +1,225 @@
+# Entity: field
+
+main: kit: entity: field: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "field"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/fields/{field_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/fields/{field_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              field_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "ai_auto_update"
+            "ai_file_field_id"
+            "ai_generative_ai_model"
+            "ai_generative_ai_type"
+            "ai_output_type"
+            "ai_prompt"
+            "ai_temperature"
+            "allow_endpoint_authentication"
+            "array_formula_type"
+            "boolean_default"
+            "color"
+            "date_force_timezone"
+            "date_force_timezone_offset"
+            "date_format"
+            "date_include_time"
+            "date_show_tzinfo"
+            "date_time_format"
+            "db_index"
+            "description"
+            "duration_format"
+            "field_constraints"
+            "form_view_id"
+            "formula"
+            "formula_type"
+            "has_related_field"
+            "label"
+            "link_row_limit_selection_view_id"
+            "link_row_multiple_relationships"
+            "link_row_table"
+            "link_row_table_id"
+            "long_text_enable_rich_text"
+            "max_value"
+            "multiple_select_default"
+            "name"
+            "notify_user_when_added"
+            "number_decimal_places"
+            "number_default"
+            "number_negative"
+            "number_prefix"
+            "number_separator"
+            "number_suffix"
+            "rollup_function"
+            "select_options"
+            "single_select_default"
+            "style"
+            "target_field_id"
+            "target_field_name"
+            "text_default"
+            "through_field_id"
+            "through_field_name"
+            "type"
+            "view_id"
+          ]
+          co: {
+            id: "PATCH /api/database/fields/{field_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/fields/{field_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              field_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

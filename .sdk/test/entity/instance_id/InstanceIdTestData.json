@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "instance_id": {
+      "INSTANCE_ID00": {
+        "instance_id": "INSTANCE01",
+        "id": "INSTANCE_ID00"
+      },
+      "INSTANCE_ID01": {
+        "instance_id": "INSTANCE01",
+        "id": "INSTANCE_ID01"
+      },
+      "INSTANCE_ID02": {
+        "instance_id": "INSTANCE01",
+        "id": "INSTANCE_ID02"
+      }
+    }
+  },
+  "new": {
+    "instance_id": {
+      "instance_id_ref01": {
+        "instance_id": "INSTANCE01"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/settings/instance-id/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

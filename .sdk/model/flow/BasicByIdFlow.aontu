@@ -1,0 +1,32 @@
+# BasicByIdFlow
+
+main: kit: flow: BasicByIdFlow:
+{
+  entity: "by_id",
+  kind: "basic",
+  name: "BasicByIdFlow",
+  step: [
+    {
+      i: {
+        ref: "by_id_ref01",
+        srcdatavar: "by_id_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "by_id01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-by_id_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicByIdFlow"
+}

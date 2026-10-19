@@ -1,0 +1,359 @@
+# Entity: ai_assistant
+
+main: kit: entity: ai_assistant: {
+
+  alias: field: {}
+
+  fields: {
+    content: {
+      h: "Content"
+      n: "content"
+      r: true
+      sh: "The content of the message."
+      t: "`$STRING`"
+    }
+    ui_context: {
+      h: "Ui Context"
+      n: "ui_context"
+      r: true
+      sh: "The UI context related to what the user was looking at when the message was sent."
+      t: "`$ANY`"
+    }
+  }
+
+  name: "ai_assistant"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "content"
+            "ui_context"
+          ]
+          co: {
+            id: "POST /assistant/chat/{chat_uuid}/cancel/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "chat_id"
+                or: "chat_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/assistant/chat/{chat_uuid}/cancel/"
+          q: {
+            exist: [
+              "chat_id"
+            ]
+          }
+          r: {
+            param: {
+              chat_uuid: "chat_id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "content"
+                  }
+                  {
+                    name: "ui_context"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "content"
+                  }
+                  {
+                    name: "ui_context"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              var: "chat_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "content"
+            "ui_context"
+          ]
+          co: {
+            id: "POST /assistant/chat/{chat_uuid}/messages/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "chat_id"
+                or: "chat_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/assistant/chat/{chat_uuid}/messages/"
+          q: {
+            exist: [
+              "chat_id"
+            ]
+          }
+          r: {
+            param: {
+              chat_uuid: "chat_id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "content"
+                  }
+                  {
+                    name: "ui_context"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "content"
+                  }
+                  {
+                    name: "ui_context"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              var: "chat_id"
+            }
+            {
+              lit: "messages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /assistant/chat/{chat_uuid}/cancel/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "chat_id"
+                or: "chat_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/assistant/chat/{chat_uuid}/cancel/"
+          q: {
+            exist: [
+              "chat_id"
+            ]
+          }
+          r: {
+            param: {
+              chat_uuid: "chat_id"
+            }
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              var: "chat_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /assistant/chat/{chat_uuid}/messages/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "chat_id"
+                or: "chat_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/assistant/chat/{chat_uuid}/messages/"
+          q: {
+            exist: [
+              "chat_id"
+            ]
+          }
+          r: {
+            param: {
+              chat_uuid: "chat_id"
+            }
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              var: "chat_id"
+            }
+            {
+              lit: "messages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /assistant/messages/{message_id}/feedback/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "message_id"
+                or: "message_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/assistant/messages/{message_id}/feedback/"
+          q: {
+            exist: [
+              "message_id"
+            ]
+          }
+          s: [
+            {
+              lit: "assistant"
+            }
+            {
+              lit: "messages"
+            }
+            {
+              var: "message_id"
+            }
+            {
+              lit: "feedback"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.message")]
+  ]
+
+}

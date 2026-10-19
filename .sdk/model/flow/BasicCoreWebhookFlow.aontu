@@ -1,0 +1,75 @@
+# BasicCoreWebhookFlow
+
+main: kit: flow: BasicCoreWebhookFlow:
+{
+  entity: "core_webhook",
+  kind: "basic",
+  name: "BasicCoreWebhookFlow",
+  step: [
+    {
+      i: {
+        ref: "core_webhook_ref01"
+      }
+
+      m: {
+        webhook_uid: "webhook_uid01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "core_webhook_ref01",
+        srcdatavar: "core_webhook_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-core_webhook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "core_webhook_ref01",
+        srcdatavar: "core_webhook_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "core_webhook01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-core_webhook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "core_webhook_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "core_webhook01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicCoreWebhookFlow"
+}

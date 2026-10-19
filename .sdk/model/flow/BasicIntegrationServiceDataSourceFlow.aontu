@@ -1,0 +1,56 @@
+# BasicIntegrationServiceDataSourceFlow
+
+main: kit: flow: BasicIntegrationServiceDataSourceFlow:
+{
+  entity: "integration_service_data_source",
+  kind: "basic",
+  name: "BasicIntegrationServiceDataSourceFlow",
+  step: [
+    {
+      i: {
+        ref: "integration_service_data_source_ref01"
+      }
+
+      m: {
+        page_id: "page01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        page_id: "page01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "integration_service_data_source_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "integration_service_data_source_ref01",
+        srcdatavar: "integration_service_data_source_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-integration_service_data_source_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIntegrationServiceDataSourceFlow"
+}

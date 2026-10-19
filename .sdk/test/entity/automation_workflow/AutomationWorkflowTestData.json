@@ -1,0 +1,146 @@
+{
+  "existing": {
+    "automation_workflow": {
+      "AUTOMATION_WORKFLOW00": {
+        "allow_test_run": true,
+        "allow_test_run_until": false,
+        "automation_id": "AUTOMATION01",
+        "created_on": "sd5",
+        "duplicated_automation_workflow": "sd6",
+        "error_code": "sd7",
+        "graph": "sd8",
+        "human_readable_error": "sd9",
+        "id": "AUTOMATION_WORKFLOW00",
+        "immediate_dispatch": false,
+        "name": "sdc",
+        "notification_recipient_ids": [],
+        "order": 222,
+        "original_automation_workflow": "sdf",
+        "progress_percentage": 224,
+        "published_on": "se1",
+        "simulate_until_node_id": "SIMULATE_UNTIL_NODE01",
+        "state": "se3",
+        "type": "se4",
+        "updated_on": "se5",
+        "workflow_ids": [],
+        "workflow_id": "WORKFLOW01"
+      },
+      "AUTOMATION_WORKFLOW01": {
+        "allow_test_run": true,
+        "allow_test_run_until": false,
+        "automation_id": "AUTOMATION01",
+        "created_on": "s1a7",
+        "duplicated_automation_workflow": "s1a8",
+        "error_code": "s1a9",
+        "graph": "s1aa",
+        "human_readable_error": "s1ab",
+        "id": "AUTOMATION_WORKFLOW01",
+        "immediate_dispatch": false,
+        "name": "s1ae",
+        "notification_recipient_ids": [],
+        "order": 432,
+        "original_automation_workflow": "s1b1",
+        "progress_percentage": 434,
+        "published_on": "s1b3",
+        "simulate_until_node_id": "SIMULATE_UNTIL_NODE01",
+        "state": "s1b5",
+        "type": "s1b6",
+        "updated_on": "s1b7",
+        "workflow_ids": [],
+        "workflow_id": "WORKFLOW01"
+      },
+      "AUTOMATION_WORKFLOW02": {
+        "allow_test_run": true,
+        "allow_test_run_until": false,
+        "automation_id": "AUTOMATION01",
+        "created_on": "s279",
+        "duplicated_automation_workflow": "s27a",
+        "error_code": "s27b",
+        "graph": "s27c",
+        "human_readable_error": "s27d",
+        "id": "AUTOMATION_WORKFLOW02",
+        "immediate_dispatch": false,
+        "name": "s280",
+        "notification_recipient_ids": [],
+        "order": 642,
+        "original_automation_workflow": "s283",
+        "progress_percentage": 644,
+        "published_on": "s285",
+        "simulate_until_node_id": "SIMULATE_UNTIL_NODE01",
+        "state": "s287",
+        "type": "s288",
+        "updated_on": "s289",
+        "workflow_ids": [],
+        "workflow_id": "WORKFLOW01"
+      }
+    }
+  },
+  "new": {
+    "automation_workflow": {
+      "automation_workflow_ref01": {
+        "allow_test_run": true,
+        "allow_test_run_until": false,
+        "automation_id": "AUTOMATION01",
+        "created_on": "s34b",
+        "duplicated_automation_workflow": "s34c",
+        "error_code": "s34d",
+        "graph": "s34e",
+        "human_readable_error": "s34f",
+        "immediate_dispatch": false,
+        "name": "s352",
+        "notification_recipient_ids": [],
+        "order": 852,
+        "original_automation_workflow": "s355",
+        "progress_percentage": 854,
+        "published_on": "s357",
+        "simulate_until_node_id": "SIMULATE_UNTIL_NODE01",
+        "state": "s359",
+        "type": "s35a",
+        "updated_on": "s35b",
+        "workflow_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/automation/{automation_id}/workflows/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/{automation_id}/workflows/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/workflows/{workflow_id}/duplicate/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/workflows/{workflow_id}/publish/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/automation/workflows/{workflow_id}/test/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/automation/workflows/{workflow_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/automation/workflows/{workflow_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/automation/workflows/{workflow_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

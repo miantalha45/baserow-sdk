@@ -1,0 +1,26 @@
+# BasicPublicPaginationSerializerWithTimelineViewFieldOptionsFlow
+
+main: kit: flow: BasicPublicPaginationSerializerWithTimelineViewFieldOptionsFlow:
+{
+  entity: "public_pagination_serializer_with_timeline_view_field_options",
+  kind: "basic",
+  name: "BasicPublicPaginationSerializerWithTimelineViewFieldOptionsFlow",
+  step: [
+    {
+      m: {
+        timeline_id: "timeline01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_pagination_serializer_with_timeline_view_field_options_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicPaginationSerializerWithTimelineViewFieldOptionsFlow"
+}

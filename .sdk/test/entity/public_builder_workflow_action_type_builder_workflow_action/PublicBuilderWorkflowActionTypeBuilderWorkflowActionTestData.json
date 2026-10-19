@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "public_builder_workflow_action_type_builder_workflow_action": {
+      "PUBLIC_BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION00": {
+        "page_id": "PAGE01"
+      },
+      "PUBLIC_BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION01": {
+        "page_id": "PAGE01"
+      },
+      "PUBLIC_BUILDER_WORKFLOW_ACTION_TYPE_BUILDER_WORKFLOW_ACTION02": {
+        "page_id": "PAGE01"
+      }
+    }
+  },
+  "new": {
+    "public_builder_workflow_action_type_builder_workflow_action": {
+      "public_builder_workflow_action_type_builder_workflow_action_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/builder/domains/published/page/{page_id}/workflow_actions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

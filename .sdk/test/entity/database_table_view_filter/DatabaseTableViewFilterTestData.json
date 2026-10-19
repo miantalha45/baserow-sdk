@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "database_table_view_filter": {
+      "DATABASE_TABLE_VIEW_FILTER00": {
+        "id": "DATABASE_TABLE_VIEW_FILTER00",
+        "view_filter_group_id": "VIEW_FILTER_GROUP01"
+      },
+      "DATABASE_TABLE_VIEW_FILTER01": {
+        "id": "DATABASE_TABLE_VIEW_FILTER01",
+        "view_filter_group_id": "VIEW_FILTER_GROUP01"
+      },
+      "DATABASE_TABLE_VIEW_FILTER02": {
+        "id": "DATABASE_TABLE_VIEW_FILTER02",
+        "view_filter_group_id": "VIEW_FILTER_GROUP01"
+      }
+    }
+  },
+  "new": {
+    "database_table_view_filter": {
+      "database_table_view_filter_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/database/views/filter/{view_filter_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/views/filter-group/{view_filter_group_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

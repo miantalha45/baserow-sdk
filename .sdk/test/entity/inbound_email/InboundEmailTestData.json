@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "inbound_email": {
+      "INBOUND_EMAIL00": {
+        "id": "INBOUND_EMAIL00"
+      },
+      "INBOUND_EMAIL01": {
+        "id": "INBOUND_EMAIL01"
+      },
+      "INBOUND_EMAIL02": {
+        "id": "INBOUND_EMAIL02"
+      }
+    }
+  },
+  "new": {
+    "inbound_email": {
+      "inbound_email_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/inbound-email/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

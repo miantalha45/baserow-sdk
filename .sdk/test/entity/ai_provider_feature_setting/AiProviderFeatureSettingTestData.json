@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "ai_provider_feature_setting": {
+      "AI_PROVIDER_FEATURE_SETTING00": {
+        "feature_type": "s46",
+        "inherited_model": "s47",
+        "inherited_state": "s48",
+        "mode": "s49",
+        "model": "s4a",
+        "model_id": "MODEL01",
+        "state": "s4c",
+        "id": "AI_PROVIDER_FEATURE_SETTING00"
+      },
+      "AI_PROVIDER_FEATURE_SETTING01": {
+        "feature_type": "s8c",
+        "inherited_model": "s8d",
+        "inherited_state": "s8e",
+        "mode": "s8f",
+        "model": "s90",
+        "model_id": "MODEL01",
+        "state": "s92",
+        "id": "AI_PROVIDER_FEATURE_SETTING01"
+      },
+      "AI_PROVIDER_FEATURE_SETTING02": {
+        "feature_type": "sd2",
+        "inherited_model": "sd3",
+        "inherited_state": "sd4",
+        "mode": "sd5",
+        "model": "sd6",
+        "model_id": "MODEL01",
+        "state": "sd8",
+        "id": "AI_PROVIDER_FEATURE_SETTING02"
+      }
+    }
+  },
+  "new": {
+    "ai_provider_feature_setting": {
+      "ai_provider_feature_setting_ref01": {
+        "feature_type": "s118",
+        "inherited_model": "s119",
+        "inherited_state": "s11a",
+        "mode": "s11b",
+        "model": "s11c",
+        "model_id": "MODEL01",
+        "state": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/ai-providers/features/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /api/ai-providers/features/{feature_type}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

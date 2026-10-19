@@ -1,0 +1,279 @@
+# Entity: builder_public
+
+main: kit: entity: builder_public: {
+
+  alias: field: {}
+
+  name: "builder_public"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/custom_code/{builder_id}/css/public/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "custom_code_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "type"
+                or: "type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/custom_code/{builder_id}/css/public/"
+          q: {
+            exist: [
+              "custom_code_id"
+              "type"
+            ]
+          }
+          r: {
+            param: {
+              builder_id: "custom_code_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "custom_code"
+            }
+            {
+              var: "custom_code_id"
+            }
+            {
+              lit: "css"
+            }
+            {
+              lit: "public"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/custom_code/{builder_id}/js/public/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "custom_code_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "type"
+                or: "type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/custom_code/{builder_id}/js/public/"
+          q: {
+            exist: [
+              "custom_code_id"
+              "type"
+            ]
+          }
+          r: {
+            param: {
+              builder_id: "custom_code_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "custom_code"
+            }
+            {
+              var: "custom_code_id"
+            }
+            {
+              lit: "js"
+            }
+            {
+              lit: "public"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/builder/preview/{builder_id}/custom-code/css/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "preview_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "type"
+                or: "type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/preview/{builder_id}/custom-code/css/"
+          q: {
+            exist: [
+              "preview_id"
+              "type"
+            ]
+          }
+          r: {
+            param: {
+              builder_id: "preview_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "preview"
+            }
+            {
+              var: "preview_id"
+            }
+            {
+              lit: "custom-code"
+            }
+            {
+              lit: "css"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/builder/preview/{builder_id}/custom-code/js/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "preview_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "type"
+                or: "type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/builder/preview/{builder_id}/custom-code/js/"
+          q: {
+            exist: [
+              "preview_id"
+              "type"
+            ]
+          }
+          r: {
+            param: {
+              builder_id: "preview_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "preview"
+            }
+            {
+              var: "preview_id"
+            }
+            {
+              lit: "custom-code"
+            }
+            {
+              lit: "js"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

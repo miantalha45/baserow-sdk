@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "users_per_user_source": {
+      "USERS_PER_USER_SOURCE00": {
+        "application_id": "APPLICATION01",
+        "id": "USERS_PER_USER_SOURCE00"
+      },
+      "USERS_PER_USER_SOURCE01": {
+        "application_id": "APPLICATION01",
+        "id": "USERS_PER_USER_SOURCE01"
+      },
+      "USERS_PER_USER_SOURCE02": {
+        "application_id": "APPLICATION01",
+        "id": "USERS_PER_USER_SOURCE02"
+      }
+    }
+  },
+  "new": {
+    "users_per_user_source": {
+      "users_per_user_source_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/application/{application_id}/list-user-source-users/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

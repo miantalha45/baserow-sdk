@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "integration_integration": {
+      "INTEGRATION_INTEGRATION00": {
+        "id": "INTEGRATION_INTEGRATION00"
+      },
+      "INTEGRATION_INTEGRATION01": {
+        "id": "INTEGRATION_INTEGRATION01"
+      },
+      "INTEGRATION_INTEGRATION02": {
+        "id": "INTEGRATION_INTEGRATION02"
+      }
+    }
+  },
+  "new": {
+    "integration_integration": {
+      "integration_integration_ref01": {}
+    }
+  },
+  "requests": {
+    "PATCH /api/integration/{integration_id}/move/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

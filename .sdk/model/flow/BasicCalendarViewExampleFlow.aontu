@@ -1,0 +1,26 @@
+# BasicCalendarViewExampleFlow
+
+main: kit: flow: BasicCalendarViewExampleFlow:
+{
+  entity: "calendar_view_example",
+  kind: "basic",
+  name: "BasicCalendarViewExampleFlow",
+  step: [
+    {
+      m: {
+        calendar_id: "calendar01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "calendar_view_example_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCalendarViewExampleFlow"
+}

@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "update_field_permission": {
+      "UPDATE_FIELD_PERMISSION00": {
+        "allow_in_forms": true,
+        "can_write_values": false,
+        "field_id": "FIELD01",
+        "id": "UPDATE_FIELD_PERMISSION00",
+        "role": "s40",
+        "subjects": []
+      },
+      "UPDATE_FIELD_PERMISSION01": {
+        "allow_in_forms": true,
+        "can_write_values": false,
+        "field_id": "FIELD01",
+        "id": "UPDATE_FIELD_PERMISSION01",
+        "role": "s7c",
+        "subjects": []
+      },
+      "UPDATE_FIELD_PERMISSION02": {
+        "allow_in_forms": true,
+        "can_write_values": false,
+        "field_id": "FIELD01",
+        "id": "UPDATE_FIELD_PERMISSION02",
+        "role": "sb8",
+        "subjects": []
+      }
+    }
+  },
+  "new": {
+    "update_field_permission": {
+      "update_field_permission_ref01": {
+        "allow_in_forms": true,
+        "can_write_values": false,
+        "field_id": "FIELD01",
+        "role": "sf4",
+        "subjects": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/field-permissions/{field_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/field-permissions/{field_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

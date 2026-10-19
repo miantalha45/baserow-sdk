@@ -1,0 +1,22 @@
+# BasicAiProviderModelDiscoveryFlow
+
+main: kit: flow: BasicAiProviderModelDiscoveryFlow:
+{
+  entity: "ai_provider_model_discovery",
+  kind: "basic",
+  name: "BasicAiProviderModelDiscoveryFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_provider_model_discovery_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiProviderModelDiscoveryFlow"
+}

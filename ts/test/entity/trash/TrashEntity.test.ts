@@ -1,0 +1,238 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { BaserowSDK, BaseFeature, config, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('TrashEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when BASEROW_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BASEROW_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = BaserowSDK.test()
+    const ent = testsdk.Trash()
+    assert(null != ent)
+  })
+
+
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('trash hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of BaserowSDK.test(offline).Trash().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of BaserowSDK.test(offline).Trash()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = BaserowSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Trash().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of BaserowSDK.test().Trash().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new BaserowSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Trash().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Trash().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = BaserowSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Trash().list({"id":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.BASEROW_TEST_LIVE
+    for (const op of ['list', 'update']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'trash.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"applications":{"a":true,"h":"Applications","n":"applications","r":true,"t":"`$ARRAY`","key$":"applications","index$":0},"id":{"a":true,"h":"Id","n":"id","r":true,"t":"`$INTEGER`","key$":"id","index$":1},"name":{"a":true,"h":"Name","n":"name","r":true,"t":"`$STRING`","key$":"name","index$":2},"trashed":{"a":true,"h":"Trashed","n":"trashed","r":true,"t":"`$BOOLEAN`","key$":"trashed","index$":3}},"id":{"field":"id","name":"id"},"name":"trash","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /api/trash/","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/api/trash/","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"api"},{"lit":"trash"}],"t":{"req":"`reqdata`","res":"`body.workspaces`"},"index$":0}],"key$":"list"},"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /api/trash/workspace/{workspace_id}/","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"workspace_id","or":"workspace_id","r":true,"t":"`$INTEGER`","index$":0}],"query":[{"a":true,"k":"query","n":"application_id","or":"application_id","r":false,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"DELETE","o":"/api/trash/workspace/{workspace_id}/","q":{"exist":["workspace_id"]},"r":{},"s":[{"lit":"api"},{"lit":"trash"},{"lit":"workspace"},{"var":"workspace_id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"remove"},"update":{"input":"data","name":"update","points":[{"a":true,"bf":["parent_trash_item_id","trash_item_id","trash_item_type"],"co":{"id":"PATCH /api/trash/restore/","source":"openapi3","version":2},"g":{},"k":"http","m":"PATCH","o":"/api/trash/restore/","q":{"$action":"restore"},"r":{},"rb":{"alternatives":[{"fields":[{"name":"parent_trash_item_id"},{"name":"trash_item_id"},{"name":"trash_item_type"}],"kind":"multipart","media":"multipart/form-data"},{"fields":[{"name":"parent_trash_item_id"},{"name":"trash_item_id"},{"name":"trash_item_type"}],"kind":"form","media":"application/x-www-form-urlencoded"}],"kind":"json","media":"application/json"},"s":[{"lit":"api"},{"lit":"trash"},{"lit":"restore"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"update"}},"relations":{"ancestors":[["$.main.kit.entity.workspace"]]},"key$":"trash","name__orig":"trash","Name":"Trash","name_":"trash","name-":"trash","NAME":"TRASH","index$":148}, {"active":true,"entity":"trash","key$":"BasicTrashFlow","kind":"basic","name":"BasicTrashFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"trash_ref01"}}]},{"a":true,"d":{},"i":{"ref":"trash_ref01","srcdatavar":"trash_ref01_data","suffix":"_up0","textfield":"name"},"m":{},"o":"update","s":[{"apply":"TextFieldMark","def":{"mark":"Mark01-trash_ref01"}}],"v":[]}]}, 'Trash', {"GET /api/trash/":{"protocol":"http","parameters":[]},"DELETE /api/trash/workspace/{workspace_id}/":{"protocol":"http","parameters":[{"in":"query","name":"application_id","schema":{"type":"integer"},"description":"Optionally filters down the trash to delete to only items for this application in the workspace.","index$":0},{"in":"path","name":"workspace_id","schema":{"type":"integer"},"description":"The workspace whose trash contents to empty, including the workspace itself if it is also trashed.","required":true,"index$":1}]},"PATCH /api/trash/restore/":{"protocol":"http","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"Mixin to a DRF serializer class to raise an exception if data with unknown fields\nis provided to the serializer.","properties":{"trash_item_id":{"type":"integer","minimum":0},"parent_trash_item_id":{"type":"integer","minimum":0,"nullable":true},"trash_item_type":{"enum":["workspace","application","agent","integration","user_source","table","field","row","rows","view","database_workflow_action","builder_domain","builder_page","builder_element","builder_data_source","builder_workflow_action","widget","automation","automation_workflow","automation_node","row_comment","team"],"type":"string","description":"* `workspace` - workspace\n* `application` - application\n* `agent` - agent\n* `integration` - integration\n* `user_source` - user_source\n* `table` - table\n* `field` - field\n* `row` - row\n* `rows` - rows\n* `view` - view\n* `database_workflow_action` - database_workflow_action\n* `builder_domain` - builder_domain\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `widget` - widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `row_comment` - row_comment\n* `team` - team","x-ref":"#/components/schemas/TrashItemTypeEnum"}},"x-ref":"#/components/schemas/PatchedTrashEntryRequest"}},"application/x-www-form-urlencoded":{"schema":{"type":"object","description":"Mixin to a DRF serializer class to raise an exception if data with unknown fields\nis provided to the serializer.","properties":{"trash_item_id":{"type":"integer","minimum":0},"parent_trash_item_id":{"type":"integer","minimum":0,"nullable":true},"trash_item_type":{"enum":["workspace","application","agent","integration","user_source","table","field","row","rows","view","database_workflow_action","builder_domain","builder_page","builder_element","builder_data_source","builder_workflow_action","widget","automation","automation_workflow","automation_node","row_comment","team"],"type":"string","description":"* `workspace` - workspace\n* `application` - application\n* `agent` - agent\n* `integration` - integration\n* `user_source` - user_source\n* `table` - table\n* `field` - field\n* `row` - row\n* `rows` - rows\n* `view` - view\n* `database_workflow_action` - database_workflow_action\n* `builder_domain` - builder_domain\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `widget` - widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `row_comment` - row_comment\n* `team` - team","x-ref":"#/components/schemas/TrashItemTypeEnum"}},"x-ref":"#/components/schemas/PatchedTrashEntryRequest"}},"multipart/form-data":{"schema":{"type":"object","description":"Mixin to a DRF serializer class to raise an exception if data with unknown fields\nis provided to the serializer.","properties":{"trash_item_id":{"type":"integer","minimum":0},"parent_trash_item_id":{"type":"integer","minimum":0,"nullable":true},"trash_item_type":{"enum":["workspace","application","agent","integration","user_source","table","field","row","rows","view","database_workflow_action","builder_domain","builder_page","builder_element","builder_data_source","builder_workflow_action","widget","automation","automation_workflow","automation_node","row_comment","team"],"type":"string","description":"* `workspace` - workspace\n* `application` - application\n* `agent` - agent\n* `integration` - integration\n* `user_source` - user_source\n* `table` - table\n* `field` - field\n* `row` - row\n* `rows` - rows\n* `view` - view\n* `database_workflow_action` - database_workflow_action\n* `builder_domain` - builder_domain\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `widget` - widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `row_comment` - row_comment\n* `team` - team","x-ref":"#/components/schemas/TrashItemTypeEnum"}},"x-ref":"#/components/schemas/PatchedTrashEntryRequest"}}}},"parameters":[]}}, { strict: LIVE_STRICT, t })
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+    let trash_ref01_data = Object.values(setup.data.existing.trash)[0] as any
+
+    // LIST
+    const trash_ref01_ent = client.Trash()
+    const trash_ref01_match: any = {}
+
+    const trash_ref01_list = (await trash_ref01_ent.list(trash_ref01_match)).map((e: any) => e.data())
+
+
+    // UPDATE
+    const trash_ref01_data_up0: any = {}
+    trash_ref01_data_up0.id = trash_ref01_data.id
+
+    const trash_ref01_markdef_up0 = { name: 'name', value: 'Mark01-trash_ref01_' + setup.now }
+    ;(trash_ref01_data_up0 as any)[trash_ref01_markdef_up0.name] = trash_ref01_markdef_up0.value
+
+    const trash_ref01_resdata_up0 = (await trash_ref01_ent.update(trash_ref01_data_up0)).data()
+    assert(trash_ref01_resdata_up0.id === trash_ref01_data_up0.id)
+
+    assert((trash_ref01_resdata_up0 as any)[trash_ref01_markdef_up0.name] === trash_ref01_markdef_up0.value)
+
+
+  })
+})
+
+
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/trash/TrashTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = BaserowSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['trash01','trash02','trash03','workspace01','workspace02','workspace03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'BASEROW_TEST_TRASH_ENTID': idmap,
+    'BASEROW_TEST_LIVE': 'FALSE',
+    'BASEROW_TEST_EXPLAIN': 'FALSE',
+    'BASEROW_APIKEY': '',
+    'BASEROW_SERVER_BASE': "",
+  })
+
+  idmap = env['BASEROW_TEST_TRASH_ENTID']
+
+  const live = 'TRUE' === env.BASEROW_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['BASEROW_TEST_TRASH_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new BaserowSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.BASEROW_APIKEY,
+        server: {
+          base: env.BASEROW_SERVER_BASE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.BASEROW_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

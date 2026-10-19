@@ -1,0 +1,254 @@
+# Entity: notification
+
+main: kit: entity: notification: {
+
+  alias: field: {}
+
+  alias: {
+    field: {
+      baserow_id: "id"
+    }
+  }
+
+  fields: {
+    baserow_id: {
+      h: "Baserow Id"
+      n: "baserow_id"
+      r: true
+      sh: "The id of the notification."
+      t: "`$INTEGER`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      sh: "The date and time that the notification was created."
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      sh: "The data associated with the notification."
+      t: "`$ANY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The id of the notification."
+      t: "`$STRING`"
+    }
+    read: {
+      h: "Read"
+      n: "read"
+      r: false
+      sh: "If True, then the notification has been read by the user."
+      t: "`$BOOLEAN`"
+    }
+    sender: {
+      h: "Sender"
+      n: "sender"
+      r: true
+      sh: "The user that sent the notification."
+      t: "`$ANY`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "The type of notification"
+      t: "`$STRING`"
+    }
+    workspace: {
+      h: "Workspace"
+      n: "workspace"
+      r: true
+      ro: true
+      sh: "The workspace that the notification is in (if any)."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "workspace_id"
+      "notification_id"
+    ]
+    sep: "/"
+  }
+
+  name: "notification"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/notifications/{workspace_id}/mark-all-as-read/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/notifications/{workspace_id}/mark-all-as-read/"
+          q: {
+            "$action": "mark_all_as_read"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workspace_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "notifications"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "mark-all-as-read"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/notifications/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/notifications/{workspace_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workspace_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "notifications"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /api/notifications/{workspace_id}/{notification_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "notification_id"
+                or: "notification_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/notifications/{workspace_id}/{notification_id}/"
+          q: {
+            exist: [
+              "notification_id"
+              "workspace_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "notifications"
+            }
+            {
+              var: "workspace_id"
+            }
+            {
+              var: "notification_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

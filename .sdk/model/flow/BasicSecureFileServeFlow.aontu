@@ -1,0 +1,32 @@
+# BasicSecureFileServeFlow
+
+main: kit: flow: BasicSecureFileServeFlow:
+{
+  entity: "secure_file_serve",
+  kind: "basic",
+  name: "BasicSecureFileServeFlow",
+  step: [
+    {
+      i: {
+        ref: "secure_file_serve_ref01",
+        srcdatavar: "secure_file_serve_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "secure_file_serve01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-secure_file_serve_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSecureFileServeFlow"
+}

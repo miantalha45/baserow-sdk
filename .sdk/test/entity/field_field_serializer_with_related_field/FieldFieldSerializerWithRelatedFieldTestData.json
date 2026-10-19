@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "field_field_serializer_with_related_field": {
+      "FIELD_FIELD_SERIALIZER_WITH_RELATED_FIELD00": {
+        "table_id": "TABLE01",
+        "id": "FIELD_FIELD_SERIALIZER_WITH_RELATED_FIELD00"
+      },
+      "FIELD_FIELD_SERIALIZER_WITH_RELATED_FIELD01": {
+        "table_id": "TABLE01",
+        "id": "FIELD_FIELD_SERIALIZER_WITH_RELATED_FIELD01"
+      },
+      "FIELD_FIELD_SERIALIZER_WITH_RELATED_FIELD02": {
+        "table_id": "TABLE01",
+        "id": "FIELD_FIELD_SERIALIZER_WITH_RELATED_FIELD02"
+      }
+    }
+  },
+  "new": {
+    "field_field_serializer_with_related_field": {
+      "field_field_serializer_with_related_field_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/database/fields/table/{table_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

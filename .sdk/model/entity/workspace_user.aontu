@@ -1,0 +1,172 @@
+# Entity: workspace_user
+
+main: kit: entity: workspace_user: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    email: {
+      h: "Email"
+      n: "email"
+      r: true
+      ro: true
+      sh: "User email."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      ro: true
+      sh: "User defined name."
+      t: "`$STRING`"
+    }
+    permissions: {
+      h: "Permissions"
+      n: "permissions"
+      r: false
+      sh: "The permissions that the user has within the workspace."
+      t: "`$STRING`"
+    }
+    to_be_deleted: {
+      h: "To Be Deleted"
+      n: "to_be_deleted"
+      r: true
+      sh: "True if user account is pending deletion."
+      t: "`$BOOLEAN`"
+    }
+    two_factor_auth: {
+      h: "Two Factor Auth"
+      n: "two_factor_auth"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    user_id: {
+      h: "User Id"
+      n: "user_id"
+      r: true
+      ro: true
+      sh: "The user that has access to the workspace."
+      t: "`$INTEGER`"
+    }
+    workspace: {
+      h: "Workspace"
+      n: "workspace"
+      r: true
+      sh: "The workspace that the user has access to."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "workspace_user"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "permissions"
+          ]
+          co: {
+            id: "PATCH /api/workspaces/users/{workspace_user_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workspace_user_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/workspaces/users/{workspace_user_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workspace_user_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "permissions"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "permissions"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "workspaces"
+            }
+            {
+              lit: "users"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

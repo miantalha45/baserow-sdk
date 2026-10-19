@@ -1,0 +1,247 @@
+# Entity: type
+
+main: kit: entity: type: {
+
+  alias: field: {}
+
+  fields: {
+    array_formula_type: {
+      h: "Array Formula Type"
+      n: "array_formula_type"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    date_force_timezone: {
+      h: "Date Force Timezone"
+      n: "date_force_timezone"
+      r: false
+      sh: "Force a timezone for the field overriding user profile settings."
+      t: "`$STRING`"
+    }
+    date_format: {
+      h: "Date Format"
+      n: "date_format"
+      r: false
+      sh: "EU (20/02/2020), US (02/20/2020) or ISO (2020-02-20) * `EU` - European (D/M/Y) * `US` - US (M/D/Y) * `ISO` - ISO (Y-M-D)"
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    date_include_time: {
+      h: "Date Include Time"
+      n: "date_include_time"
+      r: false
+      sh: "Indicates if the field also includes a time."
+      t: "`$BOOLEAN`"
+    }
+    date_show_tzinfo: {
+      h: "Date Show Tzinfo"
+      n: "date_show_tzinfo"
+      r: false
+      sh: "Indicates if the time zone should be shown."
+      t: "`$BOOLEAN`"
+    }
+    date_time_format: {
+      h: "Date Time Format"
+      n: "date_time_format"
+      r: false
+      sh: "24 (14:30) or 12 (02:30 PM) * `24` - 24 hour * `12` - 12 hour"
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    duration_format: {
+      h: "Duration Format"
+      n: "duration_format"
+      r: false
+      sh: "The format of the duration."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      t: "`$STRING`"
+    }
+    formula: {
+      h: "Formula"
+      n: "formula"
+      r: true
+      t: "`$STRING`"
+    }
+    formula_type: {
+      h: "Formula Type"
+      n: "formula_type"
+      r: false
+      sh: "* `invalid` - invalid * `text` - text * `char` - char * `button` - button * `link` - link * `date_interval` - date_interval * `duration` - duration * `date` - date * `boolean` - boolean * `number` - number * `array` - array *…"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    nullable: {
+      h: "Nullable"
+      n: "nullable"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    number_decimal_places: {
+      h: "Number Decimal Places"
+      n: "number_decimal_places"
+      r: false
+      sh: "The amount of digits allowed after the point."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    number_prefix: {
+      h: "Number Prefix"
+      n: "number_prefix"
+      r: false
+      sh: "The prefix to use for the field."
+      t: "`$STRING`"
+    }
+    number_separator: {
+      h: "Number Separator"
+      n: "number_separator"
+      r: false
+      sh: "The thousand and decimal separator to use for the field."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    number_suffix: {
+      h: "Number Suffix"
+      n: "number_suffix"
+      r: false
+      sh: "The suffix to use for the field."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "type"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "formula"
+            "name"
+          ]
+          co: {
+            id: "POST /api/database/formula/{table_id}/type/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "formula_id"
+                or: "table_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/formula/{table_id}/type/"
+          q: {
+            exist: [
+              "formula_id"
+            ]
+          }
+          r: {
+            param: {
+              table_id: "formula_id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "formula"
+                  }
+                  {
+                    name: "name"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "formula"
+                  }
+                  {
+                    name: "name"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "formula"
+            }
+            {
+              var: "formula_id"
+            }
+            {
+              lit: "type"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

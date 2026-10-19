@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "automation_node": {
+      "AUTOMATION_NODE00": {
+        "id": "AUTOMATION_NODE00"
+      },
+      "AUTOMATION_NODE01": {
+        "id": "AUTOMATION_NODE01"
+      },
+      "AUTOMATION_NODE02": {
+        "id": "AUTOMATION_NODE02"
+      }
+    }
+  },
+  "new": {
+    "automation_node": {
+      "automation_node_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/automation/node/{node_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

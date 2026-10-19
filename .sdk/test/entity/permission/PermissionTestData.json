@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "permission": {
+      "PERMISSION00": {
+        "name": "s14",
+        "permissions": "s15",
+        "workspace_id": "WORKSPACE01"
+      },
+      "PERMISSION01": {
+        "name": "s28",
+        "permissions": "s29",
+        "workspace_id": "WORKSPACE01"
+      },
+      "PERMISSION02": {
+        "name": "s3c",
+        "permissions": "s3d",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "permission": {
+      "permission_ref01": {
+        "name": "s50",
+        "permissions": "s51"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/workspaces/{workspace_id}/permissions/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

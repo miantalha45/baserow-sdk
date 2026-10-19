@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "user_source_user_source": {
+      "USER_SOURCE_USER_SOURCE00": {
+        "id": "USER_SOURCE_USER_SOURCE00"
+      },
+      "USER_SOURCE_USER_SOURCE01": {
+        "id": "USER_SOURCE_USER_SOURCE01"
+      },
+      "USER_SOURCE_USER_SOURCE02": {
+        "id": "USER_SOURCE_USER_SOURCE02"
+      }
+    }
+  },
+  "new": {
+    "user_source_user_source": {
+      "user_source_user_source_ref01": {}
+    }
+  },
+  "requests": {
+    "PATCH /api/user-source/{user_source_id}/move/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

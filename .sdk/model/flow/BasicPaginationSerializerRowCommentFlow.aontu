@@ -1,0 +1,33 @@
+# BasicPaginationSerializerRowCommentFlow
+
+main: kit: flow: BasicPaginationSerializerRowCommentFlow:
+{
+  entity: "pagination_serializer_row_comment",
+  kind: "basic",
+  name: "BasicPaginationSerializerRowCommentFlow",
+  step: [
+    {
+      i: {
+        ref: "pagination_serializer_row_comment_ref01",
+        srcdatavar: "pagination_serializer_row_comment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pagination_serializer_row_comment01",
+        table_id: "table01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pagination_serializer_row_comment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPaginationSerializerRowCommentFlow"
+}

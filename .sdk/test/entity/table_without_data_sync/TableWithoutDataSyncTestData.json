@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "table_without_data_sync": {
+      "TABLE_WITHOUT_DATA_SYNC00": {
+        "database_id": "DATABASE01",
+        "id": "TABLE_WITHOUT_DATA_SYNC00",
+        "name": "s2a",
+        "order": 43
+      },
+      "TABLE_WITHOUT_DATA_SYNC01": {
+        "database_id": "DATABASE01",
+        "id": "TABLE_WITHOUT_DATA_SYNC01",
+        "name": "s52",
+        "order": 83
+      },
+      "TABLE_WITHOUT_DATA_SYNC02": {
+        "database_id": "DATABASE01",
+        "id": "TABLE_WITHOUT_DATA_SYNC02",
+        "name": "s7a",
+        "order": 123
+      }
+    }
+  },
+  "new": {
+    "table_without_data_sync": {
+      "table_without_data_sync_ref01": {
+        "database_id": "DATABASE01",
+        "name": "sa2",
+        "order": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/tables/all-tables/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

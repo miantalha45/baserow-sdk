@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "abuse_report": {
+      "ABUSE_REPORT00": {
+        "captcha_token": "s3c",
+        "description": "s3d",
+        "email": "s3e",
+        "identifier": "s3f",
+        "name": "s40",
+        "resource_type": "s41",
+        "id": "ABUSE_REPORT00"
+      },
+      "ABUSE_REPORT01": {
+        "captcha_token": "s78",
+        "description": "s79",
+        "email": "s7a",
+        "identifier": "s7b",
+        "name": "s7c",
+        "resource_type": "s7d",
+        "id": "ABUSE_REPORT01"
+      },
+      "ABUSE_REPORT02": {
+        "captcha_token": "sb4",
+        "description": "sb5",
+        "email": "sb6",
+        "identifier": "sb7",
+        "name": "sb8",
+        "resource_type": "sb9",
+        "id": "ABUSE_REPORT02"
+      }
+    }
+  },
+  "new": {
+    "abuse_report": {
+      "abuse_report_ref01": {
+        "captcha_token": "sf0",
+        "description": "sf1",
+        "email": "sf2",
+        "identifier": "sf3",
+        "name": "sf4",
+        "resource_type": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/abuse-reports/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

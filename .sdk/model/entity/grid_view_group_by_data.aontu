@@ -1,0 +1,396 @@
+# Entity: grid_view_group_by_data
+
+main: kit: entity: grid_view_group_by_data: {
+
+  alias: field: {}
+
+  fields: {
+    group_count: {
+      h: "Group Count"
+      n: "group_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+    groups: {
+      h: "Groups"
+      n: "groups"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    limit: {
+      h: "Limit"
+      n: "limit"
+      r: true
+      t: "`$INTEGER`"
+    }
+    offset: {
+      h: "Offset"
+      n: "offset"
+      r: true
+      t: "`$INTEGER`"
+    }
+    parent: {
+      h: "Parent"
+      n: "parent"
+      r: true
+      sh: "The serialized parent group path requested for this page."
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "grid_view_group_by_data"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/grid/{slug}/public/group-by-data/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "grid_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "aggregations_only"
+                or: "aggregations_only"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "depth"
+                or: "depth"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "descendant_limit"
+                or: "descendant_limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "descendant_row_budget"
+                or: "descendant_row_budget"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "group_by"
+                or: "group_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include_descendant"
+                or: "include_descendants"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "include_total"
+                or: "include_totals"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "parent"
+                or: "parents"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/grid/{slug}/public/group-by-data/"
+          q: {
+            exist: [
+              "grid_id"
+            ]
+          }
+          r: {
+            param: {
+              slug: "grid_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "grid"
+            }
+            {
+              var: "grid_id"
+            }
+            {
+              lit: "public"
+            }
+            {
+              lit: "group-by-data"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/database/views/grid/{view_id}/group-by-data/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "aggregations_only"
+                or: "aggregations_only"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "depth"
+                or: "depth"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "descendant_limit"
+                or: "descendant_limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "descendant_row_budget"
+                or: "descendant_row_budget"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "group_by"
+                or: "group_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "include_descendant"
+                or: "include_descendants"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "include_total"
+                or: "include_totals"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "parent"
+                or: "parents"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search_mode"
+                or: "search_mode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/grid/{view_id}/group-by-data/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "grid"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "group-by-data"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

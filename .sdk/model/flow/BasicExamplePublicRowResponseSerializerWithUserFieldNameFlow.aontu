@@ -1,0 +1,33 @@
+# BasicExamplePublicRowResponseSerializerWithUserFieldNameFlow
+
+main: kit: flow: BasicExamplePublicRowResponseSerializerWithUserFieldNameFlow:
+{
+  entity: "example_public_row_response_serializer_with_user_field_name",
+  kind: "basic",
+  name: "BasicExamplePublicRowResponseSerializerWithUserFieldNameFlow",
+  step: [
+    {
+      i: {
+        ref: "example_public_row_response_serializer_with_user_field_name_ref01",
+        srcdatavar: "example_public_row_response_serializer_with_user_field_name_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "example_public_row_response_serializer_with_user_field_name01",
+        view_id: "view01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-example_public_row_response_serializer_with_user_field_name_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicExamplePublicRowResponseSerializerWithUserFieldNameFlow"
+}

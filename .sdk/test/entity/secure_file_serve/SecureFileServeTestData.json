@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "secure_file_serve": {
+      "SECURE_FILE_SERVE00": {
+        "signed_data": "SIGNED_DATA01",
+        "id": "SECURE_FILE_SERVE00"
+      },
+      "SECURE_FILE_SERVE01": {
+        "signed_data": "SIGNED_DATA01",
+        "id": "SECURE_FILE_SERVE01"
+      },
+      "SECURE_FILE_SERVE02": {
+        "signed_data": "SIGNED_DATA01",
+        "id": "SECURE_FILE_SERVE02"
+      }
+    }
+  },
+  "new": {
+    "secure_file_serve": {
+      "secure_file_serve_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/files/{signed_data}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

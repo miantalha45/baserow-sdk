@@ -1,0 +1,28 @@
+# BasicInstanceIdFlow
+
+main: kit: flow: BasicInstanceIdFlow:
+{
+  entity: "instance_id",
+  kind: "basic",
+  name: "BasicInstanceIdFlow",
+  step: [
+    {
+      i: {
+        ref: "instance_id_ref01",
+        srcdatavar: "instance_id_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-instance_id_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInstanceIdFlow"
+}

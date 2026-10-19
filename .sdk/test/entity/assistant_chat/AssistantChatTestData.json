@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "assistant_chat": {
+      "ASSISTANT_CHAT00": {
+        "created_on": "s46",
+        "status": "s47",
+        "title": "s48",
+        "updated_on": "s49",
+        "user_id": "USER01",
+        "uuid": "s4b",
+        "workspace_id": "WORKSPACE01"
+      },
+      "ASSISTANT_CHAT01": {
+        "created_on": "s8c",
+        "status": "s8d",
+        "title": "s8e",
+        "updated_on": "s8f",
+        "user_id": "USER01",
+        "uuid": "s91",
+        "workspace_id": "WORKSPACE01"
+      },
+      "ASSISTANT_CHAT02": {
+        "created_on": "sd2",
+        "status": "sd3",
+        "title": "sd4",
+        "updated_on": "sd5",
+        "user_id": "USER01",
+        "uuid": "sd7",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "assistant_chat": {
+      "assistant_chat_ref01": {
+        "created_on": "s118",
+        "status": "s119",
+        "title": "s11a",
+        "updated_on": "s11b",
+        "user_id": "USER01",
+        "uuid": "s11d",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "requests": {
+    "GET /assistant/chat/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

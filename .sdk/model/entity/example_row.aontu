@@ -1,0 +1,434 @@
+# Entity: example_row
+
+main: kit: entity: example_row: {
+
+  alias: field: {}
+
+  fields: {
+    field_1: {
+      h: "Field 1"
+      n: "field_1"
+      r: false
+      sh: "This field represents the `text` field."
+      t: "`$STRING`"
+    }
+    field_10: {
+      h: "Field 10"
+      n: "field_10"
+      r: false
+      sh: "This field represents the `last_modified_by` field."
+      t: "`$ANY`"
+    }
+    field_11: {
+      fo: "date-time"
+      h: "Field 11"
+      n: "field_11"
+      r: false
+      sh: "This field represents the `created_on` field."
+      t: "`$STRING`"
+    }
+    field_12: {
+      h: "Field 12"
+      n: "field_12"
+      r: false
+      sh: "This field represents the `created_by` field."
+      t: "`$ANY`"
+    }
+    field_13: {
+      fo: "float"
+      h: "Field 13"
+      n: "field_13"
+      r: false
+      sh: "This field represents the `duration` field."
+      t: "`$NUMBER`"
+    }
+    field_14: {
+      h: "Field 14"
+      n: "field_14"
+      r: false
+      sh: "This field represents the `link_row` field."
+      t: "`$ARRAY`"
+    }
+    field_15: {
+      h: "Field 15"
+      n: "field_15"
+      r: false
+      sh: "This field represents the `file` field."
+      t: "`$ARRAY`"
+    }
+    field_16: {
+      h: "Field 16"
+      n: "field_16"
+      r: false
+      sh: "This field represents the `single_select` field."
+      t: "`$ANY`"
+    }
+    field_17: {
+      h: "Field 17"
+      n: "field_17"
+      r: false
+      sh: "This field represents the `multiple_select` field."
+      t: "`$ARRAY`"
+    }
+    field_18: {
+      h: "Field 18"
+      n: "field_18"
+      r: false
+      sh: "This field represents the `phone_number` field."
+      t: "`$STRING`"
+    }
+    field_19: {
+      h: "Field 19"
+      n: "field_19"
+      r: false
+      sh: "This field represents the `formula` field."
+      t: "`$STRING`"
+    }
+    field_2: {
+      h: "Field 2"
+      n: "field_2"
+      r: false
+      sh: "This field represents the `long_text` field."
+      t: "`$STRING`"
+    }
+    field_20: {
+      h: "Field 20"
+      n: "field_20"
+      r: false
+      sh: "This field represents the `count` field."
+      t: "`$STRING`"
+    }
+    field_21: {
+      h: "Field 21"
+      n: "field_21"
+      r: false
+      sh: "This field represents the `rollup` field."
+      t: "`$STRING`"
+    }
+    field_22: {
+      h: "Field 22"
+      n: "field_22"
+      r: false
+      sh: "This field represents the `lookup` field."
+      t: "`$STRING`"
+    }
+    field_23: {
+      h: "Field 23"
+      n: "field_23"
+      r: false
+      sh: "This field represents the `multiple_collaborators` field."
+      t: "`$ARRAY`"
+    }
+    field_24: {
+      fo: "uuid"
+      h: "Field 24"
+      n: "field_24"
+      r: false
+      sh: "This field represents the `uuid` field."
+      t: "`$STRING`"
+    }
+    field_25: {
+      h: "Field 25"
+      n: "field_25"
+      r: false
+      sh: "This field represents the `autonumber` field."
+      t: "`$INTEGER`"
+    }
+    field_26: {
+      h: "Field 26"
+      n: "field_26"
+      r: false
+      sh: "This field represents the `password` field."
+      t: "`$BOOLEAN`"
+    }
+    field_27: {
+      h: "Field 27"
+      n: "field_27"
+      r: true
+      ro: true
+      sh: "This field represents the `form_view_edit_row` field."
+      t: "`$STRING`"
+    }
+    field_28: {
+      h: "Field 28"
+      n: "field_28"
+      r: false
+      sh: "This field represents the `button` field."
+      t: "`$STRING`"
+    }
+    field_29: {
+      h: "Field 29"
+      n: "field_29"
+      r: false
+      sh: "This field represents the `ai` field."
+      t: "`$STRING`"
+    }
+    field_3: {
+      h: "Field 3"
+      n: "field_3"
+      r: false
+      sh: "This field represents the `url` field."
+      t: "`$STRING`"
+    }
+    field_4: {
+      h: "Field 4"
+      n: "field_4"
+      r: false
+      sh: "This field represents the `email` field."
+      t: "`$STRING`"
+    }
+    field_5: {
+      fo: "decimal"
+      h: "Field 5"
+      n: "field_5"
+      r: false
+      sh: "This field represents the `number` field."
+      t: "`$STRING`"
+    }
+    field_6: {
+      h: "Field 6"
+      n: "field_6"
+      r: false
+      sh: "This field represents the `rating` field."
+      t: "`$INTEGER`"
+    }
+    field_7: {
+      h: "Field 7"
+      n: "field_7"
+      r: false
+      sh: "This field represents the `boolean` field."
+      t: "`$BOOLEAN`"
+    }
+    field_8: {
+      fo: "date"
+      h: "Field 8"
+      n: "field_8"
+      r: false
+      sh: "This field represents the `date` field."
+      t: "`$STRING`"
+    }
+    field_9: {
+      fo: "date-time"
+      h: "Field 9"
+      n: "field_9"
+      r: false
+      sh: "This field represents the `last_modified` field."
+      t: "`$STRING`"
+    }
+    field_ids: {
+      h: "Field Ids"
+      n: "field_ids"
+      r: false
+      sh: "Only the fields related to the provided ids are added to the response."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The unique identifier of the row in the table."
+      t: "`$INTEGER`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      sh: "Additional metadata for the row, if `include=metadata' is provided as query parameter."
+      t: "`$ANY`"
+    }
+    order: {
+      fo: "decimal"
+      h: "Order"
+      n: "order"
+      r: false
+      sh: "Indicates the position of the row, lowest first and highest last."
+      t: "`$STRING`"
+    }
+    row_ids: {
+      h: "Row Ids"
+      n: "row_ids"
+      r: true
+      sh: "Only rows related to the provided ids are added to the response."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "example_row"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "field_ids"
+            "row_ids"
+          ]
+          co: {
+            id: "POST /api/database/views/grid/{view_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "view_id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/views/grid/{view_id}/"
+          q: {
+            exist: [
+              "view_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "field_ids"
+                  }
+                  {
+                    list: true
+                    name: "row_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "field_ids"
+                  }
+                  {
+                    list: true
+                    name: "row_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "grid"
+            }
+            {
+              var: "view_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/form/{slug}/edit-row/{row_token}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "form_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "row_token"
+                or: "row_token"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/form/{slug}/edit-row/{row_token}/"
+          q: {
+            exist: [
+              "form_id"
+              "row_token"
+            ]
+          }
+          r: {
+            param: {
+              slug: "form_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "form"
+            }
+            {
+              var: "form_id"
+            }
+            {
+              lit: "edit-row"
+            }
+            {
+              var: "row_token"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

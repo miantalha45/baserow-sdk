@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "data_sync": {
+      "DATA_SYNC00": {
+        "auto_add_new_properties": true,
+        "database_id": "DATABASE01",
+        "delete_unmatched_rows": true,
+        "id": "DATA_SYNC00",
+        "last_error": "s68",
+        "last_sync": "s69",
+        "synced_properties": [],
+        "table_id": "TABLE01",
+        "two_way_sync": true,
+        "type": "s6d"
+      },
+      "DATA_SYNC01": {
+        "auto_add_new_properties": true,
+        "database_id": "DATABASE01",
+        "delete_unmatched_rows": true,
+        "id": "DATA_SYNC01",
+        "last_error": "scc",
+        "last_sync": "scd",
+        "synced_properties": [],
+        "table_id": "TABLE01",
+        "two_way_sync": true,
+        "type": "sd1"
+      },
+      "DATA_SYNC02": {
+        "auto_add_new_properties": true,
+        "database_id": "DATABASE01",
+        "delete_unmatched_rows": true,
+        "id": "DATA_SYNC02",
+        "last_error": "s130",
+        "last_sync": "s131",
+        "synced_properties": [],
+        "table_id": "TABLE01",
+        "two_way_sync": true,
+        "type": "s135"
+      }
+    }
+  },
+  "new": {
+    "data_sync": {
+      "data_sync_ref01": {
+        "auto_add_new_properties": true,
+        "database_id": "DATABASE01",
+        "delete_unmatched_rows": true,
+        "last_error": "s194",
+        "last_sync": "s195",
+        "synced_properties": [],
+        "table_id": "TABLE01",
+        "two_way_sync": true,
+        "type": "s199"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/database/data-sync/{data_sync_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/data-sync/{data_sync_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

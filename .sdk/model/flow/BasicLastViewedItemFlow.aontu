@@ -1,0 +1,22 @@
+# BasicLastViewedItemFlow
+
+main: kit: flow: BasicLastViewedItemFlow:
+{
+  entity: "last_viewed_item",
+  kind: "basic",
+  name: "BasicLastViewedItemFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "last_viewed_item_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLastViewedItemFlow"
+}

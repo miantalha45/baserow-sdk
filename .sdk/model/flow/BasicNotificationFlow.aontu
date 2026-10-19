@@ -1,0 +1,58 @@
+# BasicNotificationFlow
+
+main: kit: flow: BasicNotificationFlow:
+{
+  entity: "notification",
+  kind: "basic",
+  name: "BasicNotificationFlow",
+  step: [
+    {
+      i: {
+        ref: "notification_ref01"
+      }
+
+      m: {
+        workspace_id: "workspace01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        workspace_id: "workspace01"
+      }
+
+      i: {
+        ref: "notification_ref01",
+        srcdatavar: "notification_ref01_data",
+        suffix: "_up0",
+        textfield: "created_on"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-notification_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "notification_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "notification01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicNotificationFlow"
+}

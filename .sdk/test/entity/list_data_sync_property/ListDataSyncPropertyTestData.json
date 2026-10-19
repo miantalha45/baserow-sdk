@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "list_data_sync_property": {
+      "LIST_DATA_SYNC_PROPERTY00": {
+        "field_type": "s32",
+        "initially_selected": false,
+        "key": "s34",
+        "name": "s35",
+        "unique_primary": true,
+        "database_id": "DATABASE01",
+        "data_sync_id": "DATA_SYNC01",
+        "id": "LIST_DATA_SYNC_PROPERTY00"
+      },
+      "LIST_DATA_SYNC_PROPERTY01": {
+        "field_type": "s64",
+        "initially_selected": false,
+        "key": "s66",
+        "name": "s67",
+        "unique_primary": true,
+        "database_id": "DATABASE01",
+        "data_sync_id": "DATA_SYNC01",
+        "id": "LIST_DATA_SYNC_PROPERTY01"
+      },
+      "LIST_DATA_SYNC_PROPERTY02": {
+        "field_type": "s96",
+        "initially_selected": false,
+        "key": "s98",
+        "name": "s99",
+        "unique_primary": true,
+        "database_id": "DATABASE01",
+        "data_sync_id": "DATA_SYNC01",
+        "id": "LIST_DATA_SYNC_PROPERTY02"
+      }
+    }
+  },
+  "new": {
+    "list_data_sync_property": {
+      "list_data_sync_property_ref01": {
+        "field_type": "sc8",
+        "initially_selected": false,
+        "key": "sca",
+        "name": "scb",
+        "unique_primary": true
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/data-sync/database/{database_id}/properties/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/database/data-sync/{data_sync_id}/properties/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

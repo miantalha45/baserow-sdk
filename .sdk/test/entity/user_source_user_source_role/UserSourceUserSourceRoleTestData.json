@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "user_source_user_source_role": {
+      "USER_SOURCE_USER_SOURCE_ROLE00": {
+        "application_id": "APPLICATION01",
+        "id": "USER_SOURCE_USER_SOURCE_ROLE00"
+      },
+      "USER_SOURCE_USER_SOURCE_ROLE01": {
+        "application_id": "APPLICATION01",
+        "id": "USER_SOURCE_USER_SOURCE_ROLE01"
+      },
+      "USER_SOURCE_USER_SOURCE_ROLE02": {
+        "application_id": "APPLICATION01",
+        "id": "USER_SOURCE_USER_SOURCE_ROLE02"
+      }
+    }
+  },
+  "new": {
+    "user_source_user_source_role": {
+      "user_source_user_source_role_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/application/{application_id}/user-sources/roles/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

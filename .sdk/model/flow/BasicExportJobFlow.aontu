@@ -1,0 +1,44 @@
+# BasicExportJobFlow
+
+main: kit: flow: BasicExportJobFlow:
+{
+  entity: "export_job",
+  kind: "basic",
+  name: "BasicExportJobFlow",
+  step: [
+    {
+      i: {
+        ref: "export_job_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "export_job_ref01",
+        srcdatavar: "export_job_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "export_job01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-export_job_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicExportJobFlow"
+}

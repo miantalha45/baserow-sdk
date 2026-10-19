@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "job_type_job": {
+      "JOB_TYPE_JOB00": {
+        "id": "JOB_TYPE_JOB00"
+      },
+      "JOB_TYPE_JOB01": {
+        "id": "JOB_TYPE_JOB01"
+      },
+      "JOB_TYPE_JOB02": {
+        "id": "JOB_TYPE_JOB02"
+      }
+    }
+  },
+  "new": {
+    "job_type_job": {
+      "job_type_job_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /api/jobs/{job_id}/cancel/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "existing": {
+    "team": {
+      "TEAM00": {
+        "created_on": "s5a",
+        "default_role": "s5b",
+        "id": "TEAM00",
+        "name": "s5d",
+        "subject_count": 94,
+        "subject_sample": [],
+        "subjects": [],
+        "updated_on": "s61",
+        "workspace": 98,
+        "workspace_id": "WORKSPACE01",
+        "subject_id": "SUBJECT01"
+      },
+      "TEAM01": {
+        "created_on": "sb4",
+        "default_role": "sb5",
+        "id": "TEAM01",
+        "name": "sb7",
+        "subject_count": 184,
+        "subject_sample": [],
+        "subjects": [],
+        "updated_on": "sbb",
+        "workspace": 188,
+        "workspace_id": "WORKSPACE01",
+        "subject_id": "SUBJECT01"
+      },
+      "TEAM02": {
+        "created_on": "s10e",
+        "default_role": "s10f",
+        "id": "TEAM02",
+        "name": "s111",
+        "subject_count": 274,
+        "subject_sample": [],
+        "subjects": [],
+        "updated_on": "s115",
+        "workspace": 278,
+        "workspace_id": "WORKSPACE01",
+        "subject_id": "SUBJECT01"
+      }
+    }
+  },
+  "new": {
+    "team": {
+      "team_ref01": {
+        "created_on": "s168",
+        "default_role": "s169",
+        "name": "s16b",
+        "subject_count": 364,
+        "subject_sample": [],
+        "subjects": [],
+        "updated_on": "s16f",
+        "workspace": 368
+      }
+    }
+  },
+  "requests": {
+    "POST /api/teams/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/teams/{team_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/teams/workspace/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/teams/{team_id}/subjects/{subject_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/teams/{team_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /api/teams/{team_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

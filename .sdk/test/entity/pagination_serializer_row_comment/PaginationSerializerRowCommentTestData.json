@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "pagination_serializer_row_comment": {
+      "PAGINATION_SERIALIZER_ROW_COMMENT00": {
+        "count": 50,
+        "id": "PAGINATION_SERIALIZER_ROW_COMMENT00",
+        "next": "s34",
+        "previous": "s35",
+        "results": [],
+        "row_id": "ROW01",
+        "table_id": "TABLE01"
+      },
+      "PAGINATION_SERIALIZER_ROW_COMMENT01": {
+        "count": 100,
+        "id": "PAGINATION_SERIALIZER_ROW_COMMENT01",
+        "next": "s66",
+        "previous": "s67",
+        "results": [],
+        "row_id": "ROW01",
+        "table_id": "TABLE01"
+      },
+      "PAGINATION_SERIALIZER_ROW_COMMENT02": {
+        "count": 150,
+        "id": "PAGINATION_SERIALIZER_ROW_COMMENT02",
+        "next": "s98",
+        "previous": "s99",
+        "results": [],
+        "row_id": "ROW01",
+        "table_id": "TABLE01"
+      }
+    }
+  },
+  "new": {
+    "pagination_serializer_row_comment": {
+      "pagination_serializer_row_comment_ref01": {
+        "count": 200,
+        "next": "sca",
+        "previous": "scb",
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/row_comments/{table_id}/{row_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

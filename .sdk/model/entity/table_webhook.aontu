@@ -1,0 +1,355 @@
+# Entity: table_webhook
+
+main: kit: entity: table_webhook: {
+
+  alias: field: {}
+
+  fields: {
+    active: {
+      h: "Active"
+      n: "active"
+      r: false
+      sh: "Indicates whether the web hook is active."
+      t: "`$BOOLEAN`"
+    }
+    calls: {
+      h: "Calls"
+      n: "calls"
+      r: true
+      sh: "All the calls that this webhook made."
+      t: "`$ARRAY`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    event_config: {
+      h: "Event Config"
+      n: "event_config"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "A list containing the addition event options."
+      t: "`$ARRAY`"
+    }
+    events: {
+      h: "Events"
+      n: "events"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "A list containing the events that will trigger this webhook."
+      t: "`$OBJECT`"
+    }
+    failed_triggers: {
+      h: "Failed Triggers"
+      n: "failed_triggers"
+      r: false
+      sh: "The amount of failed webhook calls."
+      t: "`$INTEGER`"
+    }
+    headers: {
+      h: "Headers"
+      n: "headers"
+      op: {
+        update: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      ro: true
+      sh: "The additional headers as an object where the key is the name and the value the value."
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    include_all_events: {
+      h: "Include All Events"
+      n: "include_all_events"
+      r: false
+      sh: "Indicates whether this webhook should listen to all events."
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "An internal name of the webhook."
+      t: "`$STRING`"
+    }
+    request_method: {
+      h: "Request Method"
+      n: "request_method"
+      r: false
+      sh: "The request method that be used when the event occurs."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The URL that must be called when the webhook is triggered."
+      t: "`$STRING`"
+    }
+    use_user_field_names: {
+      h: "Use User Field Names"
+      n: "use_user_field_names"
+      r: false
+      sh: "Indicates whether the field names must be used as payload key instead of the id."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "table_webhook"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/webhooks/{webhook_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "webhook_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/webhooks/{webhook_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              webhook_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "active"
+            "event_config"
+            "events"
+            "headers"
+            "include_all_events"
+            "name"
+            "request_method"
+            "url"
+            "use_user_field_names"
+          ]
+          co: {
+            id: "PATCH /api/database/webhooks/{webhook_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "webhook_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/webhooks/{webhook_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              webhook_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "active"
+                  }
+                  {
+                    list: true
+                    name: "event_config"
+                  }
+                  {
+                    list: true
+                    name: "events"
+                  }
+                  {
+                    name: "headers"
+                  }
+                  {
+                    name: "include_all_events"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "request_method"
+                  }
+                  {
+                    name: "url"
+                  }
+                  {
+                    name: "use_user_field_names"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "active"
+                  }
+                  {
+                    list: true
+                    name: "event_config"
+                  }
+                  {
+                    list: true
+                    name: "events"
+                  }
+                  {
+                    name: "headers"
+                  }
+                  {
+                    name: "include_all_events"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "request_method"
+                  }
+                  {
+                    name: "url"
+                  }
+                  {
+                    name: "use_user_field_names"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "webhooks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

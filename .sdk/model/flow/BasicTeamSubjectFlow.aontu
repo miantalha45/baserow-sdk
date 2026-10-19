@@ -1,0 +1,61 @@
+# BasicTeamSubjectFlow
+
+main: kit: flow: BasicTeamSubjectFlow:
+{
+  entity: "team_subject",
+  kind: "basic",
+  name: "BasicTeamSubjectFlow",
+  step: [
+    {
+      i: {
+        ref: "team_subject_ref01"
+      }
+
+      m: {
+        team_id: "team01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        team_id: "team01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "team_subject_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "team_subject_ref01",
+        srcdatavar: "team_subject_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "team_subject01",
+        team_id: "team01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-team_subject_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTeamSubjectFlow"
+}

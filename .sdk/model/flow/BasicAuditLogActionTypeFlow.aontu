@@ -1,0 +1,22 @@
+# BasicAuditLogActionTypeFlow
+
+main: kit: flow: BasicAuditLogActionTypeFlow:
+{
+  entity: "audit_log_action_type",
+  kind: "basic",
+  name: "BasicAuditLogActionTypeFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "audit_log_action_type_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAuditLogActionTypeFlow"
+}

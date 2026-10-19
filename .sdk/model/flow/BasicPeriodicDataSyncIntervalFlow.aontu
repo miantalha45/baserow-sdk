@@ -1,0 +1,51 @@
+# BasicPeriodicDataSyncIntervalFlow
+
+main: kit: flow: BasicPeriodicDataSyncIntervalFlow:
+{
+  entity: "periodic_data_sync_interval",
+  kind: "basic",
+  name: "BasicPeriodicDataSyncIntervalFlow",
+  step: [
+    {
+      i: {
+        ref: "periodic_data_sync_interval_ref01",
+        srcdatavar: "periodic_data_sync_interval_ref01_data",
+        suffix: "_up0",
+        textfield: "interval"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-periodic_data_sync_interval_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "periodic_data_sync_interval_ref01",
+        srcdatavar: "periodic_data_sync_interval_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "periodic_data_sync_interval01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-periodic_data_sync_interval_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPeriodicDataSyncIntervalFlow"
+}

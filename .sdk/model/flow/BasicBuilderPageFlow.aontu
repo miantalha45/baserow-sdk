@@ -1,0 +1,35 @@
+# BasicBuilderPageFlow
+
+main: kit: flow: BasicBuilderPageFlow:
+{
+  entity: "builder_page",
+  kind: "basic",
+  name: "BasicBuilderPageFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_page_ref01"
+      }
+
+      m: {
+        page_id: "page01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "builder_page_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "builder_page01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicBuilderPageFlow"
+}

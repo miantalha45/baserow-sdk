@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "related_field": {
+      "RELATED_FIELD00": {
+        "id": "RELATED_FIELD00"
+      },
+      "RELATED_FIELD01": {
+        "id": "RELATED_FIELD01"
+      },
+      "RELATED_FIELD02": {
+        "id": "RELATED_FIELD02"
+      }
+    }
+  },
+  "new": {
+    "related_field": {
+      "related_field_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /api/database/fields/{field_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

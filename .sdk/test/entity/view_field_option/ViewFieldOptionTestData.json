@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "view_field_option": {
+      "VIEW_FIELD_OPTION00": {
+        "id": "VIEW_FIELD_OPTION00"
+      },
+      "VIEW_FIELD_OPTION01": {
+        "id": "VIEW_FIELD_OPTION01"
+      },
+      "VIEW_FIELD_OPTION02": {
+        "id": "VIEW_FIELD_OPTION02"
+      }
+    }
+  },
+  "new": {
+    "view_field_option": {
+      "view_field_option_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/database/views/{view_id}/field-options/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/database/views/{view_id}/field-options/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

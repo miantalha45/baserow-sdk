@@ -1,0 +1,111 @@
+# Entity: email
+
+main: kit: entity: email: {
+
+  alias: field: {}
+
+  fields: {
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      sh: "A short message describing the error that occured if the test email failed"
+      t: "`$STRING`"
+    }
+    error_stack: {
+      h: "Error Stack"
+      n: "error_stack"
+      r: false
+      sh: "The full stack trace and error message if the test email failed."
+      t: "`$STRING`"
+    }
+    error_type: {
+      h: "Error Type"
+      n: "error_type"
+      r: false
+      sh: "The type of error that occurred if the test email failed."
+      t: "`$STRING`"
+    }
+    succeeded: {
+      h: "Succeeded"
+      n: "succeeded"
+      r: true
+      sh: "Whether or not the test email was sent successfully."
+      t: "`$BOOLEAN`"
+    }
+    target_email: {
+      fo: "email"
+      h: "Target Email"
+      n: "target_email"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "email"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "target_email"
+          ]
+          co: {
+            id: "POST /api/_health/email/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/_health/email/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "target_email"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "target_email"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "_health"
+            }
+            {
+              lit: "email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

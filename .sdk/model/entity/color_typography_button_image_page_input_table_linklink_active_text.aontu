@@ -1,0 +1,1720 @@
+# Entity: color_typography_button_image_page_input_table_linklink_active_text
+
+main: kit: entity: color_typography_button_image_page_input_table_linklink_active_text: {
+
+  alias: field: {}
+
+  fields: {
+    body_font_family: {
+      h: "Body Font Family"
+      n: "body_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    body_font_size: {
+      h: "Body Font Size"
+      n: "body_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    body_font_weight: {
+      h: "Body Font Weight"
+      n: "body_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    body_text_alignment: {
+      h: "Body Text Alignment"
+      n: "body_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    body_text_color: {
+      h: "Body Text Color"
+      n: "body_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    border_color: {
+      h: "Border Color"
+      n: "border_color"
+      r: false
+      t: "`$STRING`"
+    }
+    button_active_background_color: {
+      h: "Button Active Background Color"
+      n: "button_active_background_color"
+      r: false
+      sh: "The background color of buttons when active"
+      t: "`$STRING`"
+    }
+    button_active_border_color: {
+      h: "Button Active Border Color"
+      n: "button_active_border_color"
+      r: false
+      sh: "The border color of buttons when active"
+      t: "`$STRING`"
+    }
+    button_active_text_color: {
+      h: "Button Active Text Color"
+      n: "button_active_text_color"
+      r: false
+      sh: "The text color of buttons when active"
+      t: "`$STRING`"
+    }
+    button_alignment: {
+      h: "Button Alignment"
+      n: "button_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    button_background_color: {
+      h: "Button Background Color"
+      n: "button_background_color"
+      r: false
+      sh: "The background color of buttons"
+      t: "`$STRING`"
+    }
+    button_border_color: {
+      h: "Button Border Color"
+      n: "button_border_color"
+      r: false
+      sh: "The border color of buttons"
+      t: "`$STRING`"
+    }
+    button_border_radius: {
+      h: "Button Border Radius"
+      n: "button_border_radius"
+      r: false
+      sh: "Button border radius"
+      t: "`$INTEGER`"
+    }
+    button_border_size: {
+      h: "Button Border Size"
+      n: "button_border_size"
+      r: false
+      sh: "Button border size"
+      t: "`$INTEGER`"
+    }
+    button_font_family: {
+      h: "Button Font Family"
+      n: "button_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    button_font_size: {
+      h: "Button Font Size"
+      n: "button_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    button_font_weight: {
+      h: "Button Font Weight"
+      n: "button_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    button_horizontal_padding: {
+      h: "Button Horizontal Padding"
+      n: "button_horizontal_padding"
+      r: false
+      sh: "Button horizontal padding"
+      t: "`$INTEGER`"
+    }
+    button_hover_background_color: {
+      h: "Button Hover Background Color"
+      n: "button_hover_background_color"
+      r: false
+      sh: "The background color of buttons when hovered"
+      t: "`$STRING`"
+    }
+    button_hover_border_color: {
+      h: "Button Hover Border Color"
+      n: "button_hover_border_color"
+      r: false
+      sh: "The border color of buttons when hovered"
+      t: "`$STRING`"
+    }
+    button_hover_text_color: {
+      h: "Button Hover Text Color"
+      n: "button_hover_text_color"
+      r: false
+      sh: "The text color of buttons when hovered"
+      t: "`$STRING`"
+    }
+    button_text_alignment: {
+      h: "Button Text Alignment"
+      n: "button_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    button_text_color: {
+      h: "Button Text Color"
+      n: "button_text_color"
+      r: false
+      sh: "The text color of buttons"
+      t: "`$STRING`"
+    }
+    button_vertical_padding: {
+      h: "Button Vertical Padding"
+      n: "button_vertical_padding"
+      r: false
+      sh: "Button vertical padding"
+      t: "`$INTEGER`"
+    }
+    button_width: {
+      h: "Button Width"
+      n: "button_width"
+      r: false
+      sh: "* `auto` - Auto * `full` - Full"
+      t: "`$STRING`"
+    }
+    custom_colors: {
+      h: "Custom Colors"
+      n: "custom_colors"
+      r: false
+      t: "`$ANY`"
+    }
+    heading_1_font_family: {
+      h: "Heading 1 Font Family"
+      n: "heading_1_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_1_font_size: {
+      h: "Heading 1 Font Size"
+      n: "heading_1_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    heading_1_font_weight: {
+      h: "Heading 1 Font Weight"
+      n: "heading_1_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    heading_1_text_alignment: {
+      h: "Heading 1 Text Alignment"
+      n: "heading_1_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    heading_1_text_color: {
+      h: "Heading 1 Text Color"
+      n: "heading_1_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_1_text_decoration: {
+      h: "Heading 1 Text Decoration"
+      n: "heading_1_text_decoration"
+      r: false
+      sh: "Text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    heading_2_font_family: {
+      h: "Heading 2 Font Family"
+      n: "heading_2_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_2_font_size: {
+      h: "Heading 2 Font Size"
+      n: "heading_2_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    heading_2_font_weight: {
+      h: "Heading 2 Font Weight"
+      n: "heading_2_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    heading_2_text_alignment: {
+      h: "Heading 2 Text Alignment"
+      n: "heading_2_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    heading_2_text_color: {
+      h: "Heading 2 Text Color"
+      n: "heading_2_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_2_text_decoration: {
+      h: "Heading 2 Text Decoration"
+      n: "heading_2_text_decoration"
+      r: false
+      sh: "Text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    heading_3_font_family: {
+      h: "Heading 3 Font Family"
+      n: "heading_3_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_3_font_size: {
+      h: "Heading 3 Font Size"
+      n: "heading_3_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    heading_3_font_weight: {
+      h: "Heading 3 Font Weight"
+      n: "heading_3_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    heading_3_text_alignment: {
+      h: "Heading 3 Text Alignment"
+      n: "heading_3_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    heading_3_text_color: {
+      h: "Heading 3 Text Color"
+      n: "heading_3_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_3_text_decoration: {
+      h: "Heading 3 Text Decoration"
+      n: "heading_3_text_decoration"
+      r: false
+      sh: "Text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    heading_4_font_family: {
+      h: "Heading 4 Font Family"
+      n: "heading_4_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_4_font_size: {
+      h: "Heading 4 Font Size"
+      n: "heading_4_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    heading_4_font_weight: {
+      h: "Heading 4 Font Weight"
+      n: "heading_4_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    heading_4_text_alignment: {
+      h: "Heading 4 Text Alignment"
+      n: "heading_4_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    heading_4_text_color: {
+      h: "Heading 4 Text Color"
+      n: "heading_4_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_4_text_decoration: {
+      h: "Heading 4 Text Decoration"
+      n: "heading_4_text_decoration"
+      r: false
+      sh: "Text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    heading_5_font_family: {
+      h: "Heading 5 Font Family"
+      n: "heading_5_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_5_font_size: {
+      h: "Heading 5 Font Size"
+      n: "heading_5_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    heading_5_font_weight: {
+      h: "Heading 5 Font Weight"
+      n: "heading_5_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    heading_5_text_alignment: {
+      h: "Heading 5 Text Alignment"
+      n: "heading_5_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    heading_5_text_color: {
+      h: "Heading 5 Text Color"
+      n: "heading_5_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_5_text_decoration: {
+      h: "Heading 5 Text Decoration"
+      n: "heading_5_text_decoration"
+      r: false
+      sh: "Text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    heading_6_font_family: {
+      h: "Heading 6 Font Family"
+      n: "heading_6_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_6_font_size: {
+      h: "Heading 6 Font Size"
+      n: "heading_6_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    heading_6_font_weight: {
+      h: "Heading 6 Font Weight"
+      n: "heading_6_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    heading_6_text_alignment: {
+      h: "Heading 6 Text Alignment"
+      n: "heading_6_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    heading_6_text_color: {
+      h: "Heading 6 Text Color"
+      n: "heading_6_text_color"
+      r: false
+      t: "`$STRING`"
+    }
+    heading_6_text_decoration: {
+      h: "Heading 6 Text Decoration"
+      n: "heading_6_text_decoration"
+      r: false
+      sh: "Text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    image_alignment: {
+      h: "Image Alignment"
+      n: "image_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    image_border_radius: {
+      h: "Image Border Radius"
+      n: "image_border_radius"
+      r: false
+      sh: "The border radius for this image element."
+      t: "`$INTEGER`"
+    }
+    image_constraint: {
+      h: "Image Constraint"
+      n: "image_constraint"
+      r: false
+      sh: "The image constraint to apply to this image * `cover` - Cover * `contain` - Contain * `full-width` - Full Width"
+      t: "`$STRING`"
+    }
+    image_max_height: {
+      h: "Image Max Height"
+      n: "image_max_height"
+      r: false
+      sh: "The image max height"
+      t: "`$INTEGER`"
+    }
+    image_max_width: {
+      h: "Image Max Width"
+      n: "image_max_width"
+      r: false
+      sh: "The max-width for this image element."
+      t: "`$INTEGER`"
+    }
+    input_background_color: {
+      h: "Input Background Color"
+      n: "input_background_color"
+      r: false
+      sh: "The background color of the input"
+      t: "`$STRING`"
+    }
+    input_border_color: {
+      h: "Input Border Color"
+      n: "input_border_color"
+      r: false
+      sh: "The color of the input border"
+      t: "`$STRING`"
+    }
+    input_border_radius: {
+      h: "Input Border Radius"
+      n: "input_border_radius"
+      r: false
+      sh: "Input border radius"
+      t: "`$INTEGER`"
+    }
+    input_border_size: {
+      h: "Input Border Size"
+      n: "input_border_size"
+      r: false
+      sh: "Input border size"
+      t: "`$INTEGER`"
+    }
+    input_font_family: {
+      h: "Input Font Family"
+      n: "input_font_family"
+      r: false
+      sh: "The font family of the input"
+      t: "`$STRING`"
+    }
+    input_font_size: {
+      h: "Input Font Size"
+      n: "input_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    input_font_weight: {
+      h: "Input Font Weight"
+      n: "input_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    input_horizontal_padding: {
+      h: "Input Horizontal Padding"
+      n: "input_horizontal_padding"
+      r: false
+      sh: "Input horizontal padding"
+      t: "`$INTEGER`"
+    }
+    input_text_color: {
+      h: "Input Text Color"
+      n: "input_text_color"
+      r: false
+      sh: "The text color of the input"
+      t: "`$STRING`"
+    }
+    input_vertical_padding: {
+      h: "Input Vertical Padding"
+      n: "input_vertical_padding"
+      r: false
+      sh: "Input vertical padding"
+      t: "`$INTEGER`"
+    }
+    label_font_family: {
+      h: "Label Font Family"
+      n: "label_font_family"
+      r: false
+      sh: "The font family of the label"
+      t: "`$STRING`"
+    }
+    label_font_size: {
+      h: "Label Font Size"
+      n: "label_font_size"
+      r: false
+      sh: "The font size of the label"
+      t: "`$INTEGER`"
+    }
+    label_font_weight: {
+      h: "Label Font Weight"
+      n: "label_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    label_text_color: {
+      h: "Label Text Color"
+      n: "label_text_color"
+      r: false
+      sh: "The text color of the label"
+      t: "`$STRING`"
+    }
+    link_active_text_color: {
+      h: "Link Active Text Color"
+      n: "link_active_text_color"
+      r: false
+      sh: "The hover color of links when active"
+      t: "`$STRING`"
+    }
+    link_active_text_decoration: {
+      h: "Link Active Text Decoration"
+      n: "link_active_text_decoration"
+      r: false
+      sh: "Active text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    link_default_text_decoration: {
+      h: "Link Default Text Decoration"
+      n: "link_default_text_decoration"
+      r: false
+      sh: "Default text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    link_font_family: {
+      h: "Link Font Family"
+      n: "link_font_family"
+      r: false
+      t: "`$STRING`"
+    }
+    link_font_size: {
+      h: "Link Font Size"
+      n: "link_font_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    link_font_weight: {
+      h: "Link Font Weight"
+      n: "link_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    link_hover_text_color: {
+      h: "Link Hover Text Color"
+      n: "link_hover_text_color"
+      r: false
+      sh: "The hover color of links when hovered"
+      t: "`$STRING`"
+    }
+    link_hover_text_decoration: {
+      h: "Link Hover Text Decoration"
+      n: "link_hover_text_decoration"
+      r: false
+      sh: "Hover text decoration: [underline, stroke, uppercase, italic]"
+      t: "`$ARRAY`"
+    }
+    link_text_alignment: {
+      h: "Link Text Alignment"
+      n: "link_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    link_text_color: {
+      h: "Link Text Color"
+      n: "link_text_color"
+      r: false
+      sh: "The text color of links"
+      t: "`$STRING`"
+    }
+    main_error_color: {
+      h: "Main Error Color"
+      n: "main_error_color"
+      r: false
+      t: "`$STRING`"
+    }
+    main_success_color: {
+      h: "Main Success Color"
+      n: "main_success_color"
+      r: false
+      t: "`$STRING`"
+    }
+    main_warning_color: {
+      h: "Main Warning Color"
+      n: "main_warning_color"
+      r: false
+      t: "`$STRING`"
+    }
+    page_background_color: {
+      h: "Page Background Color"
+      n: "page_background_color"
+      r: false
+      sh: "The background color of the page"
+      t: "`$STRING`"
+    }
+    page_background_file: {
+      h: "Page Background File"
+      n: "page_background_file"
+      r: false
+      sh: "The image file"
+      t: "`$ANY`"
+    }
+    page_background_mode: {
+      h: "Page Background Mode"
+      n: "page_background_mode"
+      r: false
+      sh: "The mode of the background image * `tile` - Tile * `fill` - Fill * `fit` - Fit"
+      t: "`$STRING`"
+    }
+    primary_color: {
+      h: "Primary Color"
+      n: "primary_color"
+      r: false
+      t: "`$STRING`"
+    }
+    secondary_color: {
+      h: "Secondary Color"
+      n: "secondary_color"
+      r: false
+      t: "`$STRING`"
+    }
+    table_border_color: {
+      h: "Table Border Color"
+      n: "table_border_color"
+      r: false
+      sh: "The color of the table border"
+      t: "`$STRING`"
+    }
+    table_border_radius: {
+      h: "Table Border Radius"
+      n: "table_border_radius"
+      r: false
+      sh: "Table border radius"
+      t: "`$INTEGER`"
+    }
+    table_border_size: {
+      h: "Table Border Size"
+      n: "table_border_size"
+      r: false
+      sh: "Table border size"
+      t: "`$INTEGER`"
+    }
+    table_cell_alignment: {
+      h: "Table Cell Alignment"
+      n: "table_cell_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    table_cell_alternate_background_color: {
+      h: "Table Cell Alternate Background Color"
+      n: "table_cell_alternate_background_color"
+      r: false
+      sh: "The alternate background color of the table cells"
+      t: "`$STRING`"
+    }
+    table_cell_background_color: {
+      h: "Table Cell Background Color"
+      n: "table_cell_background_color"
+      r: false
+      sh: "The background color of the table cells"
+      t: "`$STRING`"
+    }
+    table_cell_horizontal_padding: {
+      h: "Table Cell Horizontal Padding"
+      n: "table_cell_horizontal_padding"
+      r: false
+      sh: "Table cell horizontal padding"
+      t: "`$INTEGER`"
+    }
+    table_cell_vertical_padding: {
+      h: "Table Cell Vertical Padding"
+      n: "table_cell_vertical_padding"
+      r: false
+      sh: "Table cell vertical padding"
+      t: "`$INTEGER`"
+    }
+    table_header_background_color: {
+      h: "Table Header Background Color"
+      n: "table_header_background_color"
+      r: false
+      sh: "The background color of the table header cells"
+      t: "`$STRING`"
+    }
+    table_header_font_family: {
+      h: "Table Header Font Family"
+      n: "table_header_font_family"
+      r: false
+      sh: "The font family of the table header cells"
+      t: "`$STRING`"
+    }
+    table_header_font_size: {
+      h: "Table Header Font Size"
+      n: "table_header_font_size"
+      r: false
+      sh: "The font size of the header cells"
+      t: "`$INTEGER`"
+    }
+    table_header_font_weight: {
+      h: "Table Header Font Weight"
+      n: "table_header_font_weight"
+      r: false
+      sh: "* `thin` - Thin * `extra-light` - Extra Light * `light` - Light * `regular` - Regular * `medium` - Medium * `semi-bold` - Semi Bold * `bold` - Bold * `extra-bold` - Extra Bold * `heavy` - Heavy * `black` - Black * `extra-black` - Extra…"
+      t: "`$STRING`"
+    }
+    table_header_text_alignment: {
+      h: "Table Header Text Alignment"
+      n: "table_header_text_alignment"
+      r: false
+      sh: "* `left` - Left * `center` - Center * `right` - Right"
+      t: "`$STRING`"
+    }
+    table_header_text_color: {
+      h: "Table Header Text Color"
+      n: "table_header_text_color"
+      r: false
+      sh: "The text color of the table header cells"
+      t: "`$STRING`"
+    }
+    table_horizontal_separator_color: {
+      h: "Table Horizontal Separator Color"
+      n: "table_horizontal_separator_color"
+      r: false
+      sh: "The color of the table horizontal separator"
+      t: "`$STRING`"
+    }
+    table_horizontal_separator_size: {
+      h: "Table Horizontal Separator Size"
+      n: "table_horizontal_separator_size"
+      r: false
+      sh: "Table horizontal separator size"
+      t: "`$INTEGER`"
+    }
+    table_vertical_separator_color: {
+      h: "Table Vertical Separator Color"
+      n: "table_vertical_separator_color"
+      r: false
+      sh: "The color of the table vertical separator"
+      t: "`$STRING`"
+    }
+    table_vertical_separator_size: {
+      h: "Table Vertical Separator Size"
+      n: "table_vertical_separator_size"
+      r: false
+      sh: "Table vertical separator size"
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "color_typography_button_image_page_input_table_linklink_active_text"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "body_font_family"
+            "body_font_size"
+            "body_font_weight"
+            "body_text_alignment"
+            "body_text_color"
+            "border_color"
+            "button_active_background_color"
+            "button_active_border_color"
+            "button_active_text_color"
+            "button_alignment"
+            "button_background_color"
+            "button_border_color"
+            "button_border_radius"
+            "button_border_size"
+            "button_font_family"
+            "button_font_size"
+            "button_font_weight"
+            "button_horizontal_padding"
+            "button_hover_background_color"
+            "button_hover_border_color"
+            "button_hover_text_color"
+            "button_text_alignment"
+            "button_text_color"
+            "button_vertical_padding"
+            "button_width"
+            "custom_colors"
+            "heading_1_font_family"
+            "heading_1_font_size"
+            "heading_1_font_weight"
+            "heading_1_text_alignment"
+            "heading_1_text_color"
+            "heading_1_text_decoration"
+            "heading_2_font_family"
+            "heading_2_font_size"
+            "heading_2_font_weight"
+            "heading_2_text_alignment"
+            "heading_2_text_color"
+            "heading_2_text_decoration"
+            "heading_3_font_family"
+            "heading_3_font_size"
+            "heading_3_font_weight"
+            "heading_3_text_alignment"
+            "heading_3_text_color"
+            "heading_3_text_decoration"
+            "heading_4_font_family"
+            "heading_4_font_size"
+            "heading_4_font_weight"
+            "heading_4_text_alignment"
+            "heading_4_text_color"
+            "heading_4_text_decoration"
+            "heading_5_font_family"
+            "heading_5_font_size"
+            "heading_5_font_weight"
+            "heading_5_text_alignment"
+            "heading_5_text_color"
+            "heading_5_text_decoration"
+            "heading_6_font_family"
+            "heading_6_font_size"
+            "heading_6_font_weight"
+            "heading_6_text_alignment"
+            "heading_6_text_color"
+            "heading_6_text_decoration"
+            "image_alignment"
+            "image_border_radius"
+            "image_constraint"
+            "image_max_height"
+            "image_max_width"
+            "input_background_color"
+            "input_border_color"
+            "input_border_radius"
+            "input_border_size"
+            "input_font_family"
+            "input_font_size"
+            "input_font_weight"
+            "input_horizontal_padding"
+            "input_text_color"
+            "input_vertical_padding"
+            "label_font_family"
+            "label_font_size"
+            "label_font_weight"
+            "label_text_color"
+            "link_active_text_color"
+            "link_active_text_decoration"
+            "link_default_text_decoration"
+            "link_font_family"
+            "link_font_size"
+            "link_font_weight"
+            "link_hover_text_color"
+            "link_hover_text_decoration"
+            "link_text_alignment"
+            "link_text_color"
+            "main_error_color"
+            "main_success_color"
+            "main_warning_color"
+            "page_background_color"
+            "page_background_file"
+            "page_background_mode"
+            "primary_color"
+            "secondary_color"
+            "table_border_color"
+            "table_border_radius"
+            "table_border_size"
+            "table_cell_alignment"
+            "table_cell_alternate_background_color"
+            "table_cell_background_color"
+            "table_cell_horizontal_padding"
+            "table_cell_vertical_padding"
+            "table_header_background_color"
+            "table_header_font_family"
+            "table_header_font_size"
+            "table_header_font_weight"
+            "table_header_text_alignment"
+            "table_header_text_color"
+            "table_horizontal_separator_color"
+            "table_horizontal_separator_size"
+            "table_vertical_separator_color"
+            "table_vertical_separator_size"
+          ]
+          co: {
+            id: "PATCH /api/builder/{builder_id}/theme/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "builder_id"
+                or: "builder_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/builder/{builder_id}/theme/"
+          q: {
+            exist: [
+              "builder_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "body_font_family"
+                  }
+                  {
+                    name: "body_font_size"
+                  }
+                  {
+                    name: "body_font_weight"
+                  }
+                  {
+                    name: "body_text_alignment"
+                  }
+                  {
+                    name: "body_text_color"
+                  }
+                  {
+                    name: "border_color"
+                  }
+                  {
+                    name: "button_active_background_color"
+                  }
+                  {
+                    name: "button_active_border_color"
+                  }
+                  {
+                    name: "button_active_text_color"
+                  }
+                  {
+                    name: "button_alignment"
+                  }
+                  {
+                    name: "button_background_color"
+                  }
+                  {
+                    name: "button_border_color"
+                  }
+                  {
+                    name: "button_border_radius"
+                  }
+                  {
+                    name: "button_border_size"
+                  }
+                  {
+                    name: "button_font_family"
+                  }
+                  {
+                    name: "button_font_size"
+                  }
+                  {
+                    name: "button_font_weight"
+                  }
+                  {
+                    name: "button_horizontal_padding"
+                  }
+                  {
+                    name: "button_hover_background_color"
+                  }
+                  {
+                    name: "button_hover_border_color"
+                  }
+                  {
+                    name: "button_hover_text_color"
+                  }
+                  {
+                    name: "button_text_alignment"
+                  }
+                  {
+                    name: "button_text_color"
+                  }
+                  {
+                    name: "button_vertical_padding"
+                  }
+                  {
+                    name: "button_width"
+                  }
+                  {
+                    name: "custom_colors"
+                  }
+                  {
+                    name: "heading_1_font_family"
+                  }
+                  {
+                    name: "heading_1_font_size"
+                  }
+                  {
+                    name: "heading_1_font_weight"
+                  }
+                  {
+                    name: "heading_1_text_alignment"
+                  }
+                  {
+                    name: "heading_1_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_1_text_decoration"
+                  }
+                  {
+                    name: "heading_2_font_family"
+                  }
+                  {
+                    name: "heading_2_font_size"
+                  }
+                  {
+                    name: "heading_2_font_weight"
+                  }
+                  {
+                    name: "heading_2_text_alignment"
+                  }
+                  {
+                    name: "heading_2_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_2_text_decoration"
+                  }
+                  {
+                    name: "heading_3_font_family"
+                  }
+                  {
+                    name: "heading_3_font_size"
+                  }
+                  {
+                    name: "heading_3_font_weight"
+                  }
+                  {
+                    name: "heading_3_text_alignment"
+                  }
+                  {
+                    name: "heading_3_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_3_text_decoration"
+                  }
+                  {
+                    name: "heading_4_font_family"
+                  }
+                  {
+                    name: "heading_4_font_size"
+                  }
+                  {
+                    name: "heading_4_font_weight"
+                  }
+                  {
+                    name: "heading_4_text_alignment"
+                  }
+                  {
+                    name: "heading_4_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_4_text_decoration"
+                  }
+                  {
+                    name: "heading_5_font_family"
+                  }
+                  {
+                    name: "heading_5_font_size"
+                  }
+                  {
+                    name: "heading_5_font_weight"
+                  }
+                  {
+                    name: "heading_5_text_alignment"
+                  }
+                  {
+                    name: "heading_5_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_5_text_decoration"
+                  }
+                  {
+                    name: "heading_6_font_family"
+                  }
+                  {
+                    name: "heading_6_font_size"
+                  }
+                  {
+                    name: "heading_6_font_weight"
+                  }
+                  {
+                    name: "heading_6_text_alignment"
+                  }
+                  {
+                    name: "heading_6_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_6_text_decoration"
+                  }
+                  {
+                    name: "image_alignment"
+                  }
+                  {
+                    name: "image_border_radius"
+                  }
+                  {
+                    name: "image_constraint"
+                  }
+                  {
+                    name: "image_max_height"
+                  }
+                  {
+                    name: "image_max_width"
+                  }
+                  {
+                    name: "input_background_color"
+                  }
+                  {
+                    name: "input_border_color"
+                  }
+                  {
+                    name: "input_border_radius"
+                  }
+                  {
+                    name: "input_border_size"
+                  }
+                  {
+                    name: "input_font_family"
+                  }
+                  {
+                    name: "input_font_size"
+                  }
+                  {
+                    name: "input_font_weight"
+                  }
+                  {
+                    name: "input_horizontal_padding"
+                  }
+                  {
+                    name: "input_text_color"
+                  }
+                  {
+                    name: "input_vertical_padding"
+                  }
+                  {
+                    name: "label_font_family"
+                  }
+                  {
+                    name: "label_font_size"
+                  }
+                  {
+                    name: "label_font_weight"
+                  }
+                  {
+                    name: "label_text_color"
+                  }
+                  {
+                    name: "link_active_text_color"
+                  }
+                  {
+                    list: true
+                    name: "link_active_text_decoration"
+                  }
+                  {
+                    list: true
+                    name: "link_default_text_decoration"
+                  }
+                  {
+                    name: "link_font_family"
+                  }
+                  {
+                    name: "link_font_size"
+                  }
+                  {
+                    name: "link_font_weight"
+                  }
+                  {
+                    name: "link_hover_text_color"
+                  }
+                  {
+                    list: true
+                    name: "link_hover_text_decoration"
+                  }
+                  {
+                    name: "link_text_alignment"
+                  }
+                  {
+                    name: "link_text_color"
+                  }
+                  {
+                    name: "main_error_color"
+                  }
+                  {
+                    name: "main_success_color"
+                  }
+                  {
+                    name: "main_warning_color"
+                  }
+                  {
+                    name: "page_background_color"
+                  }
+                  {
+                    name: "page_background_file"
+                  }
+                  {
+                    name: "page_background_mode"
+                  }
+                  {
+                    name: "primary_color"
+                  }
+                  {
+                    name: "secondary_color"
+                  }
+                  {
+                    name: "table_border_color"
+                  }
+                  {
+                    name: "table_border_radius"
+                  }
+                  {
+                    name: "table_border_size"
+                  }
+                  {
+                    name: "table_cell_alignment"
+                  }
+                  {
+                    name: "table_cell_alternate_background_color"
+                  }
+                  {
+                    name: "table_cell_background_color"
+                  }
+                  {
+                    name: "table_cell_horizontal_padding"
+                  }
+                  {
+                    name: "table_cell_vertical_padding"
+                  }
+                  {
+                    name: "table_header_background_color"
+                  }
+                  {
+                    name: "table_header_font_family"
+                  }
+                  {
+                    name: "table_header_font_size"
+                  }
+                  {
+                    name: "table_header_font_weight"
+                  }
+                  {
+                    name: "table_header_text_alignment"
+                  }
+                  {
+                    name: "table_header_text_color"
+                  }
+                  {
+                    name: "table_horizontal_separator_color"
+                  }
+                  {
+                    name: "table_horizontal_separator_size"
+                  }
+                  {
+                    name: "table_vertical_separator_color"
+                  }
+                  {
+                    name: "table_vertical_separator_size"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "body_font_family"
+                  }
+                  {
+                    name: "body_font_size"
+                  }
+                  {
+                    name: "body_font_weight"
+                  }
+                  {
+                    name: "body_text_alignment"
+                  }
+                  {
+                    name: "body_text_color"
+                  }
+                  {
+                    name: "border_color"
+                  }
+                  {
+                    name: "button_active_background_color"
+                  }
+                  {
+                    name: "button_active_border_color"
+                  }
+                  {
+                    name: "button_active_text_color"
+                  }
+                  {
+                    name: "button_alignment"
+                  }
+                  {
+                    name: "button_background_color"
+                  }
+                  {
+                    name: "button_border_color"
+                  }
+                  {
+                    name: "button_border_radius"
+                  }
+                  {
+                    name: "button_border_size"
+                  }
+                  {
+                    name: "button_font_family"
+                  }
+                  {
+                    name: "button_font_size"
+                  }
+                  {
+                    name: "button_font_weight"
+                  }
+                  {
+                    name: "button_horizontal_padding"
+                  }
+                  {
+                    name: "button_hover_background_color"
+                  }
+                  {
+                    name: "button_hover_border_color"
+                  }
+                  {
+                    name: "button_hover_text_color"
+                  }
+                  {
+                    name: "button_text_alignment"
+                  }
+                  {
+                    name: "button_text_color"
+                  }
+                  {
+                    name: "button_vertical_padding"
+                  }
+                  {
+                    name: "button_width"
+                  }
+                  {
+                    name: "custom_colors"
+                  }
+                  {
+                    name: "heading_1_font_family"
+                  }
+                  {
+                    name: "heading_1_font_size"
+                  }
+                  {
+                    name: "heading_1_font_weight"
+                  }
+                  {
+                    name: "heading_1_text_alignment"
+                  }
+                  {
+                    name: "heading_1_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_1_text_decoration"
+                  }
+                  {
+                    name: "heading_2_font_family"
+                  }
+                  {
+                    name: "heading_2_font_size"
+                  }
+                  {
+                    name: "heading_2_font_weight"
+                  }
+                  {
+                    name: "heading_2_text_alignment"
+                  }
+                  {
+                    name: "heading_2_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_2_text_decoration"
+                  }
+                  {
+                    name: "heading_3_font_family"
+                  }
+                  {
+                    name: "heading_3_font_size"
+                  }
+                  {
+                    name: "heading_3_font_weight"
+                  }
+                  {
+                    name: "heading_3_text_alignment"
+                  }
+                  {
+                    name: "heading_3_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_3_text_decoration"
+                  }
+                  {
+                    name: "heading_4_font_family"
+                  }
+                  {
+                    name: "heading_4_font_size"
+                  }
+                  {
+                    name: "heading_4_font_weight"
+                  }
+                  {
+                    name: "heading_4_text_alignment"
+                  }
+                  {
+                    name: "heading_4_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_4_text_decoration"
+                  }
+                  {
+                    name: "heading_5_font_family"
+                  }
+                  {
+                    name: "heading_5_font_size"
+                  }
+                  {
+                    name: "heading_5_font_weight"
+                  }
+                  {
+                    name: "heading_5_text_alignment"
+                  }
+                  {
+                    name: "heading_5_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_5_text_decoration"
+                  }
+                  {
+                    name: "heading_6_font_family"
+                  }
+                  {
+                    name: "heading_6_font_size"
+                  }
+                  {
+                    name: "heading_6_font_weight"
+                  }
+                  {
+                    name: "heading_6_text_alignment"
+                  }
+                  {
+                    name: "heading_6_text_color"
+                  }
+                  {
+                    list: true
+                    name: "heading_6_text_decoration"
+                  }
+                  {
+                    name: "image_alignment"
+                  }
+                  {
+                    name: "image_border_radius"
+                  }
+                  {
+                    name: "image_constraint"
+                  }
+                  {
+                    name: "image_max_height"
+                  }
+                  {
+                    name: "image_max_width"
+                  }
+                  {
+                    name: "input_background_color"
+                  }
+                  {
+                    name: "input_border_color"
+                  }
+                  {
+                    name: "input_border_radius"
+                  }
+                  {
+                    name: "input_border_size"
+                  }
+                  {
+                    name: "input_font_family"
+                  }
+                  {
+                    name: "input_font_size"
+                  }
+                  {
+                    name: "input_font_weight"
+                  }
+                  {
+                    name: "input_horizontal_padding"
+                  }
+                  {
+                    name: "input_text_color"
+                  }
+                  {
+                    name: "input_vertical_padding"
+                  }
+                  {
+                    name: "label_font_family"
+                  }
+                  {
+                    name: "label_font_size"
+                  }
+                  {
+                    name: "label_font_weight"
+                  }
+                  {
+                    name: "label_text_color"
+                  }
+                  {
+                    name: "link_active_text_color"
+                  }
+                  {
+                    list: true
+                    name: "link_active_text_decoration"
+                  }
+                  {
+                    list: true
+                    name: "link_default_text_decoration"
+                  }
+                  {
+                    name: "link_font_family"
+                  }
+                  {
+                    name: "link_font_size"
+                  }
+                  {
+                    name: "link_font_weight"
+                  }
+                  {
+                    name: "link_hover_text_color"
+                  }
+                  {
+                    list: true
+                    name: "link_hover_text_decoration"
+                  }
+                  {
+                    name: "link_text_alignment"
+                  }
+                  {
+                    name: "link_text_color"
+                  }
+                  {
+                    name: "main_error_color"
+                  }
+                  {
+                    name: "main_success_color"
+                  }
+                  {
+                    name: "main_warning_color"
+                  }
+                  {
+                    name: "page_background_color"
+                  }
+                  {
+                    name: "page_background_file"
+                  }
+                  {
+                    name: "page_background_mode"
+                  }
+                  {
+                    name: "primary_color"
+                  }
+                  {
+                    name: "secondary_color"
+                  }
+                  {
+                    name: "table_border_color"
+                  }
+                  {
+                    name: "table_border_radius"
+                  }
+                  {
+                    name: "table_border_size"
+                  }
+                  {
+                    name: "table_cell_alignment"
+                  }
+                  {
+                    name: "table_cell_alternate_background_color"
+                  }
+                  {
+                    name: "table_cell_background_color"
+                  }
+                  {
+                    name: "table_cell_horizontal_padding"
+                  }
+                  {
+                    name: "table_cell_vertical_padding"
+                  }
+                  {
+                    name: "table_header_background_color"
+                  }
+                  {
+                    name: "table_header_font_family"
+                  }
+                  {
+                    name: "table_header_font_size"
+                  }
+                  {
+                    name: "table_header_font_weight"
+                  }
+                  {
+                    name: "table_header_text_alignment"
+                  }
+                  {
+                    name: "table_header_text_color"
+                  }
+                  {
+                    name: "table_horizontal_separator_color"
+                  }
+                  {
+                    name: "table_horizontal_separator_size"
+                  }
+                  {
+                    name: "table_vertical_separator_color"
+                  }
+                  {
+                    name: "table_vertical_separator_size"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              var: "builder_id"
+            }
+            {
+              lit: "theme"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,22 @@
+# BasicDashboardDataSourceFlow
+
+main: kit: flow: BasicDashboardDataSourceFlow:
+{
+  entity: "dashboard_data_source",
+  kind: "basic",
+  name: "BasicDashboardDataSourceFlow",
+  step: [
+    {
+      i: {
+        ref: "dashboard_data_source_ref01"
+      }
+
+      m: {
+        data_source_id: "data_source01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicDashboardDataSourceFlow"
+}

@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "generate_formula_with_ai": {
+      "GENERATE_FORMULA_WITH_AI00": {
+        "ai_model": "s32",
+        "ai_prompt": "s33",
+        "ai_temperature": 52,
+        "ai_type": "s35",
+        "formula": "s36",
+        "table_id": "TABLE01",
+        "id": "GENERATE_FORMULA_WITH_AI00"
+      },
+      "GENERATE_FORMULA_WITH_AI01": {
+        "ai_model": "s64",
+        "ai_prompt": "s65",
+        "ai_temperature": 102,
+        "ai_type": "s67",
+        "formula": "s68",
+        "table_id": "TABLE01",
+        "id": "GENERATE_FORMULA_WITH_AI01"
+      },
+      "GENERATE_FORMULA_WITH_AI02": {
+        "ai_model": "s96",
+        "ai_prompt": "s97",
+        "ai_temperature": 152,
+        "ai_type": "s99",
+        "formula": "s9a",
+        "table_id": "TABLE01",
+        "id": "GENERATE_FORMULA_WITH_AI02"
+      }
+    }
+  },
+  "new": {
+    "generate_formula_with_ai": {
+      "generate_formula_with_ai_ref01": {
+        "ai_model": "sc8",
+        "ai_prompt": "sc9",
+        "ai_temperature": 202,
+        "ai_type": "scb",
+        "formula": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/fields/table/{table_id}/generate-ai-formula/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

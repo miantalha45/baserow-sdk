@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "job": {
+      "JOB00": {
+        "count": 100,
+        "created_on": "s65",
+        "error_code": "s66",
+        "human_readable_error": "s67",
+        "id": "JOB00",
+        "jobs": [],
+        "progress_percentage": 106,
+        "state": "s6b",
+        "type": "s6c",
+        "updated_on": "s6d",
+        "snapshot_id": "SNAPSHOT01"
+      },
+      "JOB01": {
+        "count": 200,
+        "created_on": "sc9",
+        "error_code": "sca",
+        "human_readable_error": "scb",
+        "id": "JOB01",
+        "jobs": [],
+        "progress_percentage": 206,
+        "state": "scf",
+        "type": "sd0",
+        "updated_on": "sd1",
+        "snapshot_id": "SNAPSHOT01"
+      },
+      "JOB02": {
+        "count": 300,
+        "created_on": "s12d",
+        "error_code": "s12e",
+        "human_readable_error": "s12f",
+        "id": "JOB02",
+        "jobs": [],
+        "progress_percentage": 306,
+        "state": "s133",
+        "type": "s134",
+        "updated_on": "s135",
+        "snapshot_id": "SNAPSHOT01"
+      }
+    }
+  },
+  "new": {
+    "job": {
+      "job_ref01": {
+        "count": 400,
+        "created_on": "s191",
+        "error_code": "s192",
+        "human_readable_error": "s193",
+        "jobs": [],
+        "progress_percentage": 406,
+        "state": "s197",
+        "type": "s198",
+        "updated_on": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/snapshots/{snapshot_id}/restore/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/jobs/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/jobs/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/jobs/{job_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

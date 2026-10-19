@@ -1,0 +1,74 @@
+# Entity: user_source_user_source_role
+
+main: kit: entity: user_source_user_source_role: {
+
+  alias: field: {}
+
+  name: "user_source_user_source_role"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/application/{application_id}/user-sources/roles/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/application/{application_id}/user-sources/roles/"
+          q: {
+            exist: [
+              "application_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "application"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "user-sources"
+            }
+            {
+              lit: "roles"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.application")]
+  ]
+
+}

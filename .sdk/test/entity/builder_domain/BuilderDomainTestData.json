@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "builder_domain": {
+      "BUILDER_DOMAIN00": {
+        "domain_ids": [],
+        "id": "BUILDER_DOMAIN00",
+        "builder_id": "BUILDER01",
+        "domain_id": "DOMAIN01"
+      },
+      "BUILDER_DOMAIN01": {
+        "domain_ids": [],
+        "id": "BUILDER_DOMAIN01",
+        "builder_id": "BUILDER01",
+        "domain_id": "DOMAIN01"
+      },
+      "BUILDER_DOMAIN02": {
+        "domain_ids": [],
+        "id": "BUILDER_DOMAIN02",
+        "builder_id": "BUILDER01",
+        "domain_id": "DOMAIN01"
+      }
+    }
+  },
+  "new": {
+    "builder_domain": {
+      "builder_domain_ref01": {
+        "domain_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/{builder_id}/domains/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/builder/domains/{domain_id}/publish/async/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/builder/domains/ask-public-domain-exists/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/builder/domains/{domain_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

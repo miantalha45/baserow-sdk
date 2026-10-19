@@ -1,0 +1,42 @@
+# Entity: inbound_email
+
+main: kit: entity: inbound_email: {
+
+  alias: field: {}
+
+  name: "inbound_email"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/inbound-email/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/inbound-email/"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "inbound-email"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

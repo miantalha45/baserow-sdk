@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "full": {
+      "FULL00": {
+        "celery_export_queue_size": 40,
+        "celery_queue_size": 41,
+        "checks": {},
+        "passing": false,
+        "id": "FULL00"
+      },
+      "FULL01": {
+        "celery_export_queue_size": 80,
+        "celery_queue_size": 81,
+        "checks": {},
+        "passing": false,
+        "id": "FULL01"
+      },
+      "FULL02": {
+        "celery_export_queue_size": 120,
+        "celery_queue_size": 121,
+        "checks": {},
+        "passing": false,
+        "id": "FULL02"
+      }
+    }
+  },
+  "new": {
+    "full": {
+      "full_ref01": {
+        "celery_export_queue_size": 160,
+        "celery_queue_size": 161,
+        "checks": {},
+        "passing": false
+      }
+    }
+  },
+  "requests": {
+    "GET /api/_health/full/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

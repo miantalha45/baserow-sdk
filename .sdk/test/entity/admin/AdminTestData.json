@@ -1,0 +1,179 @@
+{
+  "existing": {
+    "admin": {
+      "ADMIN00": {
+        "access_token": "s104",
+        "application_count": 261,
+        "application_users": 262,
+        "application_users_taken": 263,
+        "created_on": "s108",
+        "free_users": 265,
+        "free_users_count": 266,
+        "id": "ADMIN00",
+        "is_active": true,
+        "issued_on": "s10d",
+        "issued_to_email": "s10e",
+        "issued_to_name": "s10f",
+        "last_check": "s110",
+        "license": "s111",
+        "license_id": "LICENSE01",
+        "name": "s113",
+        "product_code": "s114",
+        "row_count": 277,
+        "seats": 278,
+        "seats_taken": 279,
+        "storage_usage": 280,
+        "token": "s119",
+        "user": {},
+        "users": [],
+        "valid_from": "s11c",
+        "valid_through": "s11d",
+        "user_id": "USER01",
+        "workspace_id": "WORKSPACE01"
+      },
+      "ADMIN01": {
+        "access_token": "s208",
+        "application_count": 521,
+        "application_users": 522,
+        "application_users_taken": 523,
+        "created_on": "s20c",
+        "free_users": 525,
+        "free_users_count": 526,
+        "id": "ADMIN01",
+        "is_active": true,
+        "issued_on": "s211",
+        "issued_to_email": "s212",
+        "issued_to_name": "s213",
+        "last_check": "s214",
+        "license": "s215",
+        "license_id": "LICENSE01",
+        "name": "s217",
+        "product_code": "s218",
+        "row_count": 537,
+        "seats": 538,
+        "seats_taken": 539,
+        "storage_usage": 540,
+        "token": "s21d",
+        "user": {},
+        "users": [],
+        "valid_from": "s220",
+        "valid_through": "s221",
+        "user_id": "USER01",
+        "workspace_id": "WORKSPACE01"
+      },
+      "ADMIN02": {
+        "access_token": "s30c",
+        "application_count": 781,
+        "application_users": 782,
+        "application_users_taken": 783,
+        "created_on": "s310",
+        "free_users": 785,
+        "free_users_count": 786,
+        "id": "ADMIN02",
+        "is_active": true,
+        "issued_on": "s315",
+        "issued_to_email": "s316",
+        "issued_to_name": "s317",
+        "last_check": "s318",
+        "license": "s319",
+        "license_id": "LICENSE01",
+        "name": "s31b",
+        "product_code": "s31c",
+        "row_count": 797,
+        "seats": 798,
+        "seats_taken": 799,
+        "storage_usage": 800,
+        "token": "s321",
+        "user": {},
+        "users": [],
+        "valid_from": "s324",
+        "valid_through": "s325",
+        "user_id": "USER01",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "admin": {
+      "admin_ref01": {
+        "access_token": "s410",
+        "application_count": 1041,
+        "application_users": 1042,
+        "application_users_taken": 1043,
+        "created_on": "s414",
+        "free_users": 1045,
+        "free_users_count": 1046,
+        "is_active": true,
+        "issued_on": "s419",
+        "issued_to_email": "s41a",
+        "issued_to_name": "s41b",
+        "last_check": "s41c",
+        "license": "s41d",
+        "license_id": "LICENSE01",
+        "name": "s41f",
+        "product_code": "s420",
+        "row_count": 1057,
+        "seats": 1058,
+        "seats_taken": 1059,
+        "storage_usage": 1060,
+        "token": "s425",
+        "user": {},
+        "users": [],
+        "valid_from": "s428",
+        "valid_through": "s429"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/licenses/{id}/remove-all-users/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/admin/users/impersonate/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/licenses/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/admin/workspaces/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/licenses/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/licenses/{id}/{user_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/licenses/{id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/admin/users/{user_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/admin/users/{user_id}/two-factor-auth/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/admin/workspaces/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

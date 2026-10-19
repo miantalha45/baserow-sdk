@@ -1,0 +1,110 @@
+# Entity: builder_preview_handoff
+
+main: kit: entity: builder_preview_handoff: {
+
+  alias: field: {}
+
+  fields: {
+    builder_id: {
+      h: "Builder Id"
+      n: "builder_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    expires_in: {
+      h: "Expires In"
+      n: "expires_in"
+      r: true
+      t: "`$INTEGER`"
+    }
+    preview_handoff: {
+      h: "Preview Handoff"
+      n: "preview_handoff"
+      r: true
+      t: "`$STRING`"
+    }
+    preview_session: {
+      h: "Preview Session"
+      n: "preview_session"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "builder_preview_handoff"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "builder_id"
+            "preview_handoff"
+          ]
+          co: {
+            id: "POST /api/builder/preview/handoff/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/builder/preview/handoff/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "builder_id"
+                  }
+                  {
+                    name: "preview_handoff"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "builder_id"
+                  }
+                  {
+                    name: "preview_handoff"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "preview"
+            }
+            {
+              lit: "handoff"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

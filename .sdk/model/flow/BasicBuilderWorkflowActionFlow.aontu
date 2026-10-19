@@ -1,0 +1,35 @@
+# BasicBuilderWorkflowActionFlow
+
+main: kit: flow: BasicBuilderWorkflowActionFlow:
+{
+  entity: "builder_workflow_action",
+  kind: "basic",
+  name: "BasicBuilderWorkflowActionFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_workflow_action_ref01"
+      }
+
+      m: {
+        workflow_action_id: "workflow_action01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "builder_workflow_action_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "builder_workflow_action01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicBuilderWorkflowActionFlow"
+}

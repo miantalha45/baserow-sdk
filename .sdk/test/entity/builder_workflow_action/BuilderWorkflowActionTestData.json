@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "builder_workflow_action": {
+      "BUILDER_WORKFLOW_ACTION00": {
+        "element_id": "ELEMENT01",
+        "id": "BUILDER_WORKFLOW_ACTION00",
+        "workflow_action_ids": [],
+        "page_id": "PAGE01",
+        "workflow_action_id": "WORKFLOW_ACTION01"
+      },
+      "BUILDER_WORKFLOW_ACTION01": {
+        "element_id": "ELEMENT01",
+        "id": "BUILDER_WORKFLOW_ACTION01",
+        "workflow_action_ids": [],
+        "page_id": "PAGE01",
+        "workflow_action_id": "WORKFLOW_ACTION01"
+      },
+      "BUILDER_WORKFLOW_ACTION02": {
+        "element_id": "ELEMENT01",
+        "id": "BUILDER_WORKFLOW_ACTION02",
+        "workflow_action_ids": [],
+        "page_id": "PAGE01",
+        "workflow_action_id": "WORKFLOW_ACTION01"
+      }
+    }
+  },
+  "new": {
+    "builder_workflow_action": {
+      "builder_workflow_action_ref01": {
+        "element_id": "ELEMENT01",
+        "workflow_action_ids": []
+      }
+    }
+  },
+  "requests": {
+    "POST /api/builder/page/{page_id}/workflow_actions/order/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /api/builder/workflow_action/{workflow_action_id}/dispatch/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/builder/workflow_action/{workflow_action_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+# BasicTrashFlow
+
+main: kit: flow: BasicTrashFlow:
+{
+  entity: "trash",
+  kind: "basic",
+  name: "BasicTrashFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "trash_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "trash_ref01",
+        srcdatavar: "trash_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-trash_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTrashFlow"
+}

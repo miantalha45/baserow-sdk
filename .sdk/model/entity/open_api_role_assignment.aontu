@@ -1,0 +1,321 @@
+# Entity: open_api_role_assignment
+
+main: kit: entity: open_api_role_assignment: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    items: {
+      h: "Items"
+      n: "items"
+      r: true
+      t: "`$ARRAY`"
+    }
+    role: {
+      h: "Role"
+      n: "role"
+      r: true
+      sh: "The uid of the role assigned to the user or team in the given workspace."
+      t: "`$STRING`"
+    }
+    scope_id: {
+      h: "Scope Id"
+      n: "scope_id"
+      r: true
+      sh: "The unique scope ID."
+      t: "`$INTEGER`"
+    }
+    scope_type: {
+      h: "Scope Type"
+      n: "scope_type"
+      r: true
+      sh: "The type of the scope object."
+      t: "`$STRING`"
+    }
+    subject: {
+      h: "Subject"
+      n: "subject"
+      r: true
+      sh: "The structure of the subject field depends on the subject typereturned and will have additional fields accordingly"
+      t: "`$ANY`"
+    }
+    subject_id: {
+      h: "Subject Id"
+      n: "subject_id"
+      r: true
+      sh: "The subject ID."
+      t: "`$INTEGER`"
+    }
+    subject_type: {
+      h: "Subject Type"
+      n: "subject_type"
+      r: true
+      sh: "The subject type."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "open_api_role_assignment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "role"
+            "scope_id"
+            "scope_type"
+            "subject_id"
+            "subject_type"
+          ]
+          co: {
+            id: "POST /api/role/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/role/{workspace_id}/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "role"
+                  }
+                  {
+                    name: "scope_id"
+                  }
+                  {
+                    name: "scope_type"
+                  }
+                  {
+                    name: "subject_id"
+                  }
+                  {
+                    name: "subject_type"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "role"
+                  }
+                  {
+                    name: "scope_id"
+                  }
+                  {
+                    name: "scope_type"
+                  }
+                  {
+                    name: "subject_id"
+                  }
+                  {
+                    name: "subject_type"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "role"
+            }
+            {
+              var: "workspace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "items"
+          ]
+          co: {
+            id: "POST /api/role/{workspace_id}/batch/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/role/{workspace_id}/batch/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "items"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "items"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "role"
+            }
+            {
+              var: "workspace_id"
+            }
+            {
+              lit: "batch"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/role/{workspace_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workspace_id"
+                or: "workspace_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "scope_id"
+                or: "scope_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "scope_type"
+                or: "scope_type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/role/{workspace_id}/"
+          q: {
+            exist: [
+              "workspace_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "role"
+            }
+            {
+              var: "workspace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

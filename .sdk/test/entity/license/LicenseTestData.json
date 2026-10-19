@@ -1,0 +1,104 @@
+{
+  "existing": {
+    "license": {
+      "LICENSE00": {
+        "application_users": 180,
+        "application_users_taken": 181,
+        "email": "sb6",
+        "first_name": "sb7",
+        "free_users_count": 184,
+        "id": "LICENSE00",
+        "is_active": true,
+        "issued_on": "sbb",
+        "issued_to_email": "sbc",
+        "issued_to_name": "sbd",
+        "last_check": "sbe",
+        "license_id": "LICENSE01",
+        "product_code": "sc0",
+        "seats": 193,
+        "seats_taken": 194,
+        "users": [],
+        "valid_from": "sc4",
+        "valid_through": "sc5",
+        "user_id": "USER01"
+      },
+      "LICENSE01": {
+        "application_users": 360,
+        "application_users_taken": 361,
+        "email": "s16a",
+        "first_name": "s16b",
+        "free_users_count": 364,
+        "id": "LICENSE01",
+        "is_active": true,
+        "issued_on": "s16f",
+        "issued_to_email": "s170",
+        "issued_to_name": "s171",
+        "last_check": "s172",
+        "license_id": "LICENSE01",
+        "product_code": "s174",
+        "seats": 373,
+        "seats_taken": 374,
+        "users": [],
+        "valid_from": "s178",
+        "valid_through": "s179",
+        "user_id": "USER01"
+      },
+      "LICENSE02": {
+        "application_users": 540,
+        "application_users_taken": 541,
+        "email": "s21e",
+        "first_name": "s21f",
+        "free_users_count": 544,
+        "id": "LICENSE02",
+        "is_active": true,
+        "issued_on": "s223",
+        "issued_to_email": "s224",
+        "issued_to_name": "s225",
+        "last_check": "s226",
+        "license_id": "LICENSE01",
+        "product_code": "s228",
+        "seats": 553,
+        "seats_taken": 554,
+        "users": [],
+        "valid_from": "s22c",
+        "valid_through": "s22d",
+        "user_id": "USER01"
+      }
+    }
+  },
+  "new": {
+    "license": {
+      "license_ref01": {
+        "application_users": 720,
+        "application_users_taken": 721,
+        "email": "s2d2",
+        "first_name": "s2d3",
+        "free_users_count": 724,
+        "is_active": true,
+        "issued_on": "s2d7",
+        "issued_to_email": "s2d8",
+        "issued_to_name": "s2d9",
+        "last_check": "s2da",
+        "license_id": "LICENSE01",
+        "product_code": "s2dc",
+        "seats": 733,
+        "seats_taken": 734,
+        "users": [],
+        "valid_from": "s2e0",
+        "valid_through": "s2e1"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/licenses/{id}/{user_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/licenses/{id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

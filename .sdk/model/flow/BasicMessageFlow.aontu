@@ -1,0 +1,26 @@
+# BasicMessageFlow
+
+main: kit: flow: BasicMessageFlow:
+{
+  entity: "message",
+  kind: "basic",
+  name: "BasicMessageFlow",
+  step: [
+    {
+      m: {
+        chat_id: "chat01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "message_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMessageFlow"
+}

@@ -1,0 +1,22 @@
+# BasicTableWithoutDataSyncFlow
+
+main: kit: flow: BasicTableWithoutDataSyncFlow:
+{
+  entity: "table_without_data_sync",
+  kind: "basic",
+  name: "BasicTableWithoutDataSyncFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "table_without_data_sync_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTableWithoutDataSyncFlow"
+}

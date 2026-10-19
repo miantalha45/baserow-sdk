@@ -1,0 +1,187 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { BaserowSDK, BaseFeature, config, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('OpenApiRoleAssignmentEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when BASEROW_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BASEROW_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = BaserowSDK.test()
+    const ent = testsdk.OpenApiRoleAssignment()
+    assert(null != ent)
+  })
+
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = BaserowSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.OpenApiRoleAssignment().load({"workspace_id":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.BASEROW_TEST_LIVE
+    for (const op of ['create', 'load']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'open_api_role_assignment.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":true,"ro":true,"t":"`$INTEGER`","key$":"id","index$":0},"items":{"a":true,"h":"Items","n":"items","r":true,"t":"`$ARRAY`","key$":"items","index$":1},"role":{"a":true,"h":"Role","n":"role","r":true,"sh":"The uid of the role assigned to the user or team in the given workspace.","t":"`$STRING`","key$":"role","index$":2},"scope_id":{"a":true,"h":"Scope Id","n":"scope_id","r":true,"sh":"The unique scope ID.","t":"`$INTEGER`","key$":"scope_id","index$":3},"scope_type":{"a":true,"h":"Scope Type","n":"scope_type","r":true,"sh":"The type of the scope object.","t":"`$STRING`","key$":"scope_type","index$":4},"subject":{"a":true,"h":"Subject","n":"subject","r":true,"sh":"The structure of the subject field depends on the subject typereturned and will have additional fields accordingly","t":"`$ANY`","key$":"subject","index$":5},"subject_id":{"a":true,"h":"Subject Id","n":"subject_id","r":true,"sh":"The subject ID.","t":"`$INTEGER`","key$":"subject_id","index$":6},"subject_type":{"a":true,"h":"Subject Type","n":"subject_type","r":true,"sh":"The subject type.","t":"`$STRING`","key$":"subject_type","index$":7}},"id":{"field":"id","name":"id"},"name":"open_api_role_assignment","op":{"create":{"input":"data","name":"create","points":[{"a":true,"bf":["role","scope_id","scope_type","subject_id","subject_type"],"co":{"id":"POST /api/role/{workspace_id}/","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"workspace_id","or":"workspace_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"POST","o":"/api/role/{workspace_id}/","q":{"exist":["workspace_id"]},"r":{},"rb":{"alternatives":[{"fields":[{"name":"role"},{"name":"scope_id"},{"name":"scope_type"},{"name":"subject_id"},{"name":"subject_type"}],"kind":"multipart","media":"multipart/form-data"},{"fields":[{"name":"role"},{"name":"scope_id"},{"name":"scope_type"},{"name":"subject_id"},{"name":"subject_type"}],"kind":"form","media":"application/x-www-form-urlencoded"}],"kind":"json","media":"application/json"},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"api"},{"lit":"role"},{"var":"workspace_id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"bf":["items"],"co":{"id":"POST /api/role/{workspace_id}/batch/","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"workspace_id","or":"workspace_id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"POST","o":"/api/role/{workspace_id}/batch/","q":{"exist":["workspace_id"]},"r":{},"rb":{"alternatives":[{"fields":[{"list":true,"name":"items"}],"kind":"multipart","media":"multipart/form-data"},{"fields":[{"list":true,"name":"items"}],"kind":"form","media":"application/x-www-form-urlencoded"}],"kind":"json","media":"application/json"},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"api"},{"lit":"role"},{"var":"workspace_id"},{"lit":"batch"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"create"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /api/role/{workspace_id}/","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"workspace_id","or":"workspace_id","r":true,"t":"`$INTEGER`","index$":0}],"query":[{"a":true,"k":"query","n":"scope_id","or":"scope_id","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"k":"query","n":"scope_type","or":"scope_type","r":false,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/api/role/{workspace_id}/","q":{"exist":["workspace_id"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"api"},{"lit":"role"},{"var":"workspace_id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"open_api_role_assignment","name__orig":"open_api_role_assignment","Name":"OpenApiRoleAssignment","name_":"open_api_role_assignment","name-":"open-api-role-assignment","NAME":"OPEN_API_ROLE_ASSIGNMENT","index$":114}, {"active":true,"entity":"open_api_role_assignment","key$":"BasicOpenApiRoleAssignmentFlow","kind":"basic","name":"BasicOpenApiRoleAssignmentFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"open_api_role_assignment_ref01"},"m":{"workspace_id":"workspace01"},"o":"create","s":[],"v":[]},{"a":true,"d":{},"i":{"ref":"open_api_role_assignment_ref01","srcdatavar":"open_api_role_assignment_ref01_data","suffix":"_dt0"},"m":{"id":"open_api_role_assignment01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-open_api_role_assignment_ref01"}}]}]}, 'OpenApiRoleAssignment', {"POST /api/role/{workspace_id}/":{"protocol":"http","requestBody":{"content":{"application/json":{"schema":{"type":"object","description":"The create role assignment serializer.","properties":{"subject_id":{"type":"integer","minimum":1,"description":"The subject ID. A subject is an actor that can do operations.","key$":"subject_id"},"subject_type":{"allOf":[{"enum":["auth.User","anonymous","user_source.user","core.Agent","core.Token","builder_preview_actor","baserow_enterprise.Team"],"type":"string","description":"* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","x-ref":"#/components/schemas/SubjectTypeA4fEnum"}],"description":"The subject type.\n\n* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","key$":"subject_type"},"role":{"type":"string","nullable":true,"description":"The uid of the role you want to assign to the user or team in the given workspace. You can omit this property if you want to remove the role.","key$":"role"},"scope_id":{"type":"integer","minimum":1,"description":"The ID of the scope object. The scope object limit the role assignment to this scope and all its descendants.","key$":"scope_id"},"scope_type":{"allOf":[{"enum":["core","application","workspace","workspace_invitation","snapshot","workspace_user","integration","user_source","mcp_endpoint","database","database_table","database_field","database_view","database_view_decoration","database_view_sort","database_view_group","database_view_filter","database_view_filter_group","token","builder","builder_page","builder_element","builder_domain","builder_data_source","builder_workflow_action","dashboard","dashboard_data_source","dashboard_widget","automation","automation_workflow","automation_node","team","team_subject","license"],"type":"string","description":"* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","x-ref":"#/components/schemas/ScopeTypeEnum"}],"description":"The scope object type.\n\n* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","key$":"scope_type"}},"required":["role","scope_id","scope_type","subject_id","subject_type"],"x-ref":"#/components/schemas/CreateRoleAssignment","index$":1}},"application/x-www-form-urlencoded":{"schema":{"type":"object","description":"The create role assignment serializer.","properties":{"subject_id":{"type":"integer","minimum":1,"description":"The subject ID. A subject is an actor that can do operations.","key$":"subject_id"},"subject_type":{"allOf":[{"enum":["auth.User","anonymous","user_source.user","core.Agent","core.Token","builder_preview_actor","baserow_enterprise.Team"],"type":"string","description":"* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","x-ref":"#/components/schemas/SubjectTypeA4fEnum"}],"description":"The subject type.\n\n* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","key$":"subject_type"},"role":{"type":"string","nullable":true,"description":"The uid of the role you want to assign to the user or team in the given workspace. You can omit this property if you want to remove the role.","key$":"role"},"scope_id":{"type":"integer","minimum":1,"description":"The ID of the scope object. The scope object limit the role assignment to this scope and all its descendants.","key$":"scope_id"},"scope_type":{"allOf":[{"enum":["core","application","workspace","workspace_invitation","snapshot","workspace_user","integration","user_source","mcp_endpoint","database","database_table","database_field","database_view","database_view_decoration","database_view_sort","database_view_group","database_view_filter","database_view_filter_group","token","builder","builder_page","builder_element","builder_domain","builder_data_source","builder_workflow_action","dashboard","dashboard_data_source","dashboard_widget","automation","automation_workflow","automation_node","team","team_subject","license"],"type":"string","description":"* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","x-ref":"#/components/schemas/ScopeTypeEnum"}],"description":"The scope object type.\n\n* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","key$":"scope_type"}},"required":["role","scope_id","scope_type","subject_id","subject_type"],"x-ref":"#/components/schemas/CreateRoleAssignment"}},"multipart/form-data":{"schema":{"type":"object","description":"The create role assignment serializer.","properties":{"subject_id":{"type":"integer","minimum":1,"description":"The subject ID. A subject is an actor that can do operations.","key$":"subject_id"},"subject_type":{"allOf":[{"enum":["auth.User","anonymous","user_source.user","core.Agent","core.Token","builder_preview_actor","baserow_enterprise.Team"],"type":"string","description":"* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","x-ref":"#/components/schemas/SubjectTypeA4fEnum"}],"description":"The subject type.\n\n* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","key$":"subject_type"},"role":{"type":"string","nullable":true,"description":"The uid of the role you want to assign to the user or team in the given workspace. You can omit this property if you want to remove the role.","key$":"role"},"scope_id":{"type":"integer","minimum":1,"description":"The ID of the scope object. The scope object limit the role assignment to this scope and all its descendants.","key$":"scope_id"},"scope_type":{"allOf":[{"enum":["core","application","workspace","workspace_invitation","snapshot","workspace_user","integration","user_source","mcp_endpoint","database","database_table","database_field","database_view","database_view_decoration","database_view_sort","database_view_group","database_view_filter","database_view_filter_group","token","builder","builder_page","builder_element","builder_domain","builder_data_source","builder_workflow_action","dashboard","dashboard_data_source","dashboard_widget","automation","automation_workflow","automation_node","team","team_subject","license"],"type":"string","description":"* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","x-ref":"#/components/schemas/ScopeTypeEnum"}],"description":"The scope object type.\n\n* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","key$":"scope_type"}},"required":["role","scope_id","scope_type","subject_id","subject_type"],"x-ref":"#/components/schemas/CreateRoleAssignment"}}},"required":true},"parameters":[{"in":"path","name":"workspace_id","schema":{"type":"integer"},"description":"The workspace in which the role assignment takes place.","required":true,"index$":0}]},"POST /api/role/{workspace_id}/batch/":{"protocol":"http","requestBody":{"content":{"application/json":{"schema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","description":"The create role assignment serializer.","properties":{"subject_id":{"type":"integer","minimum":1,"description":"The subject ID. A subject is an actor that can do operations.","key$":"subject_id"},"subject_type":{"allOf":[],"description":"The subject type.\n\n* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","key$":"subject_type"},"role":{"type":"string","nullable":true,"description":"The uid of the role you want to assign to the user or team in the given workspace. You can omit this property if you want to remove the role.","key$":"role"},"scope_id":{"type":"integer","minimum":1,"description":"The ID of the scope object. The scope object limit the role assignment to this scope and all its descendants.","key$":"scope_id"},"scope_type":{"allOf":[],"description":"The scope object type.\n\n* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","key$":"scope_type"}},"required":["role","scope_id","scope_type","subject_id","subject_type"],"x-ref":"#/components/schemas/CreateRoleAssignment"},"key$":"items"}},"required":["items"],"x-ref":"#/components/schemas/BatchCreateRoleAssignment","index$":1}},"application/x-www-form-urlencoded":{"schema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","description":"The create role assignment serializer.","properties":{"subject_id":{"type":"integer","minimum":1,"description":"The subject ID. A subject is an actor that can do operations.","key$":"subject_id"},"subject_type":{"allOf":[],"description":"The subject type.\n\n* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","key$":"subject_type"},"role":{"type":"string","nullable":true,"description":"The uid of the role you want to assign to the user or team in the given workspace. You can omit this property if you want to remove the role.","key$":"role"},"scope_id":{"type":"integer","minimum":1,"description":"The ID of the scope object. The scope object limit the role assignment to this scope and all its descendants.","key$":"scope_id"},"scope_type":{"allOf":[],"description":"The scope object type.\n\n* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","key$":"scope_type"}},"required":["role","scope_id","scope_type","subject_id","subject_type"],"x-ref":"#/components/schemas/CreateRoleAssignment"},"key$":"items"}},"required":["items"],"x-ref":"#/components/schemas/BatchCreateRoleAssignment"}},"multipart/form-data":{"schema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","description":"The create role assignment serializer.","properties":{"subject_id":{"type":"integer","minimum":1,"description":"The subject ID. A subject is an actor that can do operations.","key$":"subject_id"},"subject_type":{"allOf":[],"description":"The subject type.\n\n* `auth.User` - auth.User\n* `anonymous` - anonymous\n* `user_source.user` - user_source.user\n* `core.Agent` - core.Agent\n* `core.Token` - core.Token\n* `builder_preview_actor` - builder_preview_actor\n* `baserow_enterprise.Team` - baserow_enterprise.Team","key$":"subject_type"},"role":{"type":"string","nullable":true,"description":"The uid of the role you want to assign to the user or team in the given workspace. You can omit this property if you want to remove the role.","key$":"role"},"scope_id":{"type":"integer","minimum":1,"description":"The ID of the scope object. The scope object limit the role assignment to this scope and all its descendants.","key$":"scope_id"},"scope_type":{"allOf":[],"description":"The scope object type.\n\n* `core` - core\n* `application` - application\n* `workspace` - workspace\n* `workspace_invitation` - workspace_invitation\n* `snapshot` - snapshot\n* `workspace_user` - workspace_user\n* `integration` - integration\n* `user_source` - user_source\n* `mcp_endpoint` - mcp_endpoint\n* `database` - database\n* `database_table` - database_table\n* `database_field` - database_field\n* `database_view` - database_view\n* `database_view_decoration` - database_view_decoration\n* `database_view_sort` - database_view_sort\n* `database_view_group` - database_view_group\n* `database_view_filter` - database_view_filter\n* `database_view_filter_group` - database_view_filter_group\n* `token` - token\n* `builder` - builder\n* `builder_page` - builder_page\n* `builder_element` - builder_element\n* `builder_domain` - builder_domain\n* `builder_data_source` - builder_data_source\n* `builder_workflow_action` - builder_workflow_action\n* `dashboard` - dashboard\n* `dashboard_data_source` - dashboard_data_source\n* `dashboard_widget` - dashboard_widget\n* `automation` - automation\n* `automation_workflow` - automation_workflow\n* `automation_node` - automation_node\n* `team` - team\n* `team_subject` - team_subject\n* `license` - license","key$":"scope_type"}},"required":["role","scope_id","scope_type","subject_id","subject_type"],"x-ref":"#/components/schemas/CreateRoleAssignment"},"key$":"items"}},"required":["items"],"x-ref":"#/components/schemas/BatchCreateRoleAssignment"}}},"required":true},"parameters":[{"in":"path","name":"workspace_id","schema":{"type":"integer"},"description":"The workspace in which the role assignment takes place.","required":true,"index$":0}]},"GET /api/role/{workspace_id}/":{"protocol":"http","parameters":[{"in":"query","name":"scope_id","schema":{"type":"integer"},"description":"The id of the scope you are trying to get all roleassignments for.","index$":0},{"in":"query","name":"scope_type","schema":{"type":"string"},"description":"The type of scope you are trying to get all roleassignments for.","index$":1},{"in":"path","name":"workspace_id","schema":{"type":"integer"},"description":"The workspace in which the role assignments are related to.","required":true,"index$":2}]}}, { strict: LIVE_STRICT, t })
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const open_api_role_assignment_ref01_ent = client.OpenApiRoleAssignment()
+    let open_api_role_assignment_ref01_data = setup.data.new.open_api_role_assignment['open_api_role_assignment_ref01']
+    open_api_role_assignment_ref01_data['workspace_id'] = setup.idmap['workspace01']
+
+    open_api_role_assignment_ref01_data = (await open_api_role_assignment_ref01_ent.create(open_api_role_assignment_ref01_data)).data()
+    assert(null != open_api_role_assignment_ref01_data.id)
+
+
+    // LOAD
+    const open_api_role_assignment_ref01_match_dt0: any = {}
+    open_api_role_assignment_ref01_match_dt0.id = open_api_role_assignment_ref01_data.id
+    const open_api_role_assignment_ref01_data_dt0 = (await open_api_role_assignment_ref01_ent.load(open_api_role_assignment_ref01_match_dt0)).data()
+    assert(open_api_role_assignment_ref01_data_dt0.id === open_api_role_assignment_ref01_data.id)
+
+
+  })
+})
+
+
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/open_api_role_assignment/OpenApiRoleAssignmentTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = BaserowSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['open_api_role_assignment01','open_api_role_assignment02','open_api_role_assignment03','workspace01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'BASEROW_TEST_OPEN_API_ROLE_ASSIGNMENT_ENTID': idmap,
+    'BASEROW_TEST_LIVE': 'FALSE',
+    'BASEROW_TEST_EXPLAIN': 'FALSE',
+    'BASEROW_APIKEY': '',
+    'BASEROW_SERVER_BASE': "",
+  })
+
+  idmap = env['BASEROW_TEST_OPEN_API_ROLE_ASSIGNMENT_ENTID']
+
+  const live = 'TRUE' === env.BASEROW_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['BASEROW_TEST_OPEN_API_ROLE_ASSIGNMENT_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new BaserowSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.BASEROW_APIKEY,
+        server: {
+          base: env.BASEROW_SERVER_BASE,
+        },
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.BASEROW_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

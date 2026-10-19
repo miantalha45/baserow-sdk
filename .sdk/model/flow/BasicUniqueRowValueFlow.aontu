@@ -1,0 +1,26 @@
+# BasicUniqueRowValueFlow
+
+main: kit: flow: BasicUniqueRowValueFlow:
+{
+  entity: "unique_row_value",
+  kind: "basic",
+  name: "BasicUniqueRowValueFlow",
+  step: [
+    {
+      m: {
+        field_id: "field01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "unique_row_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUniqueRowValueFlow"
+}

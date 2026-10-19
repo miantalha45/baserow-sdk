@@ -1,0 +1,44 @@
+# BasicOpenApiRoleAssignmentFlow
+
+main: kit: flow: BasicOpenApiRoleAssignmentFlow:
+{
+  entity: "open_api_role_assignment",
+  kind: "basic",
+  name: "BasicOpenApiRoleAssignmentFlow",
+  step: [
+    {
+      i: {
+        ref: "open_api_role_assignment_ref01"
+      }
+
+      m: {
+        workspace_id: "workspace01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "open_api_role_assignment_ref01",
+        srcdatavar: "open_api_role_assignment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "open_api_role_assignment01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-open_api_role_assignment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOpenApiRoleAssignmentFlow"
+}

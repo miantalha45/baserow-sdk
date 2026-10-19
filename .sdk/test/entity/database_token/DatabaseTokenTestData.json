@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "database_token": {
+      "DATABASE_TOKEN00": {
+        "id": "DATABASE_TOKEN00"
+      },
+      "DATABASE_TOKEN01": {
+        "id": "DATABASE_TOKEN01"
+      },
+      "DATABASE_TOKEN02": {
+        "id": "DATABASE_TOKEN02"
+      }
+    }
+  },
+  "new": {
+    "database_token": {
+      "database_token_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/database/tokens/check/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/database/tokens/{token_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

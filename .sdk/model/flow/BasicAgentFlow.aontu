@@ -1,0 +1,54 @@
+# BasicAgentFlow
+
+main: kit: flow: BasicAgentFlow:
+{
+  entity: "agent",
+  kind: "basic",
+  name: "BasicAgentFlow",
+  step: [
+    {
+      i: {
+        ref: "agent_ref01"
+      }
+
+      m: {
+        workspace_id: "workspace01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "agent_ref01",
+        srcdatavar: "agent_ref01_data",
+        suffix: "_up0",
+        textfield: "last_active"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-agent_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "agent_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "agent01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicAgentFlow"
+}

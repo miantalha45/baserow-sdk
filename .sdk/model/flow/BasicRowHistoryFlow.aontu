@@ -1,0 +1,27 @@
+# BasicRowHistoryFlow
+
+main: kit: flow: BasicRowHistoryFlow:
+{
+  entity: "row_history",
+  kind: "basic",
+  name: "BasicRowHistoryFlow",
+  step: [
+    {
+      m: {
+        row_id: "row01",
+        table_id: "table01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "row_history_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRowHistoryFlow"
+}

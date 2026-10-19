@@ -1,0 +1,91 @@
+{
+  "existing": {
+    "automation_node_history": {
+      "AUTOMATION_NODE_HISTORY00": {
+        "completed_on": "sa0",
+        "destination_label": "sa1",
+        "destination_node_id": "DESTINATION_NODE01",
+        "destination_node_type": "sa3",
+        "edge_label": "sa4",
+        "id": "AUTOMATION_NODE_HISTORY00",
+        "iteration": 166,
+        "iteration_path": "sa7",
+        "message": "sa8",
+        "node": 169,
+        "node_label": "saa",
+        "node_type": "sab",
+        "parent_node_id": "PARENT_NODE01",
+        "started_on": "sad",
+        "status": "sae",
+        "workflow_history": 175,
+        "workflow_history_id": "WORKFLOW_HISTORY01"
+      },
+      "AUTOMATION_NODE_HISTORY01": {
+        "completed_on": "s140",
+        "destination_label": "s141",
+        "destination_node_id": "DESTINATION_NODE01",
+        "destination_node_type": "s143",
+        "edge_label": "s144",
+        "id": "AUTOMATION_NODE_HISTORY01",
+        "iteration": 326,
+        "iteration_path": "s147",
+        "message": "s148",
+        "node": 329,
+        "node_label": "s14a",
+        "node_type": "s14b",
+        "parent_node_id": "PARENT_NODE01",
+        "started_on": "s14d",
+        "status": "s14e",
+        "workflow_history": 335,
+        "workflow_history_id": "WORKFLOW_HISTORY01"
+      },
+      "AUTOMATION_NODE_HISTORY02": {
+        "completed_on": "s1e0",
+        "destination_label": "s1e1",
+        "destination_node_id": "DESTINATION_NODE01",
+        "destination_node_type": "s1e3",
+        "edge_label": "s1e4",
+        "id": "AUTOMATION_NODE_HISTORY02",
+        "iteration": 486,
+        "iteration_path": "s1e7",
+        "message": "s1e8",
+        "node": 489,
+        "node_label": "s1ea",
+        "node_type": "s1eb",
+        "parent_node_id": "PARENT_NODE01",
+        "started_on": "s1ed",
+        "status": "s1ee",
+        "workflow_history": 495,
+        "workflow_history_id": "WORKFLOW_HISTORY01"
+      }
+    }
+  },
+  "new": {
+    "automation_node_history": {
+      "automation_node_history_ref01": {
+        "completed_on": "s280",
+        "destination_label": "s281",
+        "destination_node_id": "DESTINATION_NODE01",
+        "destination_node_type": "s283",
+        "edge_label": "s284",
+        "iteration": 646,
+        "iteration_path": "s287",
+        "message": "s288",
+        "node": 649,
+        "node_label": "s28a",
+        "node_type": "s28b",
+        "parent_node_id": "PARENT_NODE01",
+        "started_on": "s28d",
+        "status": "s28e",
+        "workflow_history": 655
+      }
+    }
+  },
+  "requests": {
+    "GET /api/automation/workflow_histories/{workflow_history_id}/node_histories/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

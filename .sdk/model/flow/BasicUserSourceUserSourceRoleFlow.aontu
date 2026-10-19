@@ -1,0 +1,32 @@
+# BasicUserSourceUserSourceRoleFlow
+
+main: kit: flow: BasicUserSourceUserSourceRoleFlow:
+{
+  entity: "user_source_user_source_role",
+  kind: "basic",
+  name: "BasicUserSourceUserSourceRoleFlow",
+  step: [
+    {
+      i: {
+        ref: "user_source_user_source_role_ref01",
+        srcdatavar: "user_source_user_source_role_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "user_source_user_source_role01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_source_user_source_role_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserSourceUserSourceRoleFlow"
+}

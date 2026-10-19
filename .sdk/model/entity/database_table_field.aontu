@@ -1,0 +1,473 @@
+# Entity: database_table_field
+
+main: kit: entity: database_table_field: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    duplicated_field: {
+      h: "Duplicated Field"
+      n: "duplicated_field"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    element_id: {
+      h: "Element Id"
+      n: "element_id"
+      r: false
+      sh: "The element the workflow actions belong to"
+      t: "`$INTEGER`"
+    }
+    error_code: {
+      h: "Error Code"
+      n: "error_code"
+      r: false
+      sh: "A machine readable error code indicating why the job failed."
+      t: "`$STRING`"
+    }
+    field_id: {
+      h: "Field Id"
+      n: "field_id"
+      r: true
+      sh: "The ID of the AI field to generate values for."
+      t: "`$INTEGER`"
+    }
+    human_readable_error: {
+      h: "Human Readable Error"
+      n: "human_readable_error"
+      r: false
+      sh: "A human readable error message indicating what went wrong."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_auto_update: {
+      h: "Is Auto Update"
+      n: "is_auto_update"
+      r: true
+      ro: true
+      sh: "Indicates if the job has been created because values in a dependent field changed."
+      t: "`$BOOLEAN`"
+    }
+    only_empty: {
+      h: "Only Empty"
+      n: "only_empty"
+      r: false
+      sh: "Whether to only generate AI values for rows where the field is empty."
+      t: "`$BOOLEAN`"
+    }
+    original_field: {
+      h: "Original Field"
+      n: "original_field"
+      r: true
+      ro: true
+      t: "`$ANY`"
+    }
+    progress_percentage: {
+      h: "Progress Percentage"
+      n: "progress_percentage"
+      r: true
+      sh: "A percentage indicating how far along the job is."
+      t: "`$INTEGER`"
+    }
+    row_ids: {
+      h: "Row Ids"
+      n: "row_ids"
+      op: {
+        create: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      r: false
+      sh: "The IDs of the rows to generate AI values for."
+      t: "`$ARRAY`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      sh: "Indicates the state of the import job."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "The type of the job."
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    view_id: {
+      h: "View Id"
+      n: "view_id"
+      r: false
+      sh: "The ID of the view to generate AI values for."
+      t: "`$INTEGER`"
+    }
+    workflow_action_ids: {
+      h: "Workflow Action Ids"
+      n: "workflow_action_ids"
+      r: true
+      sh: "The ids of the workflow actions in the order they are supposed to be set in"
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "database_table_field"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "element_id"
+            "workflow_action_ids"
+          ]
+          co: {
+            id: "POST /api/database/field/{field_id}/workflow_actions/order/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/field/{field_id}/workflow_actions/order/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "element_id"
+                  }
+                  {
+                    list: true
+                    name: "workflow_action_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "element_id"
+                  }
+                  {
+                    list: true
+                    name: "workflow_action_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "field"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "workflow_actions"
+            }
+            {
+              lit: "order"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /api/database/fields/{field_id}/duplicate/async/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/fields/{field_id}/duplicate/async/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "duplicate"
+            }
+            {
+              lit: "async"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "row_ids"
+          ]
+          co: {
+            id: "POST /api/database/fields/{field_id}/generate-ai-field-values/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "client_undo_redo_action_group_id"
+                or: "ClientUndoRedoActionGroupId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "field_id"
+                or: "field_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/database/fields/{field_id}/generate-ai-field-values/"
+          q: {
+            exist: [
+              "field_id"
+            ]
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "row_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    list: true
+                    name: "row_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "fields"
+            }
+            {
+              var: "field_id"
+            }
+            {
+              lit: "generate-ai-field-values"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /api/database/workflow_action/{workflow_action_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "workflow_action_id"
+                or: "workflow_action_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/api/database/workflow_action/{workflow_action_id}/"
+          q: {
+            exist: [
+              "workflow_action_id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "workflow_action"
+            }
+            {
+              var: "workflow_action_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.field")]
+  ]
+
+}

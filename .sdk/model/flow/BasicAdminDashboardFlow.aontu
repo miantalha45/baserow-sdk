@@ -1,0 +1,22 @@
+# BasicAdminDashboardFlow
+
+main: kit: flow: BasicAdminDashboardFlow:
+{
+  entity: "admin_dashboard",
+  kind: "basic",
+  name: "BasicAdminDashboardFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "admin_dashboard_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminDashboardFlow"
+}

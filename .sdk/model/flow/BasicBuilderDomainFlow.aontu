@@ -1,0 +1,53 @@
+# BasicBuilderDomainFlow
+
+main: kit: flow: BasicBuilderDomainFlow:
+{
+  entity: "builder_domain",
+  kind: "basic",
+  name: "BasicBuilderDomainFlow",
+  step: [
+    {
+      i: {
+        ref: "builder_domain_ref01"
+      }
+
+      m: {
+        domain_id: "domain01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "builder_domain_ref01",
+        srcdatavar: "builder_domain_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-builder_domain_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "builder_domain_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "builder_domain01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicBuilderDomainFlow"
+}

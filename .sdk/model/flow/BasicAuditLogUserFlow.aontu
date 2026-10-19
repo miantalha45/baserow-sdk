@@ -1,0 +1,22 @@
+# BasicAuditLogUserFlow
+
+main: kit: flow: BasicAuditLogUserFlow:
+{
+  entity: "audit_log_user",
+  kind: "basic",
+  name: "BasicAuditLogUserFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "audit_log_user_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAuditLogUserFlow"
+}

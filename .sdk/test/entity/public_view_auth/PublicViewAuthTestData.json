@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "public_view_auth": {
+      "PUBLIC_VIEW_AUTH00": {
+        "access_token": "s14",
+        "password": "s15",
+        "view_id": "VIEW01",
+        "id": "PUBLIC_VIEW_AUTH00"
+      },
+      "PUBLIC_VIEW_AUTH01": {
+        "access_token": "s28",
+        "password": "s29",
+        "view_id": "VIEW01",
+        "id": "PUBLIC_VIEW_AUTH01"
+      },
+      "PUBLIC_VIEW_AUTH02": {
+        "access_token": "s3c",
+        "password": "s3d",
+        "view_id": "VIEW01",
+        "id": "PUBLIC_VIEW_AUTH02"
+      }
+    }
+  },
+  "new": {
+    "public_view_auth": {
+      "public_view_auth_ref01": {
+        "access_token": "s50",
+        "password": "s51"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/database/views/{slug}/public/auth/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

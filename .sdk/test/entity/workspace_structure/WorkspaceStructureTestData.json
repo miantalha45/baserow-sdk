@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "workspace_structure": {
+      "WORKSPACE_STRUCTURE00": {
+        "id": "WORKSPACE_STRUCTURE00",
+        "name": "s1f",
+        "tables": "s20"
+      },
+      "WORKSPACE_STRUCTURE01": {
+        "id": "WORKSPACE_STRUCTURE01",
+        "name": "s3d",
+        "tables": "s3e"
+      },
+      "WORKSPACE_STRUCTURE02": {
+        "id": "WORKSPACE_STRUCTURE02",
+        "name": "s5b",
+        "tables": "s5c"
+      }
+    }
+  },
+  "new": {
+    "workspace_structure": {
+      "workspace_structure_ref01": {
+        "name": "s79",
+        "tables": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/admin/data-scanner/workspace-structure/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

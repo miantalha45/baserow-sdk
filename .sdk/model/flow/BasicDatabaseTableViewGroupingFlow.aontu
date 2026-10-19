@@ -1,0 +1,35 @@
+# BasicDatabaseTableViewGroupingFlow
+
+main: kit: flow: BasicDatabaseTableViewGroupingFlow:
+{
+  entity: "database_table_view_grouping",
+  kind: "basic",
+  name: "BasicDatabaseTableViewGroupingFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_view_grouping_ref01"
+      }
+
+      m: {
+        view_id: "view01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "database_table_view_grouping_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "database_table_view_grouping01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicDatabaseTableViewGroupingFlow"
+}

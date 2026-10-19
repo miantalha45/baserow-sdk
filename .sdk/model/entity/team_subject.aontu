@@ -1,0 +1,305 @@
+# Entity: team_subject
+
+main: kit: entity: team_subject: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    subject_id: {
+      h: "Subject Id"
+      n: "subject_id"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The unique subject ID."
+      t: "`$INTEGER`"
+    }
+    subject_type: {
+      h: "Subject Type"
+      n: "subject_type"
+      r: true
+      ro: true
+      sh: "Returns the TeamSubject's `subject_type` natural key."
+      t: "`$STRING`"
+    }
+    subject_user_email: {
+      fo: "email"
+      h: "Subject User Email"
+      n: "subject_user_email"
+      r: false
+      sh: "The user subject's email address."
+      t: "`$STRING`"
+    }
+    team: {
+      h: "Team"
+      n: "team"
+      r: true
+      sh: "The team this subject belongs to."
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "team_subject"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "subject_id"
+            "subject_type"
+            "subject_user_email"
+          ]
+          co: {
+            id: "POST /api/teams/{team_id}/subjects/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "team_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/teams/{team_id}/subjects/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              team_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "id"
+                  }
+                  {
+                    name: "subject_id"
+                  }
+                  {
+                    name: "subject_type"
+                  }
+                  {
+                    name: "subject_user_email"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "id"
+                  }
+                  {
+                    name: "subject_id"
+                  }
+                  {
+                    name: "subject_type"
+                  }
+                  {
+                    name: "subject_user_email"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subjects"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/teams/{team_id}/subjects/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "team_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/teams/{team_id}/subjects/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              team_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subjects"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/teams/{team_id}/subjects/{subject_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "subject_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+              {
+                k: "param"
+                n: "team_id"
+                or: "team_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/teams/{team_id}/subjects/{subject_id}/"
+          q: {
+            exist: [
+              "id"
+              "team_id"
+            ]
+          }
+          r: {
+            param: {
+              subject_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_id"
+            }
+            {
+              lit: "subjects"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.team")]
+  ]
+
+}

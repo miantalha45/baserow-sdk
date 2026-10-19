@@ -1,0 +1,628 @@
+# Entity: data_scan
+
+main: kit: entity: data_scan: {
+
+  alias: field: {}
+
+  fields: {
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    frequency: {
+      h: "Frequency"
+      n: "frequency"
+      r: false
+      sh: "* `manual` - Manual * `hourly` - Hourly * `daily` - Daily * `weekly` - Weekly"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      t: "`$INTEGER`"
+    }
+    is_running: {
+      h: "Is Running"
+      n: "is_running"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    last_error: {
+      h: "Last Error"
+      n: "last_error"
+      r: false
+      t: "`$STRING`"
+    }
+    last_run_finished_at: {
+      fo: "date-time"
+      h: "Last Run Finished At"
+      n: "last_run_finished_at"
+      r: false
+      t: "`$STRING`"
+    }
+    last_run_started_at: {
+      fo: "date-time"
+      h: "Last Run Started At"
+      n: "last_run_started_at"
+      r: false
+      t: "`$STRING`"
+    }
+    list_items: {
+      h: "List Items"
+      n: "list_items"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    pattern: {
+      h: "Pattern"
+      n: "pattern"
+      r: false
+      t: "`$STRING`"
+    }
+    results_count: {
+      h: "Results Count"
+      n: "results_count"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    scan_all_workspaces: {
+      h: "Scan All Workspaces"
+      n: "scan_all_workspaces"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    scan_type: {
+      h: "Scan Type"
+      n: "scan_type"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "* `pattern` - Pattern * `list_of_values` - List of values * `list_table` - List Table"
+      t: "`$STRING`"
+    }
+    source_database_id: {
+      h: "Source Database Id"
+      n: "source_database_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    source_field_id: {
+      h: "Source Field Id"
+      n: "source_field_id"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+        update: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    source_table_id: {
+      h: "Source Table Id"
+      n: "source_table_id"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+        update: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    source_workspace_id: {
+      h: "Source Workspace Id"
+      n: "source_workspace_id"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    updated_on: {
+      fo: "date-time"
+      h: "Updated On"
+      n: "updated_on"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    whole_words: {
+      h: "Whole Words"
+      n: "whole_words"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    workspace_ids: {
+      h: "Workspace Ids"
+      n: "workspace_ids"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "data_scan"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "frequency"
+            "list_items"
+            "name"
+            "pattern"
+            "scan_all_workspaces"
+            "scan_type"
+            "source_field_id"
+            "source_table_id"
+            "whole_words"
+            "workspace_ids"
+          ]
+          co: {
+            id: "POST /api/admin/data-scanner/scans/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/admin/data-scanner/scans/"
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "frequency"
+                  }
+                  {
+                    list: true
+                    name: "list_items"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "pattern"
+                  }
+                  {
+                    name: "scan_all_workspaces"
+                  }
+                  {
+                    name: "scan_type"
+                  }
+                  {
+                    name: "source_field_id"
+                  }
+                  {
+                    name: "source_table_id"
+                  }
+                  {
+                    name: "whole_words"
+                  }
+                  {
+                    list: true
+                    name: "workspace_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "frequency"
+                  }
+                  {
+                    list: true
+                    name: "list_items"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "pattern"
+                  }
+                  {
+                    name: "scan_all_workspaces"
+                  }
+                  {
+                    name: "scan_type"
+                  }
+                  {
+                    name: "source_field_id"
+                  }
+                  {
+                    name: "source_table_id"
+                  }
+                  {
+                    name: "whole_words"
+                  }
+                  {
+                    list: true
+                    name: "workspace_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "scans"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/admin/data-scanner/scans/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "sort"
+                or: "sorts"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/admin/data-scanner/scans/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "scans"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/admin/data-scanner/scans/{scan_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "scan_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/admin/data-scanner/scans/{scan_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              scan_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "scans"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "frequency"
+            "list_items"
+            "name"
+            "pattern"
+            "scan_all_workspaces"
+            "scan_type"
+            "source_field_id"
+            "source_table_id"
+            "whole_words"
+            "workspace_ids"
+          ]
+          co: {
+            id: "PATCH /api/admin/data-scanner/scans/{scan_id}/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "scan_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/admin/data-scanner/scans/{scan_id}/"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              scan_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "frequency"
+                  }
+                  {
+                    list: true
+                    name: "list_items"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "pattern"
+                  }
+                  {
+                    name: "scan_all_workspaces"
+                  }
+                  {
+                    name: "scan_type"
+                  }
+                  {
+                    name: "source_field_id"
+                  }
+                  {
+                    name: "source_table_id"
+                  }
+                  {
+                    name: "whole_words"
+                  }
+                  {
+                    list: true
+                    name: "workspace_ids"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "frequency"
+                  }
+                  {
+                    list: true
+                    name: "list_items"
+                  }
+                  {
+                    name: "name"
+                  }
+                  {
+                    name: "pattern"
+                  }
+                  {
+                    name: "scan_all_workspaces"
+                  }
+                  {
+                    name: "scan_type"
+                  }
+                  {
+                    name: "source_field_id"
+                  }
+                  {
+                    name: "source_table_id"
+                  }
+                  {
+                    name: "whole_words"
+                  }
+                  {
+                    list: true
+                    name: "workspace_ids"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "data-scanner"
+            }
+            {
+              lit: "scans"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

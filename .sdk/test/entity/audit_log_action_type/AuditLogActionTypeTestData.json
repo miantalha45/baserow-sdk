@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "audit_log_action_type": {
+      "AUDIT_LOG_ACTION_TYPE00": {
+        "id": "AUDIT_LOG_ACTION_TYPE00",
+        "value": "s15"
+      },
+      "AUDIT_LOG_ACTION_TYPE01": {
+        "id": "AUDIT_LOG_ACTION_TYPE01",
+        "value": "s29"
+      },
+      "AUDIT_LOG_ACTION_TYPE02": {
+        "id": "AUDIT_LOG_ACTION_TYPE02",
+        "value": "s3d"
+      }
+    }
+  },
+  "new": {
+    "audit_log_action_type": {
+      "audit_log_action_type_ref01": {
+        "value": "s51"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/admin/audit-log/action-types/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /api/audit-log/action-types/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

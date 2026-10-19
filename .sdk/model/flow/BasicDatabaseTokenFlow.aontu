@@ -1,0 +1,28 @@
+# BasicDatabaseTokenFlow
+
+main: kit: flow: BasicDatabaseTokenFlow:
+{
+  entity: "database_token",
+  kind: "basic",
+  name: "BasicDatabaseTokenFlow",
+  step: [
+    {
+      i: {
+        ref: "database_token_ref01",
+        srcdatavar: "database_token_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-database_token_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDatabaseTokenFlow"
+}

@@ -1,0 +1,120 @@
+# Entity: view_default_value
+
+main: kit: entity: view_default_value: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    view_default_values: {
+      h: "View Default Values"
+      n: "view_default_values"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "view_default_value"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "view_default_values"
+          ]
+          co: {
+            id: "PATCH /api/database/views/{view_id}/default-values/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "client_session_id"
+                or: "ClientSessionId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "view_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/api/database/views/{view_id}/default-values/"
+          q: {
+            exist: [
+              "id"
+              "view_default_values"
+            ]
+          }
+          r: {
+            param: {
+              view_id: "id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "default-values"
+            }
+          ]
+          t: {
+            req: "`reqdata.view_default_values`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

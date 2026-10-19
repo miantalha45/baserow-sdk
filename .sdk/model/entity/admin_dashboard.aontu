@@ -1,0 +1,151 @@
+# Entity: admin_dashboard
+
+main: kit: entity: admin_dashboard: {
+
+  alias: field: {}
+
+  fields: {
+    active_users_last_24_hours: {
+      h: "Active Users Last 24 Hours"
+      n: "active_users_last_24_hours"
+      r: true
+      t: "`$INTEGER`"
+    }
+    active_users_last_30_days: {
+      h: "Active Users Last 30 Days"
+      n: "active_users_last_30_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    active_users_last_7_days: {
+      h: "Active Users Last 7 Days"
+      n: "active_users_last_7_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    active_users_per_day: {
+      h: "Active Users Per Day"
+      n: "active_users_per_day"
+      r: true
+      t: "`$ARRAY`"
+    }
+    new_users_last_24_hours: {
+      h: "New Users Last 24 Hours"
+      n: "new_users_last_24_hours"
+      r: true
+      t: "`$INTEGER`"
+    }
+    new_users_last_30_days: {
+      h: "New Users Last 30 Days"
+      n: "new_users_last_30_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    new_users_last_7_days: {
+      h: "New Users Last 7 Days"
+      n: "new_users_last_7_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    new_users_per_day: {
+      h: "New Users Per Day"
+      n: "new_users_per_day"
+      r: true
+      t: "`$ARRAY`"
+    }
+    previous_active_users_last_24_hours: {
+      h: "Previous Active Users Last 24 Hours"
+      n: "previous_active_users_last_24_hours"
+      r: true
+      t: "`$INTEGER`"
+    }
+    previous_active_users_last_30_days: {
+      h: "Previous Active Users Last 30 Days"
+      n: "previous_active_users_last_30_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    previous_active_users_last_7_days: {
+      h: "Previous Active Users Last 7 Days"
+      n: "previous_active_users_last_7_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    previous_new_users_last_24_hours: {
+      h: "Previous New Users Last 24 Hours"
+      n: "previous_new_users_last_24_hours"
+      r: true
+      t: "`$INTEGER`"
+    }
+    previous_new_users_last_30_days: {
+      h: "Previous New Users Last 30 Days"
+      n: "previous_new_users_last_30_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    previous_new_users_last_7_days: {
+      h: "Previous New Users Last 7 Days"
+      n: "previous_new_users_last_7_days"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_applications: {
+      h: "Total Applications"
+      n: "total_applications"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_users: {
+      h: "Total Users"
+      n: "total_users"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_workspaces: {
+      h: "Total Workspaces"
+      n: "total_workspaces"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "admin_dashboard"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/admin/dashboard/"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/admin/dashboard/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "admin"
+            }
+            {
+              lit: "dashboard"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

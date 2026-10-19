@@ -1,0 +1,71 @@
+# Entity: users_per_user_source
+
+main: kit: entity: users_per_user_source: {
+
+  alias: field: {}
+
+  name: "users_per_user_source"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/application/{application_id}/list-user-source-users/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/application/{application_id}/list-user-source-users/"
+          q: {
+            exist: [
+              "application_id"
+            ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "application"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "list-user-source-users"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.users_per_user_sources`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.application")]
+  ]
+
+}

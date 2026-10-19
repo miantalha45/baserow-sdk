@@ -1,0 +1,59 @@
+# Entity: health
+
+main: kit: entity: health: {
+
+  alias: field: {}
+
+  name: "health"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/_health/celery-queue/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "queue"
+                or: "queue"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/_health/celery-queue/"
+          q: {
+            "$action": "celery_queue"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "_health"
+            }
+            {
+              lit: "celery-queue"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

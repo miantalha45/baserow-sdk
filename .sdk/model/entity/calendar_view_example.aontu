@@ -1,0 +1,167 @@
+# Entity: calendar_view_example
+
+main: kit: entity: calendar_view_example: {
+
+  alias: field: {}
+
+  fields: {
+    hidden: {
+      h: "Hidden"
+      n: "hidden"
+      r: false
+      sh: "Whether or not the field should be hidden in the card."
+      t: "`$BOOLEAN`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      r: false
+      sh: "The order that the field has in the view."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "calendar_view_example"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/database/views/calendar/{slug}/public/rows/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "calendar_id"
+                or: "slug"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filters"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_type"
+                or: "filter_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter_{field}_{filter}"
+                or: "filter__{field}__{filter}"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "from_timestamp"
+                or: "from_timestamp"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "limit_linked_item"
+                or: "limit_linked_items"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "to_timestamp"
+                or: "to_timestamp"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "UTC"
+                k: "query"
+                n: "user_timezone"
+                or: "user_timezone"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/database/views/calendar/{slug}/public/rows/"
+          q: {
+            exist: [
+              "calendar_id"
+              "from_timestamp"
+              "to_timestamp"
+            ]
+          }
+          r: {
+            param: {
+              slug: "calendar_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "database"
+            }
+            {
+              lit: "views"
+            }
+            {
+              lit: "calendar"
+            }
+            {
+              var: "calendar_id"
+            }
+            {
+              lit: "public"
+            }
+            {
+              lit: "rows"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.field_options`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.calendar")]
+  ]
+
+}

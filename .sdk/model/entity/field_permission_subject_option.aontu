@@ -1,0 +1,131 @@
+# Entity: field_permission_subject_option
+
+main: kit: entity: field_permission_subject_option: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "field_permission_subject_option"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/field-permissions/{field_id}/subjects/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "field_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "exclude_agent_id"
+                or: "exclude_agent_ids"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "exclude_team_id"
+                or: "exclude_team_ids"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "exclude_user_id"
+                or: "exclude_user_ids"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "size"
+                or: "size"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/field-permissions/{field_id}/subjects/"
+          q: {
+            "$action": "subjects"
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              field_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "field-permissions"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "subjects"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

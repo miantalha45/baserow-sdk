@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "notification": {
+      "NOTIFICATION00": {
+        "baserow_id": "BASEROW01",
+        "created_on": "s51",
+        "data": "s52",
+        "id": "NOTIFICATION00",
+        "read": true,
+        "sender": "s55",
+        "type": "s56",
+        "workspace": "s57",
+        "notification_id": "NOTIFICATION01",
+        "workspace_id": "WORKSPACE01"
+      },
+      "NOTIFICATION01": {
+        "baserow_id": "BASEROW01",
+        "created_on": "sa1",
+        "data": "sa2",
+        "id": "NOTIFICATION01",
+        "read": true,
+        "sender": "sa5",
+        "type": "sa6",
+        "workspace": "sa7",
+        "notification_id": "NOTIFICATION01",
+        "workspace_id": "WORKSPACE01"
+      },
+      "NOTIFICATION02": {
+        "baserow_id": "BASEROW01",
+        "created_on": "sf1",
+        "data": "sf2",
+        "id": "NOTIFICATION02",
+        "read": true,
+        "sender": "sf5",
+        "type": "sf6",
+        "workspace": "sf7",
+        "notification_id": "NOTIFICATION01",
+        "workspace_id": "WORKSPACE01"
+      }
+    }
+  },
+  "new": {
+    "notification": {
+      "notification_ref01": {
+        "baserow_id": "BASEROW01",
+        "created_on": "s141",
+        "data": "s142",
+        "read": true,
+        "sender": "s145",
+        "type": "s146",
+        "workspace": "s147"
+      }
+    }
+  },
+  "requests": {
+    "POST /api/notifications/{workspace_id}/mark-all-as-read/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /api/notifications/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/notifications/{workspace_id}/{notification_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+# BasicFieldRuleFlow
+
+main: kit: flow: BasicFieldRuleFlow:
+{
+  entity: "field_rule",
+  kind: "basic",
+  name: "BasicFieldRuleFlow",
+  step: [
+    {
+      i: {
+        ref: "field_rule_ref01"
+      }
+
+      m: {
+        table_id: "table01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "field_rule_ref01",
+        srcdatavar: "field_rule_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "field_rule01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-field_rule_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "field_rule_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "field_rule01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicFieldRuleFlow"
+}

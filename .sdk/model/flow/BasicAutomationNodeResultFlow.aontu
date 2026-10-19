@@ -1,0 +1,32 @@
+# BasicAutomationNodeResultFlow
+
+main: kit: flow: BasicAutomationNodeResultFlow:
+{
+  entity: "automation_node_result",
+  kind: "basic",
+  name: "BasicAutomationNodeResultFlow",
+  step: [
+    {
+      i: {
+        ref: "automation_node_result_ref01",
+        srcdatavar: "automation_node_result_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "automation_node_result01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-automation_node_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAutomationNodeResultFlow"
+}

@@ -1,0 +1,116 @@
+# Entity: builder_preview_grant
+
+main: kit: entity: builder_preview_grant: {
+
+  alias: field: {}
+
+  fields: {
+    path: {
+      h: "Path"
+      n: "path"
+      r: false
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "builder_preview_grant"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "path"
+          ]
+          co: {
+            id: "POST /api/builder/preview/{builder_id}/grant/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "preview_id"
+                or: "builder_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/api/builder/preview/{builder_id}/grant/"
+          q: {
+            exist: [
+              "preview_id"
+            ]
+          }
+          r: {
+            param: {
+              builder_id: "preview_id"
+            }
+          }
+          rb: {
+            alternatives: [
+              {
+                fields: [
+                  {
+                    name: "path"
+                  }
+                ]
+                kind: "multipart"
+                media: "multipart/form-data"
+              }
+              {
+                fields: [
+                  {
+                    name: "path"
+                  }
+                ]
+                kind: "form"
+                media: "application/x-www-form-urlencoded"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "builder"
+            }
+            {
+              lit: "preview"
+            }
+            {
+              var: "preview_id"
+            }
+            {
+              lit: "grant"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,56 @@
+# BasicDashboardWidgetWidgetFlow
+
+main: kit: flow: BasicDashboardWidgetWidgetFlow:
+{
+  entity: "dashboard_widget_widget",
+  kind: "basic",
+  name: "BasicDashboardWidgetWidgetFlow",
+  step: [
+    {
+      i: {
+        ref: "dashboard_widget_widget_ref01"
+      }
+
+      m: {
+        dashboard_id: "dashboard01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        dashboard_id: "dashboard01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dashboard_widget_widget_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "dashboard_widget_widget_ref01",
+        srcdatavar: "dashboard_widget_widget_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dashboard_widget_widget_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDashboardWidgetWidgetFlow"
+}

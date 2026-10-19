@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "pagination_serializer_notification_recipient": {
+      "PAGINATION_SERIALIZER_NOTIFICATION_RECIPIENT00": {
+        "count": 40,
+        "next": "s29",
+        "previous": "s2a",
+        "results": [],
+        "workspace_id": "WORKSPACE01",
+        "id": "PAGINATION_SERIALIZER_NOTIFICATION_RECIPIENT00"
+      },
+      "PAGINATION_SERIALIZER_NOTIFICATION_RECIPIENT01": {
+        "count": 80,
+        "next": "s51",
+        "previous": "s52",
+        "results": [],
+        "workspace_id": "WORKSPACE01",
+        "id": "PAGINATION_SERIALIZER_NOTIFICATION_RECIPIENT01"
+      },
+      "PAGINATION_SERIALIZER_NOTIFICATION_RECIPIENT02": {
+        "count": 120,
+        "next": "s79",
+        "previous": "s7a",
+        "results": [],
+        "workspace_id": "WORKSPACE01",
+        "id": "PAGINATION_SERIALIZER_NOTIFICATION_RECIPIENT02"
+      }
+    }
+  },
+  "new": {
+    "pagination_serializer_notification_recipient": {
+      "pagination_serializer_notification_recipient_ref01": {
+        "count": 160,
+        "next": "sa1",
+        "previous": "sa2",
+        "results": []
+      }
+    }
+  },
+  "requests": {
+    "GET /api/notifications/{workspace_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

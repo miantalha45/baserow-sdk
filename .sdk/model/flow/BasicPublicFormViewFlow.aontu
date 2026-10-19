@@ -1,0 +1,26 @@
+# BasicPublicFormViewFlow
+
+main: kit: flow: BasicPublicFormViewFlow:
+{
+  entity: "public_form_view",
+  kind: "basic",
+  name: "BasicPublicFormViewFlow",
+  step: [
+    {
+      m: {
+        slug: "slug01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_form_view_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicFormViewFlow"
+}

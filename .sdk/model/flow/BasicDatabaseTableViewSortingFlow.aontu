@@ -1,0 +1,35 @@
+# BasicDatabaseTableViewSortingFlow
+
+main: kit: flow: BasicDatabaseTableViewSortingFlow:
+{
+  entity: "database_table_view_sorting",
+  kind: "basic",
+  name: "BasicDatabaseTableViewSortingFlow",
+  step: [
+    {
+      i: {
+        ref: "database_table_view_sorting_ref01"
+      }
+
+      m: {
+        view_id: "view01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "database_table_view_sorting_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "database_table_view_sorting01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicDatabaseTableViewSortingFlow"
+}

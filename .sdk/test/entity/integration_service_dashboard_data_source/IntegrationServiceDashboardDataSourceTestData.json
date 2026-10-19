@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "integration_service_dashboard_data_source": {
+      "INTEGRATION_SERVICE_DASHBOARD_DATA_SOURCE00": {
+        "id": "INTEGRATION_SERVICE_DASHBOARD_DATA_SOURCE00",
+        "dashboard_id": "DASHBOARD01"
+      },
+      "INTEGRATION_SERVICE_DASHBOARD_DATA_SOURCE01": {
+        "id": "INTEGRATION_SERVICE_DASHBOARD_DATA_SOURCE01",
+        "dashboard_id": "DASHBOARD01"
+      },
+      "INTEGRATION_SERVICE_DASHBOARD_DATA_SOURCE02": {
+        "id": "INTEGRATION_SERVICE_DASHBOARD_DATA_SOURCE02",
+        "dashboard_id": "DASHBOARD01"
+      }
+    }
+  },
+  "new": {
+    "integration_service_dashboard_data_source": {
+      "integration_service_dashboard_data_source_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /api/dashboard/{dashboard_id}/data-sources/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /api/dashboard/data-sources/{data_source_id}/": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
